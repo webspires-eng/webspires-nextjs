@@ -147,7 +147,9 @@ export default function RootLayout({ children }) {
         JSON-LD scripts are injected via dangerouslySetInnerHTML on the body instead,
         or via a server component rendered inside <body>.
       */}
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col antialiased"
+        cz-shortcut-listen="true"
+      >
         {/* Inline JSON-LD — safe in body, crawlers read it fine */}
         <script
           type="application/ld+json"

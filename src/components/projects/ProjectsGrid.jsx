@@ -1,8 +1,5 @@
 'use client'
-import { useState } from 'react'
 import Image from 'next/image'
-
-const categories = ['All', 'Web Design', 'Shopify', 'Google Ads', 'Meta Ads', 'SEO', 'CRM', 'Social Media']
 
 const projects = [
     {
@@ -164,46 +161,21 @@ const projects = [
 ]
 
 export default function ProjectsGrid() {
-    const [activeCategory, setActiveCategory] = useState('All')
-
-    const filtered = activeCategory === 'All'
-        ? projects
-        : projects.filter(p => p.category === activeCategory)
 
     return (
         <section id="projects-grid" aria-labelledby="projects-grid-heading" className="bg-[#faf9f7] py-16 lg:py-24">
             <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
 
-                {/* Filter tabs */}
-                <div className="flex flex-wrap gap-2 mb-12" role="tablist" aria-label="Filter projects by category">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            id={`filter-${cat.toLowerCase().replace(/\s+/g, '-')}`}
-                            role="tab"
-                            aria-selected={activeCategory === cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-5 py-2 rounded-full text-[13px] font-bold transition-all duration-200 border ${activeCategory === cat
-                                    ? 'bg-primary text-white border-primary'
-                                    : 'bg-white text-gray-600 border-gray-200 hover:border-primary hover:text-primary'
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
-
                 {/* Result count */}
                 <div className="mb-8">
                     <h2 id="projects-grid-heading" className="text-[13px] font-bold text-gray-400 uppercase tracking-widest">
-                        Showing {filtered.length} project{filtered.length !== 1 ? 's' : ''}
-                        {activeCategory !== 'All' ? ` in ${activeCategory}` : ''}
+                        Showing {projects.length} project{projects.length !== 1 ? 's' : ''}
                     </h2>
                 </div>
 
                 {/* Projects grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filtered.map((project) => (
+                    {projects.map((project) => (
                         <article
                             key={project.id}
                             id={`project-${project.id}`}

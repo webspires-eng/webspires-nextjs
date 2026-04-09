@@ -4,21 +4,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const services = [
-    { label: 'SEO Services', href: '#seo' },
-    { label: 'CRM Services', href: '#crm' },
-    { label: 'Meta Ads Services', href: '#meta-ads' },
-    { label: 'Google Ads Services', href: '#google-ads' },
-    { label: 'Social Media Services', href: '#social-media' },
-    { label: 'Google Guarantee Services', href: '#google-guarantee' },
-    { label: 'Shopify Development Services', href: '#shopify' },
+    { label: 'CRM Services', href: '/services/crm-development-services' },
+    { label: 'Social Media Services', href: '/services/social-media-management-services' },
+    { label: 'Google Ads Services', href: '/services/google-ads-management-services' },
+    { label: 'Meta Ads Services', href: '/services/meta-ads-agency-services' },
+    { label: 'SEO Services', href: '/services/professional-seo-services' },
+    { label: 'Shopify Development Services', href: '/services/shopify-development-services' },
+    { label: 'Google Guarantee Services', href: '/services/google-guarantee-services' },
 ]
 
 const company = [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Projects', href: '#portfolio' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Contact Us', href: '/contact-us' },
     { label: 'Terms & Conditions', href: '/terms-conditions' },
     { label: 'Privacy Policy', href: '/privacy-policy' },
 ]
@@ -108,7 +107,7 @@ export default function Footer() {
                     </div>
                     <a
                         id="footer-top-cta"
-                        href="#contact"
+                        href="/contact-us"
                         className="flex-shrink-0 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-extrabold text-[14px] tracking-wide px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap"
                     >
                         Get Free Proposal
@@ -315,7 +314,7 @@ export default function Footer() {
                     <div className="flex flex-wrap items-center gap-x-5 gap-y-2 justify-center">
                         {[
                             { label: 'Privacy Policy', href: '/privacy-policy' },
-                            { label: 'Terms of Service', href: '/terms' },
+                            { label: 'Terms & Conditions', href: '/terms-conditions' },
                             { label: 'Sitemap', href: '/sitemap.xml' },
                         ].map((l) => (
                             <a

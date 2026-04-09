@@ -10,18 +10,18 @@ const navLinks = [
         href: '/services',
         hasDropdown: true,
         children: [
-            { label: 'Web Design', href: '/services/web-design' },
-            { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
-            { label: 'Shopify Development', href: '/services/shopify' },
-            { label: 'CRM Services', href: '/services/crm' },
-            { label: 'Social Media', href: '/services/social-media' },
+            { label: 'CRM Services', href: '/services/crm-development-services' },
+            { label: 'Social Media Services', href: '/services/social-media-management-services' },
+            { label: 'Google Ads Services', href: '/services/google-ads-management-services' },
+            { label: 'Meta Ads Services', href: '/services/meta-ads-agency-services' },
+            { label: 'SEO Services', href: '/services/professional-seo-services' },
+            { label: 'Shopify Development Services', href: '/services/shopify-development-services' },
+            { label: 'Google Guarantee Services', href: '/services/google-guarantee-services' },
         ],
     },
     { label: 'About Us', href: '/about', hasDropdown: false },
     { label: 'Projects', href: '/projects', hasDropdown: false },
-    { label: 'Contact', href: '/#contact', hasDropdown: false },
+    { label: 'Contact', href: '/contact-us', hasDropdown: false },
 ]
 
 const Header = () => {

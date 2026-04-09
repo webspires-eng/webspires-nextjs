@@ -43,7 +43,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'seo',
+        slug: 'professional-seo-services',
         title: 'SEO Services',
         shortTitle: 'SEO',
         tagline: 'Rank Higher. Get Found. Grow Faster.',
@@ -84,7 +84,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'google-ads',
+        slug: 'google-ads-management-services',
         title: 'Google Ads Services',
         shortTitle: 'Google Ads',
         tagline: 'More Leads. Better ROI. Every Day.',
@@ -125,7 +125,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'meta-ads',
+        slug: 'meta-ads-agency-services',
         title: 'Meta Ads Services',
         shortTitle: 'Meta Ads',
         tagline: 'Facebook & Instagram Ads That Convert.',
@@ -166,7 +166,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'shopify',
+        slug: 'shopify-development-services',
         title: 'Shopify Development Services',
         shortTitle: 'Shopify',
         tagline: 'eCommerce Stores Built to Sell in the UK.',
@@ -207,7 +207,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'crm',
+        slug: 'crm-development-services',
         title: 'CRM Development Services',
         shortTitle: 'CRM',
         tagline: 'Manage Leads. Close More Deals. Automate Growth.',
@@ -248,7 +248,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'social-media',
+        slug: 'social-media-management-services',
         title: 'Social Media Management',
         shortTitle: 'Social Media',
         tagline: 'Grow Your Audience. Build Your Brand. Drive Sales.',
@@ -287,6 +287,18 @@ export const servicesData = [
             { q: 'Do you create the content yourself?', a: 'Yes — our team handles content planning, graphic design, copy writing, and scheduling. You approve before anything goes live.' },
             { q: 'How quickly will I see follower growth?', a: 'Organic growth is gradual. Most clients see meaningful growth within 60–90 days of consistent, strategic posting.' },
         ],
+    },
+    {
+        slug: 'google-guarantee-services',
+        title: 'Google Guarantee Services',
+        shortTitle: 'Google Guarantee',
+        tagline: 'Become a trustworthiness service provider.',
+        metaTitle: 'Google Guarantee Services UK | Webspires',
+        metaDescription: 'Webspires provides Google Guarantee Services to businesses for their growth.',
+        color: '#EE314F',
+        bg: '#EE314F',
+        category: 'Trust & Verification',
+        iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z m-3-10l2 2 4-4'
     },
 ]
 
