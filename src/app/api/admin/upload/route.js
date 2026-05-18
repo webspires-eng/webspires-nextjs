@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'node:fs/promises';
-import path from 'node:path';
 import crypto from 'node:crypto';
 import { getAdminOrNull } from '@/lib/auth';
+import { uploadToR2 } from '@/lib/r2';
 
 export const runtime = 'nodejs';
 
@@ -17,10 +16,9 @@ const ALLOWED = {
 };
 
 /*
- * NOTE: Uploads are written to /public/uploads on the local disk.
- * This works on a long-lived Node server. On serverless platforms
- * (e.g. Vercel) the filesystem is ephemeral and files will NOT
- * persist — switch to object storage (S3/R2/Cloudinary) for that.
+ * Stores blog media in Cloudflare R2 (S3-compatible object storage).
+ * Works on serverless platforms (Vercel) where the local filesystem
+ * is ephemeral.
  */
 export async function POST(request) {
     const admin = await getAdminOrNull();
@@ -57,18 +55,21 @@ export async function POST(request) {
     }
 
     const buffer = Buffer.from(bytes);
-    const name = `${Date.now()}-${crypto.randomBytes(6).toString('hex')}.${ext}`;
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+    const key = `blog/${Date.now()}-${crypto
+        .randomBytes(6)
+        .toString('hex')}.${ext}`;
 
     try {
-        await mkdir(uploadDir, { recursive: true });
-        await writeFile(path.join(uploadDir, name), buffer);
+        const url = await uploadToR2({
+            buffer,
+            key,
+            contentType: file.type,
+        });
+        return NextResponse.json({ url });
     } catch (err) {
         return NextResponse.json(
             { error: `Upload failed: ${err.message}` },
             { status: 500 }
         );
     }
-
-    return NextResponse.json({ url: `/uploads/${name}` });
 }

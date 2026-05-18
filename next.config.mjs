@@ -1,3 +1,19 @@
+// Allow next/image to optimise images served from the Cloudflare R2
+// public bucket URL (host is read from env so it stays configurable).
+const r2RemotePatterns = [];
+try {
+  if (process.env.R2_PUBLIC_URL) {
+    const u = new URL(process.env.R2_PUBLIC_URL);
+    r2RemotePatterns.push({
+      protocol: u.protocol.replace(':', ''),
+      hostname: u.hostname,
+      pathname: '/**',
+    });
+  }
+} catch {
+  // Invalid/missing R2_PUBLIC_URL — skip (uploads still work, just no next/image optimisation).
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Compress responses
@@ -15,6 +31,7 @@ const nextConfig = {
         hostname: 'webspires.co.uk',
         pathname: '/wp-content/uploads/**',
       },
+      ...r2RemotePatterns,
     ],
   },
 

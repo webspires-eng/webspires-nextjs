@@ -85,25 +85,52 @@ export default function PostForm({ post = null }) {
             <input type="hidden" name="content" value={content} />
             <input type="hidden" name="faqs" value={JSON.stringify(faqs)} />
 
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-extrabold text-slate-900">
-                    {isEdit ? 'Edit post' : 'New post'}
-                </h1>
+            <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
-                    <select
-                        name="status"
-                        defaultValue={post?.status || 'draft'}
-                        className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold outline-none focus:border-primary"
-                    >
-                        <option value="draft">Draft</option>
-                        <option value="published">Published</option>
-                    </select>
+                    <h1 className="text-2xl font-extrabold text-slate-900">
+                        {isEdit ? 'Edit post' : 'New post'}
+                    </h1>
+                    {isEdit && (
+                        <span
+                            className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                                post.status === 'published'
+                                    ? 'bg-green-100 text-green-700'
+                                    : 'bg-amber-100 text-amber-700'
+                            }`}
+                        >
+                            {post.status === 'published'
+                                ? 'Published'
+                                : 'Draft'}
+                        </span>
+                    )}
+                </div>
+
+                {/* The clicked submit button sets the post status, so it is
+                    always explicit — no hidden dropdown to forget. */}
+                <div className="flex items-center gap-2">
                     <button
                         type="submit"
+                        name="status"
+                        value="draft"
+                        disabled={pending}
+                        className="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 disabled:opacity-60"
+                    >
+                        {post?.status === 'published'
+                            ? 'Unpublish (save as draft)'
+                            : 'Save as draft'}
+                    </button>
+                    <button
+                        type="submit"
+                        name="status"
+                        value="published"
                         disabled={pending}
                         className="rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white hover:opacity-90 disabled:opacity-60"
                     >
-                        {pending ? 'Saving…' : 'Save post'}
+                        {pending
+                            ? 'Saving…'
+                            : post?.status === 'published'
+                              ? 'Update'
+                              : 'Publish'}
                     </button>
                 </div>
             </div>
