@@ -48,9 +48,9 @@ const badges = [
 ]
 
 const socialProof = [
-    { platform: 'Google', reviews: '45+', stars: 5 },
-    { platform: 'Clutch', reviews: '5.0', stars: 5 },
-    { platform: 'Trustpilot', reviews: '500+', stars: 5, label: 'Projects Done' },
+    { platform: 'Projects', reviews: '500+', stars: 5, label: 'Delivered' },
+    { platform: 'Client', reviews: '98%', stars: 5, label: 'Satisfaction' },
+    { platform: 'Avg Growth', reviews: '5x', stars: 5, label: 'Potential' },
 ]
 
 export default function Hero() {
@@ -65,17 +65,22 @@ export default function Hero() {
 
                     {/* Eyebrow */}
                     <p className="text-[#3a3a3a] font-semibold uppercase text-xs sm:text-sm mb-3 leading-relaxed">
-                        UK&apos;s Leading Web Design &amp; Digital Marketing Agency
+                        A UK Digital Growth Agency Built for Measurable Results
                     </p>
 
                     {/* Giant headline — single h1 per page */}
-                    <h1 className="font-extrabold uppercase leading-[1.05] mb-6">
-                        <span className="block text-[36px] sm:text-[46px] lg:text-[52px] xl:text-[60px] text-primary">BUILDING</span>
-                        <span className="block text-[36px] sm:text-[46px] lg:text-[52px] xl:text-[60px] text-[#f97316]">THE UK&apos;S</span>
-                        <span className="block text-[18px] sm:text-[22px] lg:text-[26px] text-[#3a3a3a] font-bold normal-case leading-snug mt-2">
-                            Most Trusted Websites &amp; Brands
-                        </span>
+                    <h1 className="font-extrabold leading-[1.08] mb-5 text-[28px] sm:text-[36px] lg:text-[42px] xl:text-[46px] text-[#1a1a2e]">
+                        Digital Marketing Agency in the UK Built for{' '}
+                        <span className="text-primary">Leads, Sales &amp; Measurable Growth</span>
                     </h1>
+
+                    {/* Subheading */}
+                    <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed mb-7 max-w-[560px]">
+                        We help UK businesses grow through SEO, paid ads, web
+                        design, content, CRM systems, and social media
+                        strategies — backed by competitor research, data
+                        analysis, and transparent reporting.
+                    </p>
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col xs:flex-row sm:flex-row items-stretch xs:items-center gap-3 sm:gap-4 mb-8">
@@ -87,7 +92,7 @@ export default function Hero() {
                             <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
                                 <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            Get Free Proposal
+                            Get a Free Growth Audit
                         </a>
                         <a
                             href="#portfolio"
@@ -129,7 +134,7 @@ export default function Hero() {
                         aria-hidden="true"
                     >
                         <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-white text-xl font-black mb-3 leading-none select-none">
-                            "
+                            &ldquo;
                         </div>
                         <p className="text-[13px] text-gray-700 leading-relaxed font-medium">
                             Webspires transformed our digital presence — <strong className="text-primary">incredible results!</strong>

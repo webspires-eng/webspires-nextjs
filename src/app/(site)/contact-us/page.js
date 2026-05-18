@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ContactForm from '@/components/sections/ContactForm';
 
 export const metadata = {
     title: 'Contact Us | Webspires Limited',
@@ -30,7 +31,7 @@ export default function ContactUsPage() {
                         Get In <span style={{ color: pageColor }}>Touch</span>
                     </h1>
                     <p className="text-gray-400 text-[18px] max-w-2xl mx-auto leading-relaxed">
-                        Ready to elevate your digital presence? We're here to help you build, scale, and optimize. Let us know how we can collaborate.
+                        Ready to elevate your digital presence? We&apos;re here to help you build, scale, and optimize. Let us know how we can collaborate.
                     </p>
                 </div>
             </section>
@@ -117,89 +118,7 @@ export default function ContactUsPage() {
                             <h2 className="text-[28px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight mb-8">
                                 Have a Cool Project? Get in touch!
                             </h2>
-                            <form className="space-y-6">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    {/* Name */}
-                                    <div className="space-y-2">
-                                        <label htmlFor="name" className="text-[14px] font-bold text-[#1a1a2e]">Name *</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            required
-                                            placeholder="John Doe"
-                                            className="w-full bg-[#faf9f7] border border-gray-200 rounded-xl px-5 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
-                                        />
-                                    </div>
-
-                                    {/* Email */}
-                                    <div className="space-y-2">
-                                        <label htmlFor="email" className="text-[14px] font-bold text-[#1a1a2e]">Email *</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            required
-                                            placeholder="example@mail.com"
-                                            className="w-full bg-[#faf9f7] border border-gray-200 rounded-xl px-5 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Phone */}
-                                <div className="space-y-2">
-                                    <label htmlFor="phone" className="text-[14px] font-bold text-[#1a1a2e]">Phone Number</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        placeholder="0712 312 3456"
-                                        className="w-full bg-[#faf9f7] border border-gray-200 rounded-xl px-5 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200"
-                                    />
-                                </div>
-
-                                {/* Message */}
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-[14px] font-bold text-[#1a1a2e]">Message *</label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        required
-                                        rows={5}
-                                        placeholder="Write your message..."
-                                        className="w-full bg-[#faf9f7] border border-gray-200 rounded-xl px-5 py-3.5 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200 resize-y"
-                                    />
-                                </div>
-
-                                {/* File Upload */}
-                                <div className="space-y-2">
-                                    <label htmlFor="file" className="text-[14px] font-bold text-[#1a1a2e]">Attachment (optional, Max 10MB)</label>
-                                    <div className="relative border-2 border-dashed border-gray-200 rounded-xl bg-[#faf9f7] hover:bg-gray-50 transition-colors p-6 flex flex-col items-center justify-center text-center cursor-pointer group">
-                                        <UploadIcon className="w-8 h-8 text-gray-400 group-hover:text-primary transition-colors mb-2" />
-                                        <p className="text-[14px] text-gray-500"><span className="font-semibold text-primary">Click to upload</span> or drag and drop</p>
-                                        <p className="text-[12px] text-gray-400 mt-1">PDF, DOC, DOCX, PNG, JPG</p>
-                                        <input
-                                            type="file"
-                                            id="file"
-                                            name="file"
-                                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                                            accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Submit Button */}
-                                <button
-                                    type="submit"
-                                    className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[16px] px-8 py-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                                >
-                                    Send Message
-                                    <ArrowRight className="w-5 h-5" />
-                                </button>
-                                <p className="text-center text-[13px] text-gray-400 mt-4">
-                                    By submitting this form, you agree to our <Link href="/privacy-policy" className="underline hover:text-primary">Privacy Policy</Link>.
-                                </p>
-                            </form>
+                            <ContactForm />
                         </div>
                     </div>
                 </div>
@@ -209,13 +128,6 @@ export default function ContactUsPage() {
 }
 
 // Inline Icon Components
-function ArrowRight(props) {
-    return (
-        <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-        </svg>
-    )
-}
 function PhoneIcon(props) {
     return (
         <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -241,13 +153,6 @@ function MessageCircleIcon(props) {
     return (
         <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
-        </svg>
-    )
-}
-function UploadIcon(props) {
-    return (
-        <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" />
         </svg>
     )
 }
