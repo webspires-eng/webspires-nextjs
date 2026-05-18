@@ -1,13 +1,6 @@
 import 'server-only';
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-    throw new Error(
-        'Missing MONGODB_URI environment variable. Add it to .env.local'
-    );
-}
 
 /**
  * Cache the connection across hot reloads in dev and across
@@ -21,6 +14,13 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
+    const MONGODB_URI = process.env.MONGODB_URI;
+
+    if (!MONGODB_URI) {
+        throw new Error(
+            'Missing MONGODB_URI environment variable. Add it to .env.local'
+        );
+    }
     if (cached.conn) return cached.conn;
 
     if (!cached.promise) {

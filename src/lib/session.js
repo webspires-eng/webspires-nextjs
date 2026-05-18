@@ -5,13 +5,21 @@ import { cookies } from 'next/headers';
 const SESSION_COOKIE = 'admin_session';
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
-const secret = process.env.SESSION_SECRET;
-if (!secret) {
-    throw new Error('Missing SESSION_SECRET environment variable.');
+
+let cachedEncodedKey = null;
+
+function getEncodedKey() {
+    if (cachedEncodedKey) return cachedEncodedKey;
+    const secret = process.env.SESSION_SECRET;
+    if (!secret) {
+        throw new Error('Missing SESSION_SECRET environment variable.');
+    }
+    cachedEncodedKey = new TextEncoder().encode(secret);
+    return cachedEncodedKey;
 }
-const encodedKey = new TextEncoder().encode(secret);
 
 export async function encrypt(payload) {
+    const encodedKey = getEncodedKey();
     return new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()
@@ -22,6 +30,7 @@ export async function encrypt(payload) {
 export async function decrypt(token) {
     if (!token) return null;
     try {
+        const encodedKey = getEncodedKey();
         const { payload } = await jwtVerify(token, encodedKey, {
             algorithms: ['HS256'],
         });
