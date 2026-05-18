@@ -1,12 +1,14 @@
+import Link from 'next/link';
+
 const industries = [
-    { name: 'Local businesses', desc: 'Local SEO, Google Business Profile & lead generation.' },
-    { name: 'Ecommerce brands', desc: 'Shopify, paid social, shopping ads & CRO.' },
-    { name: 'B2B companies', desc: 'Demand generation, content & long sales-cycle nurture.' },
-    { name: 'Startups', desc: 'Launch sites, growth experiments & rapid iteration.' },
-    { name: 'Professional services', desc: 'Authority content, SEO & qualified enquiry generation.' },
-    { name: 'Healthcare & clinics', desc: 'Local visibility, trust signals & compliant campaigns.' },
-    { name: 'Real estate', desc: 'High-intent search, landing pages & lead capture.' },
-    { name: 'Restaurants & hospitality', desc: 'Local search, bookings & social engagement.' },
+    { name: 'Local businesses', desc: 'Local SEO, Google Business Profile & lead generation.', href: '/services/professional-seo-services' },
+    { name: 'Ecommerce brands', desc: 'Shopify, paid social, shopping ads & CRO.', href: '/services/shopify-development-services' },
+    { name: 'B2B companies', desc: 'Demand generation, content & long sales-cycle nurture.', href: '/services/google-ads-management-services' },
+    { name: 'Startups', desc: 'Launch sites, growth experiments & rapid iteration.', href: '/services/web-design' },
+    { name: 'Professional services', desc: 'Authority content, SEO & qualified enquiry generation.', href: '/services/professional-seo-services' },
+    { name: 'Healthcare & clinics', desc: 'Local visibility, trust signals & compliant campaigns.', href: '/services/google-ads-management-services' },
+    { name: 'Real estate', desc: 'High-intent search, landing pages & lead capture.', href: '/services/meta-ads-agency-services' },
+    { name: 'Restaurants & hospitality', desc: 'Local search, bookings & social engagement.', href: '/services/social-media-management-services' },
 ];
 
 export default function IndustrySolutions() {
@@ -30,17 +32,24 @@ export default function IndustrySolutions() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     {industries.map((ind) => (
-                        <div
+                        <Link
                             key={ind.name}
-                            className="rounded-2xl border border-gray-100 bg-[#faf9f7] p-6 hover:border-primary/30 transition-colors duration-200"
+                            href={ind.href}
+                            className="group flex flex-col rounded-2xl border border-gray-100 bg-[#faf9f7] p-6 transition-colors duration-200 hover:border-primary/30 hover:bg-white"
                         >
-                            <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2">
+                            <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 group-hover:text-primary transition-colors">
                                 {ind.name}
                             </h3>
                             <p className="text-[13px] text-gray-500 leading-relaxed">
                                 {ind.desc}
                             </p>
-                        </div>
+                            <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-bold text-primary">
+                                Explore
+                                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </span>
+                        </Link>
                     ))}
                 </div>
             </div>

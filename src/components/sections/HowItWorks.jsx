@@ -1,34 +1,43 @@
 const steps = [
     {
         number: '01',
-        title: 'Discovery & Strategy',
-        description: 'We start by understanding your business goals, audience, and competitors. Then we craft a custom digital strategy tailored to your objectives.',
+        title: 'Discovery',
+        description: 'We learn your business, goals, audience and market — and what success actually looks like for you.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
-                <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" stroke="currentColor" strokeWidth="2" />
-                <path d="M16 10v6l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="14" cy="14" r="8" stroke="currentColor" strokeWidth="2" />
+                <path d="M20 20l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
         ),
         color: '#EE314F',
     },
     {
         number: '02',
-        title: 'Design & Prototype',
-        description: 'Our designers create stunning wireframes and prototypes in Figma. You see exactly what you\'re getting before a single line of code is written.',
+        title: 'Audit',
+        description: 'We analyse your website, competitors, keywords, tracking and conversion path to find the highest-impact opportunities.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
-                <rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="2" />
-                <rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="2" />
-                <rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="2" />
-                <circle cx="23" cy="23" r="5" stroke="currentColor" strokeWidth="2" />
+                <path d="M5 5v22h22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M9 19l5-5 4 4 6-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         ),
-        color: '#f97316',
+        color: '#f59e0b',
     },
     {
         number: '03',
-        title: 'Development & Build',
-        description: 'Our engineers build your project with clean, scalable code. We test across all devices and browsers for flawless performance from day one.',
+        title: 'Strategy',
+        description: 'We build a prioritised roadmap based on business impact — not a random list of marketing tasks.',
+        icon: (
+            <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
+                <path d="M16 4l3 9h9l-7.3 5.3 2.8 8.7L16 21.5 9.5 27l2.8-8.7L5 13h9z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        color: '#8b5cf6',
+    },
+    {
+        number: '04',
+        title: 'Build',
+        description: 'We improve your website, campaigns, content, SEO and tracking foundation with clean, conversion-focused execution.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                 <path d="M10 10l-6 6 6 6M22 10l6 6-6 6M18 6l-4 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -37,15 +46,28 @@ const steps = [
         color: '#3b82f6',
     },
     {
-        number: '04',
-        title: 'Launch & Optimize',
-        description: 'We go live with zero downtime and continue optimizing — A/B testing, analytics monitoring, and iterative improvements to maximize your ROI.',
+        number: '05',
+        title: 'Launch',
+        description: 'We go live with clean tracking, proper targeting and conversion-focused assets — zero downtime.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
-                <path d="M16 4l3 9h9l-7.3 5.3 2.8 8.7-7.5-5.5-7.5 5.5 2.8-8.7L5 13h9z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M16 4s7 3 7 12c0 4-3 8-7 11-4-3-7-7-7-11 0-9 7-12 7-12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                <circle cx="16" cy="14" r="2.5" stroke="currentColor" strokeWidth="2" />
             </svg>
         ),
         color: '#10b981',
+    },
+    {
+        number: '06',
+        title: 'Optimise & Report',
+        description: 'We test, refine and scale what works — with clear monthly reporting on actions, results and next steps.',
+        icon: (
+            <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
+                <path d="M6 26V14M14 26V8M22 26v-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M5 9l6-4 5 3 8-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        color: '#0ea5e9',
     },
 ]
 
@@ -64,16 +86,13 @@ export default function HowItWorks() {
                         <span className="text-primary">Measurable Results</span>
                     </h2>
                     <p className="text-gray-500 text-[15px] sm:text-[17px] max-w-[560px] mx-auto leading-relaxed">
-                        A proven 4-step process that consistently delivers exceptional outcomes for businesses of every size.
+                        A proven 6-step, data-led process that consistently delivers measurable outcomes for businesses of every size.
                     </p>
                 </div>
 
-                {/* Steps — desktop: horizontal, mobile: vertical */}
+                {/* Steps — desktop: 3 across, mobile: stacked */}
                 <div className="relative">
-                    {/* Connector line — desktop only */}
-                    <div className="hidden lg:block absolute top-[52px] left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-gradient-to-r from-[#EE314F] via-[#f97316] via-[#3b82f6] to-[#10b981] opacity-30" aria-hidden="true" />
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7">
                         {steps.map((step, i) => (
                             <div
                                 key={i}

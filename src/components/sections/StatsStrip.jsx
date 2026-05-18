@@ -221,8 +221,13 @@ export default function StatsStrip() {
                     </div>
                 </div>
 
+                <p className="mt-10 text-center lg:text-right text-[12px] text-gray-500">
+                    Figures based on selected client campaigns across SEO, PPC
+                    and web redesign projects.
+                </p>
+
                 {/* ── Trust bar ─────────────────────────────────── */}
-                <div className="mt-16 pt-10 border-t border-white/[0.07] flex flex-col sm:flex-row items-center justify-between gap-5">
+                <div className="mt-10 pt-10 border-t border-white/[0.07] flex flex-col sm:flex-row items-center justify-between gap-5">
                     <p className="text-gray-500 text-[13px] font-medium text-center sm:text-left">
                         Trusted by businesses across the United Kingdom &amp; beyond
                     </p>

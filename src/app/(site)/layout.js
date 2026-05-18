@@ -51,6 +51,46 @@ const webSiteSchema = {
   },
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://webspires.co.uk/#localbusiness",
+  name: "Webspires Limited",
+  image: "https://webspires.co.uk/images/webspires-logo-icon.png",
+  url: "https://webspires.co.uk",
+  telephone: "+44-161-524-1569",
+  email: "info@webspires.co.uk",
+  priceRange: "££",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "39A Manchester Rd",
+    addressLocality: "Bolton",
+    postalCode: "BL3 2NZ",
+    addressCountry: "GB",
+  },
+  areaServed: "GB",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  sameAs: [
+    "https://facebook.com/webspires",
+    "https://instagram.com/webspires",
+    "https://linkedin.com/company/webspires",
+    "https://twitter.com/webspires",
+  ],
+};
+
 export default function SiteLayout({ children }) {
   return (
     <>
@@ -67,6 +107,13 @@ export default function SiteLayout({ children }) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(webSiteSchema).replace(/</g, "\\u003c"),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
         }}
       />
 

@@ -50,8 +50,25 @@ const badges = [
 const socialProof = [
     { platform: 'Projects', reviews: '500+', stars: 5, label: 'Delivered' },
     { platform: 'Client', reviews: '98%', stars: 5, label: 'Satisfaction' },
-    { platform: 'Avg Growth', reviews: '5x', stars: 5, label: 'Potential' },
-]
+    { platform: 'Industries served', reviews: '20+', stars: 5, label: 'Potential' },
+];
+
+const certifications = [
+    'Google Partner',
+    'Meta Business Partner',
+    'Shopify Partner',
+    'WordPress Expert',
+    'GA4 Certified',
+    'SEMrush / Ahrefs',
+];
+
+const trustItems = [
+    { value: '500+', label: 'Projects delivered' },
+    { value: 'UK-based', label: 'Team & support' },
+    { value: '20+', label: 'Industries served' },
+    { value: '98%', label: 'Client satisfaction' },
+];
+
 
 export default function Hero() {
     return (
@@ -128,6 +145,8 @@ export default function Hero() {
                 {/* RIGHT ── Person + Testimonial */}
                 <div className="flex-1 relative flex justify-center lg:justify-end items-end self-end max-w-[540px] w-full min-h-[300px] sm:min-h-[400px] lg:min-h-0">
 
+
+
                     {/* Floating testimonial card — hidden on very small screens to avoid overflow */}
                     <div
                         className="hidden sm:block absolute top-8 left-0 lg:-left-8 z-20 bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] p-4 sm:p-5 max-w-[220px] sm:max-w-[240px]"
@@ -165,8 +184,12 @@ export default function Hero() {
             </div>
 
             {/* ── Social proof bar ──────────────────────────────── */}
-            <div className="bg-[#f0ede7] border-t border-gray-200 mt-6">
-                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-5 sm:py-6 flex flex-wrap items-center justify-around gap-5 sm:gap-4">
+            <div className="bg-[#f0ede7] border-t border-gray-200 mt-6  py-10 md:py-14">
+                <p className="text-center text-[12px] font-bold uppercase tracking-widest text-gray-400 mb-6">
+                    Trusted by UK businesses · Certified across the platforms that matter
+                </p>
+
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 py-5 sm:py-6 my-10 flex flex-wrap items-center justify-around gap-5 sm:gap-4">
                     {socialProof.map((item) => (
                         <div key={item.platform} className="flex items-center gap-3 sm:gap-4">
                             <div>
@@ -201,6 +224,34 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
+
+                <ul
+                    className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
+                    aria-label="Certifications and partnerships pt-[200px]"
+                >
+                    {certifications.map((c) => (
+                        <li
+                            key={c}
+                            className="flex items-center gap-2 text-[13px] font-semibold text-gray-500"
+                        >
+                            <svg
+                                className="h-4 w-4 text-green-500 flex-shrink-0"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M20 6L9 17l-5-5"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
+                            {c}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     )

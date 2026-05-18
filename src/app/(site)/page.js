@@ -62,7 +62,7 @@ export default function Home() {
       {/* 1 — Hero */}
       <Hero />
       {/* 2 — Trust bar */}
-      <TrustBar />
+      {/* <TrustBar /> */}
       {/* 3 — Results snapshot */}
       <ResultsSnapshot />
       {/* 4 — Problem / pain */}

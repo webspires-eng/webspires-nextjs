@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const results = [
     {
         metric: '+180%',
@@ -65,9 +67,18 @@ export default function ResultsSnapshot() {
                             <p className="text-[15px] font-bold text-white mb-2">
                                 {r.title}
                             </p>
-                            <p className="text-[12.5px] text-gray-400 leading-relaxed">
+                            <p className="text-[12.5px] text-gray-400 leading-relaxed mb-4">
                                 {r.detail}
                             </p>
+                            <Link
+                                href="/projects"
+                                className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-primary hover:gap-2.5 transition-all"
+                            >
+                                View case study
+                                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </Link>
                         </div>
                     ))}
                 </div>

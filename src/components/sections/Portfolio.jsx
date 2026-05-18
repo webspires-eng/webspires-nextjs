@@ -5,8 +5,9 @@ const projects = [
     {
         id: 1,
         title: 'Instant Tyre Resolutions',
-        tags: ['Web Design', 'Local Business'],
-        result: 'Leads 24/7',
+        industry: 'Local Business · Automotive',
+        service: 'Web Design + Local SEO',
+        result: 'Generating enquiries 24/7',
         resultColor: '#EE314F',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/instanttyresolutions.co_.uk_-1-scaled.jpg',
         link: 'https://instanttyresolutions.co.uk',
@@ -14,8 +15,9 @@ const projects = [
     {
         id: 2,
         title: 'Sky Dunstable Cars',
-        tags: ['Web Design', 'Automotive'],
-        result: 'More Enquiries',
+        industry: 'Automotive',
+        service: 'Web Design + CRO',
+        result: 'More booking enquiries',
         resultColor: '#10b981',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/skydunstablecars.co_.uk_-scaled.jpg',
         link: 'https://skydunstablecars.co.uk',
@@ -23,8 +25,9 @@ const projects = [
     {
         id: 3,
         title: 'Shahid Stylist',
-        tags: ['Web Design', 'Personal Brand'],
-        result: 'Premium Brand',
+        industry: 'Personal Brand',
+        service: 'Web Design + Branding',
+        result: 'Premium brand positioning',
         resultColor: '#ec4899',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/shahidstylist.com_-scaled-1.jpg',
         link: 'https://shahidstylist.com',
@@ -32,8 +35,9 @@ const projects = [
     {
         id: 4,
         title: 'MAF Recovery',
-        tags: ['Web Design', 'Recovery Services'],
-        result: 'More Emergency Calls',
+        industry: 'Recovery Services',
+        service: 'Web Design + Local SEO',
+        result: 'More emergency call leads',
         resultColor: '#f97316',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/mafrecovery.co_.uk_-scaled.jpg',
         link: 'https://mafrecovery.co.uk',
@@ -41,8 +45,9 @@ const projects = [
     {
         id: 5,
         title: 'Krishna Elite Events',
-        tags: ['Web Design', 'Events'],
-        result: 'Premium Bookings',
+        industry: 'Events & Hospitality',
+        service: 'Web Design + Lead Capture',
+        result: 'More premium bookings',
         resultColor: '#8b5cf6',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/krishnaeliteevents.com_-scaled.jpg',
         link: 'https://krishnaeliteevents.com',
@@ -50,8 +55,9 @@ const projects = [
     {
         id: 6,
         title: 'ManMet Entrepreneurs',
-        tags: ['Web Design', 'Education'],
-        result: 'Community Engaged',
+        industry: 'Education',
+        service: 'Web Design + Content',
+        result: 'Stronger community engagement',
         resultColor: '#3b82f6',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/manmetentrepreneurs.co_.uk_-1-scaled.jpg',
         link: 'https://manmetentrepreneurs.co.uk',
@@ -100,17 +106,19 @@ export default function Portfolio() {
                 {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {projects.map((p) => (
-                        <a
+                        <div
                             key={p.id}
                             id={`portfolio-item-${p.id}`}
-                            href={p.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`View ${p.title} website`}
                             className="group relative block rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 hover:-translate-y-1 transition-all duration-300"
                         >
-                            {/* Screenshot image */}
-                            <div className="relative h-52">
+                            {/* Screenshot image — links to live site */}
+                            <a
+                                href={p.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`View ${p.title} live website`}
+                                className="relative block h-52"
+                            >
                                 <Image
                                     src={p.image}
                                     alt={`${p.title} website screenshot`}
@@ -128,29 +136,46 @@ export default function Portfolio() {
                                         </svg>
                                     </span>
                                 </div>
-                            </div>
+                            </a>
 
-                            {/* Card footer */}
-                            <div className="bg-white px-5 py-4 flex items-center justify-between gap-4">
-                                <div className="min-w-0">
-                                    <p className="text-[14px] font-extrabold text-[#1a1a2e] truncate">{p.title}</p>
-                                    <div className="flex gap-1.5 mt-1 flex-wrap">
-                                        {p.tags.map((tag) => (
-                                            <span key={tag} className="text-[11px] font-semibold text-gray-400">{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className="flex-shrink-0 text-right">
-                                    <p className="text-[11px] font-extrabold uppercase tracking-widest text-gray-300 mb-0.5">Result</p>
-                                    <p className="text-[12px] font-extrabold" style={{ color: p.resultColor }}>{p.result}</p>
-                                </div>
+                            {/* Card footer — result first */}
+                            <div className="bg-white px-5 py-5">
+                                <p className="text-[10px] font-extrabold uppercase tracking-widest text-gray-300 mb-1">
+                                    Result
+                                </p>
+                                <p
+                                    className="text-[16px] font-extrabold leading-snug mb-3"
+                                    style={{ color: p.resultColor }}
+                                >
+                                    {p.result}
+                                </p>
+                                <p className="text-[14px] font-extrabold text-[#1a1a2e] truncate">
+                                    {p.title}
+                                </p>
+                                <p className="text-[12px] text-gray-400 mt-0.5">
+                                    {p.industry} · {p.service}
+                                </p>
+                                <Link
+                                    href="/projects"
+                                    className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-primary hover:gap-2.5 transition-all"
+                                >
+                                    View case study
+                                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </Link>
                             </div>
-                        </a>
+                        </div>
                     ))}
                 </div>
 
+                <p className="mt-6 text-center text-[12px] text-gray-400">
+                    Outcomes shown reflect goals achieved on selected client
+                    projects across web design, SEO and lead generation.
+                </p>
+
                 {/* Bottom CTA bar */}
-                <div className="mt-12 bg-[#1a1a2e] rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
+                <div className="mt-10 bg-[#1a1a2e] rounded-2xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-5">
                     <div>
                         <p className="text-white font-extrabold text-[16px] sm:text-[18px] mb-1">
                             500+ projects delivered across the UK

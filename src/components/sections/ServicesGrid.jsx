@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 const services = [
     {
@@ -14,7 +15,7 @@ const services = [
         title: 'CRM Services',
         description: 'Streamline your customer relationships with bespoke CRM development. We build systems that help you track, manage and convert leads more effectively.',
         tags: ['CRM Development', 'Automation', 'Integration', 'Reporting'],
-        href: '/services/crm',
+        href: '/services/crm-development-services',
     },
     {
         id: 'google-ads',
@@ -28,7 +29,7 @@ const services = [
         title: 'Google Ads Services',
         description: 'ROI-focused Google Ads campaigns managed by certified experts. We craft compelling ad strategies that generate real leads and measurable UK revenue.',
         tags: ['Search Ads', 'Display Ads', 'Shopping Ads', 'PPC'],
-        href: '/services/google-ads',
+        href: '/services/google-ads-management-services',
     },
     {
         id: 'meta-ads',
@@ -42,7 +43,7 @@ const services = [
         title: 'Meta Ads Services',
         description: 'Precision-targeted Facebook and Instagram ad campaigns that reach your ideal UK audience and drive conversions at scale.',
         tags: ['Facebook Ads', 'Instagram Ads', 'Retargeting', 'Creative'],
-        href: '/services/meta-ads',
+        href: '/services/meta-ads-agency-services',
     },
     {
         id: 'shopify',
@@ -57,7 +58,7 @@ const services = [
         title: 'Shopify Development',
         description: 'End-to-end Shopify stores built to sell in the UK market. Optimised product pages, fast checkout, payment integration and abandoned cart recovery.',
         tags: ['Shopify', 'Theme Dev', 'Apps', 'CRO'],
-        href: '/services/shopify',
+        href: '/services/shopify-development-services',
     },
     {
         id: 'seo',
@@ -72,7 +73,7 @@ const services = [
         title: 'SEO Services',
         description: 'Dominate Google UK rankings with data-backed SEO strategies — technical audits, keyword research, link building and content optimisation.',
         tags: ['Technical SEO', 'Local SEO', 'Link Building', 'Content'],
-        href: '/services/seo',
+        href: '/services/professional-seo-services',
     },
     {
         id: 'social-media',
@@ -88,7 +89,7 @@ const services = [
         title: 'Social Media Management',
         description: 'Strategic social media management that builds your brand, grows your UK audience and turns followers into loyal customers.',
         tags: ['Content Creation', 'Scheduling', 'Analytics', 'Engagement'],
-        href: '/services/social-media',
+        href: '/services/social-media-management-services',
     },
 ]
 
@@ -105,21 +106,22 @@ export default function ServicesGrid() {
                         What We Do
                     </span>
                     <h2 id="services-heading" className="text-[28px] sm:text-[32px] lg:text-[44px] font-extrabold text-[#1a1a2e] leading-tight mb-4">
-                        UK&apos;s Leading Digital Services<br />
-                        <span className="text-primary">Built to Grow Your Business</span>
+                        Digital Marketing Services<br />
+                        <span className="text-primary">Designed to Grow Your Business</span>
                     </h2>
                     <p className="text-gray-500 text-[17px] max-w-[600px] mx-auto leading-relaxed">
-                        Here&apos;s a concise summary of the services offered by Webspires Limited — your trusted UK digital partner from strategy to execution.
+                        Strategy to execution — explore each service to see who it&apos;s for, what we do, and the outcomes it creates.
                     </p>
                 </div>
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {services.map((svc) => (
-                        <a
+                        <Link
                             key={svc.id}
                             id={`service-card-${svc.id}`}
                             href={svc.href}
+                            aria-label={`${svc.title} — learn more`}
                             onMouseEnter={() => setHovered(svc.id)}
                             onMouseLeave={() => setHovered(null)}
                             className={`group relative flex flex-col p-7 rounded-2xl border transition-all duration-300 no-underline cursor-pointer
@@ -165,7 +167,7 @@ export default function ServicesGrid() {
                                     <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
