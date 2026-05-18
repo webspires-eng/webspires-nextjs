@@ -21,6 +21,7 @@ const navLinks = [
     },
     { label: 'About Us', href: '/about', hasDropdown: false },
     { label: 'Projects', href: '/projects', hasDropdown: false },
+    { label: 'Blog', href: '/blog', hasDropdown: false },
     { label: 'Contact', href: '/contact-us', hasDropdown: false },
 ]
 
@@ -246,7 +247,13 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/#contact" onClick={() => setMobileOpen(false)}
+                            <Link href="/blog" onClick={() => setMobileOpen(false)}
+                                className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
+                                Blog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/contact-us" onClick={() => setMobileOpen(false)}
                                 className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
                                 Contact
                             </Link>

@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# user-uploaded blog media (keep the folder, ignore contents)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # debug
 npm-debug.log*
 yarn-debug.log*
