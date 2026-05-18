@@ -1,22 +1,22 @@
 const steps = [
     {
-        title: 'Website Audit',
-        desc: 'Crawlability, indexation, Core Web Vitals, speed, schema, internal links and site architecture — every technical issue holding you back.',
+        title: 'Website & UX Audit',
+        desc: 'Crawlability, Core Web Vitals, speed, schema, architecture and the user-experience issues quietly costing you leads.',
     },
     {
         title: 'Competitor Research',
-        desc: 'We benchmark you against the businesses ranking and converting now — content, backlinks, UX, authority and conversion paths.',
+        desc: 'We benchmark you against the businesses ranking and converting now — content, backlinks, UX, authority and offers.',
     },
     {
         title: 'Keyword Gap Analysis',
         desc: 'We map commercial, informational, local and branded keywords to the right pages so nothing competes with itself.',
     },
     {
-        title: 'Tracking Review',
-        desc: 'GA4, Search Console, call tracking, forms and CRM tracking set up correctly — so every result is measurable, not guessed.',
+        title: 'Tracking & Analytics Review',
+        desc: 'GA4, Search Console, ad tracking, forms and CRM set up correctly — so every result is measured, not guessed.',
     },
     {
-        title: 'Conversion Analysis',
+        title: 'Conversion Path Analysis',
         desc: 'We study the journey from click to enquiry and find the leaks losing you leads before you spend more on traffic.',
     },
     {
@@ -51,18 +51,18 @@ export default function GrowthMethod() {
                                 id="method-heading"
                                 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.1] text-white mb-5"
                             >
-                                The Webspires{' '}
+                                The{' '}
                                 <span className="text-primary">
-                                    Growth Audit
+                                    Digital Growth Audit
                                 </span>{' '}
                                 Framework
                             </h2>
                             <p className="text-gray-400 text-[15px] sm:text-[16px] leading-relaxed mb-8">
-                                Before we touch a campaign, we run a structured
-                                6-stage audit of your market, competitors,
-                                search demand, technical health and conversion
-                                journey. You get a plan built on evidence — not
-                                a guess.
+                                Before we build campaigns, we analyse your
+                                website, competitors, search visibility, paid
+                                media, tracking, content gaps and conversion
+                                journey — so your plan is built on evidence,
+                                not guesswork.
                             </p>
                             <a
                                 href="#contact"

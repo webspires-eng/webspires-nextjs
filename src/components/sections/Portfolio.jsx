@@ -7,6 +7,7 @@ const projects = [
         title: 'Instant Tyre Resolutions',
         industry: 'Local Business · Automotive',
         service: 'Web Design + Local SEO',
+        problem: 'No online presence to capture urgent local searches.',
         result: 'Generating enquiries 24/7',
         resultColor: '#EE314F',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/instanttyresolutions.co_.uk_-1-scaled.jpg',
@@ -17,6 +18,7 @@ const projects = [
         title: 'Sky Dunstable Cars',
         industry: 'Automotive',
         service: 'Web Design + CRO',
+        problem: 'Outdated site losing trust and booking enquiries.',
         result: 'More booking enquiries',
         resultColor: '#10b981',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/skydunstablecars.co_.uk_-scaled.jpg',
@@ -27,6 +29,7 @@ const projects = [
         title: 'Shahid Stylist',
         industry: 'Personal Brand',
         service: 'Web Design + Branding',
+        problem: 'No digital identity to match a premium service.',
         result: 'Premium brand positioning',
         resultColor: '#ec4899',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/01/shahidstylist.com_-scaled-1.jpg',
@@ -37,6 +40,7 @@ const projects = [
         title: 'MAF Recovery',
         industry: 'Recovery Services',
         service: 'Web Design + Local SEO',
+        problem: 'Hard to find during urgent, high-intent searches.',
         result: 'More emergency call leads',
         resultColor: '#f97316',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/mafrecovery.co_.uk_-scaled.jpg',
@@ -47,6 +51,7 @@ const projects = [
         title: 'Krishna Elite Events',
         industry: 'Events & Hospitality',
         service: 'Web Design + Lead Capture',
+        problem: 'Brand didn’t reflect the quality of the service.',
         result: 'More premium bookings',
         resultColor: '#8b5cf6',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/krishnaeliteevents.com_-scaled.jpg',
@@ -57,6 +62,7 @@ const projects = [
         title: 'ManMet Entrepreneurs',
         industry: 'Education',
         service: 'Web Design + Content',
+        problem: 'No central hub to engage a growing community.',
         result: 'Stronger community engagement',
         resultColor: '#3b82f6',
         image: 'https://webspires.co.uk/wp-content/uploads/2025/03/manmetentrepreneurs.co_.uk_-1-scaled.jpg',
@@ -152,8 +158,14 @@ export default function Portfolio() {
                                 <p className="text-[14px] font-extrabold text-[#1a1a2e] truncate">
                                     {p.title}
                                 </p>
-                                <p className="text-[12px] text-gray-400 mt-0.5">
+                                <p className="text-[12px] font-semibold text-gray-500 mt-0.5">
                                     {p.industry} · {p.service}
+                                </p>
+                                <p className="text-[12.5px] text-gray-400 mt-2 leading-relaxed">
+                                    <span className="font-bold text-gray-500">
+                                        Problem:
+                                    </span>{' '}
+                                    {p.problem}
                                 </p>
                                 <Link
                                     href="/projects"

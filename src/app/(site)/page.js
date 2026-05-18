@@ -1,16 +1,18 @@
 import { siteConfig } from "@/config/site";
 import Hero from "@/components/sections/Hero";
-import TrustBar from "@/components/sections/TrustBar";
 import ResultsSnapshot from "@/components/sections/ResultsSnapshot";
 import ProblemPain from "@/components/sections/ProblemPain";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import WhatYouGet from "@/components/sections/WhatYouGet";
 import GrowthMethod from "@/components/sections/GrowthMethod";
 import Portfolio from "@/components/sections/Portfolio";
 import HowItWorks from "@/components/sections/HowItWorks";
 import IndustrySolutions from "@/components/sections/IndustrySolutions";
 import ReportingTransparency from "@/components/sections/ReportingTransparency";
 import WhyWebspires from "@/components/sections/WhyWebspires";
+import TeamTools from "@/components/sections/TeamTools";
 import Testimonials from "@/components/sections/Testimonials";
+import UkServiceArea from "@/components/sections/UkServiceArea";
 import FaqHome from "@/components/sections/FaqHome";
 import ContactCTA from "@/components/sections/ContactCTA";
 import { homeFaqs } from "@/data/homeFaqs";
@@ -59,33 +61,36 @@ export default function Home() {
         }}
       />
 
-      {/* 1 — Hero */}
+      {/* 2 — Hero (3 — trust/review bar is built into Hero) */}
       <Hero />
-      {/* 2 — Trust bar */}
-      {/* <TrustBar /> */}
-      {/* 3 — Results snapshot */}
+      {/* 4 — Results snapshot */}
       <ResultsSnapshot />
-      {/* 4 — Problem / pain */}
+      {/* 5 — Problem / pain */}
       <ProblemPain />
-      {/* 5 — Services overview */}
+      {/* 6 — Services overview */}
       <ServicesGrid />
-      {/* 6 — Competitor research & branded growth audit */}
+      {/* 7 — What you get with us */}
+      <WhatYouGet />
+      {/* 8 — Digital Growth Audit Framework */}
       <GrowthMethod />
-      {/* 7 — Case studies / work */}
+      {/* 9 — Portfolio / case studies */}
       <Portfolio />
-      {/* 8 — Growth framework / process */}
+      {/* 10 — Process */}
       <HowItWorks />
-      {/* 9 — Industry solutions */}
+      {/* 11 — Industries we serve */}
       <IndustrySolutions />
-      {/* 10 — Reporting & transparency */}
+      {/* 12 — Reporting & dashboards */}
       <ReportingTransparency />
-      {/* 11 — Why choose us */}
+      {/* 13 — About / why / team & tools */}
       <WhyWebspires />
-      {/* 12 — Testimonials */}
+      <TeamTools />
+      {/* 14 — Testimonials */}
       <Testimonials />
-      {/* 13 — FAQ */}
+      {/* 15 — UK service area */}
+      <UkServiceArea />
+      {/* 16 — FAQ */}
       <FaqHome />
-      {/* 14 — Final CTA */}
+      {/* 18 — Final CTA / free audit */}
       <ContactCTA />
     </>
   );
