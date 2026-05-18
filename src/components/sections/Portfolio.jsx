@@ -69,7 +69,7 @@ export default function Portfolio() {
         <section
             id="portfolio"
             aria-labelledby="portfolio-heading"
-            className="bg-[#faf9f7] py-20 lg:py-28"
+            className="bg-[#faf9f7] pt-20 lg:pt-28 pb-12 lg:pb-16"
         >
             <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
 

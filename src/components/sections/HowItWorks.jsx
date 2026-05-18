@@ -73,11 +73,11 @@ const steps = [
 
 export default function HowItWorks() {
     return (
-        <section id="process" aria-labelledby="process-heading" className="bg-[#faf9f7] py-14 sm:py-20 lg:py-28">
+        <section id="process" aria-labelledby="process-heading" className="bg-[#faf9f7] pt-12 sm:pt-14 lg:pt-16 pb-14 sm:pb-20 lg:pb-28">
             <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
 
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
                         Our Process
                     </span>
