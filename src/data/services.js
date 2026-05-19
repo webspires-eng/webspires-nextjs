@@ -84,7 +84,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'google-ads',
+        slug: 'google-ads-management',
         title: 'Google Ads Services',
         shortTitle: 'Google Ads',
         tagline: 'More Leads. Better ROI. Every Day.',
@@ -125,7 +125,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'meta-ads',
+        slug: 'meta-ads-management',
         title: 'Meta Ads Services',
         shortTitle: 'Meta Ads',
         tagline: 'Facebook & Instagram Ads That Convert.',
@@ -166,7 +166,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'shopify',
+        slug: 'shopify-development',
         title: 'Shopify Development Services',
         shortTitle: 'Shopify',
         tagline: 'eCommerce Stores Built to Sell in the UK.',
@@ -207,7 +207,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'crm-development',
+        slug: 'crm-services',
         title: 'CRM Development Services',
         shortTitle: 'CRM',
         tagline: 'Manage Leads. Close More Deals. Automate Growth.',
@@ -248,7 +248,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'social-media-marketing',
+        slug: 'social-media-management',
         title: 'Social Media Management',
         shortTitle: 'Social Media',
         tagline: 'Grow Your Audience. Build Your Brand. Drive Sales.',
@@ -299,6 +299,47 @@ export const servicesData = [
         bg: '#EE314F',
         category: 'Trust & Verification',
         iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z m-3-10l2 2 4-4'
+    },
+    {
+        slug: 'conversion-rate-optimisation',
+        title: 'Conversion Rate Optimisation',
+        shortTitle: 'CRO',
+        tagline: 'Turn More of Your Existing Traffic Into Leads.',
+        metaTitle: 'Conversion Rate Optimisation (CRO) Agency UK | Webspires',
+        metaDescription: 'Webspires improves your conversion rate with data-led CRO — research, testing, and page improvements that turn more of your existing visitors into enquiries and sales.',
+        color: '#f59e0b',
+        bg: '#f59e0b',
+        category: 'Conversion & Growth',
+        heroHeading: 'Conversion Rate Optimisation That Grows Revenue Without More Traffic',
+        heroSub: 'You already have visitors. We help more of them become leads and customers — through research, testing, and clear, evidence-based page improvements.',
+        iconPath: 'M3 17l6-6 4 4 8-8 M14 7h7v7',
+        stats: [
+            { value: 'Data-Led', label: 'Every Change Tested' },
+            { value: 'A/B', label: 'Structured Testing' },
+            { value: 'Full Funnel', label: 'Audit Approach' },
+            { value: 'No Guesswork', label: 'Evidence First' },
+        ],
+        intro: 'Most websites lose the majority of their visitors before they ever enquire. Conversion rate optimisation fixes that by improving the experience you already pay to attract. At Webspires, we combine analytics, user behaviour research, and structured testing to find why visitors do not convert — then make focused, measurable changes that increase enquiries and sales without spending more on traffic.',
+        process: [
+            { step: '01', title: 'Conversion Audit', desc: 'We analyse analytics, tracking, and the full journey to find exactly where and why visitors drop off.' },
+            { step: '02', title: 'Research & Hypotheses', desc: 'Heatmaps, session insight, and user behaviour data turn problems into clear, testable hypotheses.' },
+            { step: '03', title: 'Testing & Iteration', desc: 'We run structured A/B tests on the highest-impact pages so changes are proven, not assumed.' },
+            { step: '04', title: 'Scale What Works', desc: 'Winning changes are rolled out and the next opportunities prioritised — conversion improves continuously.' },
+        ],
+        features: [
+            { title: 'Conversion Audit', desc: 'A full review of your funnel, tracking, and key pages to find the biggest losses of leads and sales.' },
+            { title: 'User Behaviour Research', desc: 'Heatmaps, scroll, and session analysis to understand what real visitors actually do — and where they give up.' },
+            { title: 'A/B & Split Testing', desc: 'Structured experiments so every change is measured against real results, not opinion.' },
+            { title: 'Landing Page CRO', desc: 'Sharper messaging, layout, and calls to action on the pages that matter most for conversion.' },
+            { title: 'Form & Checkout Optimisation', desc: 'Reducing friction in forms and checkout — one of the fastest ways to recover lost conversions.' },
+            { title: 'Tracking & Analytics Setup', desc: 'Reliable conversion tracking so decisions are based on accurate data from the start.' },
+        ],
+        faqs: [
+            { q: 'What is conversion rate optimisation?', a: 'It is the process of improving how many of your existing visitors take action — enquire, call, or buy — instead of just driving more traffic.' },
+            { q: 'How is CRO different from SEO or ads?', a: 'SEO and ads bring visitors; CRO makes those visitors more valuable. They work best together, since better conversion improves the return on every channel.' },
+            { q: 'How quickly does CRO show results?', a: 'Quick wins from an audit can land within weeks. Structured testing compounds over a few months as evidence builds.' },
+            { q: 'Do I need a lot of traffic for CRO?', a: 'More traffic makes testing faster, but audit-led improvements and best-practice fixes add value even on lower-traffic sites.' },
+        ],
     },
 ]
 

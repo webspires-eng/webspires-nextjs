@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { locationsData, getLocationBySlug } from '@/data/locations'
+import { locationsData, getLocationBySlug, locationProofPoints, locationPricingFactors } from '@/data/locations'
 
 export async function generateStaticParams() {
     return locationsData.map((l) => ({ slug: l.slug }))
@@ -89,6 +89,23 @@ export default async function LocationPage({ params }) {
                 <div className="mt-14 h-1 w-full" style={{ background: 'linear-gradient(90deg, #EE314F, transparent)' }} aria-hidden="true" />
             </section>
 
+            {/* ── TRUST STRIP ── */}
+            <section className="bg-[#1a1a2e] border-t border-white/5 py-6">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                    <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 list-none p-0 m-0">
+                        {locationProofPoints.map((p) => (
+                            <li key={p} className="flex items-center gap-2 text-[13px] font-semibold text-gray-300">
+                                <svg className="w-4 h-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                                {p}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
             {/* ── LOCAL PROBLEMS ── */}
             <section className="bg-white py-16 lg:py-24">
                 <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -172,6 +189,61 @@ export default async function LocationPage({ params }) {
                                     </svg>
                                 </span>
                                 <span className="text-[14px] font-semibold text-[#1a1a2e]">{name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── LOCAL AREAS SERVED ── */}
+            {loc.localAreas && (
+                <section className="bg-white py-16 lg:py-20 border-t border-gray-100">
+                    <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                        <div className="max-w-[680px] mb-10">
+                            <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+                                Areas We Serve
+                            </span>
+                            <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight">
+                                {loc.city} Areas &amp; Business Districts
+                            </h2>
+                        </div>
+                        <div className="flex flex-wrap gap-2.5">
+                            {loc.localAreas.map((area) => (
+                                <span key={area}
+                                    className="inline-flex items-center gap-2 bg-[#faf9f7] text-[#1a1a2e] font-semibold text-[13.5px] px-4 py-2.5 rounded-lg border border-gray-100">
+                                    <svg className="w-3.5 h-3.5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                        <circle cx="12" cy="9" r="2.5" />
+                                    </svg>
+                                    {area}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* ── PRICING & QUOTE FACTORS ── */}
+            <section className="bg-[#faf9f7] py-16 lg:py-24">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                    <div className="max-w-[680px] mb-12">
+                        <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
+                            Pricing &amp; Quote Factors
+                        </span>
+                        <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight mb-3">
+                            What Shapes Your {loc.city} Quote
+                        </h2>
+                        <p className="text-gray-500 text-[15px] leading-relaxed">
+                            We quote per project rather than list fixed prices — the right investment
+                            depends on your situation. These are the main factors:
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {locationPricingFactors.map((f, i) => (
+                            <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+                                <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-1.5">{f.title}</h3>
+                                <p className="text-[13px] text-gray-500 leading-relaxed">{f.desc}</p>
                             </div>
                         ))}
                     </div>

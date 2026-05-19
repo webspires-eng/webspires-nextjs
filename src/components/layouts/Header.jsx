@@ -10,12 +10,13 @@ const navLinks = [
         href: '/services',
         hasDropdown: true,
         children: [
-            { label: 'CRM Services', href: '/services/crm-development' },
-            { label: 'Social Media Services', href: '/services/social-media-marketing' },
-            { label: 'Google Ads Services', href: '/services/google-ads' },
-            { label: 'Meta Ads Services', href: '/services/meta-ads' },
+            { label: 'CRM Services', href: '/services/crm-services' },
+            { label: 'Social Media Services', href: '/services/social-media-management' },
+            { label: 'Google Ads Services', href: '/services/google-ads-management' },
+            { label: 'Meta Ads Services', href: '/services/meta-ads-management' },
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Shopify Development Services', href: '/services/shopify' },
+            { label: 'Shopify Development Services', href: '/services/shopify-development' },
+            { label: 'Conversion Rate Optimisation', href: '/services/conversion-rate-optimisation' },
             { label: 'Google Guarantee Services', href: '/services/google-guarantee' },
         ],
     },
@@ -26,8 +27,8 @@ const navLinks = [
         children: [
             { label: 'Ecommerce', href: '/industries/ecommerce' },
             { label: 'Local Businesses', href: '/industries/local-businesses' },
-            { label: 'B2B', href: '/industries/b2b' },
-            { label: 'Healthcare', href: '/industries/healthcare' },
+            { label: 'B2B', href: '/industries/b2b-companies' },
+            { label: 'Healthcare', href: '/industries/healthcare-clinics' },
             { label: 'Real Estate', href: '/industries/real-estate' },
             { label: 'Professional Services', href: '/industries/professional-services' },
         ],
@@ -44,10 +45,11 @@ const navLinks = [
             { label: 'Glasgow', href: '/locations/glasgow' },
         ],
     },
-    { label: 'About Us', href: '/about', hasDropdown: false },
+    { label: 'Case Studies', href: '/case-studies', hasDropdown: false },
+    { label: 'About Us', href: '/about-us', hasDropdown: false },
     { label: 'Projects', href: '/projects', hasDropdown: false },
     { label: 'Blog', href: '/blog', hasDropdown: false },
-    { label: 'Contact', href: '/contact-us', hasDropdown: false },
+    { label: 'Contact', href: '/contact', hasDropdown: false },
 ]
 
 const Header = () => {
@@ -84,13 +86,13 @@ const Header = () => {
                     }`}
             >
                 {/* Inner container */}
-                <div className="max-w-[1320px] mx-auto h-[90px] flex items-center px-8">
+                <div className="max-w-[1320px] mx-auto h-[90px] flex items-center px-5 xl:px-6">
 
                     {/* Logo */}
                     <Link
                         href="/"
                         aria-label="Webspires – Home"
-                        className="flex-shrink-0 flex items-center mr-8"
+                        className="flex-shrink-0 flex items-center mr-4 xl:mr-6"
                     >
                         <Image
                             src="/images/webspires.png"
@@ -98,16 +100,16 @@ const Header = () => {
                             width={160}
                             height={48}
                             priority
-                            className="h-11 w-auto max-w-[180px] object-contain"
+                            className="h-9 w-auto max-w-[150px] object-contain"
                         />
                     </Link>
 
                     {/* Desktop Nav */}
                     <nav
-                        className="hidden lg:flex flex-1 items-center"
+                        className="hidden xl:flex flex-1 items-center justify-center"
                         aria-label="Main navigation"
                     >
-                        <ul className="flex items-center gap-1 list-none m-0 p-0" role="list">
+                        <ul className="flex items-center gap-0.5 list-none m-0 p-0" role="list">
                             {navLinks.map((link) => (
                                 <li
                                     key={link.label}
@@ -117,7 +119,7 @@ const Header = () => {
                                 >
                                     <Link
                                         href={link.href}
-                                        className="flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-semibold tracking-[0.07em] text-[#3a3a3a] no-underline rounded-md transition-colors duration-200 whitespace-nowrap hover:text-primary hover:bg-primary/[0.06]"
+                                        className="flex items-center gap-1 px-2.5 py-2 text-[12.5px] font-semibold tracking-[0.02em] text-[#3a3a3a] no-underline rounded-md transition-colors duration-200 whitespace-nowrap hover:text-primary hover:bg-primary/[0.06]"
                                         aria-haspopup={link.hasDropdown ? 'true' : undefined}
                                         aria-expanded={activeDropdown === link.label ? 'true' : undefined}
                                     >
@@ -175,12 +177,12 @@ const Header = () => {
                     </nav>
 
                     {/* Right Actions — desktop */}
-                    <div className="hidden lg:flex items-center gap-3 ml-5 flex-shrink-0">
-                        {/* Phone */}
+                    <div className="hidden xl:flex items-center gap-2.5 ml-3 flex-shrink-0">
+                        {/* Phone — only on very wide screens to keep the bar uncluttered */}
                         <a
                             href="tel:+441615241569"
                             aria-label="Call Webspires"
-                            className="flex items-center gap-2 text-[15px] font-bold text-primary no-underline tracking-wide whitespace-nowrap transition-opacity duration-200 hover:opacity-80"
+                            className="hidden 2xl:flex items-center gap-2 text-[13.5px] font-bold text-primary no-underline tracking-wide whitespace-nowrap transition-opacity duration-200 hover:opacity-80"
                         >
                             <svg
                                 className="w-[18px] h-[18px] flex-shrink-0"
@@ -202,7 +204,7 @@ const Header = () => {
                             href="https://call.webspires.co.uk?utm_source=websiteheader"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[13px] tracking-wide px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap"
+                            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[12.5px] tracking-wide px-4 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap"
                         >
                             Book a Call
                         </a>
@@ -215,7 +217,7 @@ const Header = () => {
                         aria-expanded={mobileOpen}
                         aria-controls="mobile-nav"
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        className="lg:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 bg-transparent border-0 cursor-pointer ml-auto flex-shrink-0"
+                        className="xl:hidden flex flex-col justify-center items-center gap-[5px] w-10 h-10 bg-transparent border-0 cursor-pointer ml-auto flex-shrink-0"
                     >
                         <span
                             className={`block w-6 h-0.5 bg-[#3a3a3a] rounded-sm transition-transform duration-300 origin-center ${mobileOpen ? 'translate-y-[7px] rotate-45' : ''
@@ -237,7 +239,7 @@ const Header = () => {
                     id="mobile-nav"
                     aria-label="Mobile navigation"
                     aria-hidden={!mobileOpen}
-                    className={`lg:hidden border-t border-black/[0.07] bg-white overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
+                    className={`xl:hidden border-t border-black/[0.07] bg-white transition-all duration-300 ${mobileOpen ? 'max-h-[calc(100vh-90px)] overflow-y-auto opacity-100' : 'max-h-0 overflow-hidden opacity-0'
                         }`}
                 >
                     <ul className="list-none m-0 px-6 pt-2 pb-4" role="list">
@@ -292,7 +294,13 @@ const Header = () => {
                             </ul>
                         </li>
                         <li>
-                            <Link href="/about" onClick={() => setMobileOpen(false)}
+                            <Link href="/case-studies" onClick={() => setMobileOpen(false)}
+                                className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
+                                Case Studies
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/about-us" onClick={() => setMobileOpen(false)}
                                 className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
                                 About Us
                             </Link>
@@ -310,9 +318,15 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/contact-us" onClick={() => setMobileOpen(false)}
+                            <Link href="/contact" onClick={() => setMobileOpen(false)}
                                 className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
                                 Contact
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/free-digital-marketing-audit" onClick={() => setMobileOpen(false)}
+                                className="block text-center py-3 px-1 text-[14px] font-bold text-white bg-primary rounded-lg no-underline mt-3 transition-opacity duration-200 hover:opacity-90">
+                                Get a Free Audit
                             </Link>
                         </li>
                         <li>

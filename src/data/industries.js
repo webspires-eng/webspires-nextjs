@@ -1,6 +1,24 @@
 // src/data/industries.js — single source of truth for all industry pages.
 // Silo 2 of the URL/silo blueprint. Each entry is unique (no doorway content).
 
+// Shared, honest trust points (qualitative — no fabricated metrics).
+export const industryProofPoints = [
+    'UK-based specialist team',
+    'Strategy led by data & competitor research',
+    'Clear, jargon-free monthly reporting',
+    'Focused on leads & revenue, not vanity metrics',
+];
+
+// Quote factors, not fixed prices — what shapes a proposal.
+export const industryPricingFactors = [
+    { title: 'Your goals & timeline', desc: 'How aggressive the targets are and how quickly you need results.' },
+    { title: 'Market competitiveness', desc: 'How contested your sector and locations are in search and ads.' },
+    { title: 'Current starting point', desc: 'The state of your site, tracking, and existing campaigns.' },
+    { title: 'Scope of services', desc: 'How many channels and services are involved each month.' },
+    { title: 'Ad spend & platforms', desc: 'Budget managed and the number of advertising platforms.' },
+    { title: 'Reporting & cadence', desc: 'Reporting depth and how often we meet and review.' },
+];
+
 export const industriesData = [
     {
         slug: 'ecommerce',
@@ -27,6 +45,13 @@ export const industriesData = [
             { title: 'Conversion Optimisation', desc: 'Faster pages, clearer product information, and checkout improvements that lift your conversion rate.' },
             { title: 'Email & CRM Automation', desc: 'Abandoned cart, post-purchase, and win-back flows that recover lost revenue automatically.' },
         ],
+        platforms: [
+            { name: 'Shopify Marketing', desc: 'SEO, ads, and CRO built around Shopify stores and themes.' },
+            { name: 'WooCommerce Marketing', desc: 'Growth for WordPress/WooCommerce shops, from speed to feeds.' },
+            { name: 'Magento Marketing', desc: 'Marketing and optimisation for larger Magento catalogues.' },
+            { name: 'BigCommerce Marketing', desc: 'SEO and paid media tailored to BigCommerce stores.' },
+            { name: 'Amazon & Marketplace', desc: 'Support for marketplace visibility alongside your own store.' },
+        ],
         searchOpportunities: [
             'Buy [product] online UK',
             'Best [product category] UK',
@@ -42,10 +67,10 @@ export const industriesData = [
         ],
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
-            { label: 'Shopify Development', href: '/services/shopify' },
-            { label: 'CRM Development', href: '/services/crm-development' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
+            { label: 'Meta Ads', href: '/services/meta-ads-management' },
+            { label: 'Shopify Development', href: '/services/shopify-development' },
+            { label: 'CRM Development', href: '/services/crm-services' },
         ],
         faqs: [
             { q: 'Which platforms do you work with?', a: 'We work most often with Shopify and WooCommerce, but the strategy and marketing work apply to any ecommerce platform.' },
@@ -94,10 +119,10 @@ export const industriesData = [
         ],
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Google Guarantee', href: '/services/google-guarantee' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
+            { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
             { q: 'What is the fastest way to get more local customers?', a: 'Usually Google Business Profile optimisation plus reviews. It often moves visibility faster than anything else for local businesses.' },
@@ -107,7 +132,7 @@ export const industriesData = [
         ],
     },
     {
-        slug: 'b2b',
+        slug: 'b2b-companies',
         name: 'B2B',
         label: 'B2B Companies',
         category: 'Business to Business',
@@ -146,10 +171,10 @@ export const industriesData = [
         ],
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-development' },
-            { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
+            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
             { q: 'How do you measure B2B success?', a: 'By qualified leads and pipeline, not raw form fills. We set up tracking so cost per qualified lead is visible.' },
@@ -159,7 +184,7 @@ export const industriesData = [
         ],
     },
     {
-        slug: 'healthcare',
+        slug: 'healthcare-clinics',
         name: 'Healthcare',
         label: 'Healthcare & Clinics',
         category: 'Clinics & Practices',
@@ -199,9 +224,9 @@ export const industriesData = [
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Google Guarantee', href: '/services/google-guarantee' },
-            { label: 'CRM Development', href: '/services/crm-development' },
+            { label: 'CRM Development', href: '/services/crm-services' },
         ],
         faqs: [
             { q: 'Can you advertise regulated treatments?', a: 'For eligible treatments, yes — within the relevant advertising rules. We structure campaigns carefully and avoid claims that are not allowed.' },
@@ -250,10 +275,10 @@ export const industriesData = [
         ],
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
+            { label: 'Meta Ads', href: '/services/meta-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-development' },
+            { label: 'CRM Development', href: '/services/crm-services' },
         ],
         faqs: [
             { q: 'Can you compete with the big property portals?', a: 'Not by replacing them, but by winning local searches and direct valuation leads they do not fully capture.' },
@@ -303,9 +328,9 @@ export const industriesData = [
         servicesUsed: [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'Google Ads', href: '/services/google-ads' },
-            { label: 'CRM Development', href: '/services/crm-development' },
-            { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
+            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
             { q: 'How do professional firms get clients online?', a: 'By building visible authority — content and SEO that prove expertise — plus a website that makes booking a consultation easy.' },

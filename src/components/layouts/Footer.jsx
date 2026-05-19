@@ -4,22 +4,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const services = [
-    { label: 'CRM Services', href: '/services/crm-development' },
-    { label: 'Social Media Services', href: '/services/social-media-marketing' },
-    { label: 'Google Ads Services', href: '/services/google-ads' },
-    { label: 'Meta Ads Services', href: '/services/meta-ads' },
+    { label: 'CRM Services', href: '/services/crm-services' },
+    { label: 'Social Media Services', href: '/services/social-media-management' },
+    { label: 'Google Ads Services', href: '/services/google-ads-management' },
+    { label: 'Meta Ads Services', href: '/services/meta-ads-management' },
     { label: 'SEO Services', href: '/services/seo' },
-    { label: 'Shopify Development Services', href: '/services/shopify' },
+    { label: 'Shopify Development Services', href: '/services/shopify-development' },
+    { label: 'Conversion Rate Optimisation', href: '/services/conversion-rate-optimisation' },
     { label: 'Google Guarantee Services', href: '/services/google-guarantee' },
 ]
 
 const company = [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
+    { label: 'About Us', href: '/about-us' },
     { label: 'Industries', href: '/industries' },
     { label: 'Locations', href: '/locations' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Free Audit', href: '/free-digital-marketing-audit' },
     { label: 'Projects', href: '/projects' },
-    { label: 'Contact Us', href: '/contact-us' },
+    { label: 'Contact Us', href: '/contact' },
     { label: 'Terms & Conditions', href: '/terms-conditions' },
     { label: 'Privacy Policy', href: '/privacy-policy' },
 ]
@@ -109,7 +112,7 @@ export default function Footer() {
                     </div>
                     <a
                         id="footer-top-cta"
-                        href="/contact-us"
+                        href="/contact"
                         className="flex-shrink-0 inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-extrabold text-[14px] tracking-wide px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap"
                     >
                         Get Free Proposal

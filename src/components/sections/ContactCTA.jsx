@@ -99,7 +99,7 @@ export default function ContactCTA() {
                         </div>
                     </div>
 
-                    {/* Form — right (same form as /contact-us) */}
+                    {/* Form — right (same form as /contact) */}
                     <div className="lg:col-span-3">
                         <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_40px_rgba(0,0,0,0.08)] p-8 lg:p-10">
                             <h3 className="text-[20px] font-extrabold text-[#1a1a2e] mb-6">

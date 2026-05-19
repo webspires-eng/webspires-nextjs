@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { industriesData, getIndustryBySlug } from '@/data/industries'
+import { industriesData, getIndustryBySlug, industryProofPoints, industryPricingFactors } from '@/data/industries'
 
 export async function generateStaticParams() {
     return industriesData.map((i) => ({ slug: i.slug }))
@@ -90,6 +90,23 @@ export default async function IndustryPage({ params }) {
                 <div className="mt-14 h-1 w-full" style={{ background: `linear-gradient(90deg, ${ind.color}, transparent)` }} aria-hidden="true" />
             </section>
 
+            {/* ── PROOF / TRUST STRIP ── */}
+            <section className="bg-[#1a1a2e] border-t border-white/5 py-6">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                    <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 list-none p-0 m-0">
+                        {(ind.proofPoints || industryProofPoints).map((p) => (
+                            <li key={p} className="flex items-center gap-2 text-[13px] font-semibold text-gray-300">
+                                <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke={ind.color}
+                                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                                {p}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
             {/* ── PAIN POINTS ── */}
             <section className="bg-white py-16 lg:py-24">
                 <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -141,6 +158,31 @@ export default async function IndustryPage({ params }) {
                     </div>
                 </div>
             </section>
+
+            {/* ── PLATFORM-SPECIFIC SUPPORT (optional) ── */}
+            {ind.platforms && (
+                <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+                    <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                        <div className="max-w-[680px] mb-12">
+                            <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+                                style={{ color: ind.color, background: `${ind.color}14` }}>
+                                Platform-Specific Support
+                            </span>
+                            <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight">
+                                Built Around Your {ind.name} Platform
+                            </h2>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {ind.platforms.map((p, i) => (
+                                <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
+                                    <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-1.5">{p.name}</h3>
+                                    <p className="text-[13px] text-gray-500 leading-relaxed">{p.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* ── SEARCH OPPORTUNITIES + COMPETITOR INSIGHT ── */}
             <section className="bg-white py-16 lg:py-24">
@@ -228,6 +270,57 @@ export default async function IndustryPage({ params }) {
                                     <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── CASE STUDY LINK ── */}
+            <section className="bg-[#faf9f7] py-12 lg:py-16 border-t border-gray-100">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                    <div className="bg-[#1a1a2e] rounded-3xl px-8 py-10 lg:px-12 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                        <div>
+                            <h2 className="text-[22px] sm:text-[28px] font-extrabold text-white leading-snug mb-2">
+                                See the Results Behind the Method
+                            </h2>
+                            <p className="text-gray-400 text-[15px] max-w-[560px]">
+                                Explore how we approach measurable growth — and the metrics we hold
+                                ourselves to — across {ind.name.toLowerCase()} and beyond.
+                            </p>
+                        </div>
+                        <Link href="/case-studies"
+                            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[14px] px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 no-underline">
+                            View Case Studies
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── PRICING & QUOTE FACTORS ── */}
+            <section className="bg-white py-16 lg:py-24">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
+                    <div className="max-w-[680px] mb-12">
+                        <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
+                            style={{ color: ind.color, background: `${ind.color}14` }}>
+                            Pricing &amp; Quote Factors
+                        </span>
+                        <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight mb-3">
+                            What Shapes Your Quote
+                        </h2>
+                        <p className="text-gray-500 text-[15px] leading-relaxed">
+                            We quote per project rather than list fixed prices, because the right
+                            investment depends on your situation. These are the main factors:
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {(ind.pricingFactors || industryPricingFactors).map((f, i) => (
+                            <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
+                                <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-1.5">{f.title}</h3>
+                                <p className="text-[13px] text-gray-500 leading-relaxed">{f.desc}</p>
+                            </div>
                         ))}
                     </div>
                 </div>

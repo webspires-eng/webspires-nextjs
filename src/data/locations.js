@@ -2,11 +2,30 @@
 // Silo 3 of the URL/silo blueprint. Each city has unique local context,
 // industries, and FAQs — intentionally NOT doorway pages.
 
+// Shared, honest trust points (qualitative — no fabricated metrics).
+export const locationProofPoints = [
+    'UK-based team',
+    'Local & area-level targeting',
+    'Transparent monthly reporting',
+    'No long lock-in contracts',
+];
+
+// Quote factors, not fixed prices.
+export const locationPricingFactors = [
+    { title: 'Goals & timeline', desc: 'How fast you need leads and how ambitious the targets are.' },
+    { title: 'Local competitiveness', desc: 'How contested your city and areas are for your services.' },
+    { title: 'Starting point', desc: 'Current site, Google Business Profile, and campaign state.' },
+    { title: 'Scope of services', desc: 'How many channels and areas we work across each month.' },
+    { title: 'Ad spend', desc: 'Budget managed across the advertising platforms used.' },
+    { title: 'Reporting & meetings', desc: 'Depth of reporting and how often we review together.' },
+];
+
 export const locationsData = [
     {
         slug: 'london',
         city: 'London',
         region: 'Greater London',
+        localAreas: ['Central London', 'City of London', 'Canary Wharf', 'Shoreditch', 'Soho', 'Westminster', 'Camden', 'Islington', 'Kensington', 'Croydon', 'Hammersmith', 'Richmond', 'Greater London'],
         targetKeyword: 'digital marketing agency London',
         metaTitle: 'Digital Marketing Agency London | SEO, PPC & Web | Webspires',
         metaDescription: 'Webspires is a UK digital marketing agency working with London businesses on SEO, Google Ads, web design, and lead generation. Book a free strategy call.',
@@ -29,10 +48,10 @@ export const locationsData = [
         ],
         services: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
+            { label: 'Meta Ads', href: '/services/meta-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-development' },
+            { label: 'CRM Development', href: '/services/crm-services' },
         ],
         faqs: [
             { q: 'Do you have an office in London?', a: 'We work with London businesses remotely and meet virtually or on-site as needed. Our team is UK-based with a head office near Manchester.' },
@@ -45,6 +64,7 @@ export const locationsData = [
         slug: 'manchester',
         city: 'Manchester',
         region: 'Greater Manchester',
+        localAreas: ['Manchester City Centre', 'Salford', 'Trafford', 'Stockport', 'Bolton', 'Bury', 'Oldham', 'Rochdale', 'Wigan', 'Altrincham', 'Greater Manchester'],
         targetKeyword: 'digital marketing agency Manchester',
         metaTitle: 'Digital Marketing Agency Manchester | SEO & PPC | Webspires',
         metaDescription: 'Webspires is a digital marketing agency near Manchester helping local businesses grow with SEO, Google Ads, and high-converting websites. Free strategy call.',
@@ -67,10 +87,10 @@ export const locationsData = [
         ],
         services: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Google Guarantee', href: '/services/google-guarantee' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
+            { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
             { q: 'Are you actually based in Manchester?', a: 'Our head office is in Bolton, within Greater Manchester, so we know the local market and can meet Manchester clients in person.' },
@@ -83,6 +103,7 @@ export const locationsData = [
         slug: 'birmingham',
         city: 'Birmingham',
         region: 'West Midlands',
+        localAreas: ['Birmingham City Centre', 'Solihull', 'Sutton Coldfield', 'Edgbaston', 'Digbeth', 'Wolverhampton', 'Coventry', 'Dudley', 'Walsall', 'West Midlands'],
         targetKeyword: 'digital marketing agency Birmingham',
         metaTitle: 'Digital Marketing Agency Birmingham | SEO & PPC | Webspires',
         metaDescription: 'Webspires helps Birmingham and West Midlands businesses grow with local SEO, Google Ads, and conversion-focused websites. Book a free strategy call.',
@@ -105,10 +126,10 @@ export const locationsData = [
         ],
         services: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-development' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
+            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'Meta Ads', href: '/services/meta-ads-management' },
         ],
         faqs: [
             { q: 'Do you work with Birmingham businesses remotely?', a: 'Yes. We work with West Midlands businesses remotely, with virtual or on-site meetings as required.' },
@@ -121,6 +142,7 @@ export const locationsData = [
         slug: 'leeds',
         city: 'Leeds',
         region: 'West Yorkshire',
+        localAreas: ['Leeds City Centre', 'Headingley', 'Horsforth', 'Pudsey', 'Morley', 'Wakefield', 'Bradford', 'Harrogate', 'West Yorkshire'],
         targetKeyword: 'digital marketing agency Leeds',
         metaTitle: 'Digital Marketing Agency Leeds | SEO & PPC | Webspires',
         metaDescription: 'Webspires helps Leeds and West Yorkshire businesses grow with local SEO, Google Ads, and websites built to convert. Book a free strategy call.',
@@ -143,10 +165,10 @@ export const locationsData = [
         ],
         services: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-development' },
-            { label: 'Social Media Marketing', href: '/services/social-media-marketing' },
+            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
             { q: 'Do you specialise in Leeds professional firms?', a: 'We work with many professional and service firms. In Leeds that often means authority content plus a clearer position to avoid price-only competition.' },
@@ -159,6 +181,7 @@ export const locationsData = [
         slug: 'glasgow',
         city: 'Glasgow',
         region: 'Scotland',
+        localAreas: ['Glasgow City Centre', 'West End', 'Merchant City', 'Paisley', 'East Kilbride', 'Clydebank', 'Hamilton', 'Motherwell', 'Greater Glasgow & Central Belt'],
         targetKeyword: 'digital marketing agency Glasgow',
         metaTitle: 'Digital Marketing Agency Glasgow | SEO & PPC | Webspires',
         metaDescription: 'Webspires helps Glasgow and Scotland businesses grow with local SEO, Google Ads, and high-converting websites. Book a free strategy call.',
@@ -181,10 +204,10 @@ export const locationsData = [
         ],
         services: [
             { label: 'SEO Services', href: '/services/seo' },
-            { label: 'Google Ads', href: '/services/google-ads' },
+            { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Google Guarantee', href: '/services/google-guarantee' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'Meta Ads', href: '/services/meta-ads' },
+            { label: 'Meta Ads', href: '/services/meta-ads-management' },
         ],
         faqs: [
             { q: 'Do you work with businesses in Scotland?', a: 'Yes. We work with Glasgow and Scotland-wide businesses remotely, with virtual meetings and on-site when useful.' },

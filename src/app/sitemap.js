@@ -2,6 +2,8 @@ import { siteConfig } from '@/config/site';
 import { servicesData } from '@/data/services';
 import { industriesData } from '@/data/industries';
 import { locationsData } from '@/data/locations';
+import { googleAdsChildren } from '@/data/googleAdsChildren';
+import { caseStudyCategories } from '@/data/caseStudyCategories';
 import { getAllPublishedSlugs } from '@/lib/blog';
 
 export const revalidate = 3600;
@@ -12,13 +14,15 @@ export default async function sitemap() {
 
     const staticRoutes = [
         { path: '/', priority: 1.0, changeFrequency: 'weekly' },
-        { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
+        { path: '/about-us', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
         { path: '/industries', priority: 0.8, changeFrequency: 'monthly' },
         { path: '/locations', priority: 0.8, changeFrequency: 'monthly' },
+        { path: '/case-studies', priority: 0.8, changeFrequency: 'monthly' },
+        { path: '/free-digital-marketing-audit', priority: 0.9, changeFrequency: 'monthly' },
         { path: '/projects', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/blog', priority: 0.9, changeFrequency: 'daily' },
-        { path: '/contact-us', priority: 0.6, changeFrequency: 'yearly' },
+        { path: '/contact', priority: 0.6, changeFrequency: 'yearly' },
         { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' },
         { path: '/terms-conditions', priority: 0.3, changeFrequency: 'yearly' },
     ].map((r) => ({
@@ -49,6 +53,20 @@ export default async function sitemap() {
         priority: 0.7,
     }));
 
+    const googleAdsChildRoutes = googleAdsChildren.map((c) => ({
+        url: `${base}/services/google-ads-management/${c.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+    }));
+
+    const caseStudyRoutes = caseStudyCategories.map((c) => ({
+        url: `${base}/case-studies/${c.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }));
+
     let blogRoutes = [];
     try {
         const posts = await getAllPublishedSlugs();
@@ -62,5 +80,13 @@ export default async function sitemap() {
         // DB unavailable — ship the rest of the sitemap anyway.
     }
 
-    return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...locationRoutes, ...blogRoutes];
+    return [
+        ...staticRoutes,
+        ...serviceRoutes,
+        ...googleAdsChildRoutes,
+        ...industryRoutes,
+        ...locationRoutes,
+        ...caseStudyRoutes,
+        ...blogRoutes,
+    ];
 }

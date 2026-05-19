@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Shopify Development Services UK | Webspires',
     description: 'Webspires provides Shopify development services through an experienced team of Shopify developers and Shopify experts to give your customers a remarkable online shopping experience.',
-    alternates: { canonical: 'https://webspires.co.uk/services/shopify/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/shopify-development/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -251,7 +251,7 @@ export default function ShopifyServicesPage() {
                     </div>
                 </div>
             </section>
-            <OtherServicesSection currentSlug="shopify" />
+            <OtherServicesSection currentSlug="shopify-development" />
         </main>
     );
 }

@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 const industries = [
     { name: 'Local businesses', desc: 'Local SEO, Google Business Profile & lead generation.', href: '/services/seo' },
-    { name: 'Ecommerce brands', desc: 'Shopify, paid social, shopping ads & CRO.', href: '/services/shopify' },
-    { name: 'B2B companies', desc: 'Demand generation, content & long sales-cycle nurture.', href: '/services/google-ads' },
+    { name: 'Ecommerce brands', desc: 'Shopify, paid social, shopping ads & CRO.', href: '/services/shopify-development' },
+    { name: 'B2B companies', desc: 'Demand generation, content & long sales-cycle nurture.', href: '/services/google-ads-management' },
     { name: 'Startups', desc: 'Launch sites, growth experiments & rapid iteration.', href: '/services/web-design' },
     { name: 'Professional services', desc: 'Authority content, SEO & qualified enquiry generation.', href: '/services/seo' },
-    { name: 'Healthcare & clinics', desc: 'Local visibility, trust signals & compliant campaigns.', href: '/services/google-ads' },
-    { name: 'Real estate', desc: 'High-intent search, landing pages & lead capture.', href: '/services/meta-ads' },
-    { name: 'Restaurants & hospitality', desc: 'Local search, bookings & social engagement.', href: '/services/social-media-marketing' },
+    { name: 'Healthcare & clinics', desc: 'Local visibility, trust signals & compliant campaigns.', href: '/services/google-ads-management' },
+    { name: 'Real estate', desc: 'High-intent search, landing pages & lead capture.', href: '/services/meta-ads-management' },
+    { name: 'Restaurants & hospitality', desc: 'Local search, bookings & social engagement.', href: '/services/social-media-management' },
 ];
 
 export default function IndustrySolutions() {

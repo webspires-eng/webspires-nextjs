@@ -41,7 +41,7 @@ export default function UkServiceArea() {
                             {locations.map((city) => (
                                 <Link
                                     key={city}
-                                    href="/contact-us"
+                                    href="/contact"
                                     className="group inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-[14px] font-bold text-[#1a1a2e] transition-colors hover:border-primary hover:text-primary"
                                 >
                                     <svg

@@ -9,7 +9,7 @@ const fallback = [
     },
     {
         title: 'SEO vs PPC: Which Should Your Business Start With?',
-        href: '/services/google-ads',
+        href: '/services/google-ads-management',
     },
     {
         title: 'What Should Be Included in a Digital Marketing Audit?',
