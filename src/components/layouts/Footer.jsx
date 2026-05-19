@@ -4,18 +4,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const services = [
-    { label: 'CRM Services', href: '/services/crm-development-services' },
-    { label: 'Social Media Services', href: '/services/social-media-management-services' },
-    { label: 'Google Ads Services', href: '/services/google-ads-management-services' },
-    { label: 'Meta Ads Services', href: '/services/meta-ads-agency-services' },
-    { label: 'SEO Services', href: '/services/professional-seo-services' },
-    { label: 'Shopify Development Services', href: '/services/shopify-development-services' },
-    { label: 'Google Guarantee Services', href: '/services/google-guarantee-services' },
+    { label: 'CRM Services', href: '/services/crm-development' },
+    { label: 'Social Media Services', href: '/services/social-media-marketing' },
+    { label: 'Google Ads Services', href: '/services/google-ads' },
+    { label: 'Meta Ads Services', href: '/services/meta-ads' },
+    { label: 'SEO Services', href: '/services/seo' },
+    { label: 'Shopify Development Services', href: '/services/shopify' },
+    { label: 'Google Guarantee Services', href: '/services/google-guarantee' },
 ]
 
 const company = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
+    { label: 'Industries', href: '/industries' },
+    { label: 'Locations', href: '/locations' },
     { label: 'Projects', href: '/projects' },
     { label: 'Contact Us', href: '/contact-us' },
     { label: 'Terms & Conditions', href: '/terms-conditions' },

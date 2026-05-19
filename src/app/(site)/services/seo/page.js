@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Professional SEO Services UK | Webspires',
     description: 'Webspires specializes in providing customized search engine optimisation services to elevate your online visibility and drive organic traffic.',
-    alternates: { canonical: 'https://webspires.co.uk/professional-seo-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/seo/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -285,7 +285,7 @@ export default function SEOServicesPage() {
                     </div>
                 </div>
             </section>
-            <OtherServicesSection currentSlug="professional-seo-services" />
+            <OtherServicesSection currentSlug="seo" />
         </main>
     );
 }

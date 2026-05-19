@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Meta Ads Agency Services UK | Webspires',
     description: 'If you want a powerful platform to engage with the targeted audience, Meta ads are the solution.',
-    alternates: { canonical: 'https://webspires.co.uk/meta-ads-agency-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/meta-ads/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -296,7 +296,7 @@ export default function MetaAdsAgencyPage() {
                 </div>
             </section>
 
-            <OtherServicesSection currentSlug="meta-ads-agency-services" />
+            <OtherServicesSection currentSlug="meta-ads" />
         </main>
     );
 }

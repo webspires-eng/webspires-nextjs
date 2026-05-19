@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Social Media Management Services UK | Webspires',
     description: 'If you are looking for professional social media management services, Webspires is here to help your business connect and engage with a greater audience.',
-    alternates: { canonical: 'https://webspires.co.uk/social-media-management-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/social-media-marketing/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -427,7 +427,7 @@ export default function SocialMediaManagementPage() {
                 </div>
             </section>
 
-            <OtherServicesSection currentSlug="social-media-management-services" />
+            <OtherServicesSection currentSlug="social-media-marketing" />
         </main>
     );
 }

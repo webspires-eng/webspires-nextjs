@@ -1,18 +1,18 @@
 import Link from 'next/link'
-import { servicesData } from '@/data/services'
+import { locationsData } from '@/data/locations'
 
 export const metadata = {
-    title: 'Our Services | Digital Marketing & Web Design Agency UK | Webspires',
-    description: 'Webspires offers web design, SEO, Google Ads, Meta Ads, Shopify development, CRM systems, and social media management for UK businesses. Explore all services.',
-    alternates: { canonical: 'https://webspires.co.uk/services/' },
+    title: 'Locations We Serve | UK Digital Marketing Agency | Webspires',
+    description: 'Webspires works with businesses across the UK — London, Manchester, Birmingham, Leeds, and Glasgow — with locally targeted SEO, ads, and web design.',
+    alternates: { canonical: 'https://webspires.co.uk/locations/' },
     openGraph: {
-        title: 'Our Services | Webspires UK Digital Agency',
-        description: 'Full-service digital agency for UK businesses — web design, SEO, paid ads, CRM, Shopify & social media.',
-        url: 'https://webspires.co.uk/services/',
+        title: 'Locations We Serve | Webspires UK Digital Agency',
+        description: 'Locally targeted digital marketing for businesses in London, Manchester, Birmingham, Leeds, and Glasgow.',
+        url: 'https://webspires.co.uk/locations/',
     },
 }
 
-export default function ServicesListPage() {
+export default function LocationsHubPage() {
     return (
         <main>
             {/* Hero */}
@@ -24,26 +24,25 @@ export default function ServicesListPage() {
                         <ol className="flex items-center gap-2 text-[13px] text-gray-500">
                             <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
                             <li aria-hidden="true" className="text-gray-600">/</li>
-                            <li className="text-gray-300 font-medium">Services</li>
+                            <li className="text-gray-300 font-medium">Locations</li>
                         </ol>
                     </nav>
-                    <div className="max-w-[700px]">
+                    <div className="max-w-[720px]">
                         <span className="inline-block bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-                            What We Do
+                            Where We Work
                         </span>
-                        <h1 className="text-[36px] sm:text-[48px] lg:text-[58px] font-extrabold text-white leading-[1.05] mb-5">
-                            UK Digital Services That{' '}
-                            <span className="text-primary">Drive Real Growth</span>
+                        <h1 className="text-[36px] sm:text-[48px] lg:text-[56px] font-extrabold text-white leading-[1.05] mb-5">
+                            Locally Targeted Marketing{' '}
+                            <span className="text-primary">Across the UK</span>
                         </h1>
-                        <p className="text-gray-400 text-[17px] leading-relaxed mb-8 max-w-[560px]">
-                            From stunning websites to ROI-focused ad campaigns — Webspires delivers
-                            every digital service your UK business needs to grow online, all under one roof.
+                        <p className="text-gray-400 text-[17px] leading-relaxed mb-8 max-w-[620px]">
+                            We work with businesses nationwide, but local search is rarely won with
+                            national campaigns. We tailor strategy to how customers search in your area.
                         </p>
-                        <a href="https://call.webspires.co.uk?utm_source=serviceslist"
+                        <a href="https://call.webspires.co.uk?utm_source=locationshub"
                             target="_blank" rel="noopener noreferrer"
-                            id="services-list-cta"
                             className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[14px] px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5">
-                            Book a Free Strategy Call
+                            Book a Local Growth Audit
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -52,46 +51,35 @@ export default function ServicesListPage() {
                 </div>
             </section>
 
-            {/* Services grid */}
-            <section aria-labelledby="services-list-heading" className="bg-[#faf9f7] py-20 lg:py-28">
+            {/* Locations grid */}
+            <section aria-labelledby="locations-heading" className="bg-[#faf9f7] py-20 lg:py-28">
                 <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
-                    <h2 id="services-list-heading" className="sr-only">All Services</h2>
+                    <h2 id="locations-heading" className="sr-only">All Locations</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {servicesData.map((svc) => (
+                        {locationsData.map((loc) => (
                             <Link
-                                key={svc.slug}
-                                href={`/services/${svc.slug}`}
-                                id={`service-list-${svc.slug}`}
+                                key={loc.slug}
+                                href={`/locations/${loc.slug}`}
                                 className="group bg-white rounded-2xl p-7 border border-gray-100 hover:border-transparent hover:shadow-[0_8px_40px_rgba(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-300 no-underline"
                             >
-                                {/* Icon circle */}
-                                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                                    style={{ background: `${svc.color}18` }}>
-                                    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke={svc.color}
+                                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-primary/10 transition-transform duration-300 group-hover:scale-110">
+                                    <svg className="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                        <path d={svc.iconPath} />
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                        <circle cx="12" cy="9" r="2.5" />
                                     </svg>
                                 </div>
-
-                                {/* Category */}
-                                <p className="text-[11px] font-extrabold uppercase tracking-widest mb-1.5" style={{ color: svc.color }}>
-                                    {svc.category}
+                                <p className="text-[11px] font-extrabold uppercase tracking-widest mb-1.5 text-primary">
+                                    {loc.region}
                                 </p>
-
-                                {/* Title */}
                                 <h3 className="text-[19px] font-extrabold text-[#1a1a2e] mb-3 group-hover:text-primary transition-colors duration-200">
-                                    {svc.title}
+                                    {loc.city}
                                 </h3>
-
-                                {/* Tagline */}
                                 <p className="text-[14px] text-gray-500 leading-relaxed mb-5">
-                                    {svc.tagline}
+                                    {loc.heroSub}
                                 </p>
-
-                                {/* Learn more */}
-                                <div className="flex items-center gap-1.5 text-[13px] font-bold transition-colors duration-200"
-                                    style={{ color: svc.color }}>
-                                    Learn More
+                                <div className="flex items-center gap-1.5 text-[13px] font-bold text-primary transition-colors duration-200">
+                                    Digital Marketing in {loc.city}
                                     <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
                                         viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -107,16 +95,15 @@ export default function ServicesListPage() {
             <section className="bg-[#1a1a2e] py-16 lg:py-20">
                 <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
                     <h2 className="text-[28px] sm:text-[36px] font-extrabold text-white mb-4">
-                        Not Sure Which Service You Need?
+                        Outside These Cities?
                     </h2>
                     <p className="text-gray-400 text-[16px] mb-8 max-w-[480px] mx-auto">
-                        Book a free 30-minute strategy call. We&apos;ll assess your business, identify the
-                        biggest opportunities, and recommend the right mix of services.
+                        We work with businesses right across the UK. Book a free strategy call and
+                        we&apos;ll tailor an approach to your specific area.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <a href="https://call.webspires.co.uk?utm_source=servicebottomcta"
+                        <a href="https://call.webspires.co.uk?utm_source=locationsbottomcta"
                             target="_blank" rel="noopener noreferrer"
-                            id="services-bottom-cta"
                             className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[15px] px-8 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5">
                             Book a Free Call
                         </a>

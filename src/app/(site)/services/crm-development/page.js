@@ -5,7 +5,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'CRM Development Services UK | Webspires',
     description: 'Empowering Your Business with CRM Development Services. Full suite platform for CRM development, data migration, analytics, and more.',
-    alternates: { canonical: 'https://webspires.co.uk/crm-development-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/crm-development/' }
 };
 
 const crmColor = '#EE314F';
@@ -360,7 +360,7 @@ export default function CrmDevelopmentServicesPage() {
                     </div>
                 </div>
             </section>
-            <OtherServicesSection currentSlug="crm-development-services" />
+            <OtherServicesSection currentSlug="crm-development" />
         </main>
     );
 }

@@ -43,7 +43,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'professional-seo-services',
+        slug: 'seo',
         title: 'SEO Services',
         shortTitle: 'SEO',
         tagline: 'Rank Higher. Get Found. Grow Faster.',
@@ -84,7 +84,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'google-ads-management-services',
+        slug: 'google-ads',
         title: 'Google Ads Services',
         shortTitle: 'Google Ads',
         tagline: 'More Leads. Better ROI. Every Day.',
@@ -125,7 +125,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'meta-ads-agency-services',
+        slug: 'meta-ads',
         title: 'Meta Ads Services',
         shortTitle: 'Meta Ads',
         tagline: 'Facebook & Instagram Ads That Convert.',
@@ -166,7 +166,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'shopify-development-services',
+        slug: 'shopify',
         title: 'Shopify Development Services',
         shortTitle: 'Shopify',
         tagline: 'eCommerce Stores Built to Sell in the UK.',
@@ -207,7 +207,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'crm-development-services',
+        slug: 'crm-development',
         title: 'CRM Development Services',
         shortTitle: 'CRM',
         tagline: 'Manage Leads. Close More Deals. Automate Growth.',
@@ -248,7 +248,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'social-media-management-services',
+        slug: 'social-media-marketing',
         title: 'Social Media Management',
         shortTitle: 'Social Media',
         tagline: 'Grow Your Audience. Build Your Brand. Drive Sales.',
@@ -289,7 +289,7 @@ export const servicesData = [
         ],
     },
     {
-        slug: 'google-guarantee-services',
+        slug: 'google-guarantee',
         title: 'Google Guarantee Services',
         shortTitle: 'Google Guarantee',
         tagline: 'Become a trustworthiness service provider.',

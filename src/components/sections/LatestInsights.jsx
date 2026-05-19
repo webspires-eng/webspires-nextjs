@@ -5,11 +5,11 @@ import { getLatestPosts } from '@/lib/blog';
 const fallback = [
     {
         title: 'How to Know If Your Website Is Losing Leads',
-        href: '/services/professional-seo-services',
+        href: '/services/seo',
     },
     {
         title: 'SEO vs PPC: Which Should Your Business Start With?',
-        href: '/services/google-ads-management-services',
+        href: '/services/google-ads',
     },
     {
         title: 'What Should Be Included in a Digital Marketing Audit?',

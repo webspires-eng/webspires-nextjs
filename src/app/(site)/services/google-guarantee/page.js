@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Google Guarantee Services UK | Webspires',
     description: 'Webspires provides Google Guarantee Services to businesses for their growth. A Google Guaranteed business attracts more customers since it is the most reliable service available locally.',
-    alternates: { canonical: 'https://webspires.co.uk/google-guarantee-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/google-guarantee/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -362,7 +362,7 @@ export default function GoogleGuaranteeServicesPage() {
                     </div>
                 </div>
             </section>
-            <OtherServicesSection currentSlug="google-guarantee-services" />
+            <OtherServicesSection currentSlug="google-guarantee" />
         </main>
     );
 }

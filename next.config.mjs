@@ -43,6 +43,45 @@ const nextConfig = {
     optimizeCss: false, // keep off unless critters is installed
   },
 
+  // Permanent redirects: old keyword-stuffed service URLs (and the
+  // previously-mismatched bare canonicals) → clean silo URLs.
+  async redirects() {
+    const map = [
+      ['professional-seo-services', 'seo'],
+      ['google-ads-management-services', 'google-ads'],
+      ['meta-ads-agency-services', 'meta-ads'],
+      ['shopify-development-services', 'shopify'],
+      ['crm-development-services', 'crm-development'],
+      ['social-media-management-services', 'social-media-marketing'],
+      ['google-guarantee-services', 'google-guarantee'],
+    ];
+
+    const redirects = [];
+    for (const [oldSlug, newSlug] of map) {
+      // Old path under /services/
+      redirects.push({
+        source: `/services/${oldSlug}`,
+        destination: `/services/${newSlug}`,
+        permanent: true,
+      });
+      // Legacy bare path (matched the old, incorrect canonical)
+      redirects.push({
+        source: `/${oldSlug}`,
+        destination: `/services/${newSlug}`,
+        permanent: true,
+      });
+    }
+
+    // Old singular services hub canonical
+    redirects.push({
+      source: '/service',
+      destination: '/services',
+      permanent: true,
+    });
+
+    return redirects;
+  },
+
   // Security / performance headers
   async headers() {
     return [

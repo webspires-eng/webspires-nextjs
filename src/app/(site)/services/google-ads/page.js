@@ -4,7 +4,7 @@ import OtherServicesSection from '@/components/sections/OtherServicesSection';
 export const metadata = {
     title: 'Google Ads Management Services UK | Webspires',
     description: 'Google ads management services are designed to help you grow your business online. Google Ads marketing Agency helps to achieve measurable results.',
-    alternates: { canonical: 'https://webspires.co.uk/google-ads-management-services/' }
+    alternates: { canonical: 'https://webspires.co.uk/services/google-ads/' }
 };
 
 const pageColor = '#EE314F'; // Brand primary color
@@ -378,7 +378,7 @@ export default function GoogleAdsManagementPage() {
                     </div>
                 </div>
             </section>
-            <OtherServicesSection currentSlug="google-ads-management-services" />
+            <OtherServicesSection currentSlug="google-ads" />
         </main>
     );
 }

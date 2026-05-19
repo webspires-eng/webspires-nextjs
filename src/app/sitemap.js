@@ -1,5 +1,7 @@
 import { siteConfig } from '@/config/site';
 import { servicesData } from '@/data/services';
+import { industriesData } from '@/data/industries';
+import { locationsData } from '@/data/locations';
 import { getAllPublishedSlugs } from '@/lib/blog';
 
 export const revalidate = 3600;
@@ -12,6 +14,8 @@ export default async function sitemap() {
         { path: '/', priority: 1.0, changeFrequency: 'weekly' },
         { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/services', priority: 0.9, changeFrequency: 'monthly' },
+        { path: '/industries', priority: 0.8, changeFrequency: 'monthly' },
+        { path: '/locations', priority: 0.8, changeFrequency: 'monthly' },
         { path: '/projects', priority: 0.7, changeFrequency: 'monthly' },
         { path: '/blog', priority: 0.9, changeFrequency: 'daily' },
         { path: '/contact-us', priority: 0.6, changeFrequency: 'yearly' },
@@ -31,6 +35,20 @@ export default async function sitemap() {
         priority: 0.8,
     }));
 
+    const industryRoutes = industriesData.map((i) => ({
+        url: `${base}/industries/${i.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+    }));
+
+    const locationRoutes = locationsData.map((l) => ({
+        url: `${base}/locations/${l.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+    }));
+
     let blogRoutes = [];
     try {
         const posts = await getAllPublishedSlugs();
@@ -44,5 +62,5 @@ export default async function sitemap() {
         // DB unavailable — ship the rest of the sitemap anyway.
     }
 
-    return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+    return [...staticRoutes, ...serviceRoutes, ...industryRoutes, ...locationRoutes, ...blogRoutes];
 }

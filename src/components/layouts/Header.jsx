@@ -10,13 +10,38 @@ const navLinks = [
         href: '/services',
         hasDropdown: true,
         children: [
-            { label: 'CRM Services', href: '/services/crm-development-services' },
-            { label: 'Social Media Services', href: '/services/social-media-management-services' },
-            { label: 'Google Ads Services', href: '/services/google-ads-management-services' },
-            { label: 'Meta Ads Services', href: '/services/meta-ads-agency-services' },
-            { label: 'SEO Services', href: '/services/professional-seo-services' },
-            { label: 'Shopify Development Services', href: '/services/shopify-development-services' },
-            { label: 'Google Guarantee Services', href: '/services/google-guarantee-services' },
+            { label: 'CRM Services', href: '/services/crm-development' },
+            { label: 'Social Media Services', href: '/services/social-media-marketing' },
+            { label: 'Google Ads Services', href: '/services/google-ads' },
+            { label: 'Meta Ads Services', href: '/services/meta-ads' },
+            { label: 'SEO Services', href: '/services/seo' },
+            { label: 'Shopify Development Services', href: '/services/shopify' },
+            { label: 'Google Guarantee Services', href: '/services/google-guarantee' },
+        ],
+    },
+    {
+        label: 'Industries',
+        href: '/industries',
+        hasDropdown: true,
+        children: [
+            { label: 'Ecommerce', href: '/industries/ecommerce' },
+            { label: 'Local Businesses', href: '/industries/local-businesses' },
+            { label: 'B2B', href: '/industries/b2b' },
+            { label: 'Healthcare', href: '/industries/healthcare' },
+            { label: 'Real Estate', href: '/industries/real-estate' },
+            { label: 'Professional Services', href: '/industries/professional-services' },
+        ],
+    },
+    {
+        label: 'Locations',
+        href: '/locations',
+        hasDropdown: true,
+        children: [
+            { label: 'London', href: '/locations/london' },
+            { label: 'Manchester', href: '/locations/manchester' },
+            { label: 'Birmingham', href: '/locations/birmingham' },
+            { label: 'Leeds', href: '/locations/leeds' },
+            { label: 'Glasgow', href: '/locations/glasgow' },
         ],
     },
     { label: 'About Us', href: '/about', hasDropdown: false },
@@ -225,6 +250,38 @@ const Header = () => {
                             {/* Service sub-links */}
                             <ul className="list-none m-0 pl-3 pb-1" role="list">
                                 {navLinks[0].children.map((child) => (
+                                    <li key={child.label}>
+                                        <Link href={child.href} onClick={() => setMobileOpen(false)}
+                                            className="block py-2 px-2 text-[13px] font-medium text-gray-500 no-underline border-l-2 border-gray-100 hover:text-primary hover:border-primary transition-colors duration-150">
+                                            {child.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                        <li>
+                            <Link href="/industries" onClick={() => setMobileOpen(false)}
+                                className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
+                                Industries
+                            </Link>
+                            <ul className="list-none m-0 pl-3 pb-1" role="list">
+                                {navLinks[1].children.map((child) => (
+                                    <li key={child.label}>
+                                        <Link href={child.href} onClick={() => setMobileOpen(false)}
+                                            className="block py-2 px-2 text-[13px] font-medium text-gray-500 no-underline border-l-2 border-gray-100 hover:text-primary hover:border-primary transition-colors duration-150">
+                                            {child.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </li>
+                        <li>
+                            <Link href="/locations" onClick={() => setMobileOpen(false)}
+                                className="block py-3 px-1 text-[15px] font-semibold text-[#3a3a3a] no-underline border-b border-black/[0.06] transition-colors duration-200 hover:text-primary">
+                                Locations
+                            </Link>
+                            <ul className="list-none m-0 pl-3 pb-1" role="list">
+                                {navLinks[2].children.map((child) => (
                                     <li key={child.label}>
                                         <Link href={child.href} onClick={() => setMobileOpen(false)}
                                             className="block py-2 px-2 text-[13px] font-medium text-gray-500 no-underline border-l-2 border-gray-100 hover:text-primary hover:border-primary transition-colors duration-150">
