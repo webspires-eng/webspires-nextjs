@@ -51,7 +51,7 @@ export const locationsData = [
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Meta Ads', href: '/services/meta-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
         ],
         faqs: [
             { q: 'Do you have an office in London?', a: 'We work with London businesses remotely and meet virtually or on-site as needed. Our team is UK-based with a head office near Manchester.' },
@@ -128,7 +128,7 @@ export const locationsData = [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
             { label: 'Meta Ads', href: '/services/meta-ads-management' },
         ],
         faqs: [
@@ -167,7 +167,7 @@ export const locationsData = [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
             { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [

@@ -12,10 +12,10 @@ const services = [
                 <path d="M14 18l-6 6 6 6M34 18l6 6-6 6M28 12l-8 24" stroke="#EE314F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         ),
-        title: 'CRM Services',
+        title: 'CRM Development',
         description: 'Streamline your customer relationships with bespoke CRM development. We build systems that help you track, manage and convert leads more effectively.',
         tags: ['CRM Development', 'Automation', 'Integration', 'Reporting'],
-        href: '/services/crm-services',
+        href: '/services/crm-development',
     },
     {
         id: 'google-ads',

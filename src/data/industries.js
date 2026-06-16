@@ -70,7 +70,7 @@ export const industriesData = [
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Meta Ads', href: '/services/meta-ads-management' },
             { label: 'Shopify Development', href: '/services/shopify-development' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
         ],
         faqs: [
             { q: 'Which platforms do you work with?', a: 'We work most often with Shopify and WooCommerce, but the strategy and marketing work apply to any ecommerce platform.' },
@@ -173,7 +173,7 @@ export const industriesData = [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
             { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
@@ -226,7 +226,7 @@ export const industriesData = [
             { label: 'Web Design', href: '/services/web-design' },
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Google Guarantee', href: '/services/google-guarantee' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
         ],
         faqs: [
             { q: 'Can you advertise regulated treatments?', a: 'For eligible treatments, yes — within the relevant advertising rules. We structure campaigns carefully and avoid claims that are not allowed.' },
@@ -278,7 +278,7 @@ export const industriesData = [
             { label: 'Google Ads', href: '/services/google-ads-management' },
             { label: 'Meta Ads', href: '/services/meta-ads-management' },
             { label: 'Web Design', href: '/services/web-design' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
         ],
         faqs: [
             { q: 'Can you compete with the big property portals?', a: 'Not by replacing them, but by winning local searches and direct valuation leads they do not fully capture.' },
@@ -329,7 +329,7 @@ export const industriesData = [
             { label: 'SEO Services', href: '/services/seo' },
             { label: 'Web Design', href: '/services/web-design' },
             { label: 'Google Ads', href: '/services/google-ads-management' },
-            { label: 'CRM Development', href: '/services/crm-services' },
+            { label: 'CRM Development', href: '/services/crm-development' },
             { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [

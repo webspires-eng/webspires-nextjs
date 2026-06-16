@@ -57,7 +57,7 @@ export const CONTENT_TYPES = {
             '/services/google-ads-management',
             '/services/meta-ads-management',
             '/services/shopify-development',
-            '/services/crm-services',
+            '/services/crm-development',
             '/services/social-media-management',
             '/services/google-guarantee',
         ],
@@ -356,6 +356,195 @@ export const CONTENT_TYPES = {
                 label: 'FAQs',
                 type: 'objectList',
                 subfields: FAQ_SUB,
+            },
+        ],
+    },
+
+    servicePages: {
+        key: 'servicePages',
+        label: 'Service Pages',
+        singular: 'Service Page',
+        titleField: 'h1',
+        slugRequired: true,
+        slugFromField: 'h1',
+        basePath: '/services',
+        // Bespoke pages are revalidated by their concrete path on edit.
+        indexPath: '/services/crm-development',
+        dynamicPath: null,
+        fields: [
+            { name: 'metaTitle', label: 'Meta title', type: 'text' },
+            { name: 'metaDescription', label: 'Meta description', type: 'textarea' },
+            { name: 'h1', label: 'H1 heading', type: 'text', required: true },
+            { name: 'heroSub', label: 'Hero subheading', type: 'textarea', rows: 4 },
+            { name: 'heroChips', label: 'Hero trust chips', type: 'stringList' },
+
+            { name: 's2Heading', label: 'S2 — heading', type: 'text' },
+            { name: 's2Definition', label: 'S2 — definition', type: 'textarea', rows: 4 },
+            {
+                name: 'buildRoutes',
+                label: 'S2 — build routes',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+            { name: 's2Adoption', label: 'S2 — adoption line', type: 'textarea' },
+
+            { name: 's3Heading', label: 'S3 — heading', type: 'text' },
+            { name: 's3Intro', label: 'S3 — intro', type: 'textarea' },
+            {
+                name: 'comparisonRows',
+                label: 'S3 — comparison rows',
+                type: 'objectList',
+                subfields: [
+                    { name: 'factor', label: 'Factor', type: 'text' },
+                    { name: 'offTheShelf', label: 'Off-the-shelf', type: 'textarea' },
+                    { name: 'bespoke', label: 'Bespoke build', type: 'textarea' },
+                ],
+            },
+            { name: 's3Verdict', label: 'S3 — verdict', type: 'textarea', rows: 4 },
+
+            { name: 's4Heading', label: 'S4 — heading', type: 'text' },
+            { name: 's4Intro', label: 'S4 — intro', type: 'textarea' },
+            {
+                name: 'outgrownSigns',
+                label: 'S4 — signs',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's5Heading', label: 'S5 — heading', type: 'text' },
+            {
+                name: 'services',
+                label: 'S5 — services',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's6Heading', label: 'S6 — heading', type: 'text' },
+            {
+                name: 'features',
+                label: 'S6 — features',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Feature', type: 'text' },
+                    { name: 'outcome', label: 'Outcome', type: 'textarea' },
+                ],
+            },
+
+            { name: 's7Heading', label: 'S7 — heading', type: 'text' },
+            { name: 's7Body', label: 'S7 — body', type: 'textarea', rows: 5 },
+            { name: 'integrations', label: 'S7 — integrations', type: 'stringList' },
+
+            { name: 's8Heading', label: 'S8 — heading', type: 'text' },
+            { name: 's8Intro', label: 'S8 — intro', type: 'textarea' },
+            {
+                name: 'migrationSteps',
+                label: 'S8 — migration steps',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's9Heading', label: 'S9 — heading', type: 'text' },
+            { name: 's9Intro', label: 'S9 — intro', type: 'textarea' },
+            {
+                name: 'securityPoints',
+                label: 'S9 — security points',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's10Heading', label: 'S10 — heading', type: 'text' },
+            { name: 's10Intro', label: 'S10 — intro', type: 'textarea' },
+            {
+                name: 'processSteps',
+                label: 'S10 — process steps',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's11Heading', label: 'S11 — heading', type: 'text' },
+            {
+                name: 'industries',
+                label: 'S11 — industries',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Use case', type: 'textarea' },
+                    { name: 'href', label: 'Link (optional)', type: 'text' },
+                ],
+            },
+
+            { name: 's12Heading', label: 'S12 — heading', type: 'text' },
+            { name: 's12Intro', label: 'S12 — intro', type: 'textarea' },
+            {
+                name: 'costDrivers',
+                label: 'S12 — cost drivers',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+            {
+                name: 'pricingBands',
+                label: 'S12 — pricing bands',
+                type: 'objectList',
+                hint: 'Set the Range to a validated £ band (e.g. “£4,000 to £9,000”) when ready.',
+                subfields: [
+                    { name: 'name', label: 'Tier name', type: 'text' },
+                    { name: 'range', label: 'Range / price', type: 'text' },
+                    { name: 'includes', label: 'Includes', type: 'textarea' },
+                ],
+            },
+            { name: 's12Note', label: 'S12 — note', type: 'textarea' },
+
+            { name: 's13Heading', label: 'S13 — heading', type: 'text' },
+            {
+                name: 'whyChoose',
+                label: 'S13 — edges',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+
+            { name: 's14Heading', label: 'S14 — heading', type: 'text' },
+            { name: 'caseProblem', label: 'S14 — problem', type: 'textarea' },
+            { name: 'caseSolution', label: 'S14 — solution', type: 'textarea' },
+            { name: 'caseOutcome', label: 'S14 — outcome', type: 'textarea' },
+            { name: 'caseMetric', label: 'S14 — highlighted metric (optional)', type: 'text' },
+            { name: 'caseNote', label: 'S14 — note', type: 'textarea' },
+
+            { name: 's15Heading', label: 'S15 — CTA heading', type: 'text' },
+            { name: 's15Body', label: 'S15 — CTA body', type: 'textarea' },
+
+            { name: 'faqHeading', label: 'FAQ — heading', type: 'text' },
+            {
+                name: 'faqs',
+                label: 'FAQ — items',
+                type: 'objectList',
+                subfields: [
+                    { name: 'q', label: 'Question', type: 'text' },
+                    { name: 'a', label: 'Answer', type: 'textarea' },
+                ],
             },
         ],
     },

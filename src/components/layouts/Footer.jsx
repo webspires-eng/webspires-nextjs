@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const services = [
-    { label: 'CRM Services', href: '/services/crm-services' },
+    { label: 'CRM Development', href: '/services/crm-development' },
     { label: 'Social Media Services', href: '/services/social-media-management' },
     { label: 'Google Ads Services', href: '/services/google-ads-management' },
     { label: 'Meta Ads Services', href: '/services/meta-ads-management' },

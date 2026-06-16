@@ -16,6 +16,7 @@ import { locationsData } from '@/data/locations';
 import { caseStudyCategories } from '@/data/caseStudyCategories';
 import { googleAdsChildren } from '@/data/googleAdsChildren';
 import { homeFaqs } from '@/data/homeFaqs';
+import { servicePagesData } from '@/data/servicePages';
 
 /* ── Seed source ───────────────────────────────────────── */
 
@@ -48,6 +49,11 @@ const SEED = {
         data: stripSlug(d),
     })),
     googleAdsChildren: googleAdsChildren.map((d, i) => ({
+        slug: d.slug,
+        order: i,
+        data: stripSlug(d),
+    })),
+    servicePages: servicePagesData.map((d, i) => ({
         slug: d.slug,
         order: i,
         data: stripSlug(d),
