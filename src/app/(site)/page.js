@@ -15,7 +15,9 @@ import Testimonials from "@/components/sections/Testimonials";
 import UkServiceArea from "@/components/sections/UkServiceArea";
 import FaqHome from "@/components/sections/FaqHome";
 import ContactCTA from "@/components/sections/ContactCTA";
-import { homeFaqs } from "@/data/homeFaqs";
+import { getContentItems } from "@/lib/content";
+
+export const revalidate = 3600;
 
 const title =
   "Digital Marketing Agency UK | SEO, PPC, Web Design & Growth Services";
@@ -41,7 +43,8 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const homeFaqs = await getContentItems("homeFaqs");
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -89,7 +92,7 @@ export default function Home() {
       {/* 15 — UK service area */}
       <UkServiceArea />
       {/* 16 — FAQ */}
-      <FaqHome />
+      <FaqHome faqs={homeFaqs} />
       {/* 18 — Final CTA / free audit */}
       <ContactCTA />
     </>

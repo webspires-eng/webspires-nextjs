@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { locationsData } from '@/data/locations'
+import { getContentItems } from '@/lib/content'
+
+export const revalidate = 3600
 
 export const metadata = {
     title: 'Locations We Serve | UK Digital Marketing Agency | Webspires',
@@ -12,7 +14,8 @@ export const metadata = {
     },
 }
 
-export default function LocationsHubPage() {
+export default async function LocationsHubPage() {
+    const locationsData = await getContentItems('locations')
     return (
         <main>
             {/* Hero */}

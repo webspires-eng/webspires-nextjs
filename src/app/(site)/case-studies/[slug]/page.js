@@ -1,14 +1,18 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { caseStudyCategories, getCaseStudyCategory } from '@/data/caseStudyCategories'
+import { getContentItems, getContentItem } from '@/lib/content'
+
+export const revalidate = 3600
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-    return caseStudyCategories.map((c) => ({ slug: c.slug }))
+    const items = await getContentItems('caseStudyCategories')
+    return items.map((c) => ({ slug: c.slug }))
 }
 
 export async function generateMetadata({ params }) {
     const { slug } = await params
-    const cs = getCaseStudyCategory(slug)
+    const cs = await getContentItem('caseStudyCategories', slug)
     if (!cs) return {}
     return {
         title: cs.metaTitle,
@@ -24,15 +28,21 @@ export async function generateMetadata({ params }) {
 
 export default async function CaseStudyCategoryPage({ params }) {
     const { slug } = await params
-    const cs = getCaseStudyCategory(slug)
+    const items = await getContentItems('caseStudyCategories')
+    const cs = items.find((c) => c.slug === slug)
     if (!cs) notFound()
 
-    const others = caseStudyCategories.filter((c) => c.slug !== cs.slug)
+    const others = items.filter((c) => c.slug !== cs.slug)
+
+    const approach = cs.approach || []
+    const measured = cs.measured || []
+    const relatedServices = cs.relatedServices || []
+    const faqs = cs.faqs || []
 
     const faqJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: cs.faqs.map((f) => ({
+        mainEntity: faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
             acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -41,7 +51,7 @@ export default async function CaseStudyCategoryPage({ params }) {
 
     return (
         <main>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }} />
 
             {/* HERO */}
             <section className="relative overflow-hidden bg-[#1a1a2e] pt-28 pb-16 lg:pb-20">
@@ -101,7 +111,7 @@ export default async function CaseStudyCategoryPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                        {cs.approach.map((a, i) => (
+                        {approach.map((a, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
                                 <p className="text-[12px] font-extrabold uppercase tracking-widest mb-2 text-primary">0{i + 1}</p>
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-1.5">{a.title}</h3>
@@ -124,7 +134,7 @@ export default async function CaseStudyCategoryPage({ params }) {
                         </h2>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                        {cs.measured.map((m) => (
+                        {measured.map((m) => (
                             <span key={m} className="inline-flex items-center gap-2 bg-[#faf9f7] text-[#1a1a2e] font-bold text-[14px] px-5 py-3 rounded-xl border border-gray-100">
                                 <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -149,7 +159,7 @@ export default async function CaseStudyCategoryPage({ params }) {
                         </Link>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                        {cs.relatedServices.map((s) => (
+                        {relatedServices.map((s) => (
                             <Link key={s.href} href={s.href}
                                 className="inline-flex items-center gap-2 bg-white hover:bg-primary hover:text-white text-[#1a1a2e] font-bold text-[14px] px-5 py-3 rounded-xl border border-gray-100 transition-all duration-200 no-underline">
                                 {s.label}
@@ -174,7 +184,7 @@ export default async function CaseStudyCategoryPage({ params }) {
                         </h2>
                     </div>
                     <div className="space-y-4">
-                        {cs.faqs.map((faq, i) => (
+                        {faqs.map((faq, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 flex items-start gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-[11px] font-extrabold mt-0.5">

@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { servicesData } from '@/data/services'
+import { getContentItems } from '@/lib/content'
 
-export default function OtherServicesSection({ currentSlug }) {
+export default async function OtherServicesSection({ currentSlug }) {
     // Exclude current slug and take the top 3 remaining services to cross-link
+    const servicesData = await getContentItems('services')
     const otherServices = servicesData.filter(s => s.slug !== currentSlug && s.slug !== 'web-design').slice(0, 3)
 
     return (

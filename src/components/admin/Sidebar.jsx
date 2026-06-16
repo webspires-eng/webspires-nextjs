@@ -6,6 +6,7 @@ import {
     LayoutDashboard,
     FileText,
     PlusCircle,
+    Database,
     ExternalLink,
     LogOut,
 } from 'lucide-react';
@@ -15,6 +16,7 @@ const links = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
     { href: '/admin/posts', label: 'All Posts', icon: FileText },
     { href: '/admin/posts/new', label: 'New Post', icon: PlusCircle },
+    { href: '/admin/content', label: 'Site Content', icon: Database },
 ];
 
 export default function Sidebar({ username }) {

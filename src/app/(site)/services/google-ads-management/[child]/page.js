@@ -1,16 +1,20 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { googleAdsChildren, getGoogleAdsChild } from '@/data/googleAdsChildren'
+import { getContentItems, getContentItem } from '@/lib/content'
 
 const ACCENT = '#f97316'
 
+export const revalidate = 3600
+export const dynamicParams = true
+
 export async function generateStaticParams() {
-    return googleAdsChildren.map((c) => ({ child: c.slug }))
+    const items = await getContentItems('googleAdsChildren')
+    return items.map((c) => ({ child: c.slug }))
 }
 
 export async function generateMetadata({ params }) {
     const { child } = await params
-    const svc = getGoogleAdsChild(child)
+    const svc = await getContentItem('googleAdsChildren', child)
     if (!svc) return {}
     return {
         title: svc.metaTitle,
@@ -26,15 +30,19 @@ export async function generateMetadata({ params }) {
 
 export default async function GoogleAdsChildPage({ params }) {
     const { child } = await params
-    const svc = getGoogleAdsChild(child)
+    const items = await getContentItems('googleAdsChildren')
+    const svc = items.find((c) => c.slug === child)
     if (!svc) notFound()
 
-    const siblings = googleAdsChildren.filter((c) => c.slug !== svc.slug)
+    const siblings = items.filter((c) => c.slug !== svc.slug)
+
+    const included = svc.included || []
+    const faqs = svc.faqs || []
 
     const faqJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: svc.faqs.map((f) => ({
+        mainEntity: faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
             acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -45,7 +53,7 @@ export default async function GoogleAdsChildPage({ params }) {
         <main>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
             />
 
             {/* ── HERO ── */}
@@ -117,7 +125,7 @@ export default async function GoogleAdsChildPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {svc.included.map((f, i) => (
+                        {included.map((f, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
                                 <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${ACCENT}18` }}>
                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke={ACCENT}
@@ -146,7 +154,7 @@ export default async function GoogleAdsChildPage({ params }) {
                         </h2>
                     </div>
                     <div className="space-y-4">
-                        {svc.faqs.map((faq, i) => (
+                        {faqs.map((faq, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 flex items-start gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-[11px] font-extrabold mt-0.5"

@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { industriesData } from '@/data/industries'
+import { getContentItems } from '@/lib/content'
+
+export const revalidate = 3600
 
 export const metadata = {
     title: 'Industries We Work With | Digital Marketing by Sector | Webspires',
@@ -12,7 +14,8 @@ export const metadata = {
     },
 }
 
-export default function IndustriesHubPage() {
+export default async function IndustriesHubPage() {
+    const industriesData = await getContentItems('industries')
     return (
         <main>
             {/* Hero */}

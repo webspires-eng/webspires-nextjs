@@ -1,14 +1,19 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { industriesData, getIndustryBySlug, industryProofPoints, industryPricingFactors } from '@/data/industries'
+import { industryProofPoints, industryPricingFactors } from '@/data/industries'
+import { getContentItems, getContentItem } from '@/lib/content'
+
+export const revalidate = 3600
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-    return industriesData.map((i) => ({ slug: i.slug }))
+    const items = await getContentItems('industries')
+    return items.map((i) => ({ slug: i.slug }))
 }
 
 export async function generateMetadata({ params }) {
     const { slug } = await params
-    const ind = getIndustryBySlug(slug)
+    const ind = await getContentItem('industries', slug)
     if (!ind) return {}
     return {
         title: ind.metaTitle,
@@ -24,15 +29,23 @@ export async function generateMetadata({ params }) {
 
 export default async function IndustryPage({ params }) {
     const { slug } = await params
-    const ind = getIndustryBySlug(slug)
+    const items = await getContentItems('industries')
+    const ind = items.find((i) => i.slug === slug)
     if (!ind) notFound()
 
-    const otherIndustries = industriesData.filter((i) => i.slug !== ind.slug).slice(0, 3)
+    const otherIndustries = items.filter((i) => i.slug !== ind.slug).slice(0, 3)
+
+    const painPoints = ind.painPoints || []
+    const channels = ind.channels || []
+    const searchOpportunities = ind.searchOpportunities || []
+    const roadmap = ind.roadmap || []
+    const servicesUsed = ind.servicesUsed || []
+    const faqs = ind.faqs || []
 
     const faqJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: ind.faqs.map((f) => ({
+        mainEntity: faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
             acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -43,7 +56,7 @@ export default async function IndustryPage({ params }) {
         <main>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
             />
 
             {/* ── HERO ── */}
@@ -120,7 +133,7 @@ export default async function IndustryPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {ind.painPoints.map((p, i) => (
+                        {painPoints.map((p, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[16px] font-extrabold text-[#1a1a2e] mb-2">{p.title}</h3>
                                 <p className="text-[14px] text-gray-500 leading-relaxed">{p.desc}</p>
@@ -143,7 +156,7 @@ export default async function IndustryPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {ind.channels.map((c, i) => (
+                        {channels.map((c, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
                                 <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${ind.color}18` }}>
                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke={ind.color}
@@ -160,7 +173,7 @@ export default async function IndustryPage({ params }) {
             </section>
 
             {/* ── PLATFORM-SPECIFIC SUPPORT (optional) ── */}
-            {ind.platforms && (
+            {ind.platforms?.length ? (
                 <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
                     <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                         <div className="max-w-[680px] mb-12">
@@ -182,7 +195,7 @@ export default async function IndustryPage({ params }) {
                         </div>
                     </div>
                 </section>
-            )}
+            ) : null}
 
             {/* ── SEARCH OPPORTUNITIES + COMPETITOR INSIGHT ── */}
             <section className="bg-white py-16 lg:py-24">
@@ -197,7 +210,7 @@ export default async function IndustryPage({ params }) {
                                 What Your Buyers Are Searching
                             </h2>
                             <ul className="space-y-3 list-none p-0 m-0">
-                                {ind.searchOpportunities.map((s, i) => (
+                                {searchOpportunities.map((s, i) => (
                                     <li key={i} className="flex items-start gap-3 text-[15px] text-gray-600">
                                         <svg className="w-5 h-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={ind.color}
                                             strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -237,7 +250,7 @@ export default async function IndustryPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {ind.roadmap.map((r, i) => (
+                        {roadmap.map((r, i) => (
                             <div key={i} className="relative bg-white rounded-2xl p-7 border border-gray-100">
                                 <p className="text-[12px] font-extrabold uppercase tracking-widest mb-3" style={{ color: ind.color }}>
                                     {r.phase}
@@ -262,7 +275,7 @@ export default async function IndustryPage({ params }) {
                         </Link>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                        {ind.servicesUsed.map((s) => (
+                        {servicesUsed.map((s) => (
                             <Link key={s.href} href={s.href}
                                 className="inline-flex items-center gap-2 bg-[#faf9f7] hover:bg-primary hover:text-white text-[#1a1a2e] font-bold text-[14px] px-5 py-3 rounded-xl border border-gray-100 transition-all duration-200 no-underline">
                                 {s.label}
@@ -339,7 +352,7 @@ export default async function IndustryPage({ params }) {
                         </h2>
                     </div>
                     <div className="space-y-4">
-                        {ind.faqs.map((faq, i) => (
+                        {faqs.map((faq, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 flex items-start gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-[11px] font-extrabold mt-0.5"

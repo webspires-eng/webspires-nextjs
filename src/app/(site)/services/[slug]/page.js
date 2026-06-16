@@ -1,14 +1,18 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { servicesData, getServiceBySlug } from '@/data/services'
+import { getContentItems, getContentItem } from '@/lib/content'
+
+export const revalidate = 3600
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-    return servicesData.map(s => ({ slug: s.slug }))
+    const items = await getContentItems('services')
+    return items.map(s => ({ slug: s.slug }))
 }
 
 export async function generateMetadata({ params }) {
     const { slug } = await params
-    const svc = getServiceBySlug(slug)
+    const svc = await getContentItem('services', slug)
     if (!svc) return {}
     return {
         title: svc.metaTitle,
@@ -24,10 +28,15 @@ export async function generateMetadata({ params }) {
 
 export default async function ServicePage({ params }) {
     const { slug } = await params
-    const svc = getServiceBySlug(slug)
+    const items = await getContentItems('services')
+    const svc = items.find(s => s.slug === slug)
     if (!svc) notFound()
 
-    const otherServices = servicesData.filter(s => s.slug !== svc.slug).slice(0, 3)
+    const otherServices = items.filter(s => s.slug !== svc.slug).slice(0, 3)
+    const stats = svc.stats || []
+    const features = svc.features || []
+    const process = svc.process || []
+    const faqs = svc.faqs || []
 
     return (
         <main>
@@ -87,7 +96,7 @@ export default async function ServicePage({ params }) {
 
                         {/* Stats */}
                         <div className="grid grid-cols-2 gap-4">
-                            {svc.stats.map((s) => (
+                            {stats.map((s) => (
                                 <div key={s.label}
                                     className="bg-white/[0.06] border border-white/10 rounded-2xl px-6 py-5 text-center hover:bg-white/10 transition-colors duration-200">
                                     <p className="text-[30px] sm:text-[36px] font-extrabold leading-none mb-1" style={{ color: svc.color }}>
@@ -122,7 +131,7 @@ export default async function ServicePage({ params }) {
                         </div>
                         {/* Feature highlights */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {svc.features.map((f, i) => (
+                            {features.map((f, i) => (
                                 <div key={i} className="bg-[#faf9f7] rounded-2xl p-5 border border-gray-100 hover:-translate-y-0.5 transition-transform duration-200">
                                     <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background: `${svc.color}18` }}>
                                         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke={svc.color}
@@ -153,7 +162,7 @@ export default async function ServicePage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {svc.process.map((step, i) => (
+                        {process.map((step, i) => (
                             <div key={i} className="relative bg-white rounded-2xl p-6 border border-gray-100">
                                 {/* Step number */}
                                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center font-extrabold text-white text-[14px] mb-5"
@@ -161,7 +170,7 @@ export default async function ServicePage({ params }) {
                                     {step.step}
                                 </div>
                                 {/* Connector line (desktop) */}
-                                {i < svc.process.length - 1 && (
+                                {i < process.length - 1 && (
                                     <div className="hidden lg:block absolute top-[46px] left-[calc(100%+2px)] w-6 h-0.5 bg-gray-200" aria-hidden="true" />
                                 )}
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2">{step.title}</h3>
@@ -185,7 +194,7 @@ export default async function ServicePage({ params }) {
                         </h2>
                     </div>
                     <div className="space-y-4">
-                        {svc.faqs.map((faq, i) => (
+                        {faqs.map((faq, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 flex items-start gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-[11px] font-extrabold mt-0.5"

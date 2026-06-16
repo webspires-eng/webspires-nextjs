@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { servicesData } from '@/data/services'
+import { getContentItems } from '@/lib/content'
+
+export const revalidate = 3600
 
 export const metadata = {
     title: 'Our Services | Digital Marketing & Web Design Agency UK | Webspires',
@@ -12,7 +14,8 @@ export const metadata = {
     },
 }
 
-export default function ServicesListPage() {
+export default async function ServicesListPage() {
+    const servicesData = await getContentItems('services')
     return (
         <main>
             {/* Hero */}

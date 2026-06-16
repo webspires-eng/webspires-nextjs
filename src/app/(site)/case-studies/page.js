@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import { caseStudyCategories } from '@/data/caseStudyCategories'
+import { getContentItems } from '@/lib/content'
+
+export const revalidate = 3600
 
 export const metadata = {
     title: 'Case Studies | Digital Marketing Results | Webspires UK',
@@ -12,7 +14,8 @@ export const metadata = {
     },
 }
 
-export default function CaseStudiesHubPage() {
+export default async function CaseStudiesHubPage() {
+    const caseStudyCategories = await getContentItems('caseStudyCategories')
     return (
         <main>
             <section className="relative overflow-hidden bg-[#1a1a2e] pt-28 pb-16">

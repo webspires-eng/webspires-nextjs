@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { homeFaqs } from '@/data/homeFaqs';
+import { homeFaqs as fallbackFaqs } from '@/data/homeFaqs';
 
-export default function FaqHome() {
+export default function FaqHome({ faqs }) {
+    const homeFaqs = faqs && faqs.length ? faqs : fallbackFaqs;
     const [open, setOpen] = useState(0);
 
     return (

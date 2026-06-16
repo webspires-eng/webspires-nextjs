@@ -1,14 +1,19 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { locationsData, getLocationBySlug, locationProofPoints, locationPricingFactors } from '@/data/locations'
+import { locationProofPoints, locationPricingFactors } from '@/data/locations'
+import { getContentItems, getContentItem } from '@/lib/content'
+
+export const revalidate = 3600
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-    return locationsData.map((l) => ({ slug: l.slug }))
+    const items = await getContentItems('locations')
+    return items.map((l) => ({ slug: l.slug }))
 }
 
 export async function generateMetadata({ params }) {
     const { slug } = await params
-    const loc = getLocationBySlug(slug)
+    const loc = await getContentItem('locations', slug)
     if (!loc) return {}
     return {
         title: loc.metaTitle,
@@ -24,15 +29,21 @@ export async function generateMetadata({ params }) {
 
 export default async function LocationPage({ params }) {
     const { slug } = await params
-    const loc = getLocationBySlug(slug)
+    const items = await getContentItems('locations')
+    const loc = items.find((l) => l.slug === slug)
     if (!loc) notFound()
 
-    const otherLocations = locationsData.filter((l) => l.slug !== loc.slug)
+    const otherLocations = items.filter((l) => l.slug !== loc.slug)
+
+    const localProblems = loc.localProblems || []
+    const services = loc.services || []
+    const localIndustries = loc.localIndustries || []
+    const faqs = loc.faqs || []
 
     const faqJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: loc.faqs.map((f) => ({
+        mainEntity: faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
             acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -43,7 +54,7 @@ export default async function LocationPage({ params }) {
         <main>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
             />
 
             {/* ── HERO ── */}
@@ -118,7 +129,7 @@ export default async function LocationPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        {loc.localProblems.map((p, i) => (
+                        {localProblems.map((p, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[16px] font-extrabold text-[#1a1a2e] mb-2">{p.title}</h3>
                                 <p className="text-[14px] text-gray-500 leading-relaxed">{p.desc}</p>
@@ -155,7 +166,7 @@ export default async function LocationPage({ params }) {
                         </Link>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                        {loc.services.map((s) => (
+                        {services.map((s) => (
                             <Link key={s.href} href={s.href}
                                 className="inline-flex items-center gap-2 bg-[#faf9f7] hover:bg-primary hover:text-white text-[#1a1a2e] font-bold text-[14px] px-5 py-3 rounded-xl border border-gray-100 transition-all duration-200 no-underline">
                                 {s.label}
@@ -180,7 +191,7 @@ export default async function LocationPage({ params }) {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {loc.localIndustries.map((name, i) => (
+                        {localIndustries.map((name, i) => (
                             <div key={i} className="flex items-center gap-3 bg-white rounded-xl px-5 py-4 border border-gray-100">
                                 <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                                     <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -196,7 +207,7 @@ export default async function LocationPage({ params }) {
             </section>
 
             {/* ── LOCAL AREAS SERVED ── */}
-            {loc.localAreas && (
+            {loc.localAreas?.length ? (
                 <section className="bg-white py-16 lg:py-20 border-t border-gray-100">
                     <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                         <div className="max-w-[680px] mb-10">
@@ -222,7 +233,7 @@ export default async function LocationPage({ params }) {
                         </div>
                     </div>
                 </section>
-            )}
+            ) : null}
 
             {/* ── PRICING & QUOTE FACTORS ── */}
             <section className="bg-[#faf9f7] py-16 lg:py-24">
@@ -262,7 +273,7 @@ export default async function LocationPage({ params }) {
                         </h2>
                     </div>
                     <div className="space-y-4">
-                        {loc.faqs.map((faq, i) => (
+                        {faqs.map((faq, i) => (
                             <div key={i} className="bg-[#faf9f7] rounded-2xl p-6 border border-gray-100">
                                 <h3 className="text-[15px] font-extrabold text-[#1a1a2e] mb-2 flex items-start gap-3">
                                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-[11px] font-extrabold mt-0.5">

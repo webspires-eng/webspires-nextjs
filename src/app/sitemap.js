@@ -1,9 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { servicesData } from '@/data/services';
-import { industriesData } from '@/data/industries';
-import { locationsData } from '@/data/locations';
-import { googleAdsChildren } from '@/data/googleAdsChildren';
-import { caseStudyCategories } from '@/data/caseStudyCategories';
+import { getContentItems } from '@/lib/content';
 import { getAllPublishedSlugs } from '@/lib/blog';
 
 export const revalidate = 3600;
@@ -11,6 +7,20 @@ export const revalidate = 3600;
 export default async function sitemap() {
     const base = siteConfig.url.replace(/\/$/, '');
     const now = new Date();
+
+    const [
+        servicesData,
+        industriesData,
+        locationsData,
+        googleAdsChildren,
+        caseStudyCategories,
+    ] = await Promise.all([
+        getContentItems('services'),
+        getContentItems('industries'),
+        getContentItems('locations'),
+        getContentItems('googleAdsChildren'),
+        getContentItems('caseStudyCategories'),
+    ]);
 
     const staticRoutes = [
         { path: '/', priority: 1.0, changeFrequency: 'weekly' },
