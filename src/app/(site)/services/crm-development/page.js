@@ -20,7 +20,9 @@ async function getPage() {
 export async function generateMetadata() {
     const data = await getPage();
     return {
-        title: data.metaTitle,
+        // `absolute` bypasses the root "%s | Webspires" title template so
+        // the brand suffix already in metaTitle is not doubled.
+        title: { absolute: data.metaTitle },
         description: data.metaDescription,
         alternates: { canonical: CANONICAL },
         openGraph: {

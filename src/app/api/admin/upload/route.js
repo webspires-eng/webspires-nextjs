@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import crypto from 'node:crypto';
+import { writeFile, mkdir } from 'node:fs/promises';
+import path from 'node:path';
 import { getAdminOrNull } from '@/lib/auth';
-import { uploadToR2 } from '@/lib/r2';
 
 export const runtime = 'nodejs';
 
@@ -15,10 +16,17 @@ const ALLOWED = {
     'image/svg+xml': 'svg',
 };
 
+// Where uploads are written and the public path they're served from.
+const UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads');
+const PUBLIC_PREFIX = '/uploads';
+
 /*
- * Stores blog media in Cloudflare R2 (S3-compatible object storage).
- * Works on serverless platforms (Vercel) where the local filesystem
- * is ephemeral.
+ * Stores blog media on the local filesystem under public/uploads,
+ * served directly by Next.js. No third-party object storage.
+ *
+ * Note: on ephemeral/serverless hosts (e.g. Vercel) the filesystem is
+ * not persistent across deploys/instances — this is intended for hosts
+ * with a persistent disk.
  */
 export async function POST(request) {
     const admin = await getAdminOrNull();
@@ -55,17 +63,14 @@ export async function POST(request) {
     }
 
     const buffer = Buffer.from(bytes);
-    const key = `blog/${Date.now()}-${crypto
+    const filename = `${Date.now()}-${crypto
         .randomBytes(6)
         .toString('hex')}.${ext}`;
 
     try {
-        const url = await uploadToR2({
-            buffer,
-            key,
-            contentType: file.type,
-        });
-        return NextResponse.json({ url });
+        await mkdir(UPLOAD_DIR, { recursive: true });
+        await writeFile(path.join(UPLOAD_DIR, filename), buffer);
+        return NextResponse.json({ url: `${PUBLIC_PREFIX}/${filename}` });
     } catch (err) {
         return NextResponse.json(
             { error: `Upload failed: ${err.message}` },

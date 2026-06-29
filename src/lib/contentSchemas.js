@@ -60,6 +60,7 @@ export const CONTENT_TYPES = {
             '/services/crm-development',
             '/services/social-media-management',
             '/services/google-guarantee',
+            '/services/generative-engine-optimisation',
         ],
         fields: [
             { name: 'title', label: 'Title', type: 'text', required: true },
@@ -368,8 +369,15 @@ export const CONTENT_TYPES = {
         slugRequired: true,
         slugFromField: 'h1',
         basePath: '/services',
-        // Bespoke pages are revalidated by their concrete path on edit.
+        // Bespoke pages are revalidated by their concrete path on edit (the
+        // catch-all dynamicPath is not used here). Every hand-built page this
+        // type powers must be listed so a backend edit refreshes the live page.
         indexPath: '/services/crm-development',
+        extraPaths: [
+            '/services/social-media-management',
+            '/services/google-ads-management',
+            '/services/generative-engine-optimisation',
+        ],
         dynamicPath: null,
         fields: [
             { name: 'metaTitle', label: 'Meta title', type: 'text' },
@@ -427,6 +435,59 @@ export const CONTENT_TYPES = {
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
+
+            // SMM-specific: Platforms section (social-media-management page).
+            { name: 'platformsHeading', label: 'SMM — platforms heading', type: 'text' },
+            { name: 'platformsIntro', label: 'SMM — platforms intro', type: 'textarea' },
+            {
+                name: 'platforms',
+                label: 'SMM — platforms',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Platform', type: 'text' },
+                    { name: 'desc', label: 'Who it suits', type: 'textarea' },
+                ],
+            },
+
+            // SMM-specific: Organic vs Paid section.
+            { name: 'orgPaidHeading', label: 'SMM — organic vs paid heading', type: 'text' },
+            { name: 'orgPaidIntro', label: 'SMM — organic vs paid intro', type: 'textarea' },
+            {
+                name: 'orgPaidPoints',
+                label: 'SMM — organic vs paid points',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+            { name: 'orgPaidVerdict', label: 'SMM — organic vs paid verdict', type: 'textarea' },
+
+            // Google-Ads-specific: Campaign types section.
+            { name: 'campaignTypesHeading', label: 'GA — campaign types heading', type: 'text' },
+            { name: 'campaignTypesIntro', label: 'GA — campaign types intro', type: 'textarea' },
+            {
+                name: 'campaignTypes',
+                label: 'GA — campaign types',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Type', type: 'text' },
+                    { name: 'desc', label: 'Outcome', type: 'textarea' },
+                    { name: 'href', label: 'Link (optional)', type: 'text' },
+                ],
+            },
+
+            // Google-Ads-specific: PPC vs SEO block (part of the comparison section).
+            {
+                name: 'ppcSeoPoints',
+                label: 'GA — PPC vs SEO points',
+                type: 'objectList',
+                subfields: [
+                    { name: 'title', label: 'Title', type: 'text' },
+                    { name: 'desc', label: 'Description', type: 'textarea' },
+                ],
+            },
+            { name: 'ppcSeoVerdict', label: 'GA — PPC vs SEO verdict', type: 'textarea' },
 
             { name: 's6Heading', label: 'S6 — heading', type: 'text' },
             {
@@ -514,6 +575,25 @@ export const CONTENT_TYPES = {
                 ],
             },
             { name: 's12Note', label: 'S12 — note', type: 'textarea' },
+
+            // Shared comparison table. SMM uses all four columns (4-way);
+            // Google Ads renders only agency/freelancer/in-house (leaves
+            // software empty). Labels kept generic since multiple pages use it.
+            { name: 'compHeading', label: 'Comparison — heading', type: 'text' },
+            { name: 'compIntro', label: 'Comparison — intro', type: 'textarea' },
+            {
+                name: 'comparisonTable',
+                label: 'Comparison — rows',
+                type: 'objectList',
+                subfields: [
+                    { name: 'factor', label: 'Factor', type: 'text' },
+                    { name: 'agency', label: 'Agency', type: 'textarea' },
+                    { name: 'freelancer', label: 'Freelancer', type: 'textarea' },
+                    { name: 'inhouse', label: 'In-house', type: 'textarea' },
+                    { name: 'software', label: 'Software (SMM only)', type: 'textarea' },
+                ],
+            },
+            { name: 'compVerdict', label: 'Comparison — verdict', type: 'textarea' },
 
             { name: 's13Heading', label: 'S13 — heading', type: 'text' },
             {
