@@ -859,169 +859,840 @@ export const servicePagesData = [
     {
         slug: 'generative-engine-optimisation',
 
-        // Meta
-        metaTitle: 'GEO & AI Search Optimisation Services UK | Webspires',
+        // Meta - flagship hub of the AI-search silo. Owns GEO/AEO/AI-search
+        // terms; routes traditional SEO to /services/seo. /services/geo 301s in.
+        metaTitle: 'GEO Agency UK | Generative Engine & Answer Engine Optimisation | Webspires',
         metaDescription:
-            'Get your brand cited in AI search. Our GEO service optimises you for AI Overviews, ChatGPT, Perplexity, and Gemini, so you win visibility where buyers now ask questions in 2026. Book a free AI visibility audit.',
+            'Get found and recommended in AI search. We make your brand the answer in ChatGPT, Perplexity, Gemini, and Google AI Overviews, with real citation tracking and a topical-authority method. Transparent pricing. Get a free AI visibility audit.',
 
         // Hero (Section 1)
-        h1: 'Generative Engine Optimisation That Gets You Cited in AI Search',
+        h1: 'Be the Answer AI Gives',
         heroSub:
-            'Your buyers now ask ChatGPT, Perplexity, Gemini, and Google AI Overviews before they ever reach a search results page. Webspires positions your brand to show up in those answers, cited as the source, so qualified visitors arrive already informed. The wedge: a GEO-native agency that treats AI search as the main event in 2026, not a footnote, and runs it alongside your SEO so the two compound. UK businesses get found where the next decade of demand begins.',
+            'When customers ask ChatGPT, Perplexity, Gemini, or Google AI Overviews for a recommendation, your brand is the one named and cited. Webspires runs GEO grounded in real SEO and a topical-authority method, tracks your citations across every major AI engine, works your whole footprint rather than your website alone, and prices it transparently. UK businesses get found and recommended at the exact moment a buyer asks an AI which option to choose.',
         heroChips: [
-            'Cited in AI answers',
-            'AI Overviews, ChatGPT, Perplexity, Gemini',
-            'GEO + SEO under one team',
-            'UK-based specialists',
+            'ChatGPT, Perplexity, Gemini, AI Overviews',
+            'Real citation tracking',
+            'SEO-grounded GEO',
+            'Own your data',
         ],
 
-        // Section 2 -what is GEO
-        s2Heading: 'What Generative Engine Optimisation Means',
+        // Section 2 - what GEO is (definition + term chips)
+        s2Heading: 'What Generative Engine Optimisation Is',
         s2Definition:
-            'Generative engine optimisation is the practice of getting a brand surfaced, cited, and recommended inside AI-generated answers from engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews. The work shapes how AI systems understand and quote your business, so you appear in the answer itself rather than a link buried below it.',
+            'Generative engine optimisation is the work that makes a brand the cited, recommended answer when people search with AI engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews. The work shapes how AI systems understand, trust, and quote a business, so the brand appears inside the answer rather than a link buried beneath it.',
         buildRoutes: [
-            { title: 'Entity and brand clarity', desc: 'A clear, consistent definition of who you are and what you do, so AI engines understand and trust your brand.' },
-            { title: 'Answer-ready content', desc: 'Content structured around the real questions buyers ask, formatted so AI systems quote it directly.' },
-            { title: 'Knowledge graph and structured data', desc: 'Schema, citations, and entity links that feed AI models accurate facts about your business.' },
-            { title: 'Authority and citations', desc: 'Mentions and references across the sources AI engines trust, so your brand earns its place in answers.' },
-            { title: 'AI visibility tracking', desc: 'Monitoring of how often and how accurately ChatGPT, Perplexity, and AI Overviews cite you.' },
-            { title: 'Ongoing optimisation', desc: 'Continuous refinement as the engines, their models, and your market shift.' },
+            { title: 'GEO', desc: 'Generative engine optimisation: being cited and recommended inside AI-generated answers.' },
+            { title: 'AEO', desc: 'Answer engine optimisation: the same shift, framed around answering the question directly.' },
+            { title: 'AI search', desc: 'The umbrella term for discovery happening inside AI assistants and AI Overviews.' },
         ],
         s2Adoption:
-            'Through 2026, a growing share of searches end inside an AI answer with no click to a website, so visibility now means being the source the model cites, not just a blue link ranking beneath the fold.',
+            'Through 2026, AI Overviews appear across a large share of Google searches and a growing share of buyers ask AI assistants for recommendations, so discovery increasingly happens inside the answer rather than the list of links beneath it.',
 
-        // Section 3 -signs invisible in AI search
-        s4Heading: 'Signs Your Brand Is Invisible in AI Search',
-        s4Intro:
-            'AI engines already shape buying decisions in 2026, yet most UK businesses have no idea whether they appear in those answers. The signs below mean AI search is passing your brand by.',
+        // Section 3 - why GEO now (editorial + stat tiles + reason cards)
+        s3Heading: 'Why Search Is Moving to AI, and Why It Matters Now',
+        s3Intro:
+            'Search behaviour is shifting. AI Overviews now sit above the classic results on a large share of queries and answer the question before a user clicks, and a growing number of buyers open ChatGPT or Perplexity instead of a results page. A brand absent from those answers loses the recommendation before the customer ever reaches its site.',
+        statTiles: [
+            { value: 'Above the results', label: 'AI Overviews now answer many queries before the first click' },
+            { value: 'Ask, not scroll', label: 'Buyers increasingly ask AI assistants for a recommendation' },
+            { value: 'Cited sources win', label: 'A handful of trusted sources shape each AI answer' },
+        ],
         outgrownSigns: [
-            { title: 'ChatGPT does not mention you', desc: 'Ask an AI engine about your category and competitors come up, not you. GEO works to put your brand in that answer.' },
-            { title: 'AI Overviews cite competitors', desc: 'Google’s AI Overview summarises your market using other sources. Structured, answer-ready content earns you a place in it.' },
-            { title: 'AI describes you wrong', desc: 'When AI does mention you, the facts are out of date or simply incorrect. Entity and knowledge-graph work fixes the record.' },
-            { title: 'Traffic is flat despite rankings', desc: 'You rank on Google, yet clicks fall as AI answers absorb them. GEO recovers visibility inside the answer itself.' },
-            { title: 'No view of AI visibility', desc: 'Nobody tracks whether AI engines cite you or what they say. Monitoring turns that blind spot into a measurable channel.' },
-            { title: 'SEO alone no longer covers it', desc: 'Traditional rankings miss the AI surfaces where buyers now ask questions. GEO extends your reach into those answers.' },
+            { title: 'Claim the position early', desc: 'AI engines favour the sources they already trust. Brands cited today build a lead that later entrants struggle to displace.' },
+            { title: 'Capture high-intent AI traffic', desc: 'People who ask an AI for a recommendation sit close to a decision. Being the named answer puts you in front of demand at its sharpest.' },
+            { title: 'Build authority that compounds', desc: 'Entity clarity and trusted citations strengthen over time. The work done now keeps paying back as AI search grows.' },
         ],
 
-        // Section 4 -our GEO services
-        s5Heading: 'Our Generative Engine Optimisation Services',
+        // Section 4 - our GEO services
+        s5Heading: 'Our GEO Services',
         services: [
-            { title: 'AI visibility audit', desc: 'We test how ChatGPT, Perplexity, Gemini, and AI Overviews answer questions in your market and where you stand. You see exactly where the gaps are. The outcome: a clear GEO baseline.' },
-            { title: 'Entity and brand optimisation', desc: 'We define your brand as a clear entity across your site and the wider web, so AI engines understand and trust it. Consistent facts replace confusion. The outcome: accurate, confident citations.' },
-            { title: 'Answer-ready content', desc: 'We build content around the exact questions buyers ask AI, formatted for direct quotation. Each page answers cleanly and completely. The outcome: content AI engines quote.' },
-            { title: 'Structured data and knowledge graph', desc: 'We add schema, entity links, and source signals that feed models accurate facts. The machine-readable layer matches the human one. The outcome: a brand AI systems read correctly.' },
-            { title: 'Authority and digital PR for AI', desc: 'We earn mentions and citations across the sources AI engines weight most. Trusted references lift your presence in answers. The outcome: more inclusions in AI responses.' },
-            { title: 'AI visibility tracking and reporting', desc: 'We monitor how often and how accurately the engines cite you, then report in plain English. Progress becomes a number you watch. The outcome: a measurable AI channel.' },
-            { title: 'GEO and SEO together', desc: 'We run generative engine optimisation alongside traditional SEO, so organic rankings and AI citations reinforce each other. One strategy covers both surfaces. The outcome: visibility across search and AI.' },
+            { title: 'AI visibility audit', desc: 'We test how ChatGPT, Perplexity, Gemini, and AI Overviews answer the questions in your market and where your brand stands today. You see where you are cited, where you are missing, and who wins instead. The outcome: a clear GEO baseline and priority list.' },
+            { title: 'Entity and authority building', desc: 'We define your brand as a recognised entity across your site and the wider web, using the topical-authority method so AI engines understand and trust it. Consistent, connected facts replace a thin or muddled footprint. The outcome: accurate, confident citations.' },
+            { title: 'Citation-optimised content', desc: 'We build fact-dense, answer-led content structured for direct quotation, not keyword-stuffed blog posts. Each page answers a real buyer question cleanly and completely. The outcome: content AI engines quote and recommend.' },
+            { title: 'Structured data and schema', desc: 'We add FAQ, organisation, and entity schema so the machine-readable layer matches the human one. Clean data feeds models the right facts about your business. The outcome: a brand AI systems read correctly.' },
+            { title: 'Whole-footprint optimisation', desc: 'We work the sources AI engines actually pull from: Reddit, G2, Capterra, comparison pages, third-party mentions, and YouTube, not your website alone. Influence the inputs and you influence the answer. The outcome: presence across the sources that shape AI responses.' },
+            { title: 'AEO for local and near-me', desc: 'We optimise for the local and "near me" recommendations buyers now ask AI assistants for, tied to your Google Business Profile and local entity signals. Local intent meets the AI answer. The outcome: recommendations when nearby buyers ask AI who to choose.' },
         ],
 
-        // Section 5 -AI engines (reuses the platforms field)
-        platformsHeading: 'The AI Engines We Optimise For',
-        platformsIntro:
-            'Buyers spread their questions across several AI engines, each with its own sources and quirks. We optimise for the ones that drive real visibility, matched to where your audience actually asks.',
-        platforms: [
-            { title: 'Google AI Overviews', desc: 'The AI summary above Google results. Earning a citation here puts your brand in front of the widest search audience.' },
-            { title: 'ChatGPT', desc: 'The most used AI assistant. Visibility here means your brand surfaces when buyers research and compare options.' },
-            { title: 'Perplexity', desc: 'The answer engine built on live citations. Strong source signals win direct references to your site.' },
-            { title: 'Google Gemini', desc: 'Google’s assistant across Search and Workspace. Entity clarity and structured data drive inclusion.' },
-            { title: 'Microsoft Copilot', desc: 'The assistant across Bing and Windows. Authority and clean data earn mentions in its answers.' },
-            { title: 'Claude and emerging engines', desc: 'New assistants arrive often. We track the ones your buyers adopt and optimise as they grow.' },
-        ],
+        // Section 5 - how we measure AI visibility (s7 + engine chips, signature)
+        s7Heading: 'How We Measure AI Visibility',
+        s7Body:
+            'Real GEO lives or dies on measurement. We track a defined set of your core buyer queries across ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews, then report whether your brand is cited and, more importantly, recommended, because a citation is not a recommendation. We never pass off Search Console impressions as AI visibility. You see before-and-after on AI mentions, which queries moved, and where the next gain sits. Some of this is firmly measurable today and some is still emerging, and we tell you which is which.',
+        integrations: ['ChatGPT', 'Perplexity', 'Gemini', 'Claude', 'Google AI Overviews', 'AI Mode'],
 
-        // Section 6 -GEO vs SEO (reuses the orgPaid fields)
-        orgPaidHeading: 'GEO vs Traditional SEO: How They Work Together',
-        orgPaidIntro:
-            'GEO and SEO chase the same goal, visibility, on different surfaces. SEO wins rankings on the results page. GEO wins citations inside AI answers. Run together, they cover the whole journey.',
-        orgPaidPoints: [
-            { title: 'Traditional SEO', desc: 'Rankings, clicks, and organic traffic from the search results page. SEO remains the backbone of being found on Google.' },
-            { title: 'Generative engine optimisation', desc: 'Citations and mentions inside AI answers, where a growing share of questions now end. GEO captures the visibility SEO alone misses.' },
-            { title: 'Run together by one team', desc: 'The same entity, content, and authority work feeds both. Strong SEO foundations make GEO faster, and GEO extends SEO into AI surfaces.' },
+        // Section 6 - GEO vs SEO vs AEO (paper break)
+        compHeading: 'GEO vs SEO vs AEO, Explained',
+        compIntro:
+            'Buyers ask about all three, so here is the plain version. SEO is visibility in classic search results. GEO and AEO are visibility and recommendation inside AI answers, with AEO framed around answering the question directly. The three share a technical foundation, which is why GEO works best grounded in strong SEO.',
+        ppcSeoPoints: [
+            { title: 'SEO', desc: 'Wins rankings, clicks, and organic traffic on the classic results page. SEO remains the foundation of being found on Google.' },
+            { title: 'GEO and AEO', desc: 'Win citations and recommendations inside AI answers, where a growing share of questions now end. GEO captures the visibility SEO alone leaves on the table.' },
         ],
-        orgPaidVerdict:
-            'SEO without GEO leaves the AI answer to competitors. GEO without SEO stands on weak foundations. Together they cover both surfaces, which is why we run them as one service.',
+        ppcSeoVerdict:
+            'Most businesses need both. Our model is SEO-grounded, not a pure-play GEO shop that launched last year, so the entity, content, and authority work feeds your rankings and your AI citations at once.',
 
-        // Section 7 -process
+        // Section 7 - process
         s10Heading: 'Our GEO Process, Step by Step',
         s10Intro:
-            'Six stages take your brand from invisible in AI search to cited across the engines. AI-accelerated analysis speeds the work, while people make the judgement calls that shape how models see you.',
+            'Five phases take your brand from invisible in AI search to cited and recommended across the engines. The method is built on real SEO and the topical-authority approach, AI-accelerated where it speeds the work, with a person making the calls that shape how models see you.',
         processSteps: [
-            { title: 'AI visibility audit', desc: 'We test how the engines answer your market and where you appear. You leave with a clear baseline and the biggest gaps named.' },
-            { title: 'Entity and content strategy', desc: 'We map the questions buyers ask AI and define your brand as a clear entity. The plan sets what to build and fix first.' },
-            { title: 'On-site optimisation', desc: 'We add structured data, tighten entity signals, and reshape pages into answer-ready content. Your site becomes machine-readable and quotable.' },
-            { title: 'Authority and citations', desc: 'We earn mentions across the sources the engines trust. External signals lift how often AI includes you.' },
-            { title: 'Tracking and measurement', desc: 'We monitor citations, mentions, and accuracy across the engines. Progress turns into numbers you watch month to month.' },
-            { title: 'Ongoing optimisation', desc: 'We refine as models, engines, and your market shift. AI visibility holds and grows instead of slipping.' },
+            { title: 'AI visibility audit', desc: 'We test how the engines answer your market and map where you appear, where you do not, and who wins instead. You leave with a clear baseline and the biggest gaps named.' },
+            { title: 'Authority and entity foundation', desc: 'We define your brand as a recognised entity and build topical authority across your core subjects. The foundation makes everything downstream faster and more durable.' },
+            { title: 'Citation content and technical execution', desc: 'We produce answer-led, fact-dense content and add the schema and structured data AI engines read. Your site becomes quotable by machines and useful to people.' },
+            { title: 'Whole-footprint and third-party work', desc: 'We earn mentions and correct facts across Reddit, review sites, comparison pages, and the sources AI engines trust. The inputs to the answer start to favour you.' },
+            { title: 'Measurement and acceleration', desc: 'We track citations and recommendations across the engines and double down on what moves. AI visibility becomes a channel you watch and grow, not a guess.' },
         ],
 
-        // Section 8 -industries
-        s11Heading: 'GEO by Industry',
+        // Section 8 - is GEO right for your business (qualifier + business types)
+        s11Heading: 'Is GEO Right for Your Business',
+        s11Intro:
+            'GEO suits businesses whose customers research with AI and where being recommended drives real growth. Here is the honest part most agencies skip: GEO and AEO are not only for enterprise SaaS. UK SMEs and local businesses win too, because customers now ask AI for the best option near them and the best provider in their town, and almost no one optimises for it yet.',
         industries: [
-            { title: 'Ecommerce', desc: 'Product and category visibility in AI shopping answers, so buyers find your range when they ask AI what to buy.', href: '/industries/ecommerce' },
-            { title: 'Local businesses', desc: 'Citations in AI answers for local queries, so nearby buyers reach you when they ask an assistant for a recommendation.', href: '/industries/local-businesses' },
-            { title: 'B2B companies', desc: 'Inclusion in AI answers during research and vendor comparison, where long B2B buying journeys now begin.', href: '/industries/b2b-companies' },
-            { title: 'Healthcare clinics', desc: 'Accurate, trusted citations for health and service queries, with care around regulated claims.', href: '/industries/healthcare-clinics' },
-            { title: 'Real estate', desc: 'Visibility in AI answers for area, valuation, and buying questions that start the property journey.', href: '/industries/real-estate' },
-            { title: 'Professional services', desc: 'Authority-led citations that put expert firms in AI answers when buyers ask who to trust.', href: '/industries/professional-services' },
+            { title: 'SaaS and B2B', desc: 'Inclusion in AI answers during research and vendor comparison, where long buying journeys now begin.', href: '/industries/b2b-companies' },
+            { title: 'Ecommerce', desc: 'Product and category visibility when buyers ask AI what to buy and which brand to trust.', href: '/industries/ecommerce' },
+            { title: 'Professional services', desc: 'Authority-led citations that name expert firms when buyers ask AI who to trust.', href: '/industries/professional-services' },
+            { title: 'Local and SME businesses', desc: 'Recommendations when nearby buyers ask AI for the best option near them, tied to local entity signals.', href: '/industries/local-businesses' },
         ],
 
-        // Section 9 -pricing
-        s12Heading: 'GEO and AI Search Optimisation Pricing in the UK',
+        // Section 9 - pricing (paper break)
+        s12Heading: 'GEO Pricing in the UK',
         s12Intro:
-            'GEO pricing follows scope, the same as any optimisation work. The drivers below set where a retainer lands, and honest bands give you a guide. Final pricing comes after a free AI visibility audit.',
-        costDrivers: [
-            { title: 'Starting AI visibility', desc: 'A brand already cited needs less groundwork than one absent from every answer.' },
-            { title: 'Content and entity work', desc: 'The volume of answer-ready content and entity fixes sets much of the effort.' },
-            { title: 'Authority building', desc: 'Earning citations across trusted sources adds ongoing work.' },
-            { title: 'Engines tracked', desc: 'Monitoring more AI engines and queries adds reporting depth.' },
-        ],
+            'Honest first: cheap GEO is usually repackaged content with a new label, and credible GEO is an ongoing system that builds over months. The tiers below are indicative, set finally after a free AI visibility audit, and GEO runs standalone or bundles with your SEO.',
         pricingBands: [
-            { name: 'Foundation', range: 'from £600/mo', includes: 'AI visibility audit, entity and structured-data setup, answer-ready content on core pages, and monthly tracking. Right for brands starting GEO.' },
-            { name: 'Growth', range: 'from £1,200/mo', includes: 'Ongoing answer-ready content, authority and citation building, multi-engine tracking, and SEO alignment. Most popular for growing UK businesses.' },
-            { name: 'Authority', range: 'from £2,400/mo', includes: 'Full GEO and SEO programme, digital PR for AI citations, deep entity work, and senior strategy across all major engines.' },
-            { name: 'Add-ons', range: 'Priced on scope', includes: 'One-off AI visibility audits, digital PR campaigns, and content sprints on top of any retainer.' },
+            { name: 'Foundation / AEO', range: 'from £600/mo', includes: 'AI visibility audit, entity and schema foundation, and answer-led content on your core queries. Right for brands starting GEO.' },
+            { name: 'Growth', range: 'from £1,200/mo', includes: 'Ongoing citation content, whole-footprint work, and tracking across the major engines. The popular choice for businesses competing for AI answers.' },
+            { name: 'Authority', range: 'from £2,500/mo', includes: 'Competitive markets, the full footprint, digital PR for AI citations, and fast iteration with senior strategy.' },
         ],
         s12Note:
-            'Bands are indicative and confirmed after a free AI visibility audit. Retainers run rolling monthly with no long contracts, and the audit findings are yours to keep either way.',
+            'Bands are indicative and confirmed after a free AI visibility audit. Retainers run rolling monthly with no long contracts, GEO bundles with SEO when it makes sense, and the audit findings are yours to keep either way.',
 
-        // Section 10 -why choose us
+        // Section 10 - why choose us
         s13Heading: 'Why Businesses Choose Webspires for GEO',
         whyChoose: [
-            { title: 'GEO-native, not a bolt-on', desc: 'AI search sits at the centre of how we work, not tacked onto an old SEO checklist. The strategy is built for how buyers search now.' },
-            { title: 'One team for GEO and SEO', desc: 'The same team optimises your AI citations and your organic rankings, so the two reinforce each other instead of pulling apart.' },
-            { title: 'Measurable AI visibility', desc: 'We track how the engines cite you and report it plainly, so GEO becomes a channel you measure, not a leap of faith.' },
-            { title: 'Honest, transparent pricing', desc: 'Clear retainers, no long contracts, and audit findings you keep. You always know what you pay for and why.' },
-            { title: 'AI-accelerated work at honest cost', desc: 'Modern AI tooling speeds the analysis while people make the calls, so you get deeper work at a fair fee.' },
-            { title: 'Direct access to specialists', desc: 'You talk to the UK team doing the work, not a layer of account managers between you and the strategy.' },
+            { title: 'SEO-grounded, not rebranded', desc: 'Our GEO sits on real SEO and content foundations, not a pure-play shop that appeared last year and not an old SEO checklist with a new name.' },
+            { title: 'Koray topical-authority method', desc: 'We build your brand as a recognised entity with genuine topical authority, the signal AI engines lean on when they choose what to cite.' },
+            { title: 'Real citation tracking', desc: 'We track a defined query set across every major AI engine and report cited versus recommended, never Search Console impressions dressed up as AI visibility.' },
+            { title: 'Whole-footprint authority', desc: 'We work Reddit, review sites, comparison pages, and the third-party sources the engines pull from, not your website alone.' },
+            { title: 'Recommended, not just mentioned', desc: 'We optimise for being named as the answer, because a passing mention is not the same as the recommendation a buyer acts on.' },
+            { title: 'Transparent pricing, you own your data', desc: 'Clear retainers, no long contracts, and content and data that stay yours. You always know what you pay for.' },
+            { title: 'One team across SEO, content, and CRO', desc: 'The same team runs your AI search, organic search, and conversion work, so visibility turns into enquiries instead of stopping at a citation.' },
+            { title: 'GEO made accessible to SMEs', desc: 'We bring AI search within reach of UK SMEs and local businesses, not just enterprise budgets.' },
+        ],
+
+        // Section 11 - results
+        s14Heading: 'Real GEO Results',
+        caseProblem:
+            'Our own brand sat outside the AI conversation. Ask ChatGPT or Perplexity about our services and other agencies surfaced, while our facts across the web were thin, scattered, and sometimes wrong.',
+        caseSolution:
+            'We ran our own GEO programme: a clear entity definition, topical-authority content, schema across the site, citations earned from trusted third-party sources, and tracking across the major engines.',
+        caseOutcome:
+            'The engines began naming us for relevant questions, the facts they repeated turned accurate, and enquiries that started inside an AI answer arrived as a visible, growing channel.',
+        caseMetric: '',
+        caseNote:
+            'We publish results we stand behind. As client GEO programmes mature and the metrics gain approval, we add them here with named citation and enquiry figures.',
+
+        // Section 12 - CTA
+        s15Heading: 'Get a Free AI Visibility Audit',
+        s15Body:
+            'Book a free AI visibility audit and the Webspires team shows where your brand is and is not cited across ChatGPT, Perplexity, Gemini, and AI Overviews today, the queries you are missing, and the quickest wins. No obligation, and the findings are yours to keep.',
+
+        // Section 13 - FAQ
+        faqHeading: 'GEO FAQs',
+        faqs: [
+            { q: 'What is generative engine optimisation (GEO)?', a: 'Generative engine optimisation is the work of getting your brand cited and recommended inside AI-generated answers from engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews. Rather than ranking a link, GEO makes your business the source the AI quotes when a buyer asks a question.' },
+            { q: 'What is the difference between GEO, AEO, and SEO?', a: 'SEO earns rankings and clicks on the classic results page. GEO and AEO earn citations and recommendations inside AI answers, with AEO framed around answering the question directly. They share a technical foundation, which is why GEO works best grounded in strong SEO rather than bolted on.' },
+            { q: 'Will GEO replace SEO?', a: 'No. AI answers and classic results sit side by side, and most businesses need both. Strong SEO foundations make GEO faster and more durable, while GEO extends your reach into the AI surfaces where a growing share of questions now end. We run them together.' },
+            { q: 'How do you measure AI visibility?', a: 'We track a defined set of your core buyer queries across ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews, then report whether your brand is cited and whether it is recommended. A citation is not a recommendation, so we measure both, and we never pass off Search Console impressions as AI visibility.' },
+            { q: 'How do you check if my brand appears in ChatGPT or Perplexity?', a: 'We run your real buyer questions through each engine, record whether your brand is named and how accurately, and benchmark against competitors. That becomes a tracked query set we monitor over time, so you see movement rather than a one-off snapshot.' },
+            { q: 'How long does GEO take to work?', a: 'Early wins like corrected facts and schema inclusion often land within weeks, while stronger citation and recommendation presence builds over a few months. In 2026 the engines update constantly, so GEO is an ongoing discipline rather than a one-off fix, much like SEO.' },
+            { q: 'Is GEO worth it for a small or local business?', a: 'Yes, and most agencies miss this. Customers now ask AI for the best option near them and the best provider in their town, and almost no one optimises for it. A focused GEO and AEO programme suits SMEs that want to be found where buyers increasingly ask, without an enterprise budget.' },
+            { q: 'How much does GEO cost in the UK?', a: 'UK GEO retainers typically run from around £600 per month for a foundation programme to £2,500 and above for competitive markets and full-footprint work. Price depends on your starting visibility, your market, and the depth of content and authority work. We confirm scope after a free audit, on rolling monthly terms.' },
+        ],
+    },
+
+    {
+        slug: 'meta-ads-management',
+
+        // Meta
+        metaTitle: 'Meta Ads Agency UK | Facebook & Instagram Ads | Webspires',
+        metaDescription:
+            'Performance-focused Meta ads management across Facebook and Instagram. We turn paid social into revenue, with transparent pricing, no markup on ad spend, and you own your account. Get a free Meta ads audit.',
+
+        // Hero (Section 1)
+        h1: 'Meta Ads Management That Turns Facebook and Instagram Into Revenue',
+        heroSub:
+            'More sales and qualified leads from Facebook and Instagram at a lower cost per result, not vanity reach. Webspires builds, tests, and scales your paid social, tracks every conversion server-side, and reports in plain English. The wedge: transparent pricing, no markup on ad spend, you own your account, and one team that also runs your Google Ads, organic social, and CRO. UK businesses get paid social that answers to revenue in 2026, run by senior people who pick up the phone.',
+        heroChips: [
+            'UK-based paid-social team',
+            '5-star rated',
+            'You own your account',
+            'No markup on ad spend',
+        ],
+
+        // Section 2 -what it includes
+        s2Heading: 'What Meta Ads Management Includes',
+        s2Definition:
+            'Meta ads management is the ongoing strategy, build, creative testing, tracking, and optimisation that turns a Facebook and Instagram budget into measurable sales and leads. The work spans placements across Facebook, Instagram, Messenger, and Reels, with every pound aimed at a revenue or lead outcome rather than reach.',
+        buildRoutes: [
+            { title: 'Strategy', desc: 'A paid social plan tied to revenue and lead goals, not follower counts.' },
+            { title: 'Creative testing', desc: 'A steady system of hooks, formats, and angles to find the ads that convert.' },
+            { title: 'Audience strategy', desc: 'Custom, lookalike, and retargeting audiences matched to each stage of intent.' },
+            { title: 'Campaign build', desc: 'Clean campaign and ad-set structure that keeps spend efficient and learnings clear.' },
+            { title: 'Conversion tracking', desc: 'Pixel and Conversions API set up so Meta optimises toward real buyers.' },
+            { title: 'Optimisation and scaling', desc: 'Continuous tuning and budget scaling on the ads that prove themselves.' },
+            { title: 'Reporting', desc: 'Plain-English monthly reporting tied to ROAS, CPA, and CPL.' },
+        ],
+        s2Adoption:
+            'Through 2026, Advantage+ automation reshaped what good management looks like, so the value now sits in strong creative, clean tracking, and human guardrails rather than handing Meta the budget and hoping.',
+
+        // Section 3 -why most meta ads lose money
+        s4Heading: 'Why Most Meta Ads Lose Money',
+        s4Intro:
+            'Most underperforming Meta accounts leak budget in the same predictable places. In 2026, signal loss from iOS and ad blockers makes server-side tracking essential, and Meta’s new UK location fee makes wasted spend even more expensive. The six mistakes below name the fix for each.',
+        outgrownSigns: [
+            { title: 'Optimising for reach, not revenue', desc: 'Campaigns chase impressions and engagement that never convert. Optimising for purchases and leads points spend at results.' },
+            { title: 'A broken Pixel and no Conversions API', desc: 'Lost signal means Meta optimises toward the wrong people. Pixel plus server-side Conversions API restores the data.' },
+            { title: 'Weak creative with no testing', desc: 'One tired ad runs until it dies. A structured testing system finds winners and kills losers fast.' },
+            { title: 'Audiences too broad or too narrow', desc: 'Spray-and-pray or a tiny custom list both waste budget. Layered custom, lookalike, and retargeting audiences fix the balance.' },
+            { title: 'Advantage+ left on autopilot', desc: 'Automation spends freely without guardrails. Controlled Advantage+ keeps it pointed at profit.' },
+            { title: 'Creative churn with no strategy', desc: 'An agency ships new ads with no thesis behind them. Strategy-led testing turns spend into a compounding system.' },
+        ],
+
+        // Section 4 -our services
+        s5Heading: 'Our Meta Ads Services',
+        services: [
+            { title: 'Account audit and strategy', desc: 'We review your account, tracking, and creative, then set a paid social strategy around revenue and lead goals. You start with a clear plan and baseline. The outcome: less wasted spend from day one.' },
+            { title: 'Campaign build and structure', desc: 'We build clean campaign and ad-set structures that keep learnings clear and spend efficient. Strong foundations make scaling predictable later. The outcome: budget that works harder.' },
+            { title: 'Creative testing and production', desc: 'We produce and test hooks, formats, and angles on a steady cycle, scaling winners and cutting losers. Creative is the biggest lever in paid social, so we treat it as one. The outcome: a lower cost per result.' },
+            { title: 'Audience strategy', desc: 'We build custom, lookalike, and retargeting audiences matched to each stage of intent. The right message reaches the right person at the right moment. The outcome: warmer prospects and cheaper conversions.' },
+            { title: 'Conversion tracking setup', desc: 'We set up the Meta Pixel, Conversions API, and GA4 so calls, forms, and sales all register server-side. Accurate data underpins every decision. The outcome: optimisation you trust.' },
+            { title: 'Optimisation and scaling', desc: 'We tune bids, budgets, and creative continuously, then scale the campaigns that prove themselves. Growth follows the data, not a hunch. The outcome: results that compound.' },
+            { title: 'Plain-English reporting', desc: 'We report monthly on ROAS, CPA, CPL, and what changed, without jargon. You see exactly what the spend returned. The outcome: full clarity on profit.' },
+        ],
+
+        // Section 5 -ad types (reuses campaignTypes)
+        campaignTypesHeading: 'Facebook and Instagram Ad Types We Run',
+        campaignTypesIntro:
+            'Each format does a different job. We match the mix to your goal, your offer, and where your buyers pay attention, then manage every type to a cost-per-result target.',
+        campaignTypes: [
+            { title: 'Feed ads', desc: 'Broad reach that drives straight to conversion across Facebook and Instagram feeds.', href: '' },
+            { title: 'Stories and Reels ads', desc: 'Native short-form placements that capture demand where attention now sits.', href: '' },
+            { title: 'Carousel and Collection', desc: 'Multi-image formats that showcase a range and let buyers browse in-feed.', href: '' },
+            { title: 'Catalog and Dynamic Product Ads', desc: 'Automated retargeting of products people viewed, the engine of ecommerce ROAS.', href: '/industries/ecommerce' },
+            { title: 'Lead ads', desc: 'In-platform forms that capture qualified leads without leaving Facebook or Instagram.', href: '' },
+            { title: 'Retargeting', desc: 'Re-engage warm visitors and cart abandoners and bring them back to convert.', href: '' },
+            { title: 'Messenger and click-to-WhatsApp', desc: 'Direct conversation ads that suit local and service businesses closing by chat.', href: '/industries/local-businesses' },
+        ],
+
+        // Section 6 -tracking and reporting (reuses s7 + integrations chips)
+        s7Heading: 'Tracking and Reporting Built on Real Data',
+        s7Body:
+            'Accurate tracking comes first, because no agency proves profitability without it. We set up the Meta Pixel and the Conversions API together, so conversions report server-side and Meta optimises toward real buyers instead of the wrong action. Server-side data restores the signal lost to iOS restrictions and ad blockers, which is where most accounts quietly bleed performance. We add GA4 and import offline or CRM conversions for businesses that close by phone or in person. Reporting then ties every pound to ROAS, CPA, and CPL, not vanity clicks. You get a monthly report in plain English that shows what changed, what it cost, and what happens next.',
+        integrations: ['Meta Pixel', 'Conversions API (CAPI)', 'GA4', 'Offline / CRM conversions'],
+
+        // Section 7 -pricing (costDrivers = fee-vs-spend panels; bands = setup + 3 tiers)
+        s12Heading: 'Meta Ads Management Pricing in the UK',
+        s12Intro:
+            'Two numbers matter, and they are separate. The management fee is what you pay our team. The ad spend is what goes to Meta. We never mark up your ad spend, so every pound of budget reaches the auction. The tiers below are indicative, with the final fee set after a free audit.',
+        costDrivers: [
+            { title: 'Management fee (what you pay us)', desc: 'A flat monthly fee for strategy, creative testing, tracking, optimisation, and reporting. Fixed and predictable, billed rolling monthly.' },
+            { title: 'Ad spend (what goes to Meta)', desc: 'Your advertising budget, paid directly to Meta. Separate from our fee, with no markup added by us.' },
+        ],
+        pricingBands: [
+            { name: 'Setup and launch', range: 'from £750 one-off', includes: 'Pixel and Conversions API setup, account structure, campaign build, and first creatives. A clean foundation before spend goes live.' },
+            { name: 'Starter', range: 'Ad spend up to £1,500/mo · from £600/mo management', includes: 'One to two campaigns, creative testing, audience build, tracking, and a monthly report. Right for businesses starting paid social.' },
+            { name: 'Growth', range: 'Ad spend £1,500 to £5,000/mo · from £1,200/mo management', includes: 'Multi-campaign management, ongoing creative testing, retargeting, scaling, and strategy reviews. Most popular for growing UK businesses.' },
+            { name: 'Scale', range: 'Ad spend £5,000+/mo · from £2,500/mo management', includes: 'Full-funnel management, advanced creative volume, dynamic product ads, and senior strategic input.' },
+        ],
+        s12Note:
+            'Ad spend is separate and paid to Meta, with no markup. Management is rolling monthly with no long contracts, and you own your account and data throughout. Note that Meta applies a UK location fee of 2 to 5 percent on ad delivery from July 2026, a pass-through cost charged by Meta, not by us. Final pricing follows a free audit.',
+
+        // Section 8 -process
+        s10Heading: 'Our Meta Ads Management Process, Step by Step',
+        s10Intro:
+            'Seven stages take your account from a free audit to campaigns that scale on profit. AI-accelerated creative production speeds the work, and every scaling decision gets made by a person, never left to Meta’s automation.',
+        processSteps: [
+            { title: 'Free audit', desc: 'We review your account, tracking, and creative, then name the biggest gaps. You leave with a clear baseline and priorities.' },
+            { title: 'Tracking setup', desc: 'We install the Pixel and Conversions API before spend goes live. Accurate, server-side data underpins everything that follows.' },
+            { title: 'Strategy and audience plan', desc: 'We set the funnel, offers, and audiences that fit your goals. The plan defines what to test and how to scale.' },
+            { title: 'Creative production', desc: 'We produce hooks, formats, and angles at pace with AI-accelerated workflows. Strong creative is the biggest driver of paid social results.' },
+            { title: 'Launch', desc: 'We launch with clean structure, the right budgets, and guardrails in place. Early spend gathers the data that guides testing.' },
+            { title: 'Testing and optimisation', desc: 'We test creative and audiences, cut losers, and tune toward cost per result. Performance sharpens week on week.' },
+            { title: 'Scale and report', desc: 'We scale the winners and report monthly on ROAS, CPA, and CPL. You always know what happened and what comes next.' },
+        ],
+
+        // Section 9 -by business type
+        s11Heading: 'Meta Ads by Business Type',
+        industries: [
+            { title: 'Ecommerce', desc: 'Catalog and dynamic product ads tuned to ROAS, so spend follows your best-selling products.', href: '/industries/ecommerce' },
+            { title: 'Lead generation', desc: 'Lead ads and CRM-tracked campaigns that lower cost per lead and feed your sales pipeline.', href: '/industries/professional-services' },
+            { title: 'Local service businesses', desc: 'Click-to-call and click-to-WhatsApp ads that turn local demand into booked enquiries.', href: '/industries/local-businesses' },
+            { title: 'B2B', desc: 'Qualified-lead campaigns with offline conversion import, so spend follows the leads that become deals.', href: '/industries/b2b-companies' },
+        ],
+
+        // Section 10 -Meta vs Google + agency comparison
+        ppcSeoPoints: [
+            { title: 'Meta ads (paid social)', desc: 'Demand creation. Meta puts your offer in front of people who were not searching yet, using creative and targeting to spark intent.' },
+            { title: 'Google Ads (paid search)', desc: 'Demand capture. Google reaches people already searching for what you sell, ready to act now.' },
+        ],
+        ppcSeoVerdict:
+            'Meta creates demand, Google captures it, and most businesses grow fastest running both. We handle Meta here and run Google Ads under the same roof. Organic social is a separate service.',
+        compHeading: 'Meta Ads vs Google Ads, and Agency vs Freelancer vs In-House',
+        compIntro:
+            'Beyond the channel question sits the management question. Three routes run a Meta ads account, and the right one depends on budget, creative needs, and whether you want to hire.',
+        comparisonTable: [
+            { factor: 'Cost', agency: 'Flat monthly fee, no hires or tools to fund', freelancer: 'Low fee, variable scope', inhouse: 'Salaries for a media buyer and creative', software: '' },
+            { factor: 'Expertise', agency: 'Senior media buyers and creative strategists', freelancer: 'Varies with the individual', inhouse: 'One or two people’s knowledge', software: '' },
+            { factor: 'Creative output', agency: 'A team producing and testing creative at volume', freelancer: 'Limited by one person’s hours', inhouse: 'Strong if you hire a creative, costly to staff', software: '' },
+            { factor: 'Tracking capability', agency: 'Pixel, Conversions API, GA4, and offline tracking', freelancer: 'Often basic or skipped', inhouse: 'Depends on the hire', software: '' },
+            { factor: 'Account ownership', agency: 'You own the account and data with us', freelancer: 'Usually yours, varies', inhouse: 'Yours by default', software: '' },
+        ],
+        compVerdict:
+            'A freelancer suits light, low-budget accounts. An in-house team suits brands with the volume to staff a media buyer and a creative. An agency suits businesses that want senior strategy, creative testing, and proper tracking without hiring. When your spend does not yet justify management, we say so.',
+
+        // Section 11 -why choose us
+        s13Heading: 'Why Businesses Choose Webspires for Meta Ads',
+        whyChoose: [
+            { title: 'You own your account and data', desc: 'The ad account, Pixel, and data stay yours, set up under your ownership from day one. Leave whenever you want and keep everything.' },
+            { title: 'No markup on ad spend', desc: 'Every pound of budget reaches Meta. We charge a flat management fee and never take a cut of your spend.' },
+            { title: 'No long contracts', desc: 'Management runs rolling monthly. We earn the next month by performing, not by locking you in.' },
+            { title: 'Server-side tracking done right', desc: 'We set up the Conversions API properly from day one, so Meta optimises on real data while competitors run on guesswork.' },
+            { title: 'AI-accelerated creative testing', desc: 'Modern AI tooling lets us produce and test more creative at honest cost, and creative is the biggest lever in paid social.' },
+            { title: 'One team for Meta, Google, social, and CRO', desc: 'The same team runs your paid social, paid search, organic social, and conversion work, so the whole funnel pulls together.' },
+            { title: 'Plain-English reporting', desc: 'Monthly reporting tied to ROAS, CPA, and CPL, with no jargon and no vanity metrics.' },
+            { title: 'Senior UK team, direct access', desc: 'A senior specialist based in the Manchester area runs your account and answers directly, not a junior behind an account manager.' },
+        ],
+
+        // Section 12 -results
+        s14Heading: 'Real Meta Ads Results',
+        caseProblem:
+            'Our own early paid social optimised for engagement, not sales. The Pixel fired inconsistently, there was no Conversions API, and creative ran stale, so spend bought likes rather than revenue.',
+        caseSolution:
+            'We applied our own playbook: Pixel and Conversions API set up server-side, a structured creative testing system, layered custom and lookalike audiences, and reporting tied to ROAS and cost per result.',
+        caseOutcome:
+            'Tracking finally matched reality, the testing system surfaced creative that converted, and cost per result fell while revenue from paid social climbed month on month.',
+        caseMetric: '',
+        caseNote:
+            'We publish results we stand behind. As client Meta ads results gain approval, we add them here with named ROAS and cost-per-result figures.',
+
+        // Section 13 -CTA
+        s15Heading: 'Get a Free Meta Ads Audit',
+        s15Body:
+            'On a free audit, the Webspires team reviews your account structure, finds wasted spend, checks your Pixel and Conversions API, reviews your creative, and shows the quick wins. No obligation, and you keep the findings whether you work with us or not.',
+
+        // Section 14 -FAQ
+        faqHeading: 'Meta Ads Management FAQs',
+        faqs: [
+            { q: 'How much does Meta ads management cost in the UK?', a: 'UK Meta ads management fees typically run from around £600 per month for smaller accounts to £2,500 and above for higher-spend management, plus a one-off setup from £750. The fee depends on ad spend, creative volume, and complexity. Ad spend is separate and paid directly to Meta, with no markup from us.' },
+            { q: 'What is the difference between the management fee and my ad budget?', a: 'The management fee pays our team to plan, build, test, and optimise your campaigns. The ad budget is the money Meta charges to show your ads. They are separate, the budget goes straight to Meta, and we never add a markup to it.' },
+            { q: 'Is there a minimum ad spend?', a: 'No fixed minimum, though paid social needs enough budget to exit the learning phase and test creative properly. For most UK small businesses, a starting budget from a few hundred pounds a month upward gives campaigns room to prove themselves. We recommend a realistic figure after the audit.' },
+            { q: 'Am I tied into a long contract?', a: 'No. Management runs on rolling monthly terms with no long lock-in. You own your Meta ad account, Pixel, and data throughout, so you keep everything and leave whenever you choose. We hold onto clients by performing, not by contracts.' },
+            { q: 'How long until I see results?', a: 'Many accounts see early conversions within the first few weeks as campaigns exit the learning phase, then improve as creative testing and optimisation compound. Paid social rewards patience with creative, so the first month is about gathering data and finding the angles that convert.' },
+            { q: 'Do I own my account and data?', a: 'Yes. We set up and run campaigns inside an ad account you own, so the Pixel, audiences, and history stay with you. If you ever leave, you take the account intact. No agency holds your account hostage.' },
+            { q: 'Should I run Facebook ads, Instagram ads, or both?', a: 'Usually both. Meta serves your ads across Facebook and Instagram from one campaign, and the platform finds the cheapest conversions across placements. We set the split by where your buyers respond, rather than guessing up front, and let the data decide.' },
+            { q: 'Is Meta better than Google Ads?', a: 'Neither wins outright. Meta creates demand by putting your offer in front of the right audience, while Google captures demand from people already searching. Most businesses grow fastest running both, which is why we handle Meta and Google Ads under one roof.' },
+            { q: 'Will Meta ads still work in 2026, and what is the new UK location fee?', a: 'Yes, Meta ads remain one of the strongest channels for sales and leads in 2026. From July 2026, Meta applies a UK location fee of 2 to 5 percent on ad delivery, a pass-through cost charged by Meta on top of your budget, not by us. We factor it into planning so your targets stay realistic.' },
+        ],
+    },
+
+    {
+        slug: 'shopify-development',
+
+        // Meta - web-and-dev silo. Owns Shopify build + migration-to-Shopify
+        // intent; routes other platforms, general web design, ecommerce SEO,
+        // and CRO out. Honest SME/growing-brand scope, no faked Plus status.
+        metaTitle: 'Shopify Development Agency UK | Stores Built to Be Found | Webspires',
+        metaDescription:
+            'Shopify stores designed to convert and engineered to rank in Google and AI search from day one. Custom builds, SEO-safe migration, and integrated growth for UK SMEs and DTC brands. Transparent pricing. Book a free Shopify consultation.',
+
+        // Hero (Section 1)
+        h1: 'Shopify Stores Built to Convert and to Be Found',
+        heroSub:
+            'A fast, conversion-focused Shopify store that also ranks in Google and gets cited in AI search, so it earns traffic and sales, not just compliments. Webspires builds search-native Shopify stores for UK SMEs and growing DTC brands, handles SEO-safe migration, and keeps one team on the build and the growth that follows. Transparent pricing, you own the store, and there is no lock-in. The result is an online store that sells from the day it launches.',
+        heroChips: [
+            'Custom Shopify builds',
+            'Built for search and AI',
+            'Own your store',
+            'No lock-in',
+        ],
+
+        // Section 2 - what we build (definition + deliverable pills)
+        s2Heading: 'What We Build on Shopify',
+        s2Definition:
+            'Shopify development is the design, build, migration, and optimisation of Shopify stores for businesses that want to sell more online. The work spans a custom storefront, the technical setup behind it, and the search foundations that decide whether anyone finds the store once it launches.',
+        buildRoutes: [
+            { title: 'Custom theme', desc: 'A bespoke, brand-led theme rather than a generic template.' },
+            { title: 'Store design', desc: 'Conversion-focused, mobile-first design across the journey.' },
+            { title: 'Migration', desc: 'SEO-safe moves from WooCommerce, Magento, and more.' },
+            { title: 'Integrations', desc: 'Payments, subscriptions, CRM, and email connected cleanly.' },
+            { title: 'Speed', desc: 'Core Web Vitals and load times tuned for ranking and conversion.' },
+            { title: 'Support', desc: 'Ongoing care so the store keeps performing after launch.' },
+        ],
+        s2Adoption:
+            'Through 2026, a Shopify store needs to be found in both Google and AI search to earn its traffic, so a build that looks good but ranks nowhere starts at a disadvantage.',
+
+        // Section 3 - why most Shopify stores underperform (mistake -> fix bento)
+        s4Heading: 'Why Most Shopify Stores Underperform',
+        s4Intro:
+            'Most underperforming Shopify stores fail for the same fixable reasons. In 2026, a store that is not built for Google and AI search starts invisible, and good looks alone do not sell. The six issues below name the fix for each.',
+        outgrownSigns: [
+            { title: 'Beautiful but invisible', desc: 'A polished store with no technical SEO never ranks. A search-native build earns visibility from launch.' },
+            { title: 'Slow and failing Core Web Vitals', desc: 'Sluggish pages lose rankings and sales together. A performance-first build passes Core Web Vitals and loads fast.' },
+            { title: 'Weak on mobile', desc: 'Most shoppers buy on a phone, yet many themes fight small screens. A mobile-first build converts where buyers actually are.' },
+            { title: 'Theme bloat from too many apps', desc: 'Stacked apps slow the store and clash with each other. Lean, custom functionality replaces the bloat.' },
+            { title: 'Not built to convert', desc: 'Traffic arrives and leaves because the journey is unclear. Conversion-focused design turns visits into orders.' },
+            { title: 'No structure for AI search', desc: 'Without schema and clean structure, AI engines skip the store. Product and FAQ schema make it citable.' },
+        ],
+
+        // Section 4 - our Shopify services (bento, flagship first)
+        s5Heading: 'Our Shopify Development Services',
+        services: [
+            { title: 'Custom theme and store design', desc: 'We design and build a bespoke, brand-led theme that is mobile-first and conversion-focused, not a generic template every other store uses. Every page guides the shopper toward the basket. The outcome: a store that reflects the brand and sells.' },
+            { title: 'Search-native build', desc: 'We bake technical SEO, clean architecture, and schema into the build from day one, so the store is ready to rank rather than retrofitted later. Search is a foundation, not an afterthought. The outcome: organic visibility from launch.', href: '/services/seo/ecommerce-seo' },
+            { title: 'SEO-safe migration to Shopify', desc: 'We move your store to Shopify with redirects mapped and search equity preserved, so rankings and revenue survive the switch. Data, content, and URLs land cleanly. The outcome: a replatform that protects your traffic.' },
+            { title: 'Integrations and custom functionality', desc: 'We connect payments, subscriptions, CRM, and email, and build custom features where an app falls short. The store works the way your business runs. The outcome: a store that fits your operations.' },
+            { title: 'Speed and Core Web Vitals', desc: 'We tune load times, images, and code so the store passes Core Web Vitals on mobile and desktop. Speed lifts both rankings and conversion. The outcome: a fast store that ranks and converts.' },
+            { title: 'Care, support, and growth', desc: 'We keep the store healthy after launch and grow it with SEO, conversion work, and ads from the same team. The store improves instead of stalling. The outcome: a store that compounds.', href: '/services/conversion-rate-optimisation' },
+        ],
+
+        // Section 5 - search-native Shopify (s7 + engine chips, signature)
+        s7Heading: 'Shopify Stores Built for Google and AI Search',
+        s7Body:
+            'Most agencies build the store and treat search as an afterthought, then sell SEO as a separate project six months later. We build technical SEO, clean site structure, product and FAQ schema, and AI-citable content into the store from the first line of code, so it is ready to rank in Google and be recommended in AI answers at launch. The result is a store that earns organic traffic and AI visibility from day one, not a rebuild once the bills arrive.',
+        integrations: ['Google', 'AI Overviews', 'ChatGPT', 'Gemini'],
+
+        // Section 6 - SEO-safe migration (s8 + checklist + source platforms)
+        s8Heading: 'SEO-Safe Migration to Shopify',
+        s8Intro:
+            'Moving to Shopify is where rankings and revenue go to die if the migration is rushed. We replatform without losing either, with a full data migration, redirect mapping, and metadata preserved, so the store lands on Shopify with its search equity intact.',
+        migrationSteps: [
+            { title: 'Full data migration', desc: 'Products, customers, orders, and content move across complete and intact.' },
+            { title: 'Redirect mapping', desc: 'Every old URL points to its new home, so no link or ranking is lost.' },
+            { title: 'Metadata and URL preservation', desc: 'Titles, descriptions, and URL structure carry over to protect search equity.' },
+            { title: 'Structured-data rebuild', desc: 'Product and FAQ schema are rebuilt on Shopify so the store stays machine-readable.' },
+            { title: 'Pre-launch QA', desc: 'We test redirects, data, and performance before go-live, not after.' },
+            { title: 'Monitored launch', desc: 'We watch rankings and crawling through the switch and fix anything that moves.' },
+        ],
+        migrationSources: ['WooCommerce', 'Magento', 'BigCommerce', 'Wix', 'Squarespace'],
+
+        // Section 7 - process
+        s10Heading: 'Our Shopify Build Process, Step by Step',
+        s10Intro:
+            'Six stages take your store from first conversation to a fast, found, selling Shopify build. Search architecture comes before code, AI-accelerated work speeds delivery, and a person makes the design and build calls.',
+        processSteps: [
+            { title: 'Discovery and planning', desc: 'We learn your brand, products, and goals, then agree the scope and structure. You leave with a clear plan and a fixed price.' },
+            { title: 'Design', desc: 'We design a brand-led, conversion-focused store and map the full shopping journey. You approve the design before any build starts.' },
+            { title: 'Search architecture', desc: 'We plan SEO, URL structure, and schema before a line of code, so search is built in rather than bolted on. The foundation is set for ranking from launch.' },
+            { title: 'High-performance build', desc: 'We build a fast, clean Shopify store with lean code and tuned Core Web Vitals. Speed and structure are baked in.' },
+            { title: 'QA and conversion checks', desc: 'We test the store across devices and pressure-test the journey to the basket. Issues are caught before customers see them.' },
+            { title: 'SEO-safe launch and care', desc: 'We launch with redirects in place and monitor the switch, then support and grow the store. Day one is a start, not a handoff.' },
+        ],
+
+        // Section 8 - pricing (3 tiers + care plan, middle highlighted)
+        s12Heading: 'Shopify Development Pricing in the UK',
+        s12Intro:
+            'Honest first: every build is scoped, so the figures below are starting points, confirmed after a free consultation. Price follows the design, the functionality, and whether you are migrating, not a one-size sticker.',
+        pricingBands: [
+            { name: 'Theme Setup and Customisation', range: 'from £2,500', includes: 'A polished store on a strong theme, customised to your brand, with the search foundations in place. Right for a first store or a quick, credible launch.' },
+            { name: 'Custom Shopify Build', range: 'from £6,000', includes: 'A bespoke, search-native store with custom design, integrations, and schema built in. The popular choice for growing brands.' },
+            { name: 'Migration and Complex Build', range: 'from £15,000', includes: 'A replatform or advanced functionality, with SEO-safe migration, integrations, and bespoke features. Right for established stores moving to Shopify.' },
+            { name: 'Care and Growth plan', range: 'from £150/mo', includes: 'Ongoing support, updates, and growth across SEO, conversion, and ads. Optional on any build.' },
+        ],
+        s12Note:
+            'Figures are starting points, confirmed after a free consultation once the scope is clear. You own your store and data, there is no lock-in, and the care plan is optional. No guessed quotes, no surprise invoices.',
+
+        // Section 9 - Shopify vs WooCommerce + agency vs freelancer vs in-house
+        ppcSeoPoints: [
+            { title: 'Shopify', desc: 'Managed, hosted, and scalable, with security and updates handled for you. Right for most growing brands that want to sell, not maintain servers.' },
+            { title: 'WooCommerce', desc: 'Open and flexible on WordPress, but you own the hosting, security, and maintenance. Right for teams that want full control and have the resource to manage it.' },
+        ],
+        ppcSeoVerdict:
+            'For most growing brands, Shopify wins on time, reliability, and total cost of ownership, which is why we build on it. We migrate stores from WooCommerce when the upkeep has outgrown the benefit.',
+        compHeading: 'Shopify vs WooCommerce, and Agency vs Freelancer',
+        compIntro:
+            'Two questions decide a Shopify project: the platform and who builds it. The platform comparison sits above. The build comparison below weighs an agency against a freelancer and an in-house hire.',
+        comparisonTable: [
+            { factor: 'Cost', agency: 'One scoped project fee for a full team', freelancer: 'Low day rate for one person', inhouse: 'High: salary, tools, and standing cost', software: '' },
+            { factor: 'Breadth of skills', agency: 'Design, build, SEO, and conversion in one team', freelancer: 'Strong in one area, thin in others', inhouse: 'Broad only with several hires', software: '' },
+            { factor: 'Search and speed built in', agency: 'Search-native build from day one', freelancer: 'Rarely, search is usually separate', inhouse: 'Only if you also employ an SEO', software: '' },
+            { factor: 'After launch', agency: 'Ongoing care and growth from the same team', freelancer: 'Often gone once the build ships', inhouse: 'Covered, at a standing cost', software: '' },
+            { factor: 'Reliability', agency: 'A team covers absence and deadlines', freelancer: 'One person, one point of failure', inhouse: 'Steady while the roles stay filled', software: '' },
+        ],
+        compVerdict:
+            'A freelancer suits a small one-off build on a tight budget. An in-house team suits brands with constant store work and the budget to employ. An agency suits a brand that wants the build plus ongoing search and conversion growth from one team, which is where we fit. When a freelancer is the right call for your stage, we say so.',
+
+        // Section 10 - why choose us
+        s13Heading: 'Why Businesses Choose Webspires for Shopify',
+        whyChoose: [
+            { title: 'Search-native builds', desc: 'We build technical SEO, schema, and clean structure into the store from day one, so it ranks and gets cited rather than sitting invisible.' },
+            { title: 'One team builds and grows', desc: 'The same team builds the store and grows it with SEO, GEO, conversion work, and ads, so launch is the start of growth, not a handoff.' },
+            { title: 'SEO-safe migration', desc: 'We replatform to Shopify with redirects mapped and search equity preserved, so rankings and revenue survive the move.' },
+            { title: 'Transparent pricing', desc: 'Clear starting points and a scoped fixed price after a consultation. You always know what you pay for.' },
+            { title: 'You own your store and data', desc: 'Your Shopify store, theme, and data stay yours, with no lock-in. Leave whenever you want and keep everything.' },
+            { title: 'Honest about scope', desc: 'We serve SMEs and growing brands well and say so, rather than posing as an enterprise Shopify Plus shop we are not.' },
+            { title: 'AI-accelerated at honest cost', desc: 'Modern AI tooling speeds delivery while senior people make the calls, so you get strong work at a fair fee.' },
+            { title: 'Senior UK team, Manchester based', desc: 'A senior team near Manchester builds and supports your store and knows UK ecommerce.' },
+        ],
+
+        // Section 11 - results
+        s14Heading: 'Real Shopify Results',
+        caseProblem:
+            'Our own first commerce builds looked good but loaded slowly, leaned on too many apps, and launched with no search foundation, so traffic was thin and the journey to checkout leaked.',
+        caseSolution:
+            'We rebuilt to our own standard: a lean, fast theme, Core Web Vitals tuned, technical SEO and schema baked in, and a conversion-focused journey from landing to basket.',
+        caseOutcome:
+            'Pages loaded faster, the store passed Core Web Vitals, organic visibility started from launch instead of months later, and more visits turned into orders.',
+        caseMetric: '',
+        caseNote:
+            'We publish results we stand behind. As client Shopify builds complete and the metrics gain approval, we add them here with named speed, traffic, and revenue figures.',
+
+        // Section 12 - CTA
+        s15Heading: 'Book a Free Shopify Consultation',
+        s15Body:
+            'Book a free Shopify consultation and the Webspires team reviews your goals, looks at your current store or platform, runs a search and speed snapshot, and gives you a clear scope and price. No obligation, and the findings are yours to keep.',
+
+        // Section 13 - FAQ
+        faqHeading: 'Shopify Development FAQs',
+        faqs: [
+            { q: 'How much does Shopify development cost in the UK?', a: 'UK Shopify projects typically start around £2,500 for a customised theme build, rise to £6,000 and above for a bespoke search-native store, and £15,000 and above for migrations or complex functionality. Every build is scoped, so we confirm the figure after a free consultation rather than guessing up front.' },
+            { q: 'How long does a Shopify build take?', a: 'A customised theme build often takes a few weeks, while a bespoke or migration project runs longer depending on design, integrations, and data. We agree a timeline at planning and keep you updated, and AI-accelerated work shortens delivery without cutting quality.' },
+            { q: 'Can you migrate my store without losing rankings?', a: 'Yes, that is the point of an SEO-safe migration. We map redirects, preserve metadata and URL structure, rebuild schema, and monitor the launch, so products, content, and search equity move across intact. Botched migrations lose rankings, and avoiding that is the whole job.' },
+            { q: 'Do you build on Shopify Plus?', a: 'We work at SME and growing-brand level on standard Shopify, where most of our clients sit, and we are honest about that rather than posing as an enterprise Plus agency. For very large, multi-market Plus migrations, a dedicated Plus partner is the better fit, and we say so.' },
+            { q: 'Will my store be built for SEO and AI search?', a: 'Yes, and from day one. We build technical SEO, clean structure, and product and FAQ schema into the store so it is ready to rank in Google and be cited in AI answers at launch, not retrofitted six months later. Search is a foundation of the build.' },
+            { q: 'Do I own my store and data?', a: 'Yes. Your Shopify store, theme, content, and data stay yours throughout, with no lock-in. If you leave, you keep everything, and the store keeps running on your own Shopify account.' },
+            { q: 'Shopify or WooCommerce, which is right for me?', a: 'Shopify suits most growing brands that want a managed, scalable store without running their own hosting and security. WooCommerce suits teams that want full control and have the resource to maintain it. In 2026, for most SMEs that want to sell rather than maintain, Shopify wins on time and reliability.' },
+            { q: 'Do you offer ongoing support after launch?', a: 'Yes. A care and growth plan covers updates, monitoring, and improvement, and the same team grows the store with SEO, conversion work, and ads. Launch is the start, so the store keeps improving instead of stalling once it goes live.' },
+        ],
+    },
+
+    {
+        slug: 'seo',
+
+        // Meta - hub of the search silo. Owns "seo services / seo agency" and
+        // routes every sub-discipline and niche to its own page.
+        metaTitle: 'SEO Services UK | SEO Agency for Google & AI Search | Webspires',
+        metaDescription:
+            'Performance-focused SEO that grows organic traffic, leads, and revenue, and makes your brand the answer in Google and AI search. Topical-authority method, transparent pricing, no lock-in. Get a free SEO audit.',
+
+        // Hero (Section 1)
+        h1: 'SEO Services That Grow Traffic, Leads, and Revenue',
+        heroSub:
+            'Higher rankings that turn into qualified traffic, enquiries, and revenue, plus visibility in AI search, not vanity keywords. Webspires runs GEO-native SEO built for Google and AI engines, a topical-authority method, transparent pricing, and no lock-in, with one team across content, CRO, and paid. UK businesses get organic growth that answers to revenue in 2026, measured honestly and owned by you from the first audit onward.',
+        heroChips: [
+            '5-star rated',
+            'Google and AI search',
+            'Own your data',
+            'No lock-in',
+        ],
+
+        // Section 2 - what SEO includes (definition + discipline pills that route the silo)
+        s2Heading: 'What SEO Includes',
+        s2Definition:
+            'SEO is the ongoing work that grows a website’s visibility in organic and AI search, across technical health, content, authority, and local presence, so the right people find and choose the business. Strong SEO aligns the three things search rewards: relevance to the query, authority that earns trust, and content structured so AI engines quote it.',
+        buildRoutes: [
+            { title: 'Technical SEO', desc: 'Site health, crawl, indexation, and Core Web Vitals.', href: '/services/seo/technical-seo' },
+            { title: 'On-page SEO', desc: 'Entity-led content and a topical map that earns relevance.', href: '/services/seo/on-page-seo' },
+            { title: 'Link building', desc: 'Authority from relevant, editorially earned links.', href: '/services/seo/link-building' },
+            { title: 'Local SEO', desc: 'Map pack, Google Business Profile, and "near me" reach.', href: '/services/seo/local-seo' },
+            { title: 'Ecommerce SEO', desc: 'Category and product pages built to sell.', href: '/services/seo/ecommerce-seo' },
+            { title: 'National SEO', desc: 'Organic reach across the whole UK for non-local brands.', href: '/services/seo/national-seo' },
+            { title: 'AI search', desc: 'Entity and citation work that earns answers in AI engines.', href: '/services/generative-engine-optimisation' },
+        ],
+        s2Adoption:
+            'Through 2026, search spans two surfaces at once: the classic ten blue links and the AI answer that sits above them. SEO now earns visibility in both, or it leaves traffic on the table.',
+
+        // Section 3 - why your site is not ranking (mistake → fix bento)
+        s4Heading: 'Why Your Site Is Not Ranking',
+        s4Intro:
+            'Most sites miss the top of search for a handful of fixable reasons. In 2026, ranking means earning visibility in classic results and AI answers, and most sites are built for neither. The six issues below name the fix for each.',
+        outgrownSigns: [
+            { title: 'Thin, unfocused content', desc: 'Pages with no topical authority never earn trust on a subject. A topical map and entity-led content turn the site into the definitive source.' },
+            { title: 'Technical issues block crawling', desc: 'Crawl and indexation errors keep pages out of the index entirely. A technical fix opens the whole site to search engines.' },
+            { title: 'Weak or toxic backlinks', desc: 'A thin or spammy link profile drags authority down. Relevant, earned links and a clean-up rebuild it.' },
+            { title: 'No local presence', desc: 'A missing or thin Google Business Profile hides you from nearby buyers. A complete local setup puts you in the map pack.' },
+            { title: 'Content AI engines ignore', desc: 'Unstructured pages give AI engines nothing to quote. Modular answer blocks and clean schema earn the citation.' },
+            { title: 'Chasing vanity keywords', desc: 'High-volume terms with no buying intent burn budget and return nothing. Revenue-first research targets terms that convert.' },
+        ],
+
+        // Section 4 - our SEO services (bento, each card routes to its sub-silo)
+        s5Heading: 'Our SEO Services',
+        services: [
+            { title: 'On-page and topical authority', desc: 'We build entity-led content on a Koray-style topical map, with internal linking that signals depth on your subject. Topical authority turns a site into the source Google and AI engines prefer. The outcome: rankings across a whole topic, not one keyword.', href: '/services/seo/on-page-seo' },
+            { title: 'Technical SEO', desc: 'We fix crawl, indexation, site speed, and Core Web Vitals so search engines reach and rank every important page. A healthy foundation makes every other effort count. The outcome: a site search engines trust and index in full.', href: '/services/seo/technical-seo' },
+            { title: 'Link building and digital PR', desc: 'We earn relevant, editorial links and coverage from sites that pass real authority, never spam or PBNs. Quality links remain one of the strongest ranking signals in search. The outcome: higher authority and stronger positions.', href: '/services/seo/link-building' },
+            { title: 'Local SEO', desc: 'We optimise your Google Business Profile, reviews, and citations so nearby customers find you in the map pack and Maps. Local visibility turns "near me" searches into calls and visits. The outcome: more local enquiries at the moment of intent.', href: '/services/seo/local-seo' },
+            { title: 'Ecommerce SEO', desc: 'We optimise category, product, and faceted pages so online stores rank for terms that sell. Ecommerce SEO ties rankings to revenue, not just sessions. The outcome: more organic sales from high-intent search.', href: '/services/seo/ecommerce-seo' },
+            { title: 'National SEO', desc: 'We grow organic reach across the whole UK for brands that sell beyond one town. National SEO competes on authority and topical depth at scale. The outcome: visibility wherever your customers search.', href: '/services/seo/national-seo' },
+            { title: 'AI search (GEO)', desc: 'We structure entities, schema, and answer blocks so AI engines quote your brand in their answers. AI search is where a growing share of discovery now happens. The outcome: your brand cited in ChatGPT, Perplexity, and AI Overviews.', href: '/services/generative-engine-optimisation' },
+        ],
+
+        // Section 5 - SEO and AI search (reuses s7 + integrations chips, signature visual)
+        s7Heading: 'SEO Built for Google and AI Search',
+        s7Body:
+            'Search now happens in two places at once: classic Google results and AI answers from ChatGPT, Perplexity, Gemini, and Google AI Overviews. Most agencies bolt AI search on as an afterthought. Our SEO is GEO-native, with entity-rich content, structured data, modular answer blocks, and the E-E-A-T signals AI engines quote, built into the work from the first sprint rather than added at the end. The result is simple: your brand gets found and cited whether the customer searches Google or asks an assistant for a recommendation.',
+        integrations: ['Google AI Overviews', 'ChatGPT', 'Perplexity', 'Gemini'],
+
+        // Section 6 - process
+        s10Heading: 'Our SEO Process, Step by Step',
+        s10Intro:
+            'Six stages take your site from a free audit to compounding organic growth. AI-accelerated research and production speed the groundwork, and a person makes every strategic call. Reporting tracks revenue, not vanity rankings.',
+        processSteps: [
+            { title: 'Free SEO audit', desc: 'We review technical health, content, backlinks, and AI-search visibility, then name the priorities. You leave with a clear baseline and the quick wins worth doing first.' },
+            { title: 'Keyword and entity research', desc: 'We build a topical map of the entities and queries your buyers use, scored by intent and revenue. The map sets the whole content plan, so effort points at terms that convert.' },
+            { title: 'Technical fixes', desc: 'We clear crawl, indexation, speed, and Core Web Vitals issues that hold the site back. A clean foundation lets content and links do their job.' },
+            { title: 'Content production', desc: 'We produce entity-led content across the topical map, structured for both readers and AI engines. Each page strengthens the site’s authority on the subject.' },
+            { title: 'Authority and link building', desc: 'We earn relevant links and digital PR that raise the site’s standing. Authority turns good content into ranked content.' },
+            { title: 'Measurement and iteration', desc: 'We report on traffic, leads, and revenue, then refine the plan around what works. Each month builds on the last, honestly and transparently.' },
+        ],
+
+        // Section 7 - by industry (routes niche demand to /industries/*)
+        s11Heading: 'SEO by Industry',
+        industries: [
+            { title: 'Ecommerce', desc: 'Category and product SEO that ties organic rankings to online revenue.', href: '/industries/ecommerce' },
+            { title: 'Professional services', desc: 'Authority-led content and topical depth that win high-value enquiries for legal, accounting, and advisory firms.', href: '/industries/professional-services' },
+            { title: 'Trades and local business', desc: 'Local pack and service-area SEO that turn "near me" into booked jobs.', href: '/industries/local-businesses' },
+            { title: 'Healthcare and clinics', desc: 'Compliant, trust-led SEO that fills appointment books from search.', href: '/industries/healthcare-clinics' },
+            { title: 'B2B companies', desc: 'Topical authority and content that feed a longer, considered pipeline.', href: '/industries/b2b-companies' },
+            { title: 'Real estate', desc: 'Area and listing SEO that attract buyers, sellers, and landlords.', href: '/industries/real-estate' },
+        ],
+
+        // Section 8 - pricing (honesty note + three tiers, middle highlighted)
+        s12Heading: 'SEO Pricing in the UK',
+        s12Intro:
+            'Honest first: anyone guaranteeing number-one rankings is a red flag, because no agency controls Google. SEO is an ongoing retainer that compounds over months, not a one-off cost. The tiers below are indicative, with the final scope set after a free audit.',
+        pricingBands: [
+            { name: 'Starter / Local', range: 'from £500/mo', includes: 'Foundations and a single focus. Right for a local business or a site starting SEO, covering technical basics, core content, and local setup.' },
+            { name: 'Growth', range: 'from £900/mo', includes: 'Technical, content, and links across a national campaign. The popular choice for businesses competing seriously in organic search.' },
+            { name: 'Scale / Ecommerce', range: 'from £1,800/mo', includes: 'Competitive markets and large sites. Deeper content, authority building, and ecommerce or multi-template optimisation at scale.' },
+        ],
+        s12Note:
+            'Retainers run rolling monthly with no lock-in, and no agency guarantees rankings. You own your content, data, and reporting throughout. Final scope and price follow a free audit, once we have seen your market and your site.',
+
+        // Section 9 - SEO vs PPC (ppcSeo*) + agency vs freelancer vs in-house (comparisonTable)
+        ppcSeoPoints: [
+            { title: 'SEO', desc: 'Organic visibility that compounds. Slower to start, then steady traffic that keeps returning without paying per click. Right for long-term growth and trust.' },
+            { title: 'PPC', desc: 'Paid visibility that switches on instantly. Fast and controllable, but the traffic stops the moment the budget does. Right for speed and testing.' },
+        ],
+        ppcSeoVerdict:
+            'Most businesses run both: PPC for immediate enquiries while SEO builds the compounding base beneath it. We run paid search under the same roof, so the two pull together instead of competing.',
+        compHeading: 'SEO vs PPC, and Agency vs Freelancer vs In-House',
+        compIntro:
+            'Beyond the organic-versus-paid question sits the build-versus-hire one. Three routes exist to deliver SEO, and the right one depends on your scale, budget, and how much you want handled for you.',
+        comparisonTable: [
+            { factor: 'Cost', agency: 'One monthly retainer for a full team', freelancer: 'Low monthly fee for one person', inhouse: 'High: salaries, tools, and training', software: '' },
+            { factor: 'Breadth of skills', agency: 'Technical, content, links, and AI search in one team', freelancer: 'Strong in one area, thin in others', inhouse: 'Broad only if you hire several specialists', software: '' },
+            { factor: 'Consistency', agency: 'A team covers holidays and absence', freelancer: 'One person, one point of failure', inhouse: 'Steady while the roles stay filled', software: '' },
+            { factor: 'Tools and data', agency: 'Enterprise tools included, you own the data', freelancer: 'Varies with the individual', inhouse: 'You buy and run every tool yourself', software: '' },
+            { factor: 'Scalability', agency: 'Scales up or down with your goals', freelancer: 'Capped by one person’s hours', inhouse: 'Slow: more output means more hires', software: '' },
+        ],
+        compVerdict:
+            'A freelancer suits light needs and a tight budget. An in-house team suits large brands with the volume to employ specialists. An agency suits businesses that want technical, content, and authority handled together without hiring, which is where our integrated model fits. When an agency is not the right answer for your stage, we say so.',
+
+        // Section 10 - why choose us
+        s13Heading: 'Why Businesses Choose Webspires for SEO',
+        whyChoose: [
+            { title: 'GEO-native across Google and AI search', desc: 'We optimise for classic results and the AI answers that now sit above them, not one at the expense of the other.' },
+            { title: 'Koray topical-authority method', desc: 'We build entity-led topical maps that turn your site into the definitive source on its subject, so rankings arrive as a set, not one term at a time.' },
+            { title: 'Transparent pricing, no lock-in', desc: 'Clear monthly retainers, rolling terms, and audit findings you keep. You always know what you pay for.' },
+            { title: 'You own your content and data', desc: 'Your pages, links, and reporting stay yours. Leave whenever you want and keep everything you paid for.' },
+            { title: 'Direct access, no middlemen', desc: 'You talk to the senior people doing the work, not a layer of account managers between you and the strategy.' },
+            { title: 'AI-accelerated at honest cost', desc: 'Modern AI tooling speeds research and production while people make every ranking decision, so you get more for a fair fee.' },
+            { title: 'One team across SEO, GEO, CRO, and paid', desc: 'The same team runs your organic search, AI search, conversion work, and ads, so the whole strategy moves as one.' },
+            { title: 'Senior UK team, Manchester based', desc: 'A senior specialist near Manchester runs your account and knows how UK search behaves.' },
+        ],
+
+        // Section 11 - real results (problem / solution / outcome, no fabricated metric)
+        s14Heading: 'Real SEO Results',
+        caseProblem:
+            'Our own site competed in a crowded agency market with thin topical coverage, a handful of unfocused pages, and little presence in AI answers. Rankings sat outside the first page for the terms that mattered.',
+        caseSolution:
+            'We applied our own method: a full topical map, entity-led content across each silo, technical fixes, earned links, and structured data built for both Google and AI engines.',
+        caseOutcome:
+            'Organic visibility climbed across the mapped topics, qualified enquiries from search grew, and AI assistants began naming the brand for relevant queries. The work compounds month on month.',
+        caseMetric: '',
+        caseNote:
+            'We publish results we stand behind. As client SEO results gain approval, we add them here with named traffic, lead, revenue, and AI-citation figures.',
+
+        // Section 12 - CTA
+        s15Heading: 'Get a Free SEO Audit',
+        s15Body:
+            'Book a free SEO audit and the Webspires team reviews your technical health, content and topical gaps, backlink profile, AI-search visibility, and the quick wins worth doing first. No obligation, and you keep the findings whether you work with us or not.',
+
+        // Section 13 - FAQ
+        faqHeading: 'SEO FAQs',
+        faqs: [
+            { q: 'How much does SEO cost in the UK?', a: 'UK SEO retainers typically run from around £500 per month for local or starter work to £1,800 and above for competitive markets and large sites. Price depends on your goals, competition, and the scope of technical, content, and link work. We confirm the figure after a free audit, on rolling monthly terms with no lock-in.' },
+            { q: 'How long does SEO take?', a: 'Early movement often shows within a few months, while strong, durable rankings build over six to twelve. SEO compounds, so the longer the foundations run, the harder they are for competitors to dislodge. Anyone promising page one in weeks is selling a result no agency controls.' },
+            { q: 'What is included in an SEO retainer?', a: 'A retainer covers a mix of technical fixes, keyword and entity research, content production, link building, and monthly reporting. The exact balance follows your audit and goals. You see what each month delivers and how it ties back to traffic, leads, and revenue.' },
+            { q: 'Do you guarantee rankings?', a: 'No, and anyone who does is a red flag. No agency controls Google’s algorithm. We commit to the work that earns rankings, technical health, content, authority, and AI-search optimisation, then report progress honestly rather than promising a position no one controls.' },
+            { q: 'What is the difference between SEO and PPC?', a: 'SEO earns organic visibility that compounds and keeps returning traffic without paying per click. PPC buys instant placement that stops the moment the budget does. Most businesses run both, using PPC for speed while SEO builds the lasting base beneath it.' },
+            { q: 'What is AI search optimisation (GEO)?', a: 'In 2026, customers increasingly ask ChatGPT, Perplexity, Gemini, and Google AI Overviews for recommendations, and those engines name specific brands. GEO structures your entities, schema, and content so AI engines quote you, not just your competitors. We build it into the SEO work rather than bolting it on.' },
+            { q: 'Do I own my content and data?', a: 'Yes. Your pages, links, reporting, and accounts stay yours throughout. There is no lock-in and no hostage data. If you leave, you keep everything you paid for, including the content and the topical authority it earned.' },
+            { q: 'Can I do SEO myself or do I need an agency?', a: 'A confident owner with time runs the basics well enough. Technical depth, a topical-authority content plan, link building, and AI-search work are where an agency earns its fee. When a lighter approach is all you need, we say so honestly.' },
+        ],
+    },
+
+    {
+        slug: 'local-seo',
+
+        // Meta
+        metaTitle: 'Local SEO Agency UK | Google Business Profile & Map Pack | Webspires',
+        metaDescription:
+            'Local SEO that puts your business in the Google local pack, Maps, and "near me" results. Google Business Profile optimisation, reviews, citations, and AI-search visibility. Transparent pricing, no lock-in. Get a free local SEO audit.',
+
+        // Hero (Section 1)
+        h1: 'Local SEO That Gets You Found by Nearby Customers',
+        heroSub:
+            'Rank in the Google local pack, Google Maps, and "near me" searches so nearby customers find and call you, not your competitors. Webspires optimises your Google Business Profile, builds reviews and citations, and makes you visible in both Google and AI search. The wedge: transparent pricing, you own your profile and data, one team that also runs your wider SEO, and a Manchester-based crew that knows UK local search. Local businesses get found at the moment of intent in 2026, when a search turns into a call, a visit, or a booking.',
+        heroChips: [
+            'Local pack and Maps',
+            'Own your Google Business Profile',
+            'Reviews and citations',
+            'Visible in AI search',
+        ],
+
+        // Section 2 -what local SEO includes
+        s2Heading: 'What Local SEO Includes',
+        s2Definition:
+            'Local SEO is the work that makes a business visible to nearby customers in the Google local pack, Google Maps, and "near me" searches. Three forces decide local rankings: relevance, how well your business matches the search; distance, how close you are to the searcher; and prominence, how trusted and well-reviewed your business is.',
+        buildRoutes: [
+            { title: 'Google Business Profile', desc: 'A complete, optimised profile with the right categories, services, and posts.' },
+            { title: 'Reviews', desc: 'A steady, ethical flow of reviews, each one answered.' },
+            { title: 'Citations', desc: 'Consistent name, address, and phone across the directories that matter.' },
+            { title: 'Local content', desc: 'Pages and content built around your services and service areas.' },
+            { title: 'Local links', desc: 'Authority from local press, partners, and community sources.' },
+            { title: 'AI local visibility', desc: 'Presence in the AI answers that now recommend local businesses.' },
+        ],
+        s2Adoption:
+            'Through 2026, "near me" no longer happens only on Google. Customers ask AI assistants for a local recommendation too, so local visibility now spans the map pack and the AI answer.',
+
+        // Section 3 -why not in the local pack
+        s4Heading: 'Why You Are Not in the Local Pack',
+        s4Intro:
+            'Most local businesses miss the pack for the same fixable reasons. In 2026, customers also ask AI assistants for local recommendations, and most are optimised for neither the map pack nor the AI answer. The six issues below name the fix for each.',
+        outgrownSigns: [
+            { title: 'Incomplete or unverified profile', desc: 'A thin or unverified Google Business Profile rarely ranks. A complete, verified, optimised profile gives Google what it needs to show you.' },
+            { title: 'The wrong primary category', desc: 'A vague or wrong category hides you from the right searches. The correct primary category aligns you with how customers search.' },
+            { title: 'Too few or stale reviews', desc: 'Few or old reviews weaken prominence. A steady review system builds the trust the local pack rewards.' },
+            { title: 'Inconsistent NAP', desc: 'A name, address, or phone that differs across the web confuses Google. Consistent citations fix the signal.' },
+            { title: 'No local content or pages', desc: 'Without local pages, you give Google little to match on relevance. Service and area pages close that gap.' },
+            { title: 'Invisible in "near me" AI results', desc: 'AI assistants recommend competitors when your entity data is thin. Structured, citation-rich data puts you back in the answer.' },
+        ],
+
+        // Section 4 -our local SEO services
+        s5Heading: 'Our Local SEO Services',
+        services: [
+            { title: 'Google Business Profile optimisation', desc: 'We optimise your categories, services, attributes, posts, photos, and Q&A so the profile works as your strongest local asset. A complete profile lifts relevance and prominence together. The outcome: more local pack appearances.' },
+            { title: 'Review generation and management', desc: 'We set up an ethical system that earns reviews steadily and responds to every one. Reviews are a core prominence signal and a deciding factor for callers. The outcome: more trust and more calls.' },
+            { title: 'Citation building and NAP consistency', desc: 'We list you accurately across core directories plus industry and UK-specific sites, with one consistent name, address, and phone. Clean citations remove the confusion that holds rankings back. The outcome: stronger local signals.' },
+            { title: 'Local content and location pages', desc: 'We build service and area pages that match how customers search, linking to your location pages. Relevance grows when the site speaks to local intent. The outcome: visibility for more local terms.' },
+            { title: 'Local link building', desc: 'We earn links from chambers, local press, sponsorships, and partners. Local authority lifts prominence in a way generic links do not. The outcome: a stronger local footprint.' },
+            { title: 'Local schema', desc: 'We add LocalBusiness, AggregateRating, and FAQ structured data so Google and AI engines read your business correctly. Clean data underpins both map-pack and AI visibility. The outcome: machines that understand you.' },
+            { title: 'Rank tracking with a geo-grid', desc: 'We track your visibility across a grid of points around your area, not a single position. You see exactly where you rank and where to push. The outcome: measurable local progress.' },
+        ],
+
+        // Section 5 -local SEO and AI search (reuses s7 + integrations)
+        s7Heading: 'Local SEO Built for Google and AI Search',
+        s7Body:
+            '"Near me" now happens in two places: the Google local pack and AI assistants like ChatGPT, Gemini, and Google AI Overviews, which increasingly recommend local businesses directly. Most local agencies optimise only the first. We optimise both, through entity-rich profiles, consistent structured data, and the citation-worthy local authority that AI engines pull from. The result is simple: your business gets recommended whether the customer opens Google Maps or asks an assistant for a local option.',
+        integrations: ['Google AI Overviews', 'ChatGPT', 'Gemini', 'Near-me search'],
+
+        // Section 6 -process
+        s10Heading: 'Our Local SEO Process, Step by Step',
+        s10Intro:
+            'Six stages take your business from invisible to ranked across your area. AI-accelerated work speeds the groundwork, and a person makes every ranking decision.',
+        processSteps: [
+            { title: 'Free audit and rank-grid snapshot', desc: 'We audit your profile, citations, and reviews, then map your current visibility across a geo-grid. You leave with a clear baseline and priorities.' },
+            { title: 'Google Business Profile optimisation', desc: 'We complete and optimise every part of your profile. The profile becomes your strongest local asset from week one.' },
+            { title: 'Citation and NAP cleanup', desc: 'We fix inconsistent listings and build the citations that matter. Clean, consistent data steadies your local signals.' },
+            { title: 'Review system setup', desc: 'We put an ethical review system in place and respond to incoming reviews. Prominence grows as the reviews build.' },
+            { title: 'Local content and links', desc: 'We build local pages and earn local links and authority. Relevance and prominence rise together.' },
+            { title: 'Ongoing measurement', desc: 'We track the geo-grid month to month and adjust the plan. You see progress across your whole service area, not one keyword.' },
+        ],
+
+        // Section 7 -by business type
+        s11Heading: 'Local SEO by Business Type',
+        industries: [
+            { title: 'Trades and home services', desc: 'Service-area business setup, clear service areas, and call tracking that turns local searches into booked jobs.', href: '/industries/local-businesses' },
+            { title: 'Restaurants and hospitality', desc: 'Menu, food attributes, photos, and booking links that win diners searching nearby.', href: '/industries/local-businesses' },
+            { title: 'Healthcare and clinics', desc: 'Compliant, review-led local profiles with the trust signals patients and Google expect.', href: '/industries/healthcare-clinics' },
+            { title: 'Professional services', desc: 'Industry citations, credentials, and authority for legal, accounting, and advisory firms.', href: '/industries/professional-services' },
+            { title: 'Multi-location businesses', desc: 'An optimised profile and location page for every site, managed consistently at scale.', href: '/industries/local-businesses' },
+        ],
+
+        // Section 8 -pricing
+        s12Heading: 'Local SEO Pricing in the UK',
+        s12Intro:
+            'Honest first: anyone guaranteeing a number-one local pack spot is a red flag, because no agency controls Google. Local SEO is an ongoing retainer that compounds over months. The tiers below are indicative, with the final scope set after a free audit.',
+        pricingBands: [
+            { name: 'Starter', range: 'from £400/mo', includes: 'Single location. Google Business Profile optimisation, core citations, and the local foundations. Right for businesses starting local SEO.' },
+            { name: 'Growth', range: 'from £700/mo', includes: 'Google Business Profile, citations, local content, a review system, and local links. Most popular for businesses competing in their area.' },
+            { name: 'Multi-Location / Competitive', range: 'from £1,200/mo', includes: 'Multiple sites or tough markets. Profiles and location pages per site, deeper links, and geo-grid tracking across every area.' },
+        ],
+        s12Note:
+            'Retainers run rolling monthly with no lock-in, and no agency guarantees rankings. You own your Google Business Profile and data throughout. Final scope and price follow a free audit, once we have seen your market.',
+
+        // Section 9 -local vs national + agency vs DIY
+        ppcSeoPoints: [
+            { title: 'Local SEO', desc: 'Visibility in the map pack and "near me" searches for customers close to you. Right for businesses that serve a city, town, or service area.' },
+            { title: 'National SEO', desc: 'Organic reach for customers across the whole of the UK, regardless of location. Right for businesses that sell or ship nationwide.' },
+        ],
+        ppcSeoVerdict:
+            'Most local businesses start local, where the map pack drives calls and visits fastest, then expand into national SEO as they grow. We run both under one roof, so the strategy scales with you.',
+        compHeading: 'Local SEO vs National SEO, and Agency vs DIY',
+        compIntro:
+            'Beyond the local-versus-national question sits the build-versus-hire one. A confident owner with time runs a basic profile, but the work below is where an agency earns its fee.',
+        comparisonTable: [
+            { factor: 'Time', agency: 'A team handles the ongoing work', freelancer: '', inhouse: 'Hours every week you take from the business', software: '' },
+            { factor: 'Expertise', agency: 'Specialists who track local algorithm shifts', freelancer: '', inhouse: 'Self-taught, learning as you go', software: '' },
+            { factor: 'GBP and citation management', agency: 'Optimised profile and consistent citations at scale', freelancer: '', inhouse: 'Easy to start, hard to keep consistent', software: '' },
+            { factor: 'Tracking', agency: 'Geo-grid visibility across your whole area', freelancer: '', inhouse: 'A single rank check, if any', software: '' },
+            { factor: 'Results', agency: 'Compounding local visibility and calls', freelancer: '', inhouse: 'Slower, and often stalls without a system', software: '' },
+        ],
+        compVerdict:
+            'A confident owner with time manages a basic Google Business Profile well enough. Citation consistency, a review system, local links, and geo-grid tracking are where an agency earns its fee. When a simple profile is all you need, we say so.',
+
+        // Section 10 -why choose us
+        s13Heading: 'Why Businesses Choose Webspires for Local SEO',
+        whyChoose: [
+            { title: 'Built for the map pack and AI search', desc: 'We target the Google local pack and the AI answers that now recommend local businesses, not just one of them.' },
+            { title: 'Topical authority method', desc: 'We apply a topical-authority approach to your local entities, so Google and AI engines understand exactly what you do and where.' },
+            { title: 'Transparent pricing, no lock-in', desc: 'Clear monthly retainers, rolling terms, and audit findings you keep. You always know what you pay for.' },
+            { title: 'You own your profile and data', desc: 'Your Google Business Profile, reviews, and data stay yours. Leave whenever you want and keep everything.' },
+            { title: 'One team for local and wider SEO', desc: 'The same team runs your local SEO and your broader SEO and content, so the whole strategy pulls together.' },
+            { title: 'AI-accelerated work at honest cost', desc: 'Modern AI tooling speeds the groundwork while people make every ranking decision, so you get more at a fair fee.' },
+            { title: 'Geo-grid measurement', desc: 'We report visibility across your whole area, so progress is a map you watch, not a single number.' },
+            { title: 'Senior UK team, local knowledge', desc: 'A senior specialist based in the Manchester area runs your account and knows how UK local search behaves.' },
         ],
 
         // Section 11 -results
-        s14Heading: 'GEO Work That Moved the Needle',
+        s14Heading: 'Real Local SEO Results',
         caseProblem:
-            'Our own brand sat outside the AI conversation. Ask ChatGPT or Perplexity about our services and other agencies surfaced, while our facts across the web were thin and inconsistent.',
+            'Our own local presence sat outside the map pack. The profile was thin, citations clashed across directories, reviews trickled in, and AI assistants pointed people to competitors.',
         caseSolution:
-            'We applied our own GEO service: a clear entity definition, structured data across the site, answer-ready content on core pages, citations from trusted sources, and tracking across the major engines.',
+            'We applied our own framework: a fully optimised Google Business Profile, cleaned and consistent citations, a steady review system, local content and links, and structured data for both Google and AI search.',
         caseOutcome:
-            'The engines began citing us by name for relevant questions, the facts they repeated turned accurate, and AI referrals started arriving as a visible, growing channel.',
+            'Local pack appearances climbed across the geo-grid, map views and calls rose, reviews grew steadily, and AI assistants began naming the business for relevant local queries.',
         caseMetric: '',
         caseNote:
-            'We publish results we stand behind. As client GEO programmes mature and the metrics gain approval, we add them here with named visibility figures.',
+            'We publish results we stand behind. As client local SEO results gain approval, we add them here with named map-pack, call, and review figures.',
 
         // Section 12 -CTA
-        s15Heading: 'Book a Free AI Visibility Audit',
+        s15Heading: 'Get a Free Local SEO Audit',
         s15Body:
-            'On a free audit, the Webspires team checks how ChatGPT, Perplexity, Gemini, and AI Overviews answer questions in your market, shows where you appear, and names the quickest wins. No obligation, and the findings are yours to keep.',
+            'On a free audit, the Webspires team reviews your Google Business Profile, runs a local rank-grid snapshot, checks your citations and NAP, looks at your review profile, and names the quick wins. No obligation, and you keep the findings whether you work with us or not.',
 
         // Section 13 -FAQ
-        faqHeading: 'GEO and AI Search FAQs',
+        faqHeading: 'Local SEO FAQs',
         faqs: [
-            { q: 'What is generative engine optimisation?', a: 'Generative engine optimisation is the practice of getting your brand surfaced and cited inside AI-generated answers from engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews. Rather than ranking a link, GEO works to make your business the source the AI quotes when buyers ask a question.' },
-            { q: 'How is GEO different from SEO?', a: 'SEO earns rankings and clicks on the search results page, while GEO earns citations and mentions inside AI answers. They share foundations like content and authority, so we run them together. SEO gets you found on Google, GEO gets you found inside the AI response.' },
-            { q: 'Which AI engines do you optimise for?', a: 'We optimise for the engines your buyers use: Google AI Overviews, ChatGPT, Perplexity, Google Gemini, and Microsoft Copilot, plus emerging assistants as they gain adoption. We focus effort on the surfaces that drive real visibility for your market rather than chasing every tool at once.' },
-            { q: 'Does GEO actually drive traffic and leads?', a: 'Yes, in two ways. Some AI answers link directly to your site, sending qualified visitors who arrive already informed. Others mention your brand without a link, which builds awareness that turns into branded searches and enquiries later. We track both so the value stays visible.' },
-            { q: 'How long does GEO take to work?', a: 'Early wins like corrected facts and structured-data inclusion often land within weeks, while stronger citation presence builds over a few months. In 2026 the engines update constantly, so GEO is an ongoing discipline rather than a one-off fix, much like SEO.' },
-            { q: 'How do you measure GEO results?', a: 'We track how often and how accurately the major AI engines cite your brand, monitor the questions you appear for, and watch referral traffic from AI sources. Reporting turns that into plain numbers each month, so AI visibility becomes a channel you measure, not a guess.' },
-            { q: 'Do I need SEO as well as GEO?', a: 'In most cases, yes. Strong SEO foundations make GEO faster and more durable, and the two reinforce each other across search and AI surfaces. We run them as one service, so you cover the full journey without paying two agencies that never talk.' },
-            { q: 'Is GEO worth it for a small business?', a: 'Yes, and early movers gain the most. AI answers now shape decisions in 2026, and the brands cited today build a lead that compounds. A focused GEO programme suits SMEs that want to be found where buyers increasingly ask, without an enterprise budget.' },
+            { q: 'How much does local SEO cost in the UK?', a: 'UK local SEO retainers typically run from around £400 per month for a single location to £1,200 and above for multi-location or competitive markets. The price depends on your area, competition, and the number of profiles. We confirm scope after a free audit, with rolling monthly terms and no lock-in.' },
+            { q: 'How long does local SEO take?', a: 'Profile and citation fixes often show within weeks, while stronger local pack positions build over three to six months. Local SEO compounds, so the longer the foundations run, the harder they are for competitors to dislodge. We track progress on a geo-grid so you see movement early.' },
+            { q: 'What is included, and what is Google Business Profile optimisation?', a: 'Local SEO covers your Google Business Profile, reviews, citations, local content, local links, and structured data. Profile optimisation means completing and tuning your categories, services, attributes, posts, photos, and Q&A, so the profile ranks and converts searchers into calls and visits.' },
+            { q: 'Do you guarantee a local pack ranking?', a: 'No, and anyone who does is a red flag. No agency controls Google’s local algorithm. We commit to the work that earns rankings, profile optimisation, reviews, citations, and authority, then report progress honestly on a geo-grid rather than promising a position no agency controls.' },
+            { q: 'How does "near me" work in AI search now?', a: 'In 2026, customers increasingly ask ChatGPT, Gemini, and Google AI Overviews for local recommendations, and those engines name specific businesses. We optimise your entity data, structured data, and local authority so AI assistants recommend you, not just the map pack.' },
+            { q: 'Why does NAP consistency matter?', a: 'NAP stands for name, address, and phone. When these differ across directories, Google loses confidence in which details are correct, and your local rankings suffer. Consistent citations across the web remove that doubt and strengthen the prominence signal the local pack rewards.' },
+            { q: 'Do you handle multiple locations?', a: 'Yes. Each site gets its own optimised Google Business Profile and location page, managed consistently so they reinforce rather than compete with each other. Multi-location local SEO scales the same framework across every area, with geo-grid tracking for each one.' },
+            { q: 'What is the difference between local SEO and national SEO?', a: 'Local SEO targets the map pack and "near me" searches for customers near your location. National SEO targets organic rankings across the whole UK, regardless of where the searcher sits. Most local businesses start local, then expand into national SEO as they grow, and we run both.' },
         ],
     },
 ];

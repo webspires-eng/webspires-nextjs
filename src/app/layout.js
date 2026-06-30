@@ -1,13 +1,23 @@
-import { Geist } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { generateSEO } from "@/lib/seo";
 
 /* ── Fonts ─────────────────────────────────────────────── */
+// Geist stays as the fallback for display/body until the self-hosted
+// Clash Display + Satoshi files land in public/fonts/ (see README there).
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
   preload: true,
+});
+
+// Mono / "signal" face — carries queries, entities, citations, eyebrows.
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 /* ── Viewport (must be a SEPARATE export in Next.js App Router) ── */
@@ -81,7 +91,7 @@ export const metadata = {
 /* ── Root Layout ─────────────────────────────────────────── */
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" dir="ltr" className={`${geistSans.variable} h-full`}>
+    <html lang="en" dir="ltr" className={`${geistSans.variable} ${jetbrainsMono.variable} h-full`}>
       <body
         className="min-h-full flex flex-col antialiased"
         cz-shortcut-listen="true"

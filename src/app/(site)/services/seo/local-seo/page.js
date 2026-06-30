@@ -5,18 +5,19 @@ import { getServicePage } from '@/data/servicePages';
 
 const ACCENT = '#EE314F';
 const DARK = '#1a1a2e';
-const BOOK = 'https://call.webspires.co.uk?utm_source=meta-ads-management';
-const CANONICAL = 'https://webspires.co.uk/services/meta-ads-management/';
+const BOOK = 'https://call.webspires.co.uk?utm_source=local-seo';
+const CANONICAL = 'https://webspires.co.uk/services/seo/local-seo/';
 const OG_IMAGE = '/images/webspires-logo-icon.png';
 
 export const revalidate = 3600;
 
 // Content is served from the backend dynamic system (the `servicePages`
-// content type), editable at /admin/content. The static record acts as
-// the seed + fallback so the page renders before the DB is seeded.
+// content type, slug `local-seo`), editable at /admin/content. The static
+// record acts as the seed + fallback so the page renders before the DB is
+// seeded. This is a sub-silo node nested under the SEO hub.
 async function getPage() {
-    const fromDb = await getContentItem('servicePages', 'meta-ads-management');
-    return fromDb || getServicePage('meta-ads-management');
+    const fromDb = await getContentItem('servicePages', 'local-seo');
+    return fromDb || getServicePage('local-seo');
 }
 
 export async function generateMetadata() {
@@ -34,7 +35,7 @@ export async function generateMetadata() {
             siteName: 'Webspires',
             type: 'website',
             locale: 'en_GB',
-            images: [{ url: OG_IMAGE, alt: 'Webspires Meta Ads Management Services' }],
+            images: [{ url: OG_IMAGE, alt: 'Webspires Local SEO Services' }],
         },
         twitter: {
             card: 'summary_large_image',
@@ -99,24 +100,22 @@ function ServiceDesc({ desc }) {
     );
 }
 
-export default async function MetaAdsManagementPage() {
+export default async function LocalSeoPage() {
     const data = await getPage();
 
     const heroChips = data.heroChips || [];
     const buildRoutes = data.buildRoutes || [];
     const outgrownSigns = data.outgrownSigns || [];
     const services = data.services || [];
-    const adTypes = data.campaignTypes || [];
-    const trackingChips = data.integrations || [];
-    const costDrivers = data.costDrivers || [];
-    const pricingBands = data.pricingBands || [];
+    const aiChips = data.integrations || [];
     const processSteps = data.processSteps || [];
     const businessTypes = data.industries || [];
+    const pricingBands = data.pricingBands || [];
     const channelPoints = data.ppcSeoPoints || [];
     const comparisonTable = data.comparisonTable || [];
     const whyChoose = data.whyChoose || [];
     const faqs = data.faqs || [];
-    const auditChips = ['Account structure', 'Wasted spend', 'Tracking (Pixel + CAPI)', 'Creative performance', 'Quick wins'];
+    const auditChips = ['Google Business Profile', 'Rank-grid snapshot', 'Citations and NAP', 'Review profile', 'Quick wins'];
 
     const breadcrumbLd = {
         '@context': 'https://schema.org',
@@ -124,31 +123,32 @@ export default async function MetaAdsManagementPage() {
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://webspires.co.uk/' },
             { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://webspires.co.uk/services/' },
-            { '@type': 'ListItem', position: 3, name: 'Meta Ads Management', item: CANONICAL },
+            { '@type': 'ListItem', position: 3, name: 'SEO', item: 'https://webspires.co.uk/services/seo/' },
+            { '@type': 'ListItem', position: 4, name: 'Local SEO', item: CANONICAL },
         ],
     };
     const serviceLd = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        serviceType: 'Meta Ads Management',
-        name: 'Meta Ads Management Services',
+        serviceType: 'Local SEO',
+        name: 'Local SEO Services',
         description: data.metaDescription,
         areaServed: { '@type': 'Country', name: 'United Kingdom' },
         provider: { '@type': 'Organization', name: 'Webspires', url: 'https://webspires.co.uk/' },
         offers: {
             '@type': 'AggregateOffer',
             priceCurrency: 'GBP',
-            lowPrice: '600',
-            highPrice: '2500',
+            lowPrice: '400',
+            highPrice: '1200',
             offerCount: pricingBands.length,
-            description: 'Indicative monthly management fee. Ad spend separate, no markup.',
+            description: 'Indicative monthly retainer. Confirmed after a free local SEO audit.',
         },
         url: CANONICAL,
     };
     const howToLd = {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
-        name: 'Our Meta Ads Management Process',
+        name: 'Our Local SEO Process',
         step: processSteps.map((s, i) => ({
             '@type': 'HowToStep',
             position: i + 1,
@@ -186,14 +186,16 @@ export default async function MetaAdsManagementPage() {
                             <li aria-hidden="true" className="text-gray-600">/</li>
                             <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
                             <li aria-hidden="true" className="text-gray-600">/</li>
-                            <li className="text-gray-300 font-medium">Meta Ads Management</li>
+                            <li><Link href="/services/seo" className="hover:text-primary transition-colors">SEO</Link></li>
+                            <li aria-hidden="true" className="text-gray-600">/</li>
+                            <li className="text-gray-300 font-medium">Local SEO</li>
                         </ol>
                     </nav>
                     <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
                         <div>
                             <span className="inline-block border text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6"
                                 style={{ color: ACCENT, borderColor: `${ACCENT}44`, background: `${ACCENT}14` }}>
-                                Meta Ads Agency
+                                Local SEO Agency
                             </span>
                             <h1 className="text-[clamp(2.5rem,5vw,3.5rem)] font-extrabold text-white leading-[1.05] mb-5">
                                 {data.h1}
@@ -204,7 +206,7 @@ export default async function MetaAdsManagementPage() {
                             <div className="flex flex-wrap gap-4 mb-9">
                                 <a href={BOOK} target="_blank" rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[14px] px-7 py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                                    Get a Free Meta Ads Audit
+                                    Get a Free Local SEO Audit
                                     <Arrow className="w-4 h-4" />
                                 </a>
                                 <a href="tel:+441615241569"
@@ -222,28 +224,28 @@ export default async function MetaAdsManagementPage() {
                             </ul>
                         </div>
 
-                        {/* Abstract results panel */}
+                        {/* Map-pack visual */}
                         <div className="hidden lg:block">
                             <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-7">
-                                <p className="text-[12px] font-bold uppercase tracking-widest text-gray-400 mb-5">Paid social snapshot</p>
-                                <div className="space-y-4">
-                                    <div className="flex items-baseline justify-between">
-                                        <span className="text-[13px] text-gray-400">ROAS</span>
-                                        <span className="text-[26px] font-extrabold" style={{ color: ACCENT }}>up</span>
-                                    </div>
-                                    <div className="h-px bg-white/10" />
-                                    <div className="flex items-baseline justify-between">
-                                        <span className="text-[13px] text-gray-400">Cost per result</span>
-                                        <span className="text-[26px] font-extrabold text-white">down</span>
-                                    </div>
-                                    <div className="h-px bg-white/10" />
-                                    <div className="flex items-baseline justify-between">
-                                        <span className="text-[13px] text-gray-400">Wasted spend</span>
-                                        <span className="text-[26px] font-extrabold text-white">cut</span>
-                                    </div>
+                                <p className="text-[12px] font-bold uppercase tracking-widest text-gray-400 mb-5">Local pack</p>
+                                <div className="space-y-3">
+                                    {[1, 2, 3].map((n) => (
+                                        <div key={n} className="flex items-center gap-3 rounded-xl p-3"
+                                            style={n === 1 ? { background: `${ACCENT}14`, border: `1px solid ${ACCENT}55` } : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                                            <span className="w-7 h-7 flex-shrink-0 rounded-full flex items-center justify-center text-[12px] font-extrabold text-white"
+                                                style={{ background: n === 1 ? ACCENT : 'rgba(255,255,255,0.12)' }}>
+                                                {n}
+                                            </span>
+                                            <div className="flex-1">
+                                                <div className="h-2 rounded-full bg-white/20 w-3/4 mb-1.5" />
+                                                <div className="h-2 rounded-full bg-white/10 w-1/2" />
+                                            </div>
+                                            {n === 1 && <span className="text-[11px] font-bold" style={{ color: ACCENT }}>You</span>}
+                                        </div>
+                                    ))}
                                 </div>
                                 <div className="mt-6 flex flex-wrap gap-2">
-                                    {['Facebook', 'Instagram', 'Reels', 'CAPI'].map((c) => (
+                                    {['Maps', 'Reviews', 'Near me'].map((c) => (
                                         <span key={c} className="text-[11px] font-bold px-3 py-1 rounded-full text-gray-300 bg-white/5 border border-white/10">{c}</span>
                                     ))}
                                 </div>
@@ -279,11 +281,11 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 3: WHY META ADS LOSE MONEY (soft-tint) ── */}
+            {/* ── SECTION 3: WHY NOT IN THE LOCAL PACK (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-12">
-                        <Eyebrow>Where Budget Leaks</Eyebrow>
+                        <Eyebrow>The Visibility Gap</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
                             {data.s4Heading}
                         </h2>
@@ -325,149 +327,55 @@ export default async function MetaAdsManagementPage() {
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/* ── SECTION 5: AD TYPES (soft-tint) ── */}
-            <section id="ad-types" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
-                    <div className="max-w-[760px] mb-12">
-                        <Eyebrow>Format Coverage</Eyebrow>
-                        <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
-                            {data.campaignTypesHeading}
-                        </h2>
-                        <p className="text-[#5B5B66] text-[16px] leading-relaxed">{data.campaignTypesIntro}</p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {adTypes.map((c) => {
-                            const inner = (
-                                <>
-                                    <h3 className="text-[16px] font-extrabold text-[#101014] mb-2 group-hover:text-primary transition-colors">{c.title}</h3>
-                                    <p className="text-[14px] text-[#5B5B66] leading-relaxed">{c.desc}</p>
-                                    {c.href ? (
-                                        <span className="inline-flex items-center gap-1.5 text-[13px] font-bold text-primary mt-3">
-                                            Explore <Arrow className="w-3.5 h-3.5" />
-                                        </span>
-                                    ) : null}
-                                </>
-                            );
-                            return c.href ? (
-                                <Link key={c.title} href={c.href}
-                                    className="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-transparent hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-200 no-underline motion-reduce:transform-none">
-                                    {inner}
-                                </Link>
-                            ) : (
-                                <div key={c.title} className="bg-white rounded-2xl p-6 border border-gray-100">{inner}</div>
-                            );
-                        })}
-                    </div>
-
-                    {/* Organic social routed to its own page */}
-                    <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3 bg-white rounded-2xl p-5 border border-gray-100">
-                        <p className="text-[14px] text-[#5B5B66] leading-relaxed flex-1">
-                            Looking for organic Reels, content, and community growth? That runs separately from paid ads.
-                        </p>
-                        <Link href="/services/social-media-management" className="inline-flex items-center gap-1.5 text-[13px] font-bold text-primary hover:underline flex-shrink-0">
-                            See Social Media Management <Arrow className="w-3.5 h-3.5" />
+                    <div className="mt-8 text-[13px] font-semibold">
+                        <Link href="/locations" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                            See the towns and cities we cover <Arrow className="w-3.5 h-3.5" />
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 6: TRACKING AND REPORTING (dark) ── */}
+            {/* ── SECTION 5: LOCAL SEO AND AI SEARCH (dark, differentiator) ── */}
             <section className="py-16 lg:py-24" style={{ background: DARK }}>
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div>
-                            <Eyebrow onDark>Proof, Not Guesswork</Eyebrow>
+                            <Eyebrow onDark>The Differentiator</Eyebrow>
                             <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-white leading-tight mb-4">
                                 {data.s7Heading}
                             </h2>
                             <p className="text-gray-400 text-[16px] leading-relaxed mb-6">{data.s7Body}</p>
-                            <ul className="flex flex-wrap gap-2.5 list-none p-0 m-0">
-                                {trackingChips.map((c) => (
+                            <ul className="flex flex-wrap gap-2.5 list-none p-0 m-0 mb-6">
+                                {aiChips.map((c) => (
                                     <li key={c} className="inline-flex items-center gap-2 text-[13px] font-semibold text-gray-200 bg-white/5 border border-white/10 rounded-full pl-3 pr-4 py-2">
                                         <Check className="w-3.5 h-3.5 flex-shrink-0" style={{ color: ACCENT }} />
                                         {c}
                                     </li>
                                 ))}
                             </ul>
+                            <Link href="/services/generative-engine-optimisation" className="inline-flex items-center gap-1.5 text-[13px] font-bold text-primary hover:underline">
+                                See our full AI search approach <Arrow className="w-3.5 h-3.5" />
+                            </Link>
                         </div>
                         <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
-                            <div className="grid grid-cols-2 gap-4">
-                                {[
-                                    { k: 'Browser signal', v: 'Meta Pixel' },
-                                    { k: 'Server signal', v: 'Conversions API' },
-                                    { k: 'Offline sales', v: 'Imported' },
-                                    { k: 'Reported as', v: 'ROAS / CPA / CPL' },
-                                ].map((row) => (
-                                    <div key={row.k} className="rounded-xl bg-white/[0.04] border border-white/10 p-4">
-                                        <p className="text-[12px] text-gray-400 mb-1">{row.k}</p>
-                                        <p className="text-[15px] font-extrabold text-white">{row.v}</p>
-                                    </div>
-                                ))}
+                            <p className="text-[12px] font-bold uppercase tracking-widest text-gray-400 mb-4">AI assistant</p>
+                            <p className="text-[14px] text-gray-300 leading-relaxed mb-4">
+                                &ldquo;What is the best option near me?&rdquo;
+                            </p>
+                            <div className="space-y-3">
+                                <div className="h-2.5 rounded-full bg-white/10" />
+                                <div className="h-2.5 rounded-full bg-white/10 w-[80%]" />
+                            </div>
+                            <div className="mt-5 rounded-xl border p-4" style={{ borderColor: `${ACCENT}55`, background: `${ACCENT}12` }}>
+                                <p className="text-[12px] font-bold uppercase tracking-widest mb-1" style={{ color: ACCENT }}>Recommended</p>
+                                <p className="text-[15px] font-extrabold text-white">Your business</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 7: PRICING (light) ── */}
-            <section id="pricing" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
-                    <div className="max-w-[760px] mb-10">
-                        <Eyebrow>Transparent Pricing</Eyebrow>
-                        <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
-                            {data.s12Heading}
-                        </h2>
-                        <p className="text-[#5B5B66] text-[16px] leading-relaxed">{data.s12Intro}</p>
-                    </div>
-
-                    {/* Fee vs spend clarity */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-                        {costDrivers.map((d, i) => (
-                            <div key={d.title} className="rounded-2xl p-6 border-2"
-                                style={{ borderColor: i === 0 ? `${ACCENT}33` : '#eee', background: i === 0 ? `${ACCENT}08` : '#f7f7f9' }}>
-                                <h3 className="text-[15px] font-extrabold text-[#101014] mb-1.5">{d.title}</h3>
-                                <p className="text-[14px] text-[#5B5B66] leading-relaxed">{d.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {pricingBands.length > 0 && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-                            {pricingBands.map((b) => {
-                                const featured = b.name === 'Growth';
-                                return (
-                                    <div key={b.name} className="relative rounded-2xl p-6 border-2 bg-white"
-                                        style={{ borderColor: featured ? ACCENT : `${ACCENT}22` }}>
-                                        {featured && (
-                                            <span className="absolute -top-3 left-6 text-[11px] font-extrabold uppercase tracking-widest text-white px-3 py-1 rounded-full" style={{ background: ACCENT }}>
-                                                Most popular
-                                            </span>
-                                        )}
-                                        <h3 className="text-[15px] font-extrabold text-[#101014] mb-1 mt-1">{b.name}</h3>
-                                        <p className="text-[14px] font-extrabold mb-3" style={{ color: ACCENT }}>{b.range}</p>
-                                        <p className="text-[13px] text-[#5B5B66] leading-relaxed">{b.includes}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    )}
-
-                    <div className="rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5" style={{ background: DARK }}>
-                        <p className="text-gray-300 text-[15px] leading-relaxed max-w-[640px]">{data.s12Note}</p>
-                        <a href={BOOK} target="_blank" rel="noopener noreferrer"
-                            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[14px] px-6 py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5">
-                            Get a Free Audit
-                            <Arrow className="w-4 h-4" />
-                        </a>
-                    </div>
-                    <p className="mt-3 text-[12px] text-gray-400">Pricing is indicative and confirmed after a free audit.</p>
-                </div>
-            </section>
-
-            {/* ── SECTION 8: PROCESS (soft-tint) ── */}
+            {/* ── SECTION 6: PROCESS (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-12">
@@ -491,16 +399,16 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 9: BY BUSINESS TYPE (light) ── */}
+            {/* ── SECTION 7: BY BUSINESS TYPE (light) ── */}
             <section id="business-types" className="bg-white py-16 lg:py-24 scroll-mt-24">
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-12">
-                        <Eyebrow>Built for Your Model</Eyebrow>
+                        <Eyebrow>Sector Fit</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
                             {data.s11Heading}
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         {businessTypes.map((ind) => {
                             const inner = (
                                 <>
@@ -526,8 +434,52 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 10: META VS GOOGLE + COMPARISON (soft-tint) ── */}
-            <section id="comparison" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
+            {/* ── SECTION 8: PRICING (soft-tint) ── */}
+            <section id="pricing" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
+                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                    <div className="max-w-[760px] mb-10">
+                        <Eyebrow>Transparent Pricing</Eyebrow>
+                        <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
+                            {data.s12Heading}
+                        </h2>
+                        <p className="text-[#5B5B66] text-[16px] leading-relaxed">{data.s12Intro}</p>
+                    </div>
+
+                    {pricingBands.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                            {pricingBands.map((b, i) => {
+                                const featured = i === 1;
+                                return (
+                                    <div key={b.name} className="relative rounded-2xl p-6 border-2 bg-white"
+                                        style={{ borderColor: featured ? ACCENT : `${ACCENT}22` }}>
+                                        {featured && (
+                                            <span className="absolute -top-3 left-6 text-[11px] font-extrabold uppercase tracking-widest text-white px-3 py-1 rounded-full" style={{ background: ACCENT }}>
+                                                Most popular
+                                            </span>
+                                        )}
+                                        <h3 className="text-[15px] font-extrabold text-[#101014] mb-1 mt-1">{b.name}</h3>
+                                        <p className="text-[15px] font-extrabold mb-3" style={{ color: ACCENT }}>{b.range}</p>
+                                        <p className="text-[13px] text-[#5B5B66] leading-relaxed">{b.includes}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+
+                    <div className="rounded-2xl p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5" style={{ background: DARK }}>
+                        <p className="text-gray-300 text-[15px] leading-relaxed max-w-[640px]">{data.s12Note}</p>
+                        <a href={BOOK} target="_blank" rel="noopener noreferrer"
+                            className="flex-shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[14px] px-6 py-3.5 rounded-2xl transition-all duration-200 hover:-translate-y-0.5">
+                            Get a Free Audit
+                            <Arrow className="w-4 h-4" />
+                        </a>
+                    </div>
+                    <p className="mt-3 text-[12px] text-gray-400">Pricing is indicative and confirmed after a free audit.</p>
+                </div>
+            </section>
+
+            {/* ── SECTION 9: LOCAL VS NATIONAL + AGENCY VS DIY (light) ── */}
+            <section id="comparison" className="bg-white py-16 lg:py-24 scroll-mt-24">
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Make the Right Call</Eyebrow>
@@ -536,46 +488,39 @@ export default async function MetaAdsManagementPage() {
                         </h2>
                     </div>
 
-                    {/* Meta vs Google */}
+                    {/* Local vs National */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
                         {channelPoints.map((p) => (
-                            <div key={p.title} className="bg-white rounded-2xl p-7 border border-gray-100">
+                            <div key={p.title} className="bg-[#f7f7f9] rounded-2xl p-7 border border-gray-100">
                                 <h3 className="text-[16px] font-extrabold text-[#101014] mb-2">{p.title}</h3>
                                 <p className="text-[14px] text-[#5B5B66] leading-relaxed">{p.desc}</p>
                             </div>
                         ))}
                     </div>
-                    <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-12">
-                        <p className="text-[#5B5B66] text-[15px] leading-relaxed">{data.ppcSeoVerdict}</p>
-                        <div className="mt-4 flex flex-wrap gap-4 text-[13px] font-semibold">
-                            <Link href="/services/google-ads-management" className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                                Google Ads management <Arrow className="w-3.5 h-3.5" />
-                            </Link>
-                            <Link href="/services/social-media-management" className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                                Organic social media <Arrow className="w-3.5 h-3.5" />
-                            </Link>
-                        </div>
+                    <div className="bg-[#f7f7f9] rounded-2xl p-6 border border-gray-100 mb-12">
+                        <p className="text-[#5B5B66] text-[15px] leading-relaxed">
+                            {data.ppcSeoVerdict}{' '}
+                            <Link href="/services/seo" className="font-bold text-primary hover:underline">Explore our full SEO service</Link>.
+                        </p>
                     </div>
 
-                    {/* Agency vs Freelancer vs In-house */}
+                    {/* Agency vs DIY */}
                     <p className="text-[#5B5B66] text-[16px] leading-relaxed max-w-[760px] mb-6">{data.compIntro}</p>
                     {/* Desktop table */}
-                    <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                    <div className="hidden md:block overflow-hidden rounded-2xl border border-gray-200">
                         <table className="w-full text-left text-[14px]">
                             <thead>
                                 <tr className="text-white" style={{ background: DARK }}>
                                     <th className="px-5 py-4 font-bold">Factor</th>
-                                    <th className="px-5 py-4 font-bold" style={{ color: ACCENT }}>Agency</th>
-                                    <th className="px-5 py-4 font-bold">Freelancer</th>
-                                    <th className="px-5 py-4 font-bold">In-house</th>
+                                    <th className="px-5 py-4 font-bold" style={{ color: ACCENT }}>With an agency</th>
+                                    <th className="px-5 py-4 font-bold">DIY (you)</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
+                            <tbody className="divide-y divide-gray-100 bg-white">
                                 {comparisonTable.map((row) => (
                                     <tr key={row.factor} className="align-top">
                                         <td className="px-5 py-4 font-extrabold text-[#101014] whitespace-nowrap">{row.factor}</td>
                                         <td className="px-5 py-4 text-[#101014] leading-relaxed font-medium" style={{ background: `${ACCENT}08` }}>{row.agency}</td>
-                                        <td className="px-5 py-4 text-[#5B5B66] leading-relaxed">{row.freelancer}</td>
                                         <td className="px-5 py-4 text-[#5B5B66] leading-relaxed">{row.inhouse}</td>
                                     </tr>
                                 ))}
@@ -585,33 +530,29 @@ export default async function MetaAdsManagementPage() {
                     {/* Mobile stacked cards */}
                     <div className="md:hidden space-y-4">
                         {comparisonTable.map((row) => (
-                            <div key={row.factor} className="bg-white rounded-2xl p-5 border border-gray-100">
+                            <div key={row.factor} className="bg-[#f7f7f9] rounded-2xl p-5 border border-gray-100">
                                 <p className="text-[15px] font-extrabold text-[#101014] mb-3">{row.factor}</p>
                                 <dl className="space-y-2 text-[13px]">
                                     <div className="flex gap-2 rounded-lg p-2" style={{ background: `${ACCENT}0c` }}>
-                                        <dt className="font-bold w-24 flex-shrink-0" style={{ color: ACCENT }}>Agency</dt>
+                                        <dt className="font-bold w-28 flex-shrink-0" style={{ color: ACCENT }}>With an agency</dt>
                                         <dd className="text-[#101014]">{row.agency}</dd>
                                     </div>
                                     <div className="flex gap-2 p-2">
-                                        <dt className="font-bold w-24 flex-shrink-0 text-[#5B5B66]">Freelancer</dt>
-                                        <dd className="text-[#5B5B66]">{row.freelancer}</dd>
-                                    </div>
-                                    <div className="flex gap-2 p-2">
-                                        <dt className="font-bold w-24 flex-shrink-0 text-[#5B5B66]">In-house</dt>
+                                        <dt className="font-bold w-28 flex-shrink-0 text-[#5B5B66]">DIY (you)</dt>
                                         <dd className="text-[#5B5B66]">{row.inhouse}</dd>
                                     </div>
                                 </dl>
                             </div>
                         ))}
                     </div>
-                    <div className="mt-8 bg-white rounded-2xl p-6 lg:p-8 border border-gray-100">
+                    <div className="mt-8 bg-[#f7f7f9] rounded-2xl p-6 lg:p-8 border border-gray-100">
                         <h3 className="text-[18px] font-extrabold text-[#101014] mb-3">The honest verdict</h3>
                         <p className="text-[#5B5B66] text-[15px] leading-relaxed">{data.compVerdict}</p>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 11: WHY CHOOSE US (dark) ── */}
+            {/* ── SECTION 10: WHY CHOOSE US (dark) ── */}
             <section id="why" className="py-16 lg:py-24 scroll-mt-24" style={{ background: DARK }}>
                 <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-12">
@@ -632,15 +573,14 @@ export default async function MetaAdsManagementPage() {
                         ))}
                     </div>
                     <div className="mt-8 flex flex-wrap gap-4 text-[13px] font-semibold">
-                        <Link href="/services/google-ads-management" className="inline-flex items-center gap-1.5 text-primary hover:underline">Google Ads <Arrow className="w-3.5 h-3.5" /></Link>
-                        <Link href="/services/social-media-management" className="inline-flex items-center gap-1.5 text-primary hover:underline">Organic social <Arrow className="w-3.5 h-3.5" /></Link>
-                        <Link href="/services/conversion-rate-optimisation" className="inline-flex items-center gap-1.5 text-primary hover:underline">Conversion rate optimisation <Arrow className="w-3.5 h-3.5" /></Link>
+                        <Link href="/services/seo" className="inline-flex items-center gap-1.5 text-primary hover:underline">SEO hub <Arrow className="w-3.5 h-3.5" /></Link>
+                        <Link href="/services/generative-engine-optimisation" className="inline-flex items-center gap-1.5 text-primary hover:underline">AI search optimisation <Arrow className="w-3.5 h-3.5" /></Link>
                         <Link href="/about-us" className="inline-flex items-center gap-1.5 text-primary hover:underline">About our team <Arrow className="w-3.5 h-3.5" /></Link>
                     </div>
                 </div>
             </section>
 
-            {/* ── SECTION 12: RESULTS (light) ── */}
+            {/* ── SECTION 11: RESULTS (light) ── */}
             <section className="bg-white py-16 lg:py-24">
                 <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="max-w-[760px] mb-10">
@@ -679,7 +619,7 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 13: CTA BAND (dark) ── */}
+            {/* ── SECTION 12: CTA BAND (dark) ── */}
             <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: DARK }}>
                 <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
@@ -699,7 +639,7 @@ export default async function MetaAdsManagementPage() {
                     <div className="flex flex-wrap gap-4 justify-center">
                         <a href={BOOK} target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold text-[15px] px-8 py-4 rounded-2xl transition-all duration-200 hover:-translate-y-0.5">
-                            Get a Free Meta Ads Audit
+                            Get a Free Local SEO Audit
                             <Arrow className="w-4 h-4" />
                         </a>
                         <a href="tel:+441615241569"
@@ -710,7 +650,7 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            {/* ── SECTION 14: FAQ (light, accordion) ── */}
+            {/* ── SECTION 13: FAQ (light, accordion) ── */}
             <section className="bg-white py-16 lg:py-24">
                 <div className="max-w-[900px] mx-auto px-5 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
@@ -733,7 +673,7 @@ export default async function MetaAdsManagementPage() {
                 </div>
             </section>
 
-            <OtherServicesSection currentSlug="meta-ads-management" />
+            <OtherServicesSection currentSlug="seo" />
         </main>
     );
 }

@@ -15,6 +15,7 @@ const navLinks = [
             { label: 'Google Ads Services', href: '/services/google-ads-management' },
             { label: 'Meta Ads Services', href: '/services/meta-ads-management' },
             { label: 'SEO Services', href: '/services/seo' },
+            { label: 'Local SEO', href: '/services/seo/local-seo' },
             { label: 'AI Search Optimisation (GEO)', href: '/services/generative-engine-optimisation' },
             { label: 'Shopify Development Services', href: '/services/shopify-development' },
             { label: 'Conversion Rate Optimisation', href: '/services/conversion-rate-optimisation' },

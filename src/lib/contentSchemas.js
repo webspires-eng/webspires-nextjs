@@ -377,6 +377,10 @@ export const CONTENT_TYPES = {
             '/services/social-media-management',
             '/services/google-ads-management',
             '/services/generative-engine-optimisation',
+            '/services/meta-ads-management',
+            '/services/shopify-development',
+            '/services/seo',
+            '/services/seo/local-seo',
         ],
         dynamicPath: null,
         fields: [
@@ -395,6 +399,7 @@ export const CONTENT_TYPES = {
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
+                    { name: 'href', label: 'Link (optional)', type: 'text' },
                 ],
             },
             { name: 's2Adoption', label: 'S2 — adoption line', type: 'textarea' },
@@ -425,6 +430,18 @@ export const CONTENT_TYPES = {
                 ],
             },
 
+            // GEO-specific: short stat/framing tiles for the "why now" section.
+            // Keep values qualitative unless a figure can be sourced.
+            {
+                name: 'statTiles',
+                label: 'Stat tiles (GEO "why now")',
+                type: 'objectList',
+                subfields: [
+                    { name: 'value', label: 'Value', type: 'text' },
+                    { name: 'label', label: 'Label', type: 'text' },
+                ],
+            },
+
             { name: 's5Heading', label: 'S5 — heading', type: 'text' },
             {
                 name: 'services',
@@ -433,6 +450,7 @@ export const CONTENT_TYPES = {
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
+                    { name: 'href', label: 'Link (optional)', type: 'text' },
                 ],
             },
 
@@ -463,12 +481,14 @@ export const CONTENT_TYPES = {
             },
             { name: 'orgPaidVerdict', label: 'SMM — organic vs paid verdict', type: 'textarea' },
 
-            // Google-Ads-specific: Campaign types section.
-            { name: 'campaignTypesHeading', label: 'GA — campaign types heading', type: 'text' },
-            { name: 'campaignTypesIntro', label: 'GA — campaign types intro', type: 'textarea' },
+            // Campaign / ad types section. Shared: Google Ads uses it for
+            // campaign types (cards deep-link to child pages), Meta Ads for
+            // Facebook/Instagram ad formats.
+            { name: 'campaignTypesHeading', label: 'Campaign/ad types — heading', type: 'text' },
+            { name: 'campaignTypesIntro', label: 'Campaign/ad types — intro', type: 'textarea' },
             {
                 name: 'campaignTypes',
-                label: 'GA — campaign types',
+                label: 'Campaign/ad types — items',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Type', type: 'text' },
@@ -477,17 +497,18 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            // Google-Ads-specific: PPC vs SEO block (part of the comparison section).
+            // Two-channel comparison block (part of the comparison section).
+            // Shared: Google Ads uses it for PPC vs SEO, Meta Ads for Meta vs Google.
             {
                 name: 'ppcSeoPoints',
-                label: 'GA — PPC vs SEO points',
+                label: 'Channel comparison — points',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
-            { name: 'ppcSeoVerdict', label: 'GA — PPC vs SEO verdict', type: 'textarea' },
+            { name: 'ppcSeoVerdict', label: 'Channel comparison — verdict', type: 'textarea' },
 
             { name: 's6Heading', label: 'S6 — heading', type: 'text' },
             {
@@ -515,6 +536,7 @@ export const CONTENT_TYPES = {
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
+            { name: 'migrationSources', label: 'S8 — migration source platforms', type: 'stringList' },
 
             { name: 's9Heading', label: 'S9 — heading', type: 'text' },
             { name: 's9Intro', label: 'S9 — intro', type: 'textarea' },
@@ -541,6 +563,7 @@ export const CONTENT_TYPES = {
             },
 
             { name: 's11Heading', label: 'S11 — heading', type: 'text' },
+            { name: 's11Intro', label: 'S11 — intro', type: 'textarea' },
             {
                 name: 'industries',
                 label: 'S11 — industries',
