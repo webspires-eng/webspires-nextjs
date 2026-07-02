@@ -12,7 +12,7 @@ const geistSans = Geist({
   preload: true,
 });
 
-// Mono / "signal" face — carries queries, entities, citations, eyebrows.
+// Mono / "signal" face carries queries, entities, citations, eyebrows.
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],

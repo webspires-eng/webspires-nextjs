@@ -5,7 +5,7 @@ export const revalidate = 3600
 
 export const metadata = {
     title: 'Case Studies | Digital Marketing Results | Webspires UK',
-    description: 'How Webspires drives real results for UK businesses across Google Ads, ecommerce, SEO, and local growth — the method and the metrics that matter.',
+    description: 'How Webspires drives real results for UK businesses across Google Ads, ecommerce, SEO, and local growth the method and the metrics that matter.',
     alternates: { canonical: 'https://webspires.co.uk/case-studies/' },
     openGraph: {
         title: 'Case Studies | Webspires UK Digital Agency',
@@ -39,7 +39,7 @@ export default async function CaseStudiesHubPage() {
                         </h1>
                         <p className="text-gray-400 text-[17px] leading-relaxed mb-8 max-w-[620px]">
                             We publish results we can verify and that clients approve. Explore how we
-                            approach each area — and the metrics we hold ourselves to.
+                            approach each area and the metrics we hold ourselves to.
                         </p>
                         <a href="https://call.webspires.co.uk?utm_source=casestudieshub"
                             target="_blank" rel="noopener noreferrer"

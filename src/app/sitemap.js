@@ -1,11 +1,16 @@
-import { siteConfig } from '@/config/site';
 import { getContentItems } from '@/lib/content';
 import { getAllPublishedSlugs } from '@/lib/blog';
 
 export const revalidate = 3600;
 
+// A sitemap must always reference the canonical production domain, never
+// the dev/local URL — otherwise crawlers index localhost URLs.
+const CANONICAL_BASE = (
+    process.env.NEXT_PUBLIC_BASE_URL || 'https://webspires.co.uk'
+).replace(/\/$/, '');
+
 export default async function sitemap() {
-    const base = siteConfig.url.replace(/\/$/, '');
+    const base = CANONICAL_BASE;
     const now = new Date();
 
     const [
@@ -97,7 +102,7 @@ export default async function sitemap() {
             priority: 0.7,
         }));
     } catch {
-        // DB unavailable — ship the rest of the sitemap anyway.
+        // DB unavailable ship the rest of the sitemap anyway.
     }
 
     return [

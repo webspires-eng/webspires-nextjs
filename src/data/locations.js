@@ -1,8 +1,8 @@
-// src/data/locations.js — single source of truth for all location pages.
+// src/data/locations.js single source of truth for all location pages.
 // Silo 3 of the URL/silo blueprint. Each city has unique local context,
-// industries, and FAQs — intentionally NOT doorway pages.
+// industries, and FAQs intentionally NOT doorway pages.
 
-// Shared, honest trust points (qualitative — no fabricated metrics).
+// Shared, honest trust points (qualitative no fabricated metrics).
 export const locationProofPoints = [
     'UK-based team',
     'Local & area-level targeting',
@@ -34,10 +34,10 @@ export const locationsData = [
         localProblems: [
             { title: 'Extreme competition', desc: 'Almost every search term in London is contested by large, well-funded brands. Generic marketing simply disappears.' },
             { title: 'High ad costs', desc: 'Cost per click in London is among the highest in the country, so wasted spend hurts fast.' },
-            { title: 'Borough-level intent', desc: 'London is many micro-markets. "In London" is often too broad — buyers search by borough and area.' },
+            { title: 'Borough-level intent', desc: 'London is many micro-markets. "In London" is often too broad buyers search by borough and area.' },
             { title: 'Trust at speed', desc: 'London buyers compare quickly. A slow or unconvincing site loses them in seconds.' },
         ],
-        localSeoAngle: 'In London, broad city-level targeting wastes budget. We focus on borough and area-level search intent, a tightly optimised Google Business Profile, and content that reflects the specific parts of London you actually serve — so you compete where you can win instead of fighting every brand in the capital at once.',
+        localSeoAngle: 'In London, broad city-level targeting wastes budget. We focus on borough and area-level search intent, a tightly optimised Google Business Profile, and content that reflects the specific parts of London you actually serve so you compete where you can win instead of fighting every brand in the capital at once.',
         localIndustries: [
             'Professional & financial services',
             'Hospitality & restaurants',
@@ -55,9 +55,9 @@ export const locationsData = [
         ],
         faqs: [
             { q: 'Do you have an office in London?', a: 'We work with London businesses remotely and meet virtually or on-site as needed. Our team is UK-based with a head office near Manchester.' },
-            { q: 'London ads are expensive — is paid worth it?', a: 'Yes, when structured tightly by area and intent. Loose campaigns waste money fast in London; focused ones can still be very profitable.' },
+            { q: 'London ads are expensive is paid worth it?', a: 'Yes, when structured tightly by area and intent. Loose campaigns waste money fast in London; focused ones can still be very profitable.' },
             { q: 'Can you target specific London boroughs?', a: 'Yes. Borough and area-level targeting is usually far more effective than city-wide for London businesses.' },
-            { q: 'How do we compete with big London brands?', a: 'By being more specific and local than they are, and by converting better — not by outspending them everywhere.' },
+            { q: 'How do we compete with big London brands?', a: 'By being more specific and local than they are, and by converting better not by outspending them everywhere.' },
         ],
     },
     {
@@ -94,7 +94,7 @@ export const locationsData = [
         ],
         faqs: [
             { q: 'Are you actually based in Manchester?', a: 'Our head office is in Bolton, within Greater Manchester, so we know the local market and can meet Manchester clients in person.' },
-            { q: 'Do you cover towns around Manchester too?', a: 'Yes — Bolton, Bury, Stockport, Salford, Trafford and the wider North West, with targeting tailored to each area.' },
+            { q: 'Do you cover towns around Manchester too?', a: 'Yes Bolton, Bury, Stockport, Salford, Trafford and the wider North West, with targeting tailored to each area.' },
             { q: 'What works best for Manchester local businesses?', a: 'A strong Google Business Profile, local reviews, and area-specific pages, supported by targeted local ads.' },
             { q: 'Can we meet face to face?', a: 'Yes. Being local to Manchester, in-person meetings are straightforward when they are useful.' },
         ],
@@ -133,9 +133,9 @@ export const locationsData = [
         ],
         faqs: [
             { q: 'Do you work with Birmingham businesses remotely?', a: 'Yes. We work with West Midlands businesses remotely, with virtual or on-site meetings as required.' },
-            { q: 'Should we target Birmingham or surrounding towns?', a: 'Usually both — many West Midlands buyers search by their own town, so wider area targeting captures more demand.' },
+            { q: 'Should we target Birmingham or surrounding towns?', a: 'Usually both many West Midlands buyers search by their own town, so wider area targeting captures more demand.' },
             { q: 'What is the quickest win for a Birmingham business?', a: 'Often local SEO and Google Business Profile improvements, which can lift visibility faster than broader campaigns.' },
-            { q: 'Can you help with lead follow-up?', a: 'Yes — we can set up CRM automation so enquiries are contacted quickly before they go cold.' },
+            { q: 'Can you help with lead follow-up?', a: 'Yes we can set up CRM automation so enquiries are contacted quickly before they go cold.' },
         ],
     },
     {
@@ -154,7 +154,7 @@ export const locationsData = [
             { title: 'Brand sameness', desc: 'Competing firms often look and sound alike, so prospects default to comparing on price.' },
             { title: 'Weak conversion paths', desc: 'Sites attract visitors but make it hard to take the next step, so enquiries stay low.' },
         ],
-        localSeoAngle: 'Leeds has a strong professional and financial services scene, so authority and trust matter as much as rankings. We target Leeds and the wider West Yorkshire catchment, build credibility-led content, and sharpen conversion paths so visits become genuine enquiries — not just traffic.',
+        localSeoAngle: 'Leeds has a strong professional and financial services scene, so authority and trust matter as much as rankings. We target Leeds and the wider West Yorkshire catchment, build credibility-led content, and sharpen conversion paths so visits become genuine enquiries not just traffic.',
         localIndustries: [
             'Finance & accountancy',
             'Legal & professional services',
@@ -212,7 +212,7 @@ export const locationsData = [
         faqs: [
             { q: 'Do you work with businesses in Scotland?', a: 'Yes. We work with Glasgow and Scotland-wide businesses remotely, with virtual meetings and on-site when useful.' },
             { q: 'Should we target Glasgow or all of Scotland?', a: 'Usually Glasgow and the Central Belt first. Broad "Scotland" targeting often wastes budget on areas you do not serve.' },
-            { q: 'Does Scottish search really differ from the rest of the UK?', a: 'Often yes — local terms and intent can differ, so we tailor targeting and content rather than reusing generic UK copy.' },
+            { q: 'Does Scottish search really differ from the rest of the UK?', a: 'Often yes local terms and intent can differ, so we tailor targeting and content rather than reusing generic UK copy.' },
             { q: 'What is the fastest win for a Glasgow business?', a: 'Typically Google Business Profile and local SEO improvements, which can raise local visibility quickly.' },
         ],
     },

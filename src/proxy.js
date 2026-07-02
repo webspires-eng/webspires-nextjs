@@ -7,7 +7,7 @@ import { jwtVerify } from 'jose';
  * IMPORTANT: This is only a UX optimisation (fast redirect). Real
  * authorization is enforced server-side in the Data Access Layer
  * (src/lib/auth.js) inside every admin page, Server Action and
- * Route Handler — never rely on Proxy alone.
+ * Route Handler never rely on Proxy alone.
  */
 
 const encodedKey = new TextEncoder().encode(process.env.SESSION_SECRET || '');

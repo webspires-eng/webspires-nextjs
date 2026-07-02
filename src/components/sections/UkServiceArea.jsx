@@ -28,7 +28,7 @@ export default function UkServiceArea() {
                             Digital Marketing Services for UK Businesses
                         </h2>
                         <p className="text-gray-500 text-[15px] leading-relaxed">
-                            We work with businesses across the UK — helping
+                            We work with businesses across the UK helping
                             local service providers, ecommerce brands, B2B
                             companies and professional firms improve
                             visibility, generate leads and track marketing
@@ -69,7 +69,7 @@ export default function UkServiceArea() {
                             ))}
                         </div>
                         <p className="mt-4 text-[12px] text-gray-400">
-                            Remote-first with a UK-based team — serving clients
+                            Remote-first with a UK-based team serving clients
                             nationwide.
                         </p>
                     </div>

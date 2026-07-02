@@ -15,7 +15,7 @@ export default function AboutStory() {
             <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                    {/* LEFT — Story text */}
+                    {/* LEFT Story text */}
                     <div>
                         <span className="inline-block bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">
                             Our Story
@@ -33,7 +33,7 @@ export default function AboutStory() {
                             </p>
                             <p>
                                 We don&apos;t just build websites or run ad campaigns. We partner with ambitious business
-                                owners to craft digital strategies that generate real, measurable growth &mdash; from
+                                owners to craft digital strategies that generate real, measurable growth from
                                 Google rankings and paid traffic to CRM systems and Shopify stores that sell.
                             </p>
                             <p>
@@ -61,7 +61,7 @@ export default function AboutStory() {
                         </div>
                     </div>
 
-                    {/* RIGHT — Timeline */}
+                    {/* RIGHT Timeline */}
                     <div className="relative">
                         {/* Vertical line */}
                         <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-[#f97316] to-[#3b82f6] opacity-30" aria-hidden="true" />

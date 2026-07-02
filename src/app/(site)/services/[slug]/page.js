@@ -250,7 +250,7 @@ export default async function ServicePage({ params }) {
                         <span style={{ color: svc.color }}>with {svc.shortTitle}</span>
                     </h2>
                     <p className="text-gray-400 text-[16px] mb-8 max-w-[480px] mx-auto leading-relaxed">
-                        Book a free strategy call with our team — no obligation, no hard sell.
+                        Book a free strategy call with our team no obligation, no hard sell.
                         Just honest advice about what {svc.shortTitle} can do for your UK business.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">

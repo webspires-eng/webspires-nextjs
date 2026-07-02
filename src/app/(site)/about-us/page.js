@@ -8,7 +8,7 @@ import AboutCTA from '@/components/about/AboutCTA'
 export const metadata = {
   title: 'About Us | Best Web Design Agency UK | Webspires Limited',
   description:
-    'Learn about Webspires Limited — the UK\'s results-driven web design and digital marketing agency based in Bolton. Meet our team, discover our values, and see why 500+ businesses trust us.',
+    'Learn about Webspires Limited the UK\'s results-driven web design and digital marketing agency based in Bolton. Meet our team, discover our values, and see why 500+ businesses trust us.',
   alternates: {
     canonical: 'https://webspires.co.uk/about-us/',
   },
@@ -27,7 +27,7 @@ const aboutPageSchema = {
   name: 'About Webspires Limited',
   url: 'https://webspires.co.uk/about-us/',
   description:
-    "UK's leading web design and digital marketing agency — Webspires Limited, Bolton.",
+    "UK's leading web design and digital marketing agency Webspires Limited, Bolton.",
 }
 
 export default function AboutPage() {

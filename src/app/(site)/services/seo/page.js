@@ -191,7 +191,7 @@ export default async function SeoHubPage() {
             {/* ── SECTION 1: HERO (ink-900, glow, grain, signature) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 pt-28 pb-16 lg:pb-24">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <nav aria-label="Breadcrumb" className="mb-8">
                         <ol className="flex flex-wrap items-center gap-2 font-mono text-[12px] text-text-mid/70">
                             <li><Link href="/" className="hover:text-signal transition-colors">Home</Link></li>
@@ -242,7 +242,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 2: WHAT SEO INCLUDES (paper-50, discipline routing) ── */}
             <section className="bg-paper-50 py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="reveal">
                         <Eyebrow className="block mb-4">The scope</Eyebrow>
                         <h2 className={`${H2} text-ink-text mb-6`}>{data.s2Heading}</h2>
@@ -274,7 +274,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 3: WHY YOU ARE NOT RANKING (ink-800, mistake → fix bento) ── */}
             <section className="bg-ink-800 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">The ranking gap</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-3`}>{data.s4Heading}</h2>
@@ -296,7 +296,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 4: OUR SEO SERVICES (ink-900, bento, routes the silo) ── */}
             <section id="services" className="bg-ink-900 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">What we deliver</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s5Heading}</h2>
@@ -331,7 +331,7 @@ export default async function SeoHubPage() {
             {/* ── SECTION 5: SEO AND AI SEARCH (ink-900, glow, signature) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 py-16 lg:py-24 border-t border-hairline">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="reveal">
                             <Eyebrow className="block mb-4">{'// The differentiator'}</Eyebrow>
@@ -359,7 +359,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 6: PROCESS (paper-50, numbered timeline) ── */}
             <section id="process" className="bg-paper-50 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">How we work</Eyebrow>
                         <h2 className={`${H2} text-ink-text mb-3`}>{data.s10Heading}</h2>
@@ -381,7 +381,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 7: SEO BY INDUSTRY (ink-800, routes to /industries/*) ── */}
             <section className="bg-ink-800 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">Sector fit</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s11Heading}</h2>
@@ -414,7 +414,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 8: PRICING (ink-900, three tiers, middle highlighted) ── */}
             <section id="pricing" className="bg-ink-900 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Transparent pricing</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-3`}>{data.s12Heading}</h2>
@@ -455,7 +455,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 9: SEO VS PPC + AGENCY VS FREELANCER VS IN-HOUSE (paper-50) ── */}
             <section className="bg-paper-50 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Make the right call</Eyebrow>
                         <h2 className={`${H2} text-ink-text`}>{data.compHeading}</h2>
@@ -533,7 +533,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 10: WHY CHOOSE WEBSPIRES (ink-800, red-tick grid) ── */}
             <section id="why" className="bg-ink-800 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">The difference</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s13Heading}</h2>
@@ -560,7 +560,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 11: REAL SEO RESULTS (ink-900, problem/solution/outcome) ── */}
             <section className="bg-ink-900 py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Proof</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s14Heading}</h2>
@@ -599,7 +599,7 @@ export default async function SeoHubPage() {
             {/* ── SECTION 12: CTA BAND (ink-900, glow) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 py-16 lg:py-20 border-t border-hairline">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
                     <h2 className={`${H2} text-text-hi mb-4`}>{data.s15Heading}</h2>
                     <p className="font-body text-text-mid text-[16px] mb-8 max-w-[640px] mx-auto leading-relaxed">{data.s15Body}</p>
                     <ul className="flex flex-wrap gap-2.5 justify-center list-none p-0 mb-8">
@@ -619,7 +619,7 @@ export default async function SeoHubPage() {
 
             {/* ── SECTION 13: FAQ (paper-50, accordion) ── */}
             <section className="bg-paper-50 py-16 lg:py-24">
-                <div className="max-w-[900px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="text-center mb-12 reveal">
                         <Eyebrow className="block mb-4">FAQ</Eyebrow>
                         <h2 className={`${H2} text-ink-text`}>{data.faqHeading}</h2>

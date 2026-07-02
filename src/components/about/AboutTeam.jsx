@@ -16,7 +16,7 @@ const team = [
         id: 'web-lead',
         name: 'Design & Dev Team',
         role: 'Web Design & Development',
-        bio: 'Our creative and technical team builds stunning, lightning-fast websites — from custom WordPress builds and Next.js apps to full Shopify eCommerce stores.',
+        bio: 'Our creative and technical team builds stunning, lightning-fast websites from custom WordPress builds and Next.js apps to full Shopify eCommerce stores.',
         initials: 'DD',
         color: '#3b82f6',
         expertise: ['UI/UX Design', 'Next.js', 'Shopify', 'WordPress'],
@@ -26,7 +26,7 @@ const team = [
         id: 'seo-lead',
         name: 'SEO Team',
         role: 'Search & Organic Growth',
-        bio: 'Data-driven SEO specialists who have helped UK businesses rank on page one for competitive keywords — combining technical audits, link building, and content strategy.',
+        bio: 'Data-driven SEO specialists who have helped UK businesses rank on page one for competitive keywords combining technical audits, link building, and content strategy.',
         initials: 'SE',
         color: '#10b981',
         expertise: ['Technical SEO', 'Local SEO', 'Link Building', 'Content'],
@@ -84,7 +84,7 @@ export default function AboutTeam() {
                     </h2>
                     <p className="text-gray-400 text-[16px] max-w-[540px] mx-auto leading-relaxed">
                         Webspires boasts a close-knit team of specialists across every discipline of digital
-                        marketing &mdash; strategic, creative, and technical.
+                        marketing strategic, creative, and technical.
                     </p>
                 </div>
 

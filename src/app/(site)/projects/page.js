@@ -8,7 +8,7 @@ export const revalidate = 3600
 export const metadata = {
   title: 'Our Projects | Web Design & Digital Marketing Portfolio | Webspires UK',
   description:
-    'Browse Webspires\' portfolio of 500+ completed UK projects — web design, Shopify stores, SEO campaigns, Google Ads, Meta Ads, CRM systems, and social media management.',
+    'Browse Webspires\' portfolio of 500+ completed UK projects web design, Shopify stores, SEO campaigns, Google Ads, Meta Ads, CRM systems, and social media management.',
   alternates: {
     canonical: 'https://webspires.co.uk/projects/',
   },

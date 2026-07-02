@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 /**
  * SMTP mailer. Env is read lazily so a missing value never breaks
- * `next build` — it only fails when an email is actually sent.
+ * `next build` it only fails when an email is actually sent.
  */
 
 let cachedTransporter = null;
@@ -71,8 +71,8 @@ export async function sendContactEmail({
     const rows = [
         ['Name', name],
         ['Email', email],
-        ['Phone', phone || '—'],
-        ['Service', service || '—'],
+        ['Phone', phone || ' '],
+        ['Service', service || ' '],
         ['Source', source],
     ]
         .map(
@@ -97,14 +97,14 @@ export async function sendContactEmail({
 
     const text =
         `New enquiry (${source})\n\n` +
-        `Name: ${name}\nEmail: ${email}\nPhone: ${phone || '—'}\n` +
-        `Service: ${service || '—'}\n\nMessage:\n${message}\n`;
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone || ' '}\n` +
+        `Service: ${service || ' '}\n\nMessage:\n${message}\n`;
 
     const mail = {
         from: cfg.from,
         to: cfg.to,
         replyTo: email ? `${name} <${email}>` : undefined,
-        subject: `New ${source} enquiry — ${name}`,
+        subject: `New ${source} enquiry ${name}`,
         text,
         html,
     };

@@ -87,7 +87,7 @@ export default function ProblemPain() {
                         Most businesses don’t struggle online because they lack
                         a website. They struggle because their website, SEO,
                         ads, content and tracking aren’t working together. Here’s
-                        what we usually find — and how we fix it.
+                        what we usually find and how we fix it.
                     </p>
                 </div>
 

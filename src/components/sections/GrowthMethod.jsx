@@ -5,7 +5,7 @@ const steps = [
     },
     {
         title: 'Competitor Research',
-        desc: 'We benchmark you against the businesses ranking and converting now — content, backlinks, UX, authority and offers.',
+        desc: 'We benchmark you against the businesses ranking and converting now content, backlinks, UX, authority and offers.',
     },
     {
         title: 'Keyword Gap Analysis',
@@ -13,7 +13,7 @@ const steps = [
     },
     {
         title: 'Tracking & Analytics Review',
-        desc: 'GA4, Search Console, ad tracking, forms and CRM set up correctly — so every result is measured, not guessed.',
+        desc: 'GA4, Search Console, ad tracking, forms and CRM set up correctly so every result is measured, not guessed.',
     },
     {
         title: 'Conversion Path Analysis',
@@ -21,7 +21,7 @@ const steps = [
     },
     {
         title: 'Growth Roadmap',
-        desc: 'A prioritised plan ordered by business impact — what to do first, why, and the result it should drive.',
+        desc: 'A prioritised plan ordered by business impact what to do first, why, and the result it should drive.',
     },
 ];
 
@@ -61,7 +61,7 @@ export default function GrowthMethod() {
                                 Before we build campaigns, we analyse your
                                 website, competitors, search visibility, paid
                                 media, tracking, content gaps and conversion
-                                journey — so your plan is built on evidence,
+                                journey so your plan is built on evidence,
                                 not guesswork.
                             </p>
                             <a

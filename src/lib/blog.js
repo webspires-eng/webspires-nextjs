@@ -208,7 +208,7 @@ export async function getRelatedPosts(post, limit = 3) {
     const supabase = getSupabase();
     const tags = Array.isArray(post.tags) ? post.tags : [];
 
-    // Same category OR overlapping tags. Two safe queries merged in JS —
+    // Same category OR overlapping tags. Two safe queries merged in JS 
     // avoids building an .or() string from user-editable values.
     const [byCategory, byTags] = await Promise.all([
         post.category

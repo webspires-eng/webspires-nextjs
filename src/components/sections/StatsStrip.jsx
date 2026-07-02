@@ -90,7 +90,7 @@ const highlights = [
                 <path d="M7 17v2M15 17v2M5 19h12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
         ),
-        text: 'Live reporting dashboards — full transparency',
+        text: 'Live reporting dashboards full transparency',
     },
     {
         icon: (
@@ -99,7 +99,7 @@ const highlights = [
                 <path d="M7 11l3 3 5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         ),
-        text: 'No lock-in contracts — results earn your trust',
+        text: 'No lock-in contracts results earn your trust',
     },
     {
         icon: (
@@ -142,7 +142,7 @@ export default function StatsStrip() {
                 {/* ── Two-column layout ─────────────────────────── */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* LEFT — Heading + highlights */}
+                    {/* LEFT Heading + highlights */}
                     <div>
                         <h2 id="results-heading" className="text-[30px] sm:text-[36px] lg:text-[52px] xl:text-[58px] font-extrabold text-white leading-[1.05] mb-5">
                             Our Success: Driving<br />
@@ -177,7 +177,7 @@ export default function StatsStrip() {
                         </a>
                     </div>
 
-                    {/* RIGHT — Stat cards grid */}
+                    {/* RIGHT Stat cards grid */}
                     <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
                         {stats.map((stat, i) => (
                             <div

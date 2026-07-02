@@ -5,11 +5,11 @@ export const revalidate = 3600
 
 export const metadata = {
     title: 'Industries We Work With | Digital Marketing by Sector | Webspires',
-    description: 'Webspires delivers digital marketing tailored to your industry — ecommerce, local businesses, B2B, healthcare, real estate, and professional services.',
+    description: 'Webspires delivers digital marketing tailored to your industry ecommerce, local businesses, B2B, healthcare, real estate, and professional services.',
     alternates: { canonical: 'https://webspires.co.uk/industries/' },
     openGraph: {
         title: 'Industries We Work With | Webspires UK Digital Agency',
-        description: 'Sector-specific digital marketing for UK businesses — ecommerce, local, B2B, healthcare, real estate, and professional services.',
+        description: 'Sector-specific digital marketing for UK businesses ecommerce, local, B2B, healthcare, real estate, and professional services.',
         url: 'https://webspires.co.uk/industries/',
     },
 }

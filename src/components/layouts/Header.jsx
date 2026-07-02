@@ -178,9 +178,9 @@ const Header = () => {
                         </ul>
                     </nav>
 
-                    {/* Right Actions — desktop */}
+                    {/* Right Actions desktop */}
                     <div className="hidden xl:flex items-center gap-2.5 ml-3 flex-shrink-0">
-                        {/* Phone — only on very wide screens to keep the bar uncluttered */}
+                        {/* Phone only on very wide screens to keep the bar uncluttered */}
                         <a
                             href="tel:+441615241569"
                             aria-label="Call Webspires"

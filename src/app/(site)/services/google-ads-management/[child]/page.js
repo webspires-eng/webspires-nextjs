@@ -200,7 +200,7 @@ export default async function GoogleAdsChildPage({ params }) {
                     </h2>
                     <p className="text-gray-400 text-[16px] mb-8 max-w-[520px] mx-auto leading-relaxed">
                         Book a free strategy call. We&apos;ll review your account and show you the
-                        fastest opportunities — no obligation.
+                        fastest opportunities no obligation.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
                         <a href="https://call.webspires.co.uk?utm_source=googleadschildcta"

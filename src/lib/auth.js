@@ -40,14 +40,14 @@ export const verifyAdmin = cache(async () => {
     return { username: session.username, role: session.role };
 });
 
-/** Use in admin pages/layouts — redirects to login if unauthenticated. */
+/** Use in admin pages/layouts redirects to login if unauthenticated. */
 export async function requireAdmin() {
     const admin = await verifyAdmin();
     if (!admin) redirect('/admin/login');
     return admin;
 }
 
-/** Use in Server Actions / Route Handlers — returns the admin or null. */
+/** Use in Server Actions / Route Handlers returns the admin or null. */
 export async function getAdminOrNull() {
     return verifyAdmin();
 }

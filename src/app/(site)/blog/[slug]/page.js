@@ -357,7 +357,7 @@ export default async function BlogPostPage({ params }) {
                             Ready to grow your business online?
                         </h2>
                         <p className="mx-auto mb-8 max-w-[520px] text-[15px] leading-relaxed text-gray-400">
-                            Book a free strategy call with the Webspires team —
+                            Book a free strategy call with the Webspires team 
                             no obligation, just honest advice.
                         </p>
                         <a

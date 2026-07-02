@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     const items = await getContentItems('projects')
     const p = items.find((i) => i.slug === slug)
     if (!p) return {}
-    const title = p.metaTitle || `${p.title} — ${p.category || 'Project'} | Webspires`
+    const title = p.metaTitle || `${p.title} ${p.category || 'Project'} | Webspires`
     const description =
         p.metaDescription ||
         p.description ||
@@ -305,7 +305,7 @@ export default async function ProjectDetailPage({ params }) {
                             “{p.testimonial}”
                         </blockquote>
                         {p.testimonialAuthor ? (
-                            <p className="text-[14px] font-bold text-gray-500">— {p.testimonialAuthor}</p>
+                            <p className="text-[14px] font-bold text-gray-500"> {p.testimonialAuthor}</p>
                         ) : null}
                     </div>
                 </section>

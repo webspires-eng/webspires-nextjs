@@ -94,7 +94,7 @@ const localBusinessSchema = {
 export default function SiteLayout({ children }) {
   return (
     <>
-      {/* Inline JSON-LD — safe in body, crawlers read it fine */}
+      {/* Inline JSON-LD safe in body, crawlers read it fine */}
       <script
         type="application/ld+json"
         suppressHydrationWarning

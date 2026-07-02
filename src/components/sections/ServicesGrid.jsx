@@ -71,7 +71,7 @@ const services = [
             </svg>
         ),
         title: 'SEO Services',
-        description: 'Dominate Google UK rankings with data-backed SEO strategies — technical audits, keyword research, link building and content optimisation.',
+        description: 'Dominate Google UK rankings with data-backed SEO strategies technical audits, keyword research, link building and content optimisation.',
         tags: ['Technical SEO', 'Local SEO', 'Link Building', 'Content'],
         href: '/services/seo',
     },
@@ -110,7 +110,7 @@ export default function ServicesGrid() {
                         <span className="text-primary">Designed to Grow Your Business</span>
                     </h2>
                     <p className="text-gray-500 text-[17px] max-w-[600px] mx-auto leading-relaxed">
-                        Strategy to execution — explore each service to see who it&apos;s for, what we do, and the outcomes it creates.
+                        Strategy to execution explore each service to see who it&apos;s for, what we do, and the outcomes it creates.
                     </p>
                 </div>
 
@@ -121,7 +121,7 @@ export default function ServicesGrid() {
                             key={svc.id}
                             id={`service-card-${svc.id}`}
                             href={svc.href}
-                            aria-label={`${svc.title} — learn more`}
+                            aria-label={`${svc.title} learn more`}
                             onMouseEnter={() => setHovered(svc.id)}
                             onMouseLeave={() => setHovered(null)}
                             className={`group relative flex flex-col p-7 rounded-2xl border transition-all duration-300 no-underline cursor-pointer

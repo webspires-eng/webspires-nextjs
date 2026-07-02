@@ -13,7 +13,7 @@ const ATTACH_TYPES = new Set([
 ]);
 
 export async function submitContact(_prevState, formData) {
-    // Honeypot — bots fill hidden fields; humans never see them.
+    // Honeypot bots fill hidden fields; humans never see them.
     if (String(formData.get('company_website') || '').trim() !== '') {
         return { success: true };
     }

@@ -93,7 +93,7 @@ export default function Portfolio() {
                             <span className="text-primary">Proud Of</span>
                         </h2>
                         <p className="text-gray-500 text-[16px] mt-3 max-w-[480px] leading-relaxed">
-                            Real websites for real UK businesses — each one built to convert visitors
+                            Real websites for real UK businesses each one built to convert visitors
                             into customers and rank where it matters.
                         </p>
                     </div>
@@ -117,7 +117,7 @@ export default function Portfolio() {
                             id={`portfolio-item-${p.id}`}
                             className="group relative block rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 hover:-translate-y-1 transition-all duration-300"
                         >
-                            {/* Screenshot image — links to live site */}
+                            {/* Screenshot image links to live site */}
                             <a
                                 href={p.link}
                                 target="_blank"
@@ -144,7 +144,7 @@ export default function Portfolio() {
                                 </div>
                             </a>
 
-                            {/* Card footer — result first */}
+                            {/* Card footer result first */}
                             <div className="bg-white px-5 py-5">
                                 <p className="text-[10px] font-extrabold uppercase tracking-widest text-gray-300 mb-1">
                                     Result

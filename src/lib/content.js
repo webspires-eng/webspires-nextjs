@@ -97,7 +97,7 @@ function serializeAdmin(row) {
 /* ── Public reads (DB → fallback to seed) ──────────────── */
 
 /**
- * All items for a type as plain page objects: `{ ...data, slug }` —
+ * All items for a type as plain page objects: `{ ...data, slug }` 
  * the exact shape the marketing pages already expect. Falls back to the
  * static seed when the DB is empty or unavailable.
  */

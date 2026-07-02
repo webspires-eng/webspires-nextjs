@@ -49,7 +49,7 @@ export default function ProjectsHero() {
                         <span className="text-primary">Real Results.</span>
                     </h1>
                     <p className="text-gray-400 text-[17px] leading-relaxed max-w-[580px]">
-                        Every project we deliver is built around one goal — growing your business. Browse
+                        Every project we deliver is built around one goal growing your business. Browse
                         our portfolio of 500+ completed projects across web design, SEO, paid ads, CRM,
                         Shopify development, and social media.
                     </p>

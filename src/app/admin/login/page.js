@@ -1,7 +1,7 @@
 import LoginForm from '@/components/admin/LoginForm';
 
 export const metadata = {
-    title: 'Sign in — Webspires Admin',
+    title: 'Sign in Webspires Admin',
     robots: { index: false, follow: false },
 };
 

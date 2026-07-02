@@ -7,7 +7,7 @@ import { createClient } from '@supabase/supabase-js';
  * All DB access in this app happens on the server (server components,
  * server actions, route handlers), and admin auth is env-based (not
  * Supabase Auth), so a single service-role client is the simplest
- * correct setup. The service role bypasses RLS — never import this
+ * correct setup. The service role bypasses RLS never import this
  * from a Client Component, and never expose the key to the browser.
  *
  * The client is created lazily and cached, mirroring the old

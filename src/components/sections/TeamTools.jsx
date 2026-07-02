@@ -38,7 +38,7 @@ export default function TeamTools() {
                             A Data-Led Team Focused on Real Business Growth
                         </h2>
                         <p className="text-gray-500 text-[15px] leading-relaxed">
-                            Not generalists guessing — specialists in their
+                            Not generalists guessing specialists in their
                             craft, working from the same evidence-based plan and
                             the tools that prove what’s working.
                         </p>

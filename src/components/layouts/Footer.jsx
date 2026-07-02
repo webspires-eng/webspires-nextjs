@@ -107,7 +107,7 @@ export default function Footer() {
                             Ready to Grow Your Business?
                         </p>
                         <p className="text-white/80 text-[14px] mt-1">
-                            Get a free strategy session — no obligation, no fluff.
+                            Get a free strategy session no obligation, no fluff.
                         </p>
                     </div>
                     <a
@@ -127,7 +127,7 @@ export default function Footer() {
             <div className="max-w-[1320px] mx-auto px-6 lg:px-10 pt-16 pb-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
-                    {/* Col 1 — Brand */}
+                    {/* Col 1 Brand */}
                     <div className="lg:col-span-4">
                         <Link href="/" aria-label="Webspires Home" className="inline-block mb-5">
                             <Image
@@ -173,7 +173,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Col 2 — Services */}
+                    {/* Col 2 Services */}
                     <div className="lg:col-span-3">
                         <h3 className="text-white font-extrabold text-[14px] uppercase tracking-widest mb-5">
                             Our Services
@@ -198,7 +198,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 3 — Company */}
+                    {/* Col 3 Company */}
                     <div className="lg:col-span-2">
                         <h3 className="text-white font-extrabold text-[14px] uppercase tracking-widest mb-5">
                             Company
@@ -223,7 +223,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 4 — Contact + Newsletter */}
+                    {/* Col 4 Contact + Newsletter */}
                     <div className="lg:col-span-3">
                         <h3 className="text-white font-extrabold text-[14px] uppercase tracking-widest mb-5">
                             Get In Touch

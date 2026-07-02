@@ -507,7 +507,7 @@ export default function ContentForm({ type, item = null }) {
                         hint={
                             cfg.slugRequired
                                 ? 'Leave blank to auto-generate from the title. Lowercase, hyphenated.'
-                                : 'Optional — auto-generated if left blank.'
+                                : 'Optional auto-generated if left blank.'
                         }
                     >
                         <input
@@ -522,7 +522,7 @@ export default function ContentForm({ type, item = null }) {
                 </div>
             ) : null}
 
-            {/* Fields — grouped into collapsible sections when configured */}
+            {/* Fields grouped into collapsible sections when configured */}
             {groups.map((g, gi) => {
                 const renderField = (f) => {
                     if (f.type === 'richtext') {

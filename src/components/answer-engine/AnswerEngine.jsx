@@ -1,4 +1,4 @@
-// Answer Engine — the site signature. A stylised generative-search surface:
+// Answer Engine the site signature. A stylised generative-search surface:
 // a mono query resolves to an answer block that surfaces the client brand as
 // the cited source. Static + CSS-only shimmer, so it stays a server component
 // and never blocks LCP. Fully resolved (and shimmer off) under reduced-motion.
@@ -75,7 +75,7 @@ export function AnswerEngine({
                         <div className="h-2.5 rounded-full bg-white/[0.08] w-[64%]" />
                     </div>
 
-                    {/* the cited result — the brand surfaced as the answer */}
+                    {/* the cited result the brand surfaced as the answer */}
                     <div className="relative rounded-[16px] border p-4"
                         style={{ borderColor: 'rgba(242,44,79,0.45)', background: 'var(--signal-soft)' }}>
                         <span className="absolute -top-2.5 left-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-white px-2 py-0.5 rounded-full"

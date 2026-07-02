@@ -38,7 +38,7 @@ const infoCards = [
 ]
 
 const trustPoints = [
-    'Free strategy session — no obligation',
+    'Free strategy session no obligation',
     'Response within 24 hours',
     'Custom proposals, not templates',
     'No hidden fees, ever',
@@ -66,7 +66,7 @@ export default function ContactCTA() {
                 {/* Two-col layout: info + form */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 
-                    {/* Contact info — left */}
+                    {/* Contact info left */}
                     <div className="lg:col-span-2 flex flex-col gap-6">
                         {infoCards.map((item) => (
                             <div key={item.label} className="flex items-center gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-[0_2px_16px_rgba(0,0,0,0.05)]">
@@ -99,7 +99,7 @@ export default function ContactCTA() {
                         </div>
                     </div>
 
-                    {/* Form — right (same form as /contact) */}
+                    {/* Form right (same form as /contact) */}
                     <div className="lg:col-span-3">
                         <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_4px_40px_rgba(0,0,0,0.08)] p-8 lg:p-10">
                             <h3 className="text-[20px] font-extrabold text-[#1a1a2e] mb-6">

@@ -113,7 +113,7 @@ const certifications = [
 
 export default function Hero() {
     return (
-        <section aria-label="Hero — Best Web Design Agency UK | Webspires Limited" className="bg-[#faf9f7] overflow-hidden">
+        <section aria-label="Hero Best Web Design Agency UK | Webspires Limited" className="bg-[#faf9f7] overflow-hidden">
 
             {/* ── Main hero ──────────────────────────────────────── */}
             <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 pt-12 pb-0 lg:pt-20 flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
@@ -126,7 +126,7 @@ export default function Hero() {
                         A UK Digital Growth Agency Built for Measurable Results
                     </p>
 
-                    {/* Giant headline — single h1 per page */}
+                    {/* Giant headline single h1 per page */}
                     <h1 className="font-extrabold leading-[1.08] mb-5 text-[28px] sm:text-[36px] lg:text-[42px] xl:text-[46px] text-[#1a1a2e]">
                         Digital Marketing Agency in the UK Built for{' '}
                         <span className="text-primary">Leads, Sales &amp; Measurable Growth</span>
@@ -136,7 +136,7 @@ export default function Hero() {
                     <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed mb-7 max-w-[560px]">
                         We help UK businesses grow through SEO, paid ads, web
                         design, content, CRM systems, and social media
-                        strategies — backed by competitor research, data
+                        strategies backed by competitor research, data
                         analysis, and transparent reporting.
                     </p>
 
@@ -188,7 +188,7 @@ export default function Hero() {
 
 
 
-                    {/* Floating testimonial card — hidden on very small screens to avoid overflow */}
+                    {/* Floating testimonial card hidden on very small screens to avoid overflow */}
                     <div
                         className="hidden sm:block absolute top-8 left-0 lg:-left-8 z-20 bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] p-4 sm:p-5 max-w-[220px] sm:max-w-[240px]"
                         aria-hidden="true"
@@ -197,9 +197,9 @@ export default function Hero() {
                             &ldquo;
                         </div>
                         <p className="text-[13px] text-gray-700 leading-relaxed font-medium">
-                            Webspires transformed our digital presence — <strong className="text-primary">incredible results!</strong>
+                            Webspires transformed our digital presence <strong className="text-primary">incredible results!</strong>
                         </p>
-                        <p className="text-[12px] text-gray-400 mt-2 font-semibold">— Sami, CEO Webspires UK</p>
+                        <p className="text-[12px] text-gray-400 mt-2 font-semibold"> Sami, CEO Webspires UK</p>
                     </div>
 
                     {/* Stats badge */}
@@ -211,10 +211,10 @@ export default function Hero() {
                         <p className="text-[11px] font-semibold opacity-90 mt-0.5">Completed Projects</p>
                     </div>
 
-                    {/* Person image — lazy loaded below fold on mobile */}
+                    {/* Person image lazy loaded below fold on mobile */}
                     <Image
                         src="/images/hero-person.png"
-                        alt="Webspires — UK's Leading Web Design & Digital Marketing Agency"
+                        alt="Webspires UK's Leading Web Design & Digital Marketing Agency"
                         width={500}
                         height={580}
                         priority

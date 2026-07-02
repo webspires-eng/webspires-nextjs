@@ -22,7 +22,7 @@ export const revalidate = 3600;
 const title =
   "Digital Marketing Agency UK | SEO, PPC, Web Design & Growth Services";
 const description =
-  "Grow your business with a UK digital marketing agency offering SEO, PPC, web design, content, CRM and social media strategies — backed by data, competitor research and measurable reporting.";
+  "Grow your business with a UK digital marketing agency offering SEO, PPC, web design, content, CRM and social media strategies backed by data, competitor research and measurable reporting.";
 
 export const metadata = {
   title: { absolute: title },
@@ -64,36 +64,36 @@ export default async function Home() {
         }}
       />
 
-      {/* 2 — Hero (3 — trust/review bar is built into Hero) */}
+      {/* 2 Hero (3 trust/review bar is built into Hero) */}
       <Hero />
-      {/* 4 — Results snapshot */}
+      {/* 4 Results snapshot */}
       <ResultsSnapshot />
-      {/* 5 — Problem / pain */}
+      {/* 5 Problem / pain */}
       <ProblemPain />
-      {/* 6 — Services overview */}
+      {/* 6 Services overview */}
       <ServicesGrid />
-      {/* 7 — What you get with us */}
+      {/* 7 What you get with us */}
       <WhatYouGet />
-      {/* 8 — Digital Growth Audit Framework */}
+      {/* 8 Digital Growth Audit Framework */}
       <GrowthMethod />
-      {/* 9 — Portfolio / case studies */}
+      {/* 9 Portfolio / case studies */}
       <Portfolio />
-      {/* 10 — Process */}
+      {/* 10 Process */}
       <HowItWorks />
-      {/* 11 — Industries we serve */}
+      {/* 11 Industries we serve */}
       <IndustrySolutions />
-      {/* 12 — Reporting & dashboards */}
+      {/* 12 Reporting & dashboards */}
       <ReportingTransparency />
-      {/* 13 — About / why / team & tools */}
+      {/* 13 About / why / team & tools */}
       <WhyWebspires />
       <TeamTools />
-      {/* 14 — Testimonials */}
+      {/* 14 Testimonials */}
       <Testimonials />
-      {/* 15 — UK service area */}
+      {/* 15 UK service area */}
       <UkServiceArea />
-      {/* 16 — FAQ */}
+      {/* 16 FAQ */}
       <FaqHome faqs={homeFaqs} />
-      {/* 18 — Final CTA / free audit */}
+      {/* 18 Final CTA / free audit */}
       <ContactCTA />
     </>
   );

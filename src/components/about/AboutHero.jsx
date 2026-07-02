@@ -52,7 +52,7 @@ export default function AboutHero() {
                     <p className="text-gray-400 text-[17px] leading-relaxed mb-10 max-w-[620px]">
                         Webspires Limited is a results-driven digital agency based in Bolton, UK. We build
                         high-performance websites and run ROI-focused marketing campaigns that help ambitious
-                        businesses grow online — consistently and measurably.
+                        businesses grow online consistently and measurably.
                     </p>
 
                     <div className="flex flex-wrap gap-4">

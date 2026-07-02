@@ -1,7 +1,7 @@
 const features = [
     {
         title: 'GA4 tracking',
-        why: 'Real traffic, conversions and user behaviour — not vanity metrics.',
+        why: 'Real traffic, conversions and user behaviour not vanity metrics.',
         icon: (
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6 20V10M12 20V4M18 20v-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -49,7 +49,7 @@ const features = [
     },
     {
         title: 'Action roadmap',
-        why: 'Completed tasks and upcoming priorities — always visible.',
+        why: 'Completed tasks and upcoming priorities always visible.',
         icon: (
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M9 6h12M9 12h12M9 18h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />

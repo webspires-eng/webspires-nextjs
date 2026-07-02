@@ -180,7 +180,7 @@ export default async function CrmDevelopmentPage() {
 
             {/* ── SECTION 2: WHAT IS ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <h2 className="text-[26px] sm:text-[34px] font-extrabold text-[#1a1a2e] leading-tight mb-6">
                         {data.s2Heading}
                     </h2>
@@ -469,7 +469,7 @@ export default async function CrmDevelopmentPage() {
 
             {/* ── SECTION 12: COST ── */}
             <section id="cost" className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
                             style={{ color: ACCENT, background: `${ACCENT}14` }}>
@@ -546,7 +546,7 @@ export default async function CrmDevelopmentPage() {
 
             {/* ── SECTION 14: CASE STUDY ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
                             style={{ color: ACCENT, background: `${ACCENT}14` }}>
@@ -585,7 +585,7 @@ export default async function CrmDevelopmentPage() {
             <section className="bg-[#1a1a2e] py-16 lg:py-20 relative overflow-hidden">
                 <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
-                <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
                     <h2 className="text-[28px] sm:text-[38px] font-extrabold text-white leading-tight mb-4">
                         {data.s15Heading}
                     </h2>

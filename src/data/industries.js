@@ -1,7 +1,7 @@
-// src/data/industries.js — single source of truth for all industry pages.
+// src/data/industries.js single source of truth for all industry pages.
 // Silo 2 of the URL/silo blueprint. Each entry is unique (no doorway content).
 
-// Shared, honest trust points (qualitative — no fabricated metrics).
+// Shared, honest trust points (qualitative no fabricated metrics).
 export const industryProofPoints = [
     'UK-based specialist team',
     'Strategy led by data & competitor research',
@@ -9,7 +9,7 @@ export const industryProofPoints = [
     'Focused on leads & revenue, not vanity metrics',
 ];
 
-// Quote factors, not fixed prices — what shapes a proposal.
+// Quote factors, not fixed prices what shapes a proposal.
 export const industryPricingFactors = [
     { title: 'Your goals & timeline', desc: 'How aggressive the targets are and how quickly you need results.' },
     { title: 'Market competitiveness', desc: 'How contested your sector and locations are in search and ads.' },
@@ -31,9 +31,9 @@ export const industriesData = [
         color: '#8b5cf6',
         iconPath: 'M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z M3 6h18 M16 10a4 4 0 01-8 0',
         heroHeading: 'Ecommerce Digital Marketing That Grows Online Store Revenue',
-        heroSub: 'We help UK online stores get found, lower their cost per sale, and turn more visitors into buyers — across SEO, paid ads, and conversion optimisation.',
+        heroSub: 'We help UK online stores get found, lower their cost per sale, and turn more visitors into buyers across SEO, paid ads, and conversion optimisation.',
         painPoints: [
-            { title: 'Traffic but few sales', desc: 'Visitors land on product pages and leave. The problem is usually trust, speed, or unclear value — not the product itself.' },
+            { title: 'Traffic but few sales', desc: 'Visitors land on product pages and leave. The problem is usually trust, speed, or unclear value not the product itself.' },
             { title: 'Rising ad costs', desc: 'Paid budgets keep climbing while return on ad spend falls. Without strong tracking, you cannot see what is actually working.' },
             { title: 'Invisible category pages', desc: 'Product pages rank for nothing. Category and collection pages are thin, so Google sends shoppers to competitors.' },
             { title: 'Cart abandonment', desc: 'Shoppers add to cart and disappear. There is no recovery flow bringing them back to finish the purchase.' },
@@ -59,7 +59,7 @@ export const industriesData = [
             '[Product] vs [alternative]',
             'Cheap / premium [product] UK',
         ],
-        competitorInsight: 'The ecommerce brands winning in UK search do three things consistently: they treat category pages as ranking assets with real content, they structure paid campaigns by product margin instead of bidding on everything equally, and they run automated email flows that recover carts and bring buyers back. Most smaller stores skip all three — which is exactly where the opportunity sits.',
+        competitorInsight: 'The ecommerce brands winning in UK search do three things consistently: they treat category pages as ranking assets with real content, they structure paid campaigns by product margin instead of bidding on everything equally, and they run automated email flows that recover carts and bring buyers back. Most smaller stores skip all three which is exactly where the opportunity sits.',
         roadmap: [
             { phase: 'Days 1–30', title: 'Audit & Tracking', desc: 'Full store, SEO, ads, and analytics audit. We fix conversion tracking first so every decision after is based on real data.' },
             { phase: 'Days 31–60', title: 'Quick Wins', desc: 'Fix top category pages, restructure wasted ad spend, and launch abandoned cart recovery.' },
@@ -90,7 +90,7 @@ export const industriesData = [
         color: '#10b981',
         iconPath: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z M12 11.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z',
         heroHeading: 'Digital Marketing for Local Businesses That Drives Real Enquiries',
-        heroSub: 'If your customers are nearby, we help them find you first — through local SEO, a stronger Google Business Profile, reviews, and high-intent local ads.',
+        heroSub: 'If your customers are nearby, we help them find you first through local SEO, a stronger Google Business Profile, reviews, and high-intent local ads.',
         painPoints: [
             { title: 'Not in the map pack', desc: 'Competitors show up in the Google map results and you do not. Most of your local customers never scroll past those three listings.' },
             { title: 'Few or old reviews', desc: 'Your review count is low or stale, so potential customers pick the business that looks more trusted.' },
@@ -111,7 +111,7 @@ export const industriesData = [
             'Emergency / same-day [service] [location]',
             '[Service] open now [location]',
         ],
-        competitorInsight: 'Local competitors who dominate are rarely the biggest — they are the most consistent. They keep their Google Business Profile active, ask every happy customer for a review, and have location-specific pages that actually mention the areas they serve. Beating them is less about budget and more about doing the local fundamentals properly and consistently.',
+        competitorInsight: 'Local competitors who dominate are rarely the biggest they are the most consistent. They keep their Google Business Profile active, ask every happy customer for a review, and have location-specific pages that actually mention the areas they serve. Beating them is less about budget and more about doing the local fundamentals properly and consistently.',
         roadmap: [
             { phase: 'Days 1–30', title: 'Local Foundations', desc: 'Optimise Google Business Profile, fix listings and citations, and audit local rankings against competitors.' },
             { phase: 'Days 31–60', title: 'Visibility & Trust', desc: 'Build out location and service pages, launch a review-generation system, and start local ads.' },
@@ -127,7 +127,7 @@ export const industriesData = [
         faqs: [
             { q: 'What is the fastest way to get more local customers?', a: 'Usually Google Business Profile optimisation plus reviews. It often moves visibility faster than anything else for local businesses.' },
             { q: 'Do I need a website if I have a Google profile?', a: 'Yes. The profile gets you found, but a fast, trustworthy website is what converts that attention into calls and bookings.' },
-            { q: 'Can you help with the Google Guarantee badge?', a: 'Yes — for eligible service businesses, the Google Guaranteed badge can significantly increase trust and click-through.' },
+            { q: 'Can you help with the Google Guarantee badge?', a: 'Yes for eligible service businesses, the Google Guaranteed badge can significantly increase trust and click-through.' },
             { q: 'Do you only work with businesses near you?', a: 'No. We work with local businesses across the UK and tailor the strategy to each area served.' },
         ],
     },
@@ -163,7 +163,7 @@ export const industriesData = [
             '[Competitor] alternative',
             '[Solution] pricing / cost',
         ],
-        competitorInsight: 'Strong B2B competitors win the research phase, not just the final search. They publish content that answers the questions buyers ask early, they make their service pages genuinely persuasive to both technical and commercial buyers, and they track lead source properly so they invest where pipeline is actually created. Many B2B sites still rely on a single brochure-style page and hope — that gap is the opportunity.',
+        competitorInsight: 'Strong B2B competitors win the research phase, not just the final search. They publish content that answers the questions buyers ask early, they make their service pages genuinely persuasive to both technical and commercial buyers, and they track lead source properly so they invest where pipeline is actually created. Many B2B sites still rely on a single brochure-style page and hope that gap is the opportunity.',
         roadmap: [
             { phase: 'Days 1–30', title: 'ICP & Tracking', desc: 'Define the ideal customer profile, fix lead tracking and attribution, and audit current demand sources.' },
             { phase: 'Days 31–60', title: 'Demand Capture', desc: 'Strengthen money pages, launch targeted search and LinkedIn campaigns, and improve lead qualification.' },
@@ -180,7 +180,7 @@ export const industriesData = [
             { q: 'How do you measure B2B success?', a: 'By qualified leads and pipeline, not raw form fills. We set up tracking so cost per qualified lead is visible.' },
             { q: 'Is SEO or paid better for B2B?', a: 'Both, used differently. Paid captures in-market buyers now; SEO and content win the long research phase that comes first.' },
             { q: 'Can you work with our existing CRM?', a: 'Yes. We integrate tracking with common CRMs so marketing and sales see the same lead data.' },
-            { q: 'Do you help with LinkedIn campaigns?', a: 'Yes — LinkedIn is often strong for B2B because of precise job-title and industry targeting.' },
+            { q: 'Do you help with LinkedIn campaigns?', a: 'Yes LinkedIn is often strong for B2B because of precise job-title and industry targeting.' },
         ],
     },
     {
@@ -229,7 +229,7 @@ export const industriesData = [
             { label: 'CRM Development', href: '/services/crm-development' },
         ],
         faqs: [
-            { q: 'Can you advertise regulated treatments?', a: 'For eligible treatments, yes — within the relevant advertising rules. We structure campaigns carefully and avoid claims that are not allowed.' },
+            { q: 'Can you advertise regulated treatments?', a: 'For eligible treatments, yes within the relevant advertising rules. We structure campaigns carefully and avoid claims that are not allowed.' },
             { q: 'What matters most for clinic marketing?', a: 'Trust and local visibility. Recent reviews, clear credentials, and an easy booking path usually have the biggest impact.' },
             { q: 'Do you build patient booking systems?', a: 'Yes. We can build or integrate booking and enquiry flows so patients can act the moment they decide.' },
             { q: 'How quickly will appointments increase?', a: 'Local and review improvements often show within weeks; SEO compounds over a few months.' },
@@ -267,7 +267,7 @@ export const industriesData = [
             'Letting agents [area]',
             'Houses for sale [area]',
         ],
-        competitorInsight: 'The property firms that beat the portals on their own turf do it locally and quickly. They create genuine area-specific pages and guides, run tightly targeted valuation campaigns, and follow up enquiries within minutes rather than hours. Most independent agents under-invest in speed-to-lead and local content — which is exactly where you can win.',
+        competitorInsight: 'The property firms that beat the portals on their own turf do it locally and quickly. They create genuine area-specific pages and guides, run tightly targeted valuation campaigns, and follow up enquiries within minutes rather than hours. Most independent agents under-invest in speed-to-lead and local content which is exactly where you can win.',
         roadmap: [
             { phase: 'Days 1–30', title: 'Local & Lead Audit', desc: 'Assess local rankings, valuation funnel, and follow-up speed against competing agents.' },
             { phase: 'Days 31–60', title: 'Capture & Convert', desc: 'Build area pages and valuation landing pages, launch geo-targeted campaigns, and tighten lead routing.' },
@@ -284,7 +284,7 @@ export const industriesData = [
             { q: 'Can you compete with the big property portals?', a: 'Not by replacing them, but by winning local searches and direct valuation leads they do not fully capture.' },
             { q: 'What drives the most estate agency leads?', a: 'Local valuation campaigns plus fast follow-up. Speed-to-lead often matters as much as the campaign itself.' },
             { q: 'Do you cover lettings as well as sales?', a: 'Yes. The same approach applies to landlord and lettings leads with the right targeting and pages.' },
-            { q: 'Can you automate lead follow-up?', a: 'Yes — we can set up CRM routing and automation so new enquiries are contacted quickly.' },
+            { q: 'Can you automate lead follow-up?', a: 'Yes we can set up CRM routing and automation so new enquiries are contacted quickly.' },
         ],
     },
     {
@@ -303,7 +303,7 @@ export const industriesData = [
             { title: 'Relying on referrals', desc: 'Most new work comes from word of mouth. Growth is unpredictable because there is no consistent inbound channel.' },
             { title: 'Looks like everyone else', desc: 'Your site and messaging sound the same as every competitor, so prospects compare on price.' },
             { title: 'Not ranking for expertise', desc: 'You have deep specialism, but you do not rank for the questions and services clients search for.' },
-            { title: 'Enquiries not converting', desc: 'People visit and read, but few request a call — the site builds little urgency or trust.' },
+            { title: 'Enquiries not converting', desc: 'People visit and read, but few request a call the site builds little urgency or trust.' },
         ],
         channels: [
             { title: 'Authority SEO', desc: 'Ranking for the specific services and questions your ideal clients search before choosing an adviser.' },
@@ -319,7 +319,7 @@ export const industriesData = [
             '[Specific problem] advice UK',
             '[Service] cost / fees UK',
         ],
-        competitorInsight: 'Firms that grow beyond referrals build visible authority. They publish genuinely useful content on the problems clients face, they position a clear specialism instead of "we do everything", and they make it effortless to book a consultation. Many practices still treat their website as a digital business card — making credibility-led content and a sharper position a real advantage.',
+        competitorInsight: 'Firms that grow beyond referrals build visible authority. They publish genuinely useful content on the problems clients face, they position a clear specialism instead of "we do everything", and they make it effortless to book a consultation. Many practices still treat their website as a digital business card making credibility-led content and a sharper position a real advantage.',
         roadmap: [
             { phase: 'Days 1–30', title: 'Positioning & Audit', desc: 'Sharpen the specialism and message, then audit rankings, content, and the enquiry journey.' },
             { phase: 'Days 31–60', title: 'Authority & Capture', desc: 'Publish expertise content, strengthen service pages, and launch targeted search campaigns.' },
@@ -333,10 +333,10 @@ export const industriesData = [
             { label: 'Social Media Marketing', href: '/services/social-media-management' },
         ],
         faqs: [
-            { q: 'How do professional firms get clients online?', a: 'By building visible authority — content and SEO that prove expertise — plus a website that makes booking a consultation easy.' },
+            { q: 'How do professional firms get clients online?', a: 'By building visible authority content and SEO that prove expertise plus a website that makes booking a consultation easy.' },
             { q: 'Is content marketing worth it for our firm?', a: 'Yes. Helpful, specialist content builds trust before the first call and is one of the strongest long-term channels for advisers.' },
             { q: 'Can you help us stand out from competitors?', a: 'Yes. We start with sharper positioning so your specialism is clear, instead of competing as a generalist on price.' },
-            { q: 'Do you track which enquiries are real clients?', a: 'Yes — we set up tracking so you see which channels produce genuine client enquiries, not just visits.' },
+            { q: 'Do you track which enquiries are real clients?', a: 'Yes we set up tracking so you see which channels produce genuine client enquiries, not just visits.' },
         ],
     },
 ];

@@ -226,7 +226,7 @@ export default async function GeoHubPage() {
             {/* ── SECTION 1: HERO (ink-900, glow, grain, full signature) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 pt-28 pb-16 lg:pb-24">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <nav aria-label="Breadcrumb" className="mb-8">
                         <ol className="flex flex-wrap items-center gap-2 font-mono text-[12px] text-text-mid/70">
                             <li><Link href="/" className="hover:text-signal transition-colors">Home</Link></li>
@@ -280,7 +280,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 2: WHAT GEO IS (ink-800, definition + term chips) ── */}
             <section className="bg-ink-800 py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="reveal">
                         <Eyebrow className="block mb-4">The definition</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-6`}>{data.s2Heading}</h2>
@@ -302,7 +302,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 3: WHY GEO NOW (ink-900, tiles + reasons) ── */}
             <section className="bg-ink-900 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[820px] mb-12 reveal">
                         <Eyebrow className="block mb-4">The shift</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-3`}>{data.s3Heading}</h2>
@@ -335,7 +335,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 4: OUR GEO SERVICES (ink-800, bento) ── */}
             <section id="how-geo-works" className="bg-ink-800 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">What we deliver</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s5Heading}</h2>
@@ -358,7 +358,7 @@ export default async function GeoHubPage() {
             {/* ── SECTION 5: HOW WE MEASURE (ink-900, glow, signature) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 py-16 lg:py-24 border-t border-hairline">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="reveal">
                             <Eyebrow className="block mb-4">{'// The proof'}</Eyebrow>
@@ -379,7 +379,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 6: GEO VS SEO VS AEO (paper-50) ── */}
             <section className="bg-paper-50 py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Term clarity</Eyebrow>
                         <h2 className={`${H2} text-ink-text mb-3`}>{data.compHeading}</h2>
@@ -404,7 +404,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 7: PROCESS (ink-800, numbered timeline) ── */}
             <section className="bg-ink-800 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">How we work</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-3`}>{data.s10Heading}</h2>
@@ -426,7 +426,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 8: IS GEO RIGHT FOR YOU (ink-900, qualifier + types) ── */}
             <section className="bg-ink-900 py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[820px] mb-12 reveal">
                         <Eyebrow className="block mb-4">Honest fit</Eyebrow>
                         <h2 className={`${H2} text-text-hi mb-3`}>{data.s11Heading}</h2>
@@ -464,7 +464,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 9: PRICING (paper-50, three tiers) ── */}
             <section id="pricing" className="bg-paper-50 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Transparent pricing</Eyebrow>
                         <h2 className={`${H2} text-ink-text mb-3`}>{data.s12Heading}</h2>
@@ -505,7 +505,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 10: WHY CHOOSE WEBSPIRES (ink-800, red-tick grid) ── */}
             <section id="why" className="bg-ink-800 py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12 reveal">
                         <Eyebrow className="block mb-4">The difference</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s13Heading}</h2>
@@ -531,7 +531,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 11: REAL GEO RESULTS (ink-900) ── */}
             <section className="bg-ink-900 py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10 reveal">
                         <Eyebrow className="block mb-4">Proof</Eyebrow>
                         <h2 className={`${H2} text-text-hi`}>{data.s14Heading}</h2>
@@ -570,7 +570,7 @@ export default async function GeoHubPage() {
             {/* ── SECTION 12: CTA BAND (ink-900, glow, signature echo) ── */}
             <section className="relative overflow-hidden grain bg-ink-900 py-16 lg:py-20 border-t border-hairline">
                 <div className="glow-mesh" aria-hidden="true" />
-                <div className="relative z-10 max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
                     <h2 className={`${H2} text-text-hi mb-4`}>{data.s15Heading}</h2>
                     <p className="font-body text-text-mid text-[16px] mb-8 max-w-[640px] mx-auto leading-relaxed">{data.s15Body}</p>
                     <ul className="flex flex-wrap gap-2.5 justify-center list-none p-0 mb-8">
@@ -590,7 +590,7 @@ export default async function GeoHubPage() {
 
             {/* ── SECTION 13: FAQ (paper-50, accordion) ── */}
             <section className="bg-paper-50 py-16 lg:py-24">
-                <div className="max-w-[900px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="text-center mb-12 reveal">
                         <Eyebrow className="block mb-4">FAQ</Eyebrow>
                         <h2 className={`${H2} text-ink-text`}>{data.faqHeading}</h2>

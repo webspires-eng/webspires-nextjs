@@ -60,7 +60,7 @@ async function nextOrder(type) {
 /* ── Create / update ───────────────────────────────────── */
 
 /**
- * Used with useActionState — returns `{ error }` on failure, or
+ * Used with useActionState returns `{ error }` on failure, or
  * redirects to the type's admin list on success.
  */
 export async function saveContentItem(_prevState, formData) {

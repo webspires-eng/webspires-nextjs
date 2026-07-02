@@ -39,7 +39,7 @@ export default function ContactForm({ source = 'Contact Page' }) {
     return (
         <form action={action} className="space-y-6">
             <input type="hidden" name="source" value={source} />
-            {/* Honeypot — hidden from humans */}
+            {/* Honeypot hidden from humans */}
             <input
                 type="text"
                 name="company_website"

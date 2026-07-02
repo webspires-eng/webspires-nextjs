@@ -2,7 +2,7 @@ const steps = [
     {
         number: '01',
         title: 'Discovery',
-        description: 'We learn your business, goals, audience and market — and what success actually looks like for you.',
+        description: 'We learn your business, goals, audience and market and what success actually looks like for you.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                 <circle cx="14" cy="14" r="8" stroke="currentColor" strokeWidth="2" />
@@ -26,7 +26,7 @@ const steps = [
     {
         number: '03',
         title: 'Strategy',
-        description: 'We build a prioritised roadmap based on business impact — not a random list of marketing tasks.',
+        description: 'We build a prioritised roadmap based on business impact not a random list of marketing tasks.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                 <path d="M16 4l3 9h9l-7.3 5.3 2.8 8.7L16 21.5 9.5 27l2.8-8.7L5 13h9z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -48,7 +48,7 @@ const steps = [
     {
         number: '05',
         title: 'Launch',
-        description: 'We go live with clean tracking, proper targeting and conversion-focused assets — zero downtime.',
+        description: 'We go live with clean tracking, proper targeting and conversion-focused assets zero downtime.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                 <path d="M16 4s7 3 7 12c0 4-3 8-7 11-4-3-7-7-7-11 0-9 7-12 7-12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
@@ -60,7 +60,7 @@ const steps = [
     {
         number: '06',
         title: 'Optimise & Report',
-        description: 'We test, refine and scale what works — with clear monthly reporting on actions, results and next steps.',
+        description: 'We test, refine and scale what works with clear monthly reporting on actions, results and next steps.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
                 <path d="M6 26V14M14 26V8M22 26v-9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -90,7 +90,7 @@ export default function HowItWorks() {
                     </p>
                 </div>
 
-                {/* Steps — desktop: 3 across, mobile: stacked */}
+                {/* Steps desktop: 3 across, mobile: stacked */}
                 <div className="relative">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-7">
                         {steps.map((step, i) => (
@@ -135,7 +135,7 @@ export default function HowItWorks() {
                             Ready to Start Your Project?
                         </h3>
                         <p className="text-gray-400 text-[15px]">
-                            Get a free consultation and custom proposal — no obligation.
+                            Get a free consultation and custom proposal no obligation.
                         </p>
                     </div>
                     <a

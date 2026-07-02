@@ -7,14 +7,14 @@ import BlogCard from '@/components/blog/BlogCard';
 export const revalidate = 60;
 
 export const metadata = {
-    title: 'Blog — Web Design, SEO & Digital Marketing Insights',
+    title: 'Blog Web Design, SEO & Digital Marketing Insights',
     description:
-        'Actionable guides on web design, SEO, Google Ads, Meta Ads and growing your business online — from the Webspires team.',
+        'Actionable guides on web design, SEO, Google Ads, Meta Ads and growing your business online from the Webspires team.',
     alternates: { canonical: `${siteConfig.url}/blog` },
     openGraph: {
         type: 'website',
         url: `${siteConfig.url}/blog`,
-        title: 'Webspires Blog — Web Design, SEO & Digital Marketing',
+        title: 'Webspires Blog Web Design, SEO & Digital Marketing',
         description:
             'Actionable guides on web design, SEO and digital marketing from the Webspires team.',
     },

@@ -179,7 +179,7 @@ export default async function MetaAdsManagementPage() {
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
                 <div className="pointer-events-none absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.07]"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
                     <nav aria-label="Breadcrumb" className="mb-8">
                         <ol className="flex flex-wrap items-center gap-2 text-[13px] text-gray-500">
                             <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
@@ -256,7 +256,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 2: WHAT IT INCLUDES (light) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <Eyebrow>Scope</Eyebrow>
                     <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-6">
                         {data.s2Heading}
@@ -281,7 +281,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 3: WHY META ADS LOSE MONEY (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>Where Budget Leaks</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -307,7 +307,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 4: OUR SERVICES (light) ── */}
             <section id="services" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>What We Deliver</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -330,7 +330,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 5: AD TYPES (soft-tint) ── */}
             <section id="ad-types" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>Format Coverage</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -376,7 +376,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 6: TRACKING AND REPORTING (dark) ── */}
             <section className="py-16 lg:py-24" style={{ background: DARK }}>
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div>
                             <Eyebrow onDark>Proof, Not Guesswork</Eyebrow>
@@ -414,7 +414,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 7: PRICING (light) ── */}
             <section id="pricing" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Transparent Pricing</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -469,7 +469,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 8: PROCESS (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>How We Work</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -493,7 +493,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 9: BY BUSINESS TYPE (light) ── */}
             <section id="business-types" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>Built for Your Model</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -528,7 +528,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 10: META VS GOOGLE + COMPARISON (soft-tint) ── */}
             <section id="comparison" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Make the Right Call</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -613,7 +613,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 11: WHY CHOOSE US (dark) ── */}
             <section id="why" className="py-16 lg:py-24 scroll-mt-24" style={{ background: DARK }}>
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow onDark>The Difference</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-white leading-tight">
@@ -642,7 +642,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 12: RESULTS (light) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Proof</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -683,7 +683,7 @@ export default async function MetaAdsManagementPage() {
             <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: DARK }}>
                 <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8 text-center relative z-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
                     <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-white leading-tight mb-4">
                         {data.s15Heading}
                     </h2>
@@ -712,7 +712,7 @@ export default async function MetaAdsManagementPage() {
 
             {/* ── SECTION 14: FAQ (light, accordion) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[900px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="text-center mb-12">
                         <Eyebrow>FAQ</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014]">

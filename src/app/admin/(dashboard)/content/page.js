@@ -46,7 +46,7 @@ export default async function ContentOverviewPage() {
 
             {!dbError && totalInDb === 0 && (
                 <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
-                    Nothing in the database yet — your pages are currently served
+                    Nothing in the database yet your pages are currently served
                     from the built-in defaults. Click{' '}
                     <strong>Seed all default content</strong> to import them so
                     you can edit, add, and remove items.

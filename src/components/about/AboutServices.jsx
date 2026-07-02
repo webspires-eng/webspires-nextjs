@@ -39,7 +39,7 @@ const services = [
     },
     {
         title: 'Shopify Development',
-        desc: 'End-to-end Shopify stores optimised for the UK market — fast checkout, payment integration, and CRO.',
+        desc: 'End-to-end Shopify stores optimised for the UK market fast checkout, payment integration, and CRO.',
         color: '#8b5cf6',
         href: '/#shopify',
         icon: (
@@ -52,7 +52,7 @@ const services = [
     },
     {
         title: 'SEO Services',
-        desc: 'Dominate Google UK rankings with data-backed SEO — technical audits, link building, and content.',
+        desc: 'Dominate Google UK rankings with data-backed SEO technical audits, link building, and content.',
         color: '#10b981',
         href: '/#seo',
         icon: (
@@ -100,7 +100,7 @@ export default function AboutServices() {
                     </div>
                     <p className="text-gray-500 text-[16px] leading-relaxed lg:text-right lg:max-w-[420px] ml-auto">
                         At Webspires, we take a strategy-first approach to show you real results. Our team
-                        goes above and beyond to deliver campaigns that don&apos;t just generate leads &mdash; they
+                        goes above and beyond to deliver campaigns that don&apos;t just generate leads they
                         support sustainable, long-term growth.
                     </p>
                 </div>
@@ -146,7 +146,7 @@ export default function AboutServices() {
                         <a href="https://call.webspires.co.uk?utm_source=aboutservices" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">
                             Book a free consultation
                         </a>
-                        {' '}— no obligation.
+                        {' '} no obligation.
                     </p>
                     <a
                         id="about-services-all-link"

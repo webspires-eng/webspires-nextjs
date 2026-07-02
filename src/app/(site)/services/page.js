@@ -9,7 +9,7 @@ export const metadata = {
     alternates: { canonical: 'https://webspires.co.uk/services/' },
     openGraph: {
         title: 'Our Services | Webspires UK Digital Agency',
-        description: 'Full-service digital agency for UK businesses — web design, SEO, paid ads, CRM, Shopify & social media.',
+        description: 'Full-service digital agency for UK businesses web design, SEO, paid ads, CRM, Shopify & social media.',
         url: 'https://webspires.co.uk/services/',
     },
 }
@@ -39,7 +39,7 @@ export default async function ServicesListPage() {
                             <span className="text-primary">Drive Real Growth</span>
                         </h1>
                         <p className="text-gray-400 text-[17px] leading-relaxed mb-8 max-w-[560px]">
-                            From stunning websites to ROI-focused ad campaigns — Webspires delivers
+                            From stunning websites to ROI-focused ad campaigns Webspires delivers
                             every digital service your UK business needs to grow online, all under one roof.
                         </p>
                         <a href="https://call.webspires.co.uk?utm_source=serviceslist"

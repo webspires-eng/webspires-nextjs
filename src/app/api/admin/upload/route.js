@@ -25,7 +25,7 @@ const PUBLIC_PREFIX = '/uploads';
  * served directly by Next.js. No third-party object storage.
  *
  * Note: on ephemeral/serverless hosts (e.g. Vercel) the filesystem is
- * not persistent across deploys/instances — this is intended for hosts
+ * not persistent across deploys/instances this is intended for hosts
  * with a persistent disk.
  */
 export async function POST(request) {

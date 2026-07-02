@@ -246,7 +246,7 @@ export default async function LocationPage({ params }) {
                             What Shapes Your {loc.city} Quote
                         </h2>
                         <p className="text-gray-500 text-[15px] leading-relaxed">
-                            We quote per project rather than list fixed prices — the right investment
+                            We quote per project rather than list fixed prices the right investment
                             depends on your situation. These are the main factors:
                         </p>
                     </div>

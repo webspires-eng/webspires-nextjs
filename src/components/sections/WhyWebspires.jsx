@@ -7,7 +7,7 @@ const reasons = [
             </svg>
         ),
         title: 'Results-First Approach',
-        description: 'Every decision is backed by data. We don\'t chase vanity metrics — we focus on leads, revenue, and measurable business growth.',
+        description: 'Every decision is backed by data. We don\'t chase vanity metrics we focus on leads, revenue, and measurable business growth.',
         color: '#EE314F',
     },
     {
@@ -18,7 +18,7 @@ const reasons = [
             </svg>
         ),
         title: '100% Transparent Reporting',
-        description: 'You get full access to live dashboards with real-time data. No smoke and mirrors — just honest reporting on every campaign.',
+        description: 'You get full access to live dashboards with real-time data. No smoke and mirrors just honest reporting on every campaign.',
         color: '#f97316',
     },
     {
@@ -28,7 +28,7 @@ const reasons = [
             </svg>
         ),
         title: 'Proven Track Record',
-        description: '200+ successful projects across e-commerce, healthcare, real estate, and more — with measurable results verified by client testimonials.',
+        description: '200+ successful projects across e-commerce, healthcare, real estate, and more with measurable results verified by client testimonials.',
         color: '#3b82f6',
     },
     {
@@ -39,7 +39,7 @@ const reasons = [
             </svg>
         ),
         title: 'Dedicated Account Manager',
-        description: 'You get a single point of contact who knows your business inside out. No bouncing between departments — just seamless communication.',
+        description: 'You get a single point of contact who knows your business inside out. No bouncing between departments just seamless communication.',
         color: '#8b5cf6',
     },
     {
@@ -50,7 +50,7 @@ const reasons = [
             </svg>
         ),
         title: 'UK Market Expertise, Global Standards',
-        description: 'We understand the UK market deeply while applying global best practices — giving your business the competitive edge locally and internationally.',
+        description: 'We understand the UK market deeply while applying global best practices giving your business the competitive edge locally and internationally.',
         color: '#10b981',
     },
     {
@@ -61,7 +61,7 @@ const reasons = [
             </svg>
         ),
         title: 'Full-Service Under One Roof',
-        description: 'From strategy to design to development to marketing — you don\'t need multiple agencies. We handle everything end-to-end.',
+        description: 'From strategy to design to development to marketing you don\'t need multiple agencies. We handle everything end-to-end.',
         color: '#ec4899',
     },
 ]
@@ -78,7 +78,7 @@ export default function WhyWebspires() {
                             Why Webspires
                         </span>
                         <h2 id="about-heading" className="text-[28px] sm:text-[32px] lg:text-[44px] font-extrabold text-[#1a1a2e] leading-tight mb-5">
-                            More Than an Agency —<br />
+                            More Than an Agency <br />
                             <span className="text-primary">Your Growth Partner</span>
                         </h2>
                         <p className="text-gray-500 text-[16px] leading-relaxed mb-6">

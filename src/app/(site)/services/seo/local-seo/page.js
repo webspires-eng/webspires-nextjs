@@ -179,7 +179,7 @@ export default async function LocalSeoPage() {
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
                 <div className="pointer-events-none absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full opacity-[0.07]"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
                     <nav aria-label="Breadcrumb" className="mb-8">
                         <ol className="flex flex-wrap items-center gap-2 text-[13px] text-gray-500">
                             <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
@@ -258,7 +258,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 2: WHAT IT INCLUDES (light) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <Eyebrow>Scope</Eyebrow>
                     <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-6">
                         {data.s2Heading}
@@ -283,7 +283,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 3: WHY NOT IN THE LOCAL PACK (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>The Visibility Gap</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -309,7 +309,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 4: OUR SERVICES (light) ── */}
             <section id="services" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>What We Deliver</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -337,7 +337,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 5: LOCAL SEO AND AI SEARCH (dark, differentiator) ── */}
             <section className="py-16 lg:py-24" style={{ background: DARK }}>
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div>
                             <Eyebrow onDark>The Differentiator</Eyebrow>
@@ -377,7 +377,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 6: PROCESS (soft-tint) ── */}
             <section className="bg-[#f7f7f9] py-16 lg:py-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>How We Work</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -401,7 +401,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 7: BY BUSINESS TYPE (light) ── */}
             <section id="business-types" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow>Sector Fit</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -436,7 +436,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 8: PRICING (soft-tint) ── */}
             <section id="pricing" className="bg-[#f7f7f9] py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1100px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Transparent Pricing</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight mb-3">
@@ -480,7 +480,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 9: LOCAL VS NATIONAL + AGENCY VS DIY (light) ── */}
             <section id="comparison" className="bg-white py-16 lg:py-24 scroll-mt-24">
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Make the Right Call</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -554,7 +554,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 10: WHY CHOOSE US (dark) ── */}
             <section id="why" className="py-16 lg:py-24 scroll-mt-24" style={{ background: DARK }}>
-                <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-12">
                         <Eyebrow onDark>The Difference</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-white leading-tight">
@@ -582,7 +582,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 11: RESULTS (light) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="max-w-[760px] mb-10">
                         <Eyebrow>Proof</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014] leading-tight">
@@ -623,7 +623,7 @@ export default async function LocalSeoPage() {
             <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: DARK }}>
                 <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10"
                     style={{ background: `radial-gradient(circle, ${ACCENT} 0%, transparent 70%)` }} aria-hidden="true" />
-                <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-8 text-center relative z-10">
+                <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 text-center relative z-10">
                     <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-white leading-tight mb-4">
                         {data.s15Heading}
                     </h2>
@@ -652,7 +652,7 @@ export default async function LocalSeoPage() {
 
             {/* ── SECTION 13: FAQ (light, accordion) ── */}
             <section className="bg-white py-16 lg:py-24">
-                <div className="max-w-[900px] mx-auto px-5 sm:px-6 lg:px-8">
+                <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-10">
                     <div className="text-center mb-12">
                         <Eyebrow>FAQ</Eyebrow>
                         <h2 className="text-[clamp(2rem,3.5vw,2.5rem)] font-extrabold text-[#101014]">

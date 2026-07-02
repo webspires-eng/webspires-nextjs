@@ -6,7 +6,7 @@ export const metadata = {
     alternates: { canonical: 'https://webspires.co.uk/free-digital-marketing-audit/' },
     openGraph: {
         title: 'Free Digital Marketing Audit | Webspires',
-        description: 'A free, no-obligation review of your SEO, ads, website, and tracking — with a clear, prioritised action plan.',
+        description: 'A free, no-obligation review of your SEO, ads, website, and tracking with a clear, prioritised action plan.',
         url: 'https://webspires.co.uk/free-digital-marketing-audit/',
     },
 }
@@ -24,7 +24,7 @@ const receive = [
     { title: 'Scorecard', desc: 'A clear snapshot of how your digital marketing performs right now.' },
     { title: 'Opportunity List', desc: 'The specific issues and missed opportunities, ranked by impact.' },
     { title: 'Competitor Insight', desc: 'How you compare and where the realistic gains are.' },
-    { title: 'Prioritised Roadmap', desc: 'What to fix first, next, and later — usable with us or without us.' },
+    { title: 'Prioritised Roadmap', desc: 'What to fix first, next, and later usable with us or without us.' },
 ]
 
 const framework = [
@@ -79,7 +79,7 @@ export default function FreeAuditPage() {
                             <span className="text-primary">for UK Businesses</span>
                         </h1>
                         <p className="text-gray-400 text-[17px] leading-relaxed mb-8 max-w-[620px]">
-                            Find out exactly where your marketing budget is being wasted — and what
+                            Find out exactly where your marketing budget is being wasted and what
                             to do about it. We review your SEO, ads, website, and tracking, then give
                             you a clear, prioritised plan.
                         </p>
@@ -189,7 +189,7 @@ export default function FreeAuditPage() {
                     </h2>
                     <p className="text-gray-400 text-[16px] leading-relaxed">
                         If you are investing in SEO, ads, or a website but cannot clearly see the
-                        return — the audit shows you what is working, what is wasted, and what to
+                        return the audit shows you what is working, what is wasted, and what to
                         prioritise next. Honest answers, no jargon, no obligation.
                     </p>
                 </div>

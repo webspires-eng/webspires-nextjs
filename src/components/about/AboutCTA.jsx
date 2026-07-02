@@ -8,7 +8,7 @@ const reviews = [
     },
     {
         name: 'Super Ara',
-        text: "I can't put into words how amazing the team have been from start to end. Helping my vision and dream come true — website, logo, everything is absolutely perfect!",
+        text: "I can't put into words how amazing the team have been from start to end. Helping my vision and dream come true website, logo, everything is absolutely perfect!",
         stars: 5,
         initials: 'SA',
         color: '#f97316',
@@ -89,7 +89,7 @@ export default function AboutCTA() {
                         </h2>
 
                         <p className="text-gray-400 text-[16px] sm:text-[18px] mb-10 max-w-[540px] mx-auto leading-relaxed">
-                            Book a free strategy call with our team. No pressure, no obligation &mdash; just 
+                            Book a free strategy call with our team. No pressure, no obligation just 
                             a genuine conversation about how we can help your business grow online.
                         </p>
 

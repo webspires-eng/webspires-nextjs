@@ -106,7 +106,7 @@ export default function PostForm({ post = null }) {
                 </div>
 
                 {/* The clicked submit button sets the post status, so it is
-                    always explicit — no hidden dropdown to forget. */}
+                    always explicit no hidden dropdown to forget. */}
                 <div className="flex items-center gap-2">
                     <button
                         type="submit"

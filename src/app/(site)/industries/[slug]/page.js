@@ -297,8 +297,8 @@ export default async function IndustryPage({ params }) {
                                 See the Results Behind the Method
                             </h2>
                             <p className="text-gray-400 text-[15px] max-w-[560px]">
-                                Explore how we approach measurable growth — and the metrics we hold
-                                ourselves to — across {ind.name.toLowerCase()} and beyond.
+                                Explore how we approach measurable growth and the metrics we hold
+                                ourselves to across {ind.name.toLowerCase()} and beyond.
                             </p>
                         </div>
                         <Link href="/case-studies"

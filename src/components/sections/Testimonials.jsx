@@ -123,7 +123,7 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                {/* Testimonial cards — 3-col grid */}
+                {/* Testimonial cards 3-col grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {testimonials.map((t, i) => (
                         <div

@@ -1,15 +1,15 @@
 // src/lib/contentSchemas.js
 // Shared (client + server) field-schema descriptors for every editable
-// content type. Pure data + pure helpers ONLY — no `server-only`, no
-// mongoose, no DB imports — so the admin form (client) and the server
+// content type. Pure data + pure helpers ONLY no `server-only`, no
+// mongoose, no DB imports so the admin form (client) and the server
 // actions can both import it.
 //
 // Field types:
-//   text       — single line
-//   textarea   — multi line
-//   color      — hex colour (rendered with a swatch)
-//   stringList — array of plain strings (one per line)
-//   objectList — array of objects with `subfields`
+//   text single line
+//   textarea multi line
+//   color hex colour (rendered with a swatch)
+//   stringList array of plain strings (one per line)
+//   objectList array of objects with `subfields`
 
 /** Pure slugifier usable on client and server. */
 export function slugify(input = '') {
@@ -51,7 +51,7 @@ export const CONTENT_TYPES = {
         // because these pages live under the (site) route group.
         dynamicPath: '/(site)/services/[slug]',
         // Dedicated (hand-built) service pages that also cross-link via
-        // OtherServicesSection — revalidated so their links stay fresh.
+        // OtherServicesSection revalidated so their links stay fresh.
         extraPaths: [
             '/services/seo',
             '/services/google-ads-management',
@@ -390,11 +390,11 @@ export const CONTENT_TYPES = {
             { name: 'heroSub', label: 'Hero subheading', type: 'textarea', rows: 4 },
             { name: 'heroChips', label: 'Hero trust chips', type: 'stringList' },
 
-            { name: 's2Heading', label: 'S2 — heading', type: 'text' },
-            { name: 's2Definition', label: 'S2 — definition', type: 'textarea', rows: 4 },
+            { name: 's2Heading', label: 'S2 heading', type: 'text' },
+            { name: 's2Definition', label: 'S2 definition', type: 'textarea', rows: 4 },
             {
                 name: 'buildRoutes',
-                label: 'S2 — build routes',
+                label: 'S2 build routes',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -402,13 +402,13 @@ export const CONTENT_TYPES = {
                     { name: 'href', label: 'Link (optional)', type: 'text' },
                 ],
             },
-            { name: 's2Adoption', label: 'S2 — adoption line', type: 'textarea' },
+            { name: 's2Adoption', label: 'S2 adoption line', type: 'textarea' },
 
-            { name: 's3Heading', label: 'S3 — heading', type: 'text' },
-            { name: 's3Intro', label: 'S3 — intro', type: 'textarea' },
+            { name: 's3Heading', label: 'S3 heading', type: 'text' },
+            { name: 's3Intro', label: 'S3 intro', type: 'textarea' },
             {
                 name: 'comparisonRows',
-                label: 'S3 — comparison rows',
+                label: 'S3 comparison rows',
                 type: 'objectList',
                 subfields: [
                     { name: 'factor', label: 'Factor', type: 'text' },
@@ -416,13 +416,13 @@ export const CONTENT_TYPES = {
                     { name: 'bespoke', label: 'Bespoke build', type: 'textarea' },
                 ],
             },
-            { name: 's3Verdict', label: 'S3 — verdict', type: 'textarea', rows: 4 },
+            { name: 's3Verdict', label: 'S3 verdict', type: 'textarea', rows: 4 },
 
-            { name: 's4Heading', label: 'S4 — heading', type: 'text' },
-            { name: 's4Intro', label: 'S4 — intro', type: 'textarea' },
+            { name: 's4Heading', label: 'S4 heading', type: 'text' },
+            { name: 's4Intro', label: 'S4 intro', type: 'textarea' },
             {
                 name: 'outgrownSigns',
-                label: 'S4 — signs',
+                label: 'S4 signs',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -442,10 +442,10 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's5Heading', label: 'S5 — heading', type: 'text' },
+            { name: 's5Heading', label: 'S5 heading', type: 'text' },
             {
                 name: 'services',
-                label: 'S5 — services',
+                label: 'S5 services',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -455,11 +455,11 @@ export const CONTENT_TYPES = {
             },
 
             // SMM-specific: Platforms section (social-media-management page).
-            { name: 'platformsHeading', label: 'SMM — platforms heading', type: 'text' },
-            { name: 'platformsIntro', label: 'SMM — platforms intro', type: 'textarea' },
+            { name: 'platformsHeading', label: 'SMM platforms heading', type: 'text' },
+            { name: 'platformsIntro', label: 'SMM platforms intro', type: 'textarea' },
             {
                 name: 'platforms',
-                label: 'SMM — platforms',
+                label: 'SMM platforms',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Platform', type: 'text' },
@@ -468,27 +468,27 @@ export const CONTENT_TYPES = {
             },
 
             // SMM-specific: Organic vs Paid section.
-            { name: 'orgPaidHeading', label: 'SMM — organic vs paid heading', type: 'text' },
-            { name: 'orgPaidIntro', label: 'SMM — organic vs paid intro', type: 'textarea' },
+            { name: 'orgPaidHeading', label: 'SMM organic vs paid heading', type: 'text' },
+            { name: 'orgPaidIntro', label: 'SMM organic vs paid intro', type: 'textarea' },
             {
                 name: 'orgPaidPoints',
-                label: 'SMM — organic vs paid points',
+                label: 'SMM organic vs paid points',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
-            { name: 'orgPaidVerdict', label: 'SMM — organic vs paid verdict', type: 'textarea' },
+            { name: 'orgPaidVerdict', label: 'SMM organic vs paid verdict', type: 'textarea' },
 
             // Campaign / ad types section. Shared: Google Ads uses it for
             // campaign types (cards deep-link to child pages), Meta Ads for
             // Facebook/Instagram ad formats.
-            { name: 'campaignTypesHeading', label: 'Campaign/ad types — heading', type: 'text' },
-            { name: 'campaignTypesIntro', label: 'Campaign/ad types — intro', type: 'textarea' },
+            { name: 'campaignTypesHeading', label: 'Campaign/ad types heading', type: 'text' },
+            { name: 'campaignTypesIntro', label: 'Campaign/ad types intro', type: 'textarea' },
             {
                 name: 'campaignTypes',
-                label: 'Campaign/ad types — items',
+                label: 'Campaign/ad types items',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Type', type: 'text' },
@@ -501,19 +501,19 @@ export const CONTENT_TYPES = {
             // Shared: Google Ads uses it for PPC vs SEO, Meta Ads for Meta vs Google.
             {
                 name: 'ppcSeoPoints',
-                label: 'Channel comparison — points',
+                label: 'Channel comparison points',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
-            { name: 'ppcSeoVerdict', label: 'Channel comparison — verdict', type: 'textarea' },
+            { name: 'ppcSeoVerdict', label: 'Channel comparison verdict', type: 'textarea' },
 
-            { name: 's6Heading', label: 'S6 — heading', type: 'text' },
+            { name: 's6Heading', label: 'S6 heading', type: 'text' },
             {
                 name: 'features',
-                label: 'S6 — features',
+                label: 'S6 features',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Feature', type: 'text' },
@@ -521,28 +521,28 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's7Heading', label: 'S7 — heading', type: 'text' },
-            { name: 's7Body', label: 'S7 — body', type: 'textarea', rows: 5 },
-            { name: 'integrations', label: 'S7 — integrations', type: 'stringList' },
+            { name: 's7Heading', label: 'S7 heading', type: 'text' },
+            { name: 's7Body', label: 'S7 body', type: 'textarea', rows: 5 },
+            { name: 'integrations', label: 'S7 integrations', type: 'stringList' },
 
-            { name: 's8Heading', label: 'S8 — heading', type: 'text' },
-            { name: 's8Intro', label: 'S8 — intro', type: 'textarea' },
+            { name: 's8Heading', label: 'S8 heading', type: 'text' },
+            { name: 's8Intro', label: 'S8 intro', type: 'textarea' },
             {
                 name: 'migrationSteps',
-                label: 'S8 — migration steps',
+                label: 'S8 migration steps',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
                     { name: 'desc', label: 'Description', type: 'textarea' },
                 ],
             },
-            { name: 'migrationSources', label: 'S8 — migration source platforms', type: 'stringList' },
+            { name: 'migrationSources', label: 'S8 migration source platforms', type: 'stringList' },
 
-            { name: 's9Heading', label: 'S9 — heading', type: 'text' },
-            { name: 's9Intro', label: 'S9 — intro', type: 'textarea' },
+            { name: 's9Heading', label: 'S9 heading', type: 'text' },
+            { name: 's9Intro', label: 'S9 intro', type: 'textarea' },
             {
                 name: 'securityPoints',
-                label: 'S9 — security points',
+                label: 'S9 security points',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -550,11 +550,11 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's10Heading', label: 'S10 — heading', type: 'text' },
-            { name: 's10Intro', label: 'S10 — intro', type: 'textarea' },
+            { name: 's10Heading', label: 'S10 heading', type: 'text' },
+            { name: 's10Intro', label: 'S10 intro', type: 'textarea' },
             {
                 name: 'processSteps',
-                label: 'S10 — process steps',
+                label: 'S10 process steps',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -562,11 +562,11 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's11Heading', label: 'S11 — heading', type: 'text' },
-            { name: 's11Intro', label: 'S11 — intro', type: 'textarea' },
+            { name: 's11Heading', label: 'S11 heading', type: 'text' },
+            { name: 's11Intro', label: 'S11 intro', type: 'textarea' },
             {
                 name: 'industries',
-                label: 'S11 — industries',
+                label: 'S11 industries',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -575,11 +575,11 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's12Heading', label: 'S12 — heading', type: 'text' },
-            { name: 's12Intro', label: 'S12 — intro', type: 'textarea' },
+            { name: 's12Heading', label: 'S12 heading', type: 'text' },
+            { name: 's12Intro', label: 'S12 intro', type: 'textarea' },
             {
                 name: 'costDrivers',
-                label: 'S12 — cost drivers',
+                label: 'S12 cost drivers',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -588,7 +588,7 @@ export const CONTENT_TYPES = {
             },
             {
                 name: 'pricingBands',
-                label: 'S12 — pricing bands',
+                label: 'S12 pricing bands',
                 type: 'objectList',
                 hint: 'Set the Range to a validated £ band (e.g. “£4,000 to £9,000”) when ready.',
                 subfields: [
@@ -597,16 +597,16 @@ export const CONTENT_TYPES = {
                     { name: 'includes', label: 'Includes', type: 'textarea' },
                 ],
             },
-            { name: 's12Note', label: 'S12 — note', type: 'textarea' },
+            { name: 's12Note', label: 'S12 note', type: 'textarea' },
 
             // Shared comparison table. SMM uses all four columns (4-way);
             // Google Ads renders only agency/freelancer/in-house (leaves
             // software empty). Labels kept generic since multiple pages use it.
-            { name: 'compHeading', label: 'Comparison — heading', type: 'text' },
-            { name: 'compIntro', label: 'Comparison — intro', type: 'textarea' },
+            { name: 'compHeading', label: 'Comparison heading', type: 'text' },
+            { name: 'compIntro', label: 'Comparison intro', type: 'textarea' },
             {
                 name: 'comparisonTable',
-                label: 'Comparison — rows',
+                label: 'Comparison rows',
                 type: 'objectList',
                 subfields: [
                     { name: 'factor', label: 'Factor', type: 'text' },
@@ -616,12 +616,12 @@ export const CONTENT_TYPES = {
                     { name: 'software', label: 'Software (SMM only)', type: 'textarea' },
                 ],
             },
-            { name: 'compVerdict', label: 'Comparison — verdict', type: 'textarea' },
+            { name: 'compVerdict', label: 'Comparison verdict', type: 'textarea' },
 
-            { name: 's13Heading', label: 'S13 — heading', type: 'text' },
+            { name: 's13Heading', label: 'S13 heading', type: 'text' },
             {
                 name: 'whyChoose',
-                label: 'S13 — edges',
+                label: 'S13 edges',
                 type: 'objectList',
                 subfields: [
                     { name: 'title', label: 'Title', type: 'text' },
@@ -629,20 +629,20 @@ export const CONTENT_TYPES = {
                 ],
             },
 
-            { name: 's14Heading', label: 'S14 — heading', type: 'text' },
-            { name: 'caseProblem', label: 'S14 — problem', type: 'textarea' },
-            { name: 'caseSolution', label: 'S14 — solution', type: 'textarea' },
-            { name: 'caseOutcome', label: 'S14 — outcome', type: 'textarea' },
-            { name: 'caseMetric', label: 'S14 — highlighted metric (optional)', type: 'text' },
-            { name: 'caseNote', label: 'S14 — note', type: 'textarea' },
+            { name: 's14Heading', label: 'S14 heading', type: 'text' },
+            { name: 'caseProblem', label: 'S14 problem', type: 'textarea' },
+            { name: 'caseSolution', label: 'S14 solution', type: 'textarea' },
+            { name: 'caseOutcome', label: 'S14 outcome', type: 'textarea' },
+            { name: 'caseMetric', label: 'S14 highlighted metric (optional)', type: 'text' },
+            { name: 'caseNote', label: 'S14 note', type: 'textarea' },
 
-            { name: 's15Heading', label: 'S15 — CTA heading', type: 'text' },
-            { name: 's15Body', label: 'S15 — CTA body', type: 'textarea' },
+            { name: 's15Heading', label: 'S15 CTA heading', type: 'text' },
+            { name: 's15Body', label: 'S15 CTA body', type: 'textarea' },
 
-            { name: 'faqHeading', label: 'FAQ — heading', type: 'text' },
+            { name: 'faqHeading', label: 'FAQ heading', type: 'text' },
             {
                 name: 'faqs',
-                label: 'FAQ — items',
+                label: 'FAQ items',
                 type: 'objectList',
                 subfields: [
                     { name: 'q', label: 'Question', type: 'text' },
@@ -689,7 +689,7 @@ export const CONTENT_TYPES = {
         basePath: '/projects',
         indexPath: '/projects',
         dynamicPath: '/(site)/projects/[slug]',
-        // Optional grouping for the admin form — collapsible cards, in order.
+        // Optional grouping for the admin form collapsible cards, in order.
         // Any field not listed here falls into a trailing "Other" group.
         sections: [
             {
@@ -753,7 +753,7 @@ export const CONTENT_TYPES = {
                 name: 'content',
                 label: 'Full write-up (rich text)',
                 type: 'richtext',
-                hint: 'The rich project story shown on the detail page — headings, lists, links, images. Leave empty to hide the section.',
+                hint: 'The rich project story shown on the detail page headings, lists, links, images. Leave empty to hide the section.',
             },
             { name: 'result', label: 'Headline result', type: 'text' },
             { name: 'resultColor', label: 'Accent colour', type: 'color' },
@@ -822,36 +822,36 @@ export const CONTENT_TYPES = {
             // ── SEO (all optional; sensible fallbacks on the page) ──
             {
                 name: 'metaTitle',
-                label: 'SEO — Meta title',
+                label: 'SEO Meta title',
                 type: 'text',
-                hint: 'Falls back to “Title — Category | Webspires”. Aim for ≤ 60 chars.',
+                hint: 'Falls back to “Title Category | Webspires”. Aim for ≤ 60 chars.',
             },
             {
                 name: 'metaDescription',
-                label: 'SEO — Meta description',
+                label: 'SEO Meta description',
                 type: 'textarea',
                 hint: 'Falls back to the short description. Aim for ≤ 160 chars.',
             },
             {
                 name: 'canonicalUrl',
-                label: 'SEO — Canonical URL',
+                label: 'SEO Canonical URL',
                 type: 'text',
                 hint: 'Override only if this project should canonicalise elsewhere.',
             },
             {
                 name: 'ogImage',
-                label: 'SEO — Social share image (OG)',
+                label: 'SEO Social share image (OG)',
                 type: 'image',
                 hint: 'Upload or paste a URL. Falls back to the screenshot image.',
             },
             {
                 name: 'keywords',
-                label: 'SEO — Keywords',
+                label: 'SEO Keywords',
                 type: 'stringList',
             },
             {
                 name: 'noIndex',
-                label: 'SEO — Hide from search engines (noindex)',
+                label: 'SEO Hide from search engines (noindex)',
                 type: 'boolean',
             },
         ],
@@ -881,7 +881,7 @@ export function cleanContentData(typeKey, raw = {}) {
         if (f.type === 'boolean') {
             out[f.name] = Boolean(v);
         } else if (f.type === 'richtext') {
-            // Raw HTML from the editor — kept as-is here; sanitised
+            // Raw HTML from the editor kept as-is here; sanitised
             // server-side in the save action before it hits the DB.
             out[f.name] = typeof v === 'string' ? v : '';
         } else if (f.type === 'stringList' || f.type === 'imageList') {

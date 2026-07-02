@@ -1,7 +1,7 @@
 const values = [
     {
         title: 'Results First',
-        description: 'Every decision we make is driven by one question: will this grow our client\'s business? Vanity metrics are not enough — we focus on revenue, leads, and measurable outcomes.',
+        description: 'Every decision we make is driven by one question: will this grow our client\'s business? Vanity metrics are not enough we focus on revenue, leads, and measurable outcomes.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true">
                 <path d="M4 24l6-10 5 6 4-5 5 9H4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -13,7 +13,7 @@ const values = [
     },
     {
         title: 'Radical Transparency',
-        description: 'We share exactly what we\'re doing, why we\'re doing it, and how it\'s performing. No hidden fees, no opaque dashboards — just complete clarity.',
+        description: 'We share exactly what we\'re doing, why we\'re doing it, and how it\'s performing. No hidden fees, no opaque dashboards just complete clarity.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true">
                 <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2" />
@@ -25,7 +25,7 @@ const values = [
     },
     {
         title: 'UK Market Mastery',
-        description: 'We understand the UK business landscape deeply — consumer behaviour, platform trends, and local competition — giving our clients a genuine edge in their market.',
+        description: 'We understand the UK business landscape deeply consumer behaviour, platform trends, and local competition giving our clients a genuine edge in their market.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true">
                 <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" stroke="currentColor" strokeWidth="2" />
@@ -50,7 +50,7 @@ const values = [
     },
     {
         title: 'Genuine Partnership',
-        description: 'We become an extension of your team. Your success is our success — we invest the same energy in your growth as if it were our own business.',
+        description: 'We become an extension of your team. Your success is our success we invest the same energy in your growth as if it were our own business.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true">
                 <path d="M20 12a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" strokeWidth="2" />
@@ -62,7 +62,7 @@ const values = [
     },
     {
         title: 'Excellence in Execution',
-        description: 'From pixel-perfect web design to laser-targeted ad campaigns — we don\'t ship until it\'s right. High standards are non-negotiable in everything we deliver.',
+        description: 'From pixel-perfect web design to laser-targeted ad campaigns we don\'t ship until it\'s right. High standards are non-negotiable in everything we deliver.',
         icon: (
             <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true">
                 <path d="M16 4l2.9 8.9H28l-7.4 5.4 2.8 8.7L16 21.8l-7.4 5.2 2.8-8.7L4 12.9h9.1z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -130,7 +130,7 @@ export default function AboutValues() {
                         </h3>
                         <p className="text-gray-400 text-[15px] max-w-[520px]">
                             From day-one transparency to long-term partnership, our values are not just words
-                            on a page &mdash; they govern every client engagement, every campaign, and every line of code.
+                            on a page they govern every client engagement, every campaign, and every line of code.
                         </p>
                     </div>
                     <a

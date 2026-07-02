@@ -28,7 +28,7 @@ function revalidateBlog(slug) {
 }
 
 /**
- * Create or update a post. Used with useActionState — returns
+ * Create or update a post. Used with useActionState returns
  * `{ error }` on failure, redirects to /admin/posts on success.
  */
 export async function savePost(_prevState, formData) {
