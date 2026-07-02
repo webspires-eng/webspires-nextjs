@@ -678,6 +678,183 @@ export const CONTENT_TYPES = {
             },
         ],
     },
+
+    projects: {
+        key: 'projects',
+        label: 'Projects',
+        singular: 'Project',
+        titleField: 'title',
+        slugRequired: true,
+        slugFromField: 'title',
+        basePath: '/projects',
+        indexPath: '/projects',
+        dynamicPath: '/(site)/projects/[slug]',
+        // Optional grouping for the admin form — collapsible cards, in order.
+        // Any field not listed here falls into a trailing "Other" group.
+        sections: [
+            {
+                title: 'Basics',
+                fields: [
+                    'title',
+                    'category',
+                    'tags',
+                    'description',
+                    'image',
+                    'result',
+                    'resultColor',
+                    'location',
+                    'link',
+                ],
+            },
+            {
+                title: 'Detail page (optional)',
+                fields: [
+                    'content',
+                    'industry',
+                    'timeframe',
+                    'services',
+                    'overview',
+                    'challenge',
+                    'approach',
+                    'outcomes',
+                    'gallery',
+                    'testimonial',
+                    'testimonialAuthor',
+                ],
+            },
+            {
+                title: 'SEO',
+                fields: [
+                    'metaTitle',
+                    'metaDescription',
+                    'canonicalUrl',
+                    'ogImage',
+                    'keywords',
+                    'noIndex',
+                ],
+            },
+        ],
+        fields: [
+            { name: 'title', label: 'Title', type: 'text', required: true },
+            {
+                name: 'category',
+                label: 'Category',
+                type: 'text',
+                hint: 'Badge shown on the card, e.g. “Web Design”.',
+            },
+            { name: 'tags', label: 'Tags', type: 'stringList' },
+            {
+                name: 'description',
+                label: 'Short description',
+                type: 'textarea',
+                hint: 'Plain-text summary shown on the grid card, the hero, and (by default) the meta description.',
+            },
+            {
+                name: 'content',
+                label: 'Full write-up (rich text)',
+                type: 'richtext',
+                hint: 'The rich project story shown on the detail page — headings, lists, links, images. Leave empty to hide the section.',
+            },
+            { name: 'result', label: 'Headline result', type: 'text' },
+            { name: 'resultColor', label: 'Accent colour', type: 'color' },
+            {
+                name: 'image',
+                label: 'Screenshot / cover image',
+                type: 'image',
+                hint: 'Upload a file, or paste an absolute URL / path like /images/projects/name.png.',
+            },
+            { name: 'location', label: 'Location', type: 'text' },
+            {
+                name: 'link',
+                label: 'Live site URL',
+                type: 'text',
+                hint: 'The public website this project links out to.',
+            },
+
+            // ── Detail-page extras (all optional) ──
+            { name: 'industry', label: 'Industry', type: 'text' },
+            {
+                name: 'timeframe',
+                label: 'Timeframe',
+                type: 'text',
+                hint: 'e.g. “3 weeks”.',
+            },
+            {
+                name: 'services',
+                label: 'Services delivered',
+                type: 'stringList',
+            },
+            {
+                name: 'overview',
+                label: 'Overview',
+                type: 'textarea',
+                hint: 'Longer intro paragraph for the detail page.',
+            },
+            { name: 'challenge', label: 'The challenge', type: 'textarea' },
+            {
+                name: 'approach',
+                label: 'Our approach',
+                type: 'objectList',
+                subfields: TITLE_DESC_SUB,
+            },
+            {
+                name: 'outcomes',
+                label: 'Measured outcomes',
+                type: 'objectList',
+                subfields: [
+                    { name: 'value', label: 'Value', type: 'text' },
+                    { name: 'label', label: 'Label', type: 'text' },
+                ],
+            },
+            {
+                name: 'gallery',
+                label: 'Gallery image URLs',
+                type: 'stringList',
+            },
+            { name: 'testimonial', label: 'Testimonial quote', type: 'textarea' },
+            {
+                name: 'testimonialAuthor',
+                label: 'Testimonial author',
+                type: 'text',
+            },
+
+            // ── SEO (all optional; sensible fallbacks on the page) ──
+            {
+                name: 'metaTitle',
+                label: 'SEO — Meta title',
+                type: 'text',
+                hint: 'Falls back to “Title — Category | Webspires”. Aim for ≤ 60 chars.',
+            },
+            {
+                name: 'metaDescription',
+                label: 'SEO — Meta description',
+                type: 'textarea',
+                hint: 'Falls back to the short description. Aim for ≤ 160 chars.',
+            },
+            {
+                name: 'canonicalUrl',
+                label: 'SEO — Canonical URL',
+                type: 'text',
+                hint: 'Override only if this project should canonicalise elsewhere.',
+            },
+            {
+                name: 'ogImage',
+                label: 'SEO — Social share image (OG)',
+                type: 'image',
+                hint: 'Upload or paste a URL. Falls back to the screenshot image.',
+            },
+            {
+                name: 'keywords',
+                label: 'SEO — Keywords',
+                type: 'stringList',
+            },
+            {
+                name: 'noIndex',
+                label: 'SEO — Hide from search engines (noindex)',
+                type: 'boolean',
+            },
+        ],
+    },
 };
 
 export const CONTENT_TYPE_KEYS = Object.keys(CONTENT_TYPES);
@@ -700,7 +877,13 @@ export function cleanContentData(typeKey, raw = {}) {
     for (const f of cfg.fields) {
         const v = raw[f.name];
 
-        if (f.type === 'stringList') {
+        if (f.type === 'boolean') {
+            out[f.name] = Boolean(v);
+        } else if (f.type === 'richtext') {
+            // Raw HTML from the editor — kept as-is here; sanitised
+            // server-side in the save action before it hits the DB.
+            out[f.name] = typeof v === 'string' ? v : '';
+        } else if (f.type === 'stringList') {
             const arr = (Array.isArray(v) ? v : [])
                 .map((s) => String(s ?? '').trim())
                 .filter(Boolean);

@@ -1,6 +1,5 @@
 import 'server-only';
-import { connectToDatabase } from '@/lib/db';
-import Content from '@/lib/models/Content';
+import { getSupabase, isValidId } from '@/lib/supabase';
 import {
     CONTENT_TYPES,
     CONTENT_TYPE_KEYS,
@@ -17,6 +16,7 @@ import { caseStudyCategories } from '@/data/caseStudyCategories';
 import { googleAdsChildren } from '@/data/googleAdsChildren';
 import { homeFaqs } from '@/data/homeFaqs';
 import { servicePagesData } from '@/data/servicePages';
+import { projectsData } from '@/data/projects';
 
 /* ── Seed source ───────────────────────────────────────── */
 
@@ -58,6 +58,11 @@ const SEED = {
         order: i,
         data: stripSlug(d),
     })),
+    projects: projectsData.map((d, i) => ({
+        slug: d.slug,
+        order: i,
+        data: stripSlug(d),
+    })),
     homeFaqs: homeFaqs.map((d, i) => ({
         slug: slugify(d.question) || `faq-${i + 1}`,
         order: i,
@@ -75,17 +80,17 @@ export function seedCount(type) {
 
 /* ── Serialisation ─────────────────────────────────────── */
 
-function serializeAdmin(doc) {
-    if (!doc) return null;
-    const d = typeof doc.toObject === 'function' ? doc.toObject() : doc;
+function serializeAdmin(row) {
+    if (!row) return null;
+    const d = row;
     return {
-        id: String(d._id),
+        id: String(d.id),
         type: d.type,
         slug: d.slug || '',
-        order: typeof d.order === 'number' ? d.order : 0,
+        order: typeof d.sort_order === 'number' ? d.sort_order : 0,
         data: d.data && typeof d.data === 'object' ? d.data : {},
-        createdAt: d.createdAt ? new Date(d.createdAt).toISOString() : null,
-        updatedAt: d.updatedAt ? new Date(d.updatedAt).toISOString() : null,
+        createdAt: d.created_at ? new Date(d.created_at).toISOString() : null,
+        updatedAt: d.updated_at ? new Date(d.updated_at).toISOString() : null,
     };
 }
 
@@ -99,11 +104,15 @@ function serializeAdmin(doc) {
 export async function getContentItems(type) {
     if (!CONTENT_TYPES[type]) return [];
     try {
-        await connectToDatabase();
-        const docs = await Content.find({ type })
-            .sort({ order: 1, createdAt: 1 })
-            .lean();
-        if (docs.length) {
+        const supabase = getSupabase();
+        const { data: docs, error } = await supabase
+            .from('content')
+            .select('slug, data')
+            .eq('type', type)
+            .order('sort_order', { ascending: true })
+            .order('created_at', { ascending: true });
+        if (error) throw error;
+        if (docs && docs.length) {
             return docs.map((d) => ({ ...(d.data || {}), slug: d.slug }));
         }
     } catch {
@@ -121,27 +130,32 @@ export async function getContentItem(type, slug) {
 
 export async function getContentItemsAdmin(type) {
     if (!CONTENT_TYPES[type]) return [];
-    await connectToDatabase();
-    const docs = await Content.find({ type })
-        .sort({ order: 1, createdAt: 1 })
-        .lean();
-    return docs.map(serializeAdmin);
+    const supabase = getSupabase();
+    const { data: docs } = await supabase
+        .from('content')
+        .select('*')
+        .eq('type', type)
+        .order('sort_order', { ascending: true })
+        .order('created_at', { ascending: true });
+    return (docs || []).map(serializeAdmin);
 }
 
 export async function getContentItemById(id) {
-    if (!id || !/^[a-f\d]{24}$/i.test(id)) return null;
-    await connectToDatabase();
-    const doc = await Content.findById(id).lean();
+    if (!isValidId(id)) return null;
+    const supabase = getSupabase();
+    const { data: doc } = await supabase
+        .from('content')
+        .select('*')
+        .eq('id', id)
+        .maybeSingle();
     return serializeAdmin(doc);
 }
 
 export async function getContentCounts() {
-    await connectToDatabase();
-    const rows = await Content.aggregate([
-        { $group: { _id: '$type', count: { $sum: 1 } } },
-    ]);
+    const supabase = getSupabase();
+    const { data: rows } = await supabase.from('content').select('type');
     const map = {};
-    for (const r of rows) map[r._id] = r.count;
+    for (const r of rows || []) map[r.type] = (map[r.type] || 0) + 1;
     const out = {};
     for (const key of CONTENT_TYPE_KEYS) out[key] = map[key] || 0;
     return out;

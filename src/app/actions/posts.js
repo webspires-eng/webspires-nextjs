@@ -2,8 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { connectToDatabase } from '@/lib/db';
-import Blog from '@/lib/models/Blog';
+import { getSupabase, isValidId, UNIQUE_VIOLATION } from '@/lib/supabase';
 import { getAdminOrNull } from '@/lib/auth';
 import {
     sanitizeHtml,
@@ -11,6 +10,7 @@ import {
     slugify,
     readingTimeFromHtml,
     excerptFromHtml,
+    postToRow,
 } from '@/lib/blog';
 
 function parseList(value) {
@@ -52,8 +52,7 @@ export async function savePost(_prevState, formData) {
 
     const manualSlug = slugify(String(formData.get('slug') || ''));
     const slug =
-        manualSlug ||
-        (await uniqueSlug(title, id && /^[a-f\d]{24}$/i.test(id) ? id : null));
+        manualSlug || (await uniqueSlug(title, isValidId(id) ? id : null));
 
     const excerpt =
         String(formData.get('excerpt') || '').trim() ||
@@ -101,25 +100,38 @@ export async function savePost(_prevState, formData) {
         },
     };
 
+    const supabase = getSupabase();
     try {
-        await connectToDatabase();
-        if (id && /^[a-f\d]{24}$/i.test(id)) {
-            const existing = await Blog.findById(id);
+        if (isValidId(id)) {
+            const { data: existing, error: findErr } = await supabase
+                .from('blogs')
+                .select('slug, published_at')
+                .eq('id', id)
+                .maybeSingle();
+            if (findErr) throw findErr;
             if (!existing) return { error: 'Post not found.' };
-            if (status === 'published' && !existing.publishedAt) {
-                data.publishedAt = new Date();
+            if (status === 'published' && !existing.published_at) {
+                data.publishedAt = new Date().toISOString();
             }
-            existing.set(data);
-            await existing.save();
+            const { error } = await supabase
+                .from('blogs')
+                .update(postToRow(data))
+                .eq('id', id);
+            if (error) throw error;
             revalidateBlog(existing.slug);
             if (existing.slug !== slug) revalidateBlog(slug);
         } else {
-            if (status === 'published') data.publishedAt = new Date();
-            await Blog.create(data);
+            if (status === 'published') {
+                data.publishedAt = new Date().toISOString();
+            }
+            const { error } = await supabase
+                .from('blogs')
+                .insert(postToRow(data));
+            if (error) throw error;
             revalidateBlog(slug);
         }
     } catch (err) {
-        if (err?.code === 11000) {
+        if (err?.code === UNIQUE_VIOLATION) {
             return { error: 'A post with this slug already exists.' };
         }
         return { error: `Could not save post: ${err.message}` };
@@ -134,9 +146,14 @@ export async function deletePost(formData) {
     if (!admin) redirect('/admin/login');
 
     const id = String(formData.get('id') || '').trim();
-    if (id && /^[a-f\d]{24}$/i.test(id)) {
-        await connectToDatabase();
-        const doc = await Blog.findByIdAndDelete(id);
+    if (isValidId(id)) {
+        const supabase = getSupabase();
+        const { data: doc } = await supabase
+            .from('blogs')
+            .delete()
+            .eq('id', id)
+            .select('slug')
+            .maybeSingle();
         if (doc) revalidateBlog(doc.slug);
     }
     revalidatePath('/admin/posts');
@@ -148,17 +165,23 @@ export async function togglePublish(formData) {
     if (!admin) redirect('/admin/login');
 
     const id = String(formData.get('id') || '').trim();
-    if (id && /^[a-f\d]{24}$/i.test(id)) {
-        await connectToDatabase();
-        const doc = await Blog.findById(id);
+    if (isValidId(id)) {
+        const supabase = getSupabase();
+        const { data: doc } = await supabase
+            .from('blogs')
+            .select('slug, status, published_at')
+            .eq('id', id)
+            .maybeSingle();
         if (doc) {
-            if (doc.status === 'published') {
-                doc.status = 'draft';
-            } else {
-                doc.status = 'published';
-                if (!doc.publishedAt) doc.publishedAt = new Date();
-            }
-            await doc.save();
+            const update =
+                doc.status === 'published'
+                    ? { status: 'draft' }
+                    : {
+                          status: 'published',
+                          published_at:
+                              doc.published_at || new Date().toISOString(),
+                      };
+            await supabase.from('blogs').update(update).eq('id', id);
             revalidateBlog(doc.slug);
         }
     }

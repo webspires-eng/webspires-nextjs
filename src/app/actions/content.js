@@ -2,10 +2,10 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { connectToDatabase } from '@/lib/db';
-import Content from '@/lib/models/Content';
+import { getSupabase, isValidId, UNIQUE_VIOLATION } from '@/lib/supabase';
 import { getAdminOrNull } from '@/lib/auth';
 import { getSeedItems } from '@/lib/content';
+import { sanitizeHtml } from '@/lib/blog';
 import {
     CONTENT_TYPES,
     cleanContentData,
@@ -28,25 +28,33 @@ function revalidateForType(typeKey) {
 
 /** Build a slug that is unique within a type. */
 async function uniqueSlugForType(type, base, excludeId = null) {
+    const supabase = getSupabase();
     let slug = base || 'item';
     let n = 1;
-    // eslint-disable-next-line no-constant-condition
     while (true) {
-        const query = { type, slug };
-        if (excludeId) query._id = { $ne: excludeId };
-        const exists = await Content.exists(query);
-        if (!exists) return slug;
+        let query = supabase
+            .from('content')
+            .select('id')
+            .eq('type', type)
+            .eq('slug', slug);
+        if (excludeId) query = query.neq('id', excludeId);
+        const { data } = await query.maybeSingle();
+        if (!data) return slug;
         n += 1;
         slug = `${base}-${n}`;
     }
 }
 
 async function nextOrder(type) {
-    const last = await Content.findOne({ type })
-        .sort({ order: -1 })
-        .select('order')
-        .lean();
-    return last ? (last.order || 0) + 1 : 0;
+    const supabase = getSupabase();
+    const { data: last } = await supabase
+        .from('content')
+        .select('sort_order')
+        .eq('type', type)
+        .order('sort_order', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+    return last ? (last.sort_order || 0) + 1 : 0;
 }
 
 /* ── Create / update ───────────────────────────────────── */
@@ -75,6 +83,13 @@ export async function saveContentItem(_prevState, formData) {
 
     const data = cleanContentData(type, raw);
 
+    // Sanitise rich-text (HTML) fields server-side; drop visually-empty ones.
+    for (const f of cfg.fields) {
+        if (f.type !== 'richtext') continue;
+        const clean = sanitizeHtml(data[f.name] || '');
+        data[f.name] = clean.replace(/<[^>]+>/g, '').trim() ? clean : '';
+    }
+
     // Required-field validation.
     for (const f of cfg.fields) {
         if (f.required && !String(data[f.name] || '').trim()) {
@@ -92,26 +107,33 @@ export async function saveContentItem(_prevState, formData) {
         return { error: 'A slug is required (or fill in the title).' };
     }
 
+    const supabase = getSupabase();
     try {
-        await connectToDatabase();
-
-        if (id && /^[a-f\d]{24}$/i.test(id)) {
-            const existing = await Content.findById(id);
+        if (isValidId(id)) {
+            const { data: existing } = await supabase
+                .from('content')
+                .select('id, type')
+                .eq('id', id)
+                .maybeSingle();
             if (!existing || existing.type !== type) {
                 return { error: 'Item not found.' };
             }
             const slug = await uniqueSlugForType(type, base, id);
-            existing.slug = slug;
-            existing.data = data;
-            existing.markModified('data');
-            await existing.save();
+            const { error } = await supabase
+                .from('content')
+                .update({ slug, data })
+                .eq('id', id);
+            if (error) throw error;
         } else {
             const slug = await uniqueSlugForType(type, base);
             const order = await nextOrder(type);
-            await Content.create({ type, slug, order, data });
+            const { error } = await supabase
+                .from('content')
+                .insert({ type, slug, sort_order: order, data });
+            if (error) throw error;
         }
     } catch (err) {
-        if (err?.code === 11000) {
+        if (err?.code === UNIQUE_VIOLATION) {
             return { error: 'An item with this slug already exists.' };
         }
         return { error: `Could not save: ${err.message}` };
@@ -130,9 +152,9 @@ export async function deleteContentItem(formData) {
     const type = String(formData.get('type') || '').trim();
     const id = String(formData.get('id') || '').trim();
 
-    if (CONTENT_TYPES[type] && id && /^[a-f\d]{24}$/i.test(id)) {
-        await connectToDatabase();
-        await Content.findOneAndDelete({ _id: id, type });
+    if (CONTENT_TYPES[type] && isValidId(id)) {
+        const supabase = getSupabase();
+        await supabase.from('content').delete().eq('id', id).eq('type', type);
         revalidateForType(type);
     }
     redirect(`/admin/content/${type}`);
@@ -150,28 +172,33 @@ export async function moveContentItem(formData) {
 
     if (
         CONTENT_TYPES[type] &&
-        id &&
-        /^[a-f\d]{24}$/i.test(id) &&
+        isValidId(id) &&
         (direction === 'up' || direction === 'down')
     ) {
-        await connectToDatabase();
-        const items = await Content.find({ type })
-            .sort({ order: 1, createdAt: 1 })
-            .select('_id')
-            .lean();
-        const idx = items.findIndex((i) => String(i._id) === id);
+        const supabase = getSupabase();
+        const { data: items } = await supabase
+            .from('content')
+            .select('id')
+            .eq('type', type)
+            .order('sort_order', { ascending: true })
+            .order('created_at', { ascending: true });
+        const list = items || [];
+        const idx = list.findIndex((i) => String(i.id) === id);
         const swapIdx = direction === 'up' ? idx - 1 : idx + 1;
-        if (idx !== -1 && swapIdx >= 0 && swapIdx < items.length) {
+        if (idx !== -1 && swapIdx >= 0 && swapIdx < list.length) {
             // Swap positions, then renumber sequentially so the new order is
-            // deterministic even if stored `order` values were not distinct.
-            const reordered = [...items];
+            // deterministic even if stored sort_order values were not distinct.
+            const reordered = [...list];
             [reordered[idx], reordered[swapIdx]] = [
                 reordered[swapIdx],
                 reordered[idx],
             ];
             await Promise.all(
                 reordered.map((it, i) =>
-                    Content.updateOne({ _id: it._id }, { order: i })
+                    supabase
+                        .from('content')
+                        .update({ sort_order: i })
+                        .eq('id', it.id)
                 )
             );
             revalidateForType(type);
@@ -185,16 +212,19 @@ export async function moveContentItem(formData) {
 async function seedType(type) {
     const cfg = CONTENT_TYPES[type];
     if (!cfg) return;
-    await connectToDatabase();
-    const count = await Content.countDocuments({ type });
+    const supabase = getSupabase();
+    const { count } = await supabase
+        .from('content')
+        .select('id', { count: 'exact', head: true })
+        .eq('type', type);
     if (count > 0) return; // never overwrite existing content
     const seeds = getSeedItems(type);
     if (!seeds.length) return;
-    await Content.insertMany(
+    await supabase.from('content').insert(
         seeds.map((s) => ({
             type,
             slug: s.slug,
-            order: s.order,
+            sort_order: s.order,
             data: s.data,
         }))
     );

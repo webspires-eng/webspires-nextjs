@@ -1,9 +1,17 @@
 'use client';
 
-import { useState, useActionState } from 'react';
-import { Plus, Trash2, ArrowUp, ArrowDown } from 'lucide-react';
+import { useState, useRef, useActionState } from 'react';
+import {
+    Plus,
+    Trash2,
+    ArrowUp,
+    ArrowDown,
+    Upload,
+    ChevronDown,
+} from 'lucide-react';
 import { saveContentItem } from '@/app/actions/content';
 import { CONTENT_TYPES, slugify } from '@/lib/contentSchemas';
+import Editor from '@/components/admin/Editor';
 
 const inputCls =
     'w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20';
@@ -140,6 +148,94 @@ function ObjectListField({ field, rows, onChange }) {
     );
 }
 
+/* ── Image: upload (local) or paste a URL, with preview ── */
+function ImageField({ value, onChange }) {
+    const [uploading, setUploading] = useState(false);
+    const [err, setErr] = useState('');
+    const inputRef = useRef(null);
+
+    const onFile = async (e) => {
+        const file = e.target.files?.[0];
+        e.target.value = '';
+        if (!file) return;
+        setErr('');
+        setUploading(true);
+        try {
+            const fd = new FormData();
+            fd.append('file', file);
+            const res = await fetch('/api/admin/upload', {
+                method: 'POST',
+                body: fd,
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Upload failed');
+            onChange(data.url);
+        } catch (e2) {
+            setErr(e2.message);
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    return (
+        <div className="space-y-3">
+            {value ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                    src={value}
+                    alt="Preview"
+                    className="h-40 w-auto max-w-full rounded-lg border border-slate-200 bg-slate-50 object-contain"
+                />
+            ) : (
+                <div className="flex h-40 w-full max-w-sm items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-sm text-slate-400">
+                    No image selected
+                </div>
+            )}
+
+            <div className="flex flex-wrap items-center gap-2">
+                <button
+                    type="button"
+                    onClick={() => inputRef.current?.click()}
+                    disabled={uploading}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-sm font-bold text-white hover:opacity-90 disabled:opacity-60"
+                >
+                    <Upload size={15} />
+                    {uploading
+                        ? 'Uploading…'
+                        : value
+                          ? 'Replace image'
+                          : 'Upload image'}
+                </button>
+                {value ? (
+                    <button
+                        type="button"
+                        onClick={() => onChange('')}
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3.5 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+                    >
+                        <Trash2 size={15} /> Remove
+                    </button>
+                ) : null}
+            </div>
+
+            <input
+                value={value || ''}
+                onChange={(e) => onChange(e.target.value)}
+                placeholder="…or paste an image URL / path"
+                className={inputCls}
+            />
+            {err ? <p className="text-xs text-red-600">{err}</p> : null}
+
+            <input
+                ref={inputRef}
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={onFile}
+            />
+        </div>
+    );
+}
+
 function ColorField({ value, onChange }) {
     const valid = /^#[0-9a-fA-F]{6}$/.test(value || '');
     return (
@@ -170,6 +266,8 @@ function initialValues(cfg, item) {
             values[f.name] = Array.isArray(v) ? v : [];
         } else if (f.type === 'objectList') {
             values[f.name] = Array.isArray(v) ? v : [];
+        } else if (f.type === 'boolean') {
+            values[f.name] = Boolean(v);
         } else {
             values[f.name] = v == null ? '' : String(v);
         }
@@ -184,11 +282,41 @@ export default function ContentForm({ type, item = null }) {
 
     const [values, setValues] = useState(() => initialValues(cfg, item));
     const [slug, setSlug] = useState(item?.slug || '');
+    const [openSections, setOpenSections] = useState(() =>
+        Array.isArray(cfg.sections) && cfg.sections.length
+            ? { [cfg.sections[0].title]: true }
+            : {}
+    );
 
     const setField = (name, val) =>
         setValues((v) => ({ ...v, [name]: val }));
+    const toggleSection = (title) =>
+        setOpenSections((s) => ({ ...s, [title]: !s[title] }));
 
     const titleValue = values[cfg.slugFromField] || '';
+
+    // Group fields into (collapsible) sections. Types without a `sections`
+    // config render as a single plain card.
+    const fieldByName = Object.fromEntries(cfg.fields.map((f) => [f.name, f]));
+    const groups =
+        Array.isArray(cfg.sections) && cfg.sections.length
+            ? cfg.sections
+                  .map((s) => ({
+                      title: s.title,
+                      fields: (s.fields || [])
+                          .map((n) => fieldByName[n])
+                          .filter(Boolean),
+                  }))
+                  .filter((g) => g.fields.length)
+            : [{ title: null, fields: cfg.fields }];
+    // Safety net: any field not listed in a section still shows up.
+    if (Array.isArray(cfg.sections) && cfg.sections.length) {
+        const placed = new Set(
+            groups.flatMap((g) => g.fields.map((f) => f.name))
+        );
+        const leftover = cfg.fields.filter((f) => !placed.has(f.name));
+        if (leftover.length) groups.push({ title: 'Other', fields: leftover });
+    }
 
     return (
         <form action={action} className="space-y-6">
@@ -246,9 +374,50 @@ export default function ContentForm({ type, item = null }) {
                 </div>
             ) : null}
 
-            {/* Fields */}
-            <div className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5">
-                {cfg.fields.map((f) => {
+            {/* Fields — grouped into collapsible sections when configured */}
+            {groups.map((g, gi) => {
+                const renderField = (f) => {
+                    if (f.type === 'richtext') {
+                        return (
+                            <Field
+                                key={f.name}
+                                label={f.label}
+                                hint={f.hint}
+                                required={f.required}
+                            >
+                                <Editor
+                                    value={values[f.name] || ''}
+                                    onChange={(html) => setField(f.name, html)}
+                                />
+                            </Field>
+                        );
+                    }
+                    if (f.type === 'boolean') {
+                        return (
+                            <div key={f.name} className="flex items-start gap-3">
+                                <input
+                                    id={`bool-${f.name}`}
+                                    type="checkbox"
+                                    checked={Boolean(values[f.name])}
+                                    onChange={(e) =>
+                                        setField(f.name, e.target.checked)
+                                    }
+                                    className="mt-0.5 h-4 w-4 rounded border-slate-300 text-primary focus:ring-2 focus:ring-primary/20"
+                                />
+                                <label
+                                    htmlFor={`bool-${f.name}`}
+                                    className="text-sm font-semibold text-slate-700"
+                                >
+                                    {f.label}
+                                    {f.hint && (
+                                        <span className="mt-0.5 block text-xs font-normal text-slate-400">
+                                            {f.hint}
+                                        </span>
+                                    )}
+                                </label>
+                            </div>
+                        );
+                    }
                     if (f.type === 'objectList') {
                         return (
                             <Field
@@ -295,6 +464,21 @@ export default function ContentForm({ type, item = null }) {
                             </Field>
                         );
                     }
+                    if (f.type === 'image') {
+                        return (
+                            <Field
+                                key={f.name}
+                                label={f.label}
+                                hint={f.hint}
+                                required={f.required}
+                            >
+                                <ImageField
+                                    value={values[f.name]}
+                                    onChange={(url) => setField(f.name, url)}
+                                />
+                            </Field>
+                        );
+                    }
                     if (f.type === 'textarea') {
                         return (
                             <Field
@@ -332,8 +516,53 @@ export default function ContentForm({ type, item = null }) {
                             />
                         </Field>
                     );
-                })}
-            </div>
+                };
+
+                const body = g.fields.map(renderField);
+                if (!g.title) {
+                    return (
+                        <div
+                            key={gi}
+                            className="space-y-6 rounded-2xl border border-slate-200 bg-white p-5"
+                        >
+                            {body}
+                        </div>
+                    );
+                }
+                const open = Boolean(openSections[g.title]);
+                return (
+                    <div
+                        key={gi}
+                        className="overflow-hidden rounded-2xl border border-slate-200 bg-white"
+                    >
+                        <button
+                            type="button"
+                            onClick={() => toggleSection(g.title)}
+                            aria-expanded={open}
+                            className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-slate-50"
+                        >
+                            <span className="text-sm font-extrabold uppercase tracking-wide text-slate-700">
+                                {g.title}
+                                <span className="ml-2 text-xs font-normal normal-case text-slate-400">
+                                    {g.fields.length} field
+                                    {g.fields.length !== 1 ? 's' : ''}
+                                </span>
+                            </span>
+                            <ChevronDown
+                                size={18}
+                                className={`text-slate-400 transition-transform ${
+                                    open ? 'rotate-180' : ''
+                                }`}
+                            />
+                        </button>
+                        {open ? (
+                            <div className="space-y-6 border-t border-slate-100 px-5 py-5">
+                                {body}
+                            </div>
+                        ) : null}
+                    </div>
+                );
+            })}
         </form>
     );
 }

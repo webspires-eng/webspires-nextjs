@@ -1,6 +1,9 @@
 import ProjectsHero from '@/components/projects/ProjectsHero'
 import ProjectsGrid from '@/components/projects/ProjectsGrid'
 import ProjectsCTA from '@/components/projects/ProjectsCTA'
+import { getContentItems } from '@/lib/content'
+
+export const revalidate = 3600
 
 export const metadata = {
   title: 'Our Projects | Web Design & Digital Marketing Portfolio | Webspires UK',
@@ -26,15 +29,17 @@ const portfolioSchema = {
   description: 'Portfolio of web design, SEO, and digital marketing projects by Webspires Limited, UK.',
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getContentItems('projects')
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema).replace(/</g, '\\u003c') }}
       />
       <ProjectsHero />
-      <ProjectsGrid />
+      <ProjectsGrid projects={projects} />
       <ProjectsCTA />
     </>
   )

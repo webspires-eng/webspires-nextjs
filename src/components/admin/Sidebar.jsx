@@ -7,6 +7,7 @@ import {
     FileText,
     PlusCircle,
     Database,
+    Briefcase,
     ExternalLink,
     LogOut,
 } from 'lucide-react';
@@ -17,13 +18,23 @@ const links = [
     { href: '/admin/posts', label: 'All Posts', icon: FileText },
     { href: '/admin/posts/new', label: 'New Post', icon: PlusCircle },
     { href: '/admin/content', label: 'Site Content', icon: Database },
+    { href: '/admin/content/projects', label: 'Projects', icon: Briefcase },
 ];
 
 export default function Sidebar({ username }) {
     const pathname = usePathname();
 
-    const isActive = (href, exact) =>
-        exact ? pathname === href : pathname.startsWith(href);
+    // Only the most-specific matching link is highlighted (so e.g. "Projects"
+    // wins over "Site Content" on /admin/content/projects).
+    const activeHref = links
+        .filter((l) =>
+            l.exact
+                ? pathname === l.href
+                : pathname === l.href || pathname.startsWith(`${l.href}/`)
+        )
+        .sort((a, b) => b.href.length - a.href.length)[0]?.href;
+
+    const isActive = (href) => href === activeHref;
 
     return (
         <aside className="flex w-60 shrink-0 flex-col bg-slate-900 text-slate-300">
@@ -34,12 +45,12 @@ export default function Sidebar({ username }) {
 
             <nav className="flex-1 px-3">
                 <ul className="space-y-1">
-                    {links.map(({ href, label, icon: Icon, exact }) => (
+                    {links.map(({ href, label, icon: Icon }) => (
                         <li key={href}>
                             <Link
                                 href={href}
                                 className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
-                                    isActive(href, exact)
+                                    isActive(href)
                                         ? 'bg-primary text-white'
                                         : 'hover:bg-slate-800 hover:text-white'
                                 }`}
