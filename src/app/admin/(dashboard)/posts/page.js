@@ -2,14 +2,22 @@ import Link from 'next/link';
 import { PlusCircle } from 'lucide-react';
 import { getAllPostsAdmin } from '@/lib/blog';
 import PostRowActions from '@/components/admin/PostRowActions';
+import DbErrorNotice from '@/components/admin/DbErrorNotice';
 
 export const dynamic = 'force-dynamic';
 
 export default async function PostsPage() {
-    const posts = await getAllPostsAdmin();
+    let posts = [];
+    let dbError = false;
+    try {
+        posts = await getAllPostsAdmin();
+    } catch {
+        dbError = true;
+    }
 
     return (
         <div>
+            {dbError && <DbErrorNotice />}
             <div className="mb-8 flex items-center justify-between">
                 <div>
                     <h1 className="text-2xl font-extrabold text-slate-900">

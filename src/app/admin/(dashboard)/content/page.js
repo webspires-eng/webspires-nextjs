@@ -3,14 +3,17 @@ import { Database, ChevronRight, Sparkles } from 'lucide-react';
 import { CONTENT_TYPES, CONTENT_TYPE_KEYS } from '@/lib/contentSchemas';
 import { getContentCounts, seedCount } from '@/lib/content';
 import { seedAllContent } from '@/app/actions/content';
+import DbErrorNotice from '@/components/admin/DbErrorNotice';
 
 export const dynamic = 'force-dynamic';
 
 export default async function ContentOverviewPage() {
     let counts = {};
+    let dbError = false;
     try {
         counts = await getContentCounts();
     } catch {
+        dbError = true;
         counts = {};
     }
 
@@ -27,7 +30,7 @@ export default async function ContentOverviewPage() {
                         Manage the editable content behind your marketing pages.
                     </p>
                 </div>
-                {totalInDb === 0 && (
+                {!dbError && totalInDb === 0 && (
                     <form action={seedAllContent}>
                         <button
                             type="submit"
@@ -39,7 +42,9 @@ export default async function ContentOverviewPage() {
                 )}
             </div>
 
-            {totalInDb === 0 && (
+            {dbError && <DbErrorNotice />}
+
+            {!dbError && totalInDb === 0 && (
                 <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-800">
                     Nothing in the database yet — your pages are currently served
                     from the built-in defaults. Click{' '}

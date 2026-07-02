@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FileText, CheckCircle2, PencilLine, Eye, PlusCircle } from 'lucide-react';
 import { getDashboardStats, getAllPostsAdmin } from '@/lib/blog';
+import DbErrorNotice from '@/components/admin/DbErrorNotice';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,14 +13,22 @@ const cards = [
 ];
 
 export default async function AdminDashboard() {
-    const [stats, posts] = await Promise.all([
-        getDashboardStats(),
-        getAllPostsAdmin(),
-    ]);
+    let stats = { total: 0, published: 0, drafts: 0, views: 0 };
+    let posts = [];
+    let dbError = false;
+    try {
+        [stats, posts] = await Promise.all([
+            getDashboardStats(),
+            getAllPostsAdmin(),
+        ]);
+    } catch {
+        dbError = true;
+    }
     const recent = posts.slice(0, 6);
 
     return (
         <div>
+            {dbError && <DbErrorNotice />}
             <div className="mb-8 flex items-center justify-between">
                 <div>
                     <h1 className="text-2xl font-extrabold text-slate-900">
