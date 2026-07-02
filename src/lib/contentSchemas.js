@@ -808,8 +808,9 @@ export const CONTENT_TYPES = {
             },
             {
                 name: 'gallery',
-                label: 'Gallery image URLs',
-                type: 'stringList',
+                label: 'Gallery images',
+                type: 'imageList',
+                hint: 'Upload multiple images (or paste URLs). Shown in the detail-page gallery.',
             },
             { name: 'testimonial', label: 'Testimonial quote', type: 'textarea' },
             {
@@ -883,7 +884,7 @@ export function cleanContentData(typeKey, raw = {}) {
             // Raw HTML from the editor — kept as-is here; sanitised
             // server-side in the save action before it hits the DB.
             out[f.name] = typeof v === 'string' ? v : '';
-        } else if (f.type === 'stringList') {
+        } else if (f.type === 'stringList' || f.type === 'imageList') {
             const arr = (Array.isArray(v) ? v : [])
                 .map((s) => String(s ?? '').trim())
                 .filter(Boolean);

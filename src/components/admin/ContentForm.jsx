@@ -236,6 +236,154 @@ function ImageField({ value, onChange }) {
     );
 }
 
+/* ── Multiple images: upload many / paste URLs, thumbnails + reorder ── */
+function ImageListField({ value, onChange }) {
+    const list = Array.isArray(value) ? value : [];
+    const [uploading, setUploading] = useState(false);
+    const [err, setErr] = useState('');
+    const [urlInput, setUrlInput] = useState('');
+    const inputRef = useRef(null);
+
+    const removeAt = (i) => onChange(list.filter((_, idx) => idx !== i));
+    const move = (i, dir) => {
+        const j = dir === 'up' ? i - 1 : i + 1;
+        if (j < 0 || j >= list.length) return;
+        const next = [...list];
+        [next[i], next[j]] = [next[j], next[i]];
+        onChange(next);
+    };
+    const addUrl = () => {
+        const u = urlInput.trim();
+        if (!u) return;
+        onChange([...list, u]);
+        setUrlInput('');
+    };
+
+    const onFiles = async (e) => {
+        const files = Array.from(e.target.files || []);
+        e.target.value = '';
+        if (!files.length) return;
+        setErr('');
+        setUploading(true);
+        try {
+            const urls = [];
+            for (const file of files) {
+                const fd = new FormData();
+                fd.append('file', file);
+                const res = await fetch('/api/admin/upload', {
+                    method: 'POST',
+                    body: fd,
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Upload failed');
+                urls.push(data.url);
+            }
+            onChange([...list, ...urls]);
+        } catch (e2) {
+            setErr(e2.message);
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    return (
+        <div className="space-y-3">
+            {list.length > 0 ? (
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {list.map((src, i) => (
+                        <div
+                            key={i}
+                            className="group relative overflow-hidden rounded-lg border border-slate-200 bg-slate-50"
+                        >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={src}
+                                alt={`Image ${i + 1}`}
+                                className="h-28 w-full object-cover"
+                            />
+                            <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-1 bg-black/40 px-1.5 py-1 opacity-0 transition-opacity group-hover:opacity-100">
+                                <span className="flex gap-1">
+                                    <button
+                                        type="button"
+                                        onClick={() => move(i, 'up')}
+                                        disabled={i === 0}
+                                        title="Move earlier"
+                                        className="rounded bg-white/90 p-1 text-slate-700 disabled:opacity-30"
+                                    >
+                                        <ArrowUp size={13} />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => move(i, 'down')}
+                                        disabled={i === list.length - 1}
+                                        title="Move later"
+                                        className="rounded bg-white/90 p-1 text-slate-700 disabled:opacity-30"
+                                    >
+                                        <ArrowDown size={13} />
+                                    </button>
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => removeAt(i)}
+                                    title="Remove"
+                                    className="rounded bg-white/90 p-1 text-red-600"
+                                >
+                                    <Trash2 size={13} />
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="flex h-24 w-full items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-sm text-slate-400">
+                    No images yet
+                </div>
+            )}
+
+            <div className="flex flex-wrap items-center gap-2">
+                <button
+                    type="button"
+                    onClick={() => inputRef.current?.click()}
+                    disabled={uploading}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-sm font-bold text-white hover:opacity-90 disabled:opacity-60"
+                >
+                    <Upload size={15} />
+                    {uploading ? 'Uploading…' : 'Upload images'}
+                </button>
+                <input
+                    value={urlInput}
+                    onChange={(e) => setUrlInput(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            addUrl();
+                        }
+                    }}
+                    placeholder="…or paste an image URL"
+                    className="min-w-[160px] flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+                <button
+                    type="button"
+                    onClick={addUrl}
+                    className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+                >
+                    Add
+                </button>
+            </div>
+            {err ? <p className="text-xs text-red-600">{err}</p> : null}
+
+            <input
+                ref={inputRef}
+                type="file"
+                accept="image/*"
+                multiple
+                hidden
+                onChange={onFiles}
+            />
+        </div>
+    );
+}
+
 function ColorField({ value, onChange }) {
     const valid = /^#[0-9a-fA-F]{6}$/.test(value || '');
     return (
@@ -262,7 +410,7 @@ function initialValues(cfg, item) {
     const values = {};
     for (const f of cfg.fields) {
         const v = data[f.name];
-        if (f.type === 'stringList') {
+        if (f.type === 'stringList' || f.type === 'imageList') {
             values[f.name] = Array.isArray(v) ? v : [];
         } else if (f.type === 'objectList') {
             values[f.name] = Array.isArray(v) ? v : [];
@@ -475,6 +623,21 @@ export default function ContentForm({ type, item = null }) {
                                 <ImageField
                                     value={values[f.name]}
                                     onChange={(url) => setField(f.name, url)}
+                                />
+                            </Field>
+                        );
+                    }
+                    if (f.type === 'imageList') {
+                        return (
+                            <Field
+                                key={f.name}
+                                label={f.label}
+                                hint={f.hint}
+                                required={f.required}
+                            >
+                                <ImageListField
+                                    value={values[f.name]}
+                                    onChange={(arr) => setField(f.name, arr)}
                                 />
                             </Field>
                         );
