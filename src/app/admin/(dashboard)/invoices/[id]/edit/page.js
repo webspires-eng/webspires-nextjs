@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import { getInvoice, getInvoiceSettings } from '@/lib/invoices';
+import { getClientDirectory, getInvoice, getInvoiceSettings } from '@/lib/invoices';
 import InvoiceForm from '@/components/admin/InvoiceForm';
 import { invoiceBusiness } from '@/lib/invoiceSchema';
 
@@ -9,9 +9,10 @@ export const dynamic = 'force-dynamic';
 
 export default async function EditInvoicePage({ params }) {
     const { id } = await params;
-    const [invoice, settings] = await Promise.all([
+    const [invoice, settings, clients] = await Promise.all([
         getInvoice(id).catch(() => null),
         getInvoiceSettings(),
+        getClientDirectory(),
     ]);
     if (!invoice) notFound();
 
@@ -28,6 +29,7 @@ export default async function EditInvoicePage({ params }) {
             </h1>
             <InvoiceForm
                 initial={{ ...invoice, business: invoiceBusiness(invoice, settings) }}
+                clients={clients}
                 dueDays={parseInt(settings.dueDays, 10) || 0}
             />
         </div>

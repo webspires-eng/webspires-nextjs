@@ -211,6 +211,39 @@ export function invoiceStats(invoices) {
     return stats;
 }
 
+/**
+ * Previous clients for the invoice form's company/name search — one entry
+ * per client (latest invoice wins), most recent first. Never throws.
+ */
+export async function getClientDirectory() {
+    try {
+        const { data, error } = await getSupabase()
+            .from('invoices')
+            .select('client_name, client_company, client_email, client_phone, client_address, created_at')
+            .order('created_at', { ascending: false })
+            .limit(1000);
+        if (error) throw error;
+        const seen = new Map();
+        for (const r of data || []) {
+            const name = (r.client_name || '').trim();
+            const company = (r.client_company || '').trim();
+            if (!name && !company) continue;
+            const key = `${company.toLowerCase()}|${name.toLowerCase()}`;
+            if (seen.has(key)) continue;
+            seen.set(key, {
+                clientName: name,
+                clientCompany: company,
+                clientEmail: r.client_email || '',
+                clientPhone: r.client_phone || '',
+                clientAddress: r.client_address || '',
+            });
+        }
+        return [...seen.values()];
+    } catch {
+        return [];
+    }
+}
+
 /* ── Settings ───────────────────────────────────────────────────── */
 
 export const getInvoiceSettings = cache(async () => {

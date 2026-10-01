@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { getInvoiceSettings, nextInvoiceNumber } from '@/lib/invoices';
+import { getClientDirectory, getInvoiceSettings, nextInvoiceNumber } from '@/lib/invoices';
 import { addDays, businessFromSettings, isoDate } from '@/lib/invoiceSchema';
 import InvoiceForm from '@/components/admin/InvoiceForm';
 
 export const dynamic = 'force-dynamic';
 
 export default async function NewInvoicePage() {
-    const settings = await getInvoiceSettings();
+    const [settings, clients] = await Promise.all([
+        getInvoiceSettings(),
+        getClientDirectory(),
+    ]);
     const issueDate = isoDate();
 
     const initial = {
@@ -41,7 +44,7 @@ export default async function NewInvoicePage() {
                 <ArrowLeft size={16} /> Back to invoices
             </Link>
             <h1 className="mb-6 text-2xl font-extrabold text-slate-900">New invoice</h1>
-            <InvoiceForm initial={initial} dueDays={parseInt(settings.dueDays, 10) || 0} />
+            <InvoiceForm initial={initial} clients={clients} dueDays={parseInt(settings.dueDays, 10) || 0} />
         </div>
     );
 }

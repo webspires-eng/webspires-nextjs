@@ -101,10 +101,9 @@ export default function InvoiceDocument({
     const terms = lines(invoice.terms);
 
     const details = [
-        ['Invoice #', invoice.number],
+        ['Invoice number', invoice.number],
         ['Issue date', formatDay(invoice.issueDate)],
         invoice.dueDate ? ['Due date', formatDay(invoice.dueDate)] : null,
-        ['Currency', cur],
     ].filter(Boolean);
 
     const sep = <span style={{ color: '#C4C6CF' }}>•</span>;
@@ -158,7 +157,8 @@ export default function InvoiceDocument({
                 />
             ) : null}
 
-            <div style={{ padding: '26px 56px 0', flex: 1 }}>
+            {/* Flex column so the QR + signature row can sit at the bottom, on the footer */}
+            <div style={{ padding: '26px 56px 0', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {/* ── Title + status ──────────────────────── */}
                 <div
                     style={{
@@ -192,77 +192,50 @@ export default function InvoiceDocument({
                     </div>
                 </div>
 
-                {/* ── Bill to / details ───────────────────── */}
+                {/* ── From / bill to / details panel ──────── */}
                 <div
                     style={{
                         display: 'flex',
-                        justifyContent: 'space-between',
-                        gap: 32,
-                        marginTop: 20,
+                        marginTop: 22,
+                        border: `1px solid ${LINE}`,
+                        borderRadius: 10,
+                        background: '#FAFAFC',
+                        breakInside: 'avoid',
                     }}
                 >
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={label}>BILL TO</div>
-                        <div
-                            style={{
-                                fontSize: 15,
-                                fontWeight: 700,
-                                marginTop: 10,
-                                color: INK,
-                            }}
-                        >
-                            {invoice.clientName}
-                        </div>
-                        <div style={{ color: MUTED, marginTop: 3 }}>
-                            {invoice.clientCompany ? (
-                                <div style={{ color: INK_SOFT, fontWeight: 700 }}>
-                                    {invoice.clientCompany}
+                    <PartyColumn
+                        title="FROM"
+                        name={settings.companyName}
+                        address={settings.address}
+                        email={settings.email}
+                        phone={settings.phone}
+                    />
+                    <PartyColumn
+                        title="BILL TO"
+                        name={invoice.clientName}
+                        company={invoice.clientCompany}
+                        address={invoice.clientAddress}
+                        email={invoice.clientEmail}
+                        phone={invoice.clientPhone}
+                        divider
+                    />
+                    <div
+                        style={{
+                            width: 196,
+                            padding: '16px 20px',
+                            borderLeft: `1px solid ${LINE}`,
+                            boxSizing: 'border-box',
+                        }}
+                    >
+                        <div style={{ ...label, color: SIGNAL }}>INVOICE DETAILS</div>
+                        {details.map(([k, v]) => (
+                            <div key={k} style={{ marginTop: 9 }}>
+                                <div style={{ fontSize: 10, color: FAINT }}>{k}</div>
+                                <div style={{ fontSize: 12.5, fontWeight: 700, color: INK, marginTop: 1 }}>
+                                    {v}
                                 </div>
-                            ) : null}
-                            {invoice.clientAddress ? (
-                                <div style={{ whiteSpace: 'pre-line' }}>
-                                    {invoice.clientAddress}
-                                </div>
-                            ) : null}
-                            {invoice.clientEmail ? <div>{invoice.clientEmail}</div> : null}
-                            {invoice.clientPhone ? <div>{invoice.clientPhone}</div> : null}
-                        </div>
-                    </div>
-
-                    <div style={{ width: 250 }}>
-                        <div style={{ ...label, textAlign: 'right' }}>DETAILS</div>
-                        <table
-                            style={{
-                                width: '100%',
-                                marginTop: 8,
-                                borderCollapse: 'collapse',
-                            }}
-                        >
-                            <tbody>
-                                {details.map(([k, v]) => (
-                                    <tr key={k}>
-                                        <td
-                                            style={{
-                                                padding: '3px 0',
-                                                fontWeight: 700,
-                                                color: INK,
-                                            }}
-                                        >
-                                            {k}
-                                        </td>
-                                        <td
-                                            style={{
-                                                padding: '3px 0',
-                                                textAlign: 'right',
-                                                color: INK_SOFT,
-                                            }}
-                                        >
-                                            {v}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -301,6 +274,16 @@ export default function InvoiceDocument({
                         </tr>
                     </thead>
                     <tbody>
+                        {invoice.items.length === 0 ? (
+                            <tr style={{ borderBottom: `1px solid ${LINE}` }}>
+                                <td
+                                    colSpan={5}
+                                    style={{ padding: '18px 12px', textAlign: 'center', color: FAINT, fontSize: 11 }}
+                                >
+                                    No line items yet
+                                </td>
+                            </tr>
+                        ) : null}
                         {invoice.items.map((it, i) => (
                             <tr
                                 key={i}
@@ -423,8 +406,12 @@ export default function InvoiceDocument({
                     </div>
                 ) : null}
 
+                {/* ── Bottom group: terms + QR + signature ────
+                    marginTop: auto pushes the whole group down onto the
+                    footer; paddingTop keeps a gap when the page is full. */}
+                <div style={{ marginTop: 'auto', paddingTop: 20 }}>
                 {terms.length ? (
-                    <div style={{ marginTop: 14 }}>
+                    <div>
                         <div style={{ ...label, color: SIGNAL }}>TERMS</div>
                         <div style={{ marginTop: 6, color: INK_SOFT, fontSize: 11 }}>
                             {terms.map((t, i) => (
@@ -442,7 +429,7 @@ export default function InvoiceDocument({
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'flex-end',
-                        marginTop: 20,
+                        marginTop: 18,
                         marginBottom: 18,
                         breakInside: 'avoid',
                     }}
@@ -473,12 +460,13 @@ export default function InvoiceDocument({
                         ) : null}
                     </div>
 
-                    <div style={{ textAlign: 'right' }}>
+                    {/* Stamp, name, title and company centred under each other */}
+                    <div style={{ textAlign: 'center' }}>
                         <div
                             style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                justifyContent: 'flex-end',
+                                justifyContent: 'center',
                                 gap: 10,
                                 minHeight: 20,
                             }}
@@ -518,6 +506,7 @@ export default function InvoiceDocument({
                             {up(settings.signatoryCompany)}
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 
@@ -560,6 +549,52 @@ export default function InvoiceDocument({
                         {settings.registration}
                     </div>
                 ) : null}
+            </div>
+        </div>
+    );
+}
+
+/**
+ * Address lines for display. Multi-line addresses are kept as typed; a
+ * single-line "Street, Town Postcode, Country" is split after the first
+ * comma so it reads as a tidy two-line block instead of wrapping mid-way.
+ */
+function addressLines(address) {
+    const s = String(address || '').trim();
+    if (!s) return [];
+    if (/\n/.test(s)) return s.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    const i = s.indexOf(',');
+    if (i === -1) return [s];
+    return [s.slice(0, i + 1).trim(), s.slice(i + 1).trim()];
+}
+
+/** One party in the info panel (FROM / BILL TO). */
+function PartyColumn({ title, name, company, address, email, phone, divider = false }) {
+    return (
+        <div
+            style={{
+                flex: 1,
+                minWidth: 0,
+                padding: '16px 20px',
+                borderLeft: divider ? `1px solid ${LINE}` : 'none',
+                boxSizing: 'border-box',
+            }}
+        >
+            <div style={{ ...label, color: SIGNAL }}>{title}</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: INK, marginTop: 9 }}>
+                {name || '—'}
+            </div>
+            {company ? (
+                <div style={{ fontSize: 11.5, fontWeight: 700, color: INK_SOFT, marginTop: 1 }}>
+                    {company}
+                </div>
+            ) : null}
+            <div style={{ fontSize: 11, color: MUTED, marginTop: 6, lineHeight: 1.55 }}>
+                {addressLines(address).map((l, i) => (
+                    <div key={i}>{l}</div>
+                ))}
+                {email ? <div style={{ marginTop: 4 }}>{email}</div> : null}
+                {phone ? <div>{phone}</div> : null}
             </div>
         </div>
     );

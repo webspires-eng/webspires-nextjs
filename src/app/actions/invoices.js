@@ -61,19 +61,63 @@ export async function saveInvoice(_prevState, formData) {
     }
     if (!raw || typeof raw !== 'object') raw = {};
 
+    const built = await buildInvoice(raw, { strict: true });
+    if (built.error) return { error: built.error };
+
+    const saved = await persistInvoice(built.id, built.invoice);
+    if (saved.error) return { error: saved.error };
+
+    revalidateInvoices(saved.id);
+    redirect(`/admin/invoices/${saved.id}`);
+}
+
+/**
+ * Autosave from the create/edit form (debounced on the client). Unlike
+ * saveInvoice it never redirects and only enforces what the DB needs, so a
+ * half-finished invoice is kept (as a draft for new invoices) and can be
+ * finished later. Returns `{ id, number, savedAt }` or `{ error }`.
+ */
+export async function autosaveInvoice(raw) {
+    const admin = await getAdminOrNull();
+    if (!admin) return { error: 'Not authorized. Please sign in again.' };
+    if (!raw || typeof raw !== 'object') return { error: 'Invalid data.' };
+
+    const built = await buildInvoice(raw, { strict: false });
+    if (built.error) return { error: built.error };
+
+    const saved = await persistInvoice(built.id, built.invoice);
+    if (saved.error) return { error: saved.error };
+
+    return {
+        id: saved.id,
+        number: built.invoice.number,
+        savedAt: new Date().toISOString(),
+    };
+}
+
+/**
+ * Clean + validate raw form data into an invoice. `strict` = the full
+ * checks used by the Save button; autosave skips the "is it complete?"
+ * checks so drafts can be saved at any point.
+ */
+async function buildInvoice(raw, { strict }) {
     const id = str(raw.id, 64);
     const items = cleanItems(raw.items);
     const clientName = str(raw.clientName, 200);
     const issueDate = cleanDate(raw.issueDate) || isoDate();
-    const dueDate = cleanDate(raw.dueDate);
+    let dueDate = cleanDate(raw.dueDate);
 
-    if (!clientName) return { error: 'Client name is required.' };
-    if (items.length === 0) return { error: 'Add at least one line item.' };
-    if (items.some((it) => !it.description)) {
-        return { error: 'Every line item needs a description.' };
-    }
-    if (dueDate && dueDate < issueDate) {
-        return { error: 'Due date cannot be before the issue date.' };
+    if (strict) {
+        if (!clientName) return { error: 'Client name is required.' };
+        if (items.length === 0) return { error: 'Add at least one line item.' };
+        if (items.some((it) => !it.description)) {
+            return { error: 'Every line item needs a description.' };
+        }
+        if (dueDate && dueDate < issueDate) {
+            return { error: 'Due date cannot be before the issue date.' };
+        }
+    } else if (dueDate && dueDate < issueDate) {
+        dueDate = ''; // don't block a draft on a half-edited date
     }
 
     const discount = round2(Math.max(0, parseFloat(raw.discount) || 0));
@@ -108,6 +152,12 @@ export async function saveInvoice(_prevState, formData) {
         business: cleanBusiness(raw.business),
     };
 
+    return { id, invoice };
+}
+
+/** Insert (no valid id) or update an invoice. Returns `{ id }` or `{ error }`. */
+async function persistInvoice(id, invoice) {
+    const { number, status } = invoice;
     const supabase = getSupabase();
     let savedId = id;
     try {
@@ -149,8 +199,7 @@ export async function saveInvoice(_prevState, formData) {
         return { error: `Could not save invoice: ${err.message}` };
     }
 
-    revalidateInvoices(savedId);
-    redirect(`/admin/invoices/${savedId}`);
+    return { id: savedId };
 }
 
 export async function deleteInvoiceAction(formData) {
