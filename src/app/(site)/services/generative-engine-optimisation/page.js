@@ -477,7 +477,7 @@ export default async function GeoHubPage() {
                                 const featured = i === 1;
                                 return (
                                     <div key={b.name}
-                                        className={`relative rounded-2xl p-6 border-2 bg-white ${featured ? 'border-signal shadow-[0_12px_40px_rgba(242,44,79,0.12)]' : 'border-line-200'}`}>
+                                        className={`relative rounded-2xl p-6 border-2 bg-white ${featured ? 'border-signal shadow-[0_12px_40px_rgba(238,49,79,0.12)]' : 'border-line-200'}`}>
                                         {featured && (
                                             <span className="absolute -top-3 left-6 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-white px-3 py-1 rounded-full bg-signal">
                                                 Most popular

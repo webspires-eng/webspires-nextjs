@@ -2,6 +2,10 @@
 
 import { sendContactEmail, sendEnquiryConfirmation } from '@/lib/mailer';
 import { createInquiry } from '@/lib/inquiries';
+import { verifyTurnstile } from '@/lib/turnstile';
+
+// Must match the `action` the <Turnstile> widget is rendered with.
+const TURNSTILE_ACTION = 'contact';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_ATTACH = 10 * 1024 * 1024; // 10 MB
@@ -34,6 +38,21 @@ export async function submitContact(_prevState, formData) {
     }
     if (!message || message.length < 10) {
         return { error: 'Please enter a message (at least 10 characters).' };
+    }
+
+    // Cloudflare Turnstile — reject bots before saving or emailing anything.
+    const captcha = await verifyTurnstile(
+        String(formData.get('cf-turnstile-response') || ''),
+        TURNSTILE_ACTION
+    );
+    if (!captcha.ok) {
+        console.warn('Contact form Turnstile rejected:', captcha.reason);
+        return {
+            error:
+                captcha.reason === 'missing-token'
+                    ? 'Please complete the security check before sending.'
+                    : 'Security check failed. Please try again.',
+        };
     }
 
     let attachment = null;

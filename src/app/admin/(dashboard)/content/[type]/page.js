@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PlusCircle, ArrowLeft, Sparkles } from 'lucide-react';
-import { CONTENT_TYPES, contentItemTitle } from '@/lib/contentSchemas';
+import { CONTENT_TYPES, contentItemTitle, isDraftItem } from '@/lib/contentSchemas';
 import { getContentItemsAdmin, seedCount } from '@/lib/content';
 import { seedContentType } from '@/app/actions/content';
 import ContentRowActions from '@/components/admin/ContentRowActions';
@@ -106,6 +106,11 @@ export default async function ContentTypeListPage({ params }) {
                                             >
                                                 {title}
                                             </Link>
+                                            {isDraftItem(item.data) ? (
+                                                <span className="ml-2 inline-flex rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                                                    Draft
+                                                </span>
+                                            ) : null}
                                         </td>
                                         <td className="px-5 py-3 font-mono text-xs text-slate-500">
                                             {item.slug}

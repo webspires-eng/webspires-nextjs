@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useActionState } from 'react';
+import Turnstile from '@/components/ui/Turnstile';
 import { submitContact } from '@/app/actions/contact';
 
 export default function ContactForm({ source = 'Contact Page' }) {
@@ -157,6 +158,8 @@ export default function ContactForm({ source = 'Contact Page' }) {
                     />
                 </div>
             </div>
+
+            <Turnstile action="contact" resetKey={state} />
 
             {state?.error && (
                 <p

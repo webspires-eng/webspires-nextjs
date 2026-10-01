@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { useActionState } from 'react';
+import Turnstile from '@/components/ui/Turnstile';
 import { submitContact } from '@/app/actions/contact';
 
 const fieldCls =
@@ -133,6 +134,8 @@ export default function HeroAuditCta() {
                                 </label>
                                 <textarea id="audit-message" name="message" required rows={3} placeholder="e.g. more leads from Google, a new website, SEO…" className={`${fieldCls} resize-y`} />
                             </div>
+
+                            <Turnstile action="contact" resetKey={state} />
 
                             {state?.error && (
                                 <p role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-[14px] text-red-700">

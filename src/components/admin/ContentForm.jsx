@@ -10,7 +10,7 @@ import {
     ChevronDown,
 } from 'lucide-react';
 import { saveContentItem } from '@/app/actions/content';
-import { CONTENT_TYPES, slugify } from '@/lib/contentSchemas';
+import { CONTENT_TYPES, selectValue, slugify } from '@/lib/contentSchemas';
 import Editor from '@/components/admin/Editor';
 import MediaPickerButton from '@/components/admin/MediaPickerButton';
 
@@ -422,6 +422,8 @@ function initialValues(cfg, item) {
             values[f.name] = Array.isArray(v) ? v : [];
         } else if (f.type === 'boolean') {
             values[f.name] = Boolean(v);
+        } else if (f.type === 'select') {
+            values[f.name] = selectValue(f, v);
         } else {
             values[f.name] = v == null ? '' : String(v);
         }
@@ -570,6 +572,30 @@ export default function ContentForm({ type, item = null }) {
                                     )}
                                 </label>
                             </div>
+                        );
+                    }
+                    if (f.type === 'select') {
+                        return (
+                            <Field
+                                key={f.name}
+                                label={f.label}
+                                hint={f.hint}
+                                required={f.required}
+                            >
+                                <select
+                                    value={values[f.name]}
+                                    onChange={(e) =>
+                                        setField(f.name, e.target.value)
+                                    }
+                                    className={inputCls}
+                                >
+                                    {(f.options || []).map((o) => (
+                                        <option key={o.value} value={o.value}>
+                                            {o.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            </Field>
                         );
                     }
                     if (f.type === 'objectList') {

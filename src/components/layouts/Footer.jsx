@@ -153,7 +153,7 @@ export default function Footer({ settings }) {
         <footer role="contentinfo" className="bg-[#0d0d1a] text-gray-300">
 
             {/* ── Top CTA Banner ─────────────────────────────────── */}
-            <div className="bg-gradient-to-r from-primary to-[#c0223c]">
+            <div className="bg-gradient-to-r from-primary to-[#C6213C]">
                 <div className="max-w-[1320px] mx-auto px-6 lg:px-10 py-10 flex flex-col sm:flex-row items-center justify-between gap-5">
                     <div>
                         <p className="text-white font-extrabold text-[20px] lg:text-[24px] leading-tight">

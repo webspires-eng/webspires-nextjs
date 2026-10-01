@@ -14,6 +14,9 @@ Open the Supabase dashboard → **SQL Editor** → paste the contents of
 `content` tables, indexes, the `updated_at` triggers, the
 `increment_blog_views()` function, and enables RLS.
 
+Then do the same with [`users-inquiries.sql`](./users-inquiries.sql) and
+[`invoices.sql`](./invoices.sql) (the admin **Invoices** section).
+
 ### 2. Set the environment variables
 
 Dashboard → **Project Settings → API**. Set these (locally in `.env.local`,

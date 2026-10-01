@@ -1037,12 +1037,15 @@ export const CONTENT_TYPES = {
         basePath: '/projects',
         indexPath: '/projects',
         dynamicPath: '/(site)/projects/[slug]',
+        // The HTML sitemap page lists projects too (so drafts drop off it).
+        extraPaths: ['/sitemap'],
         // Optional grouping for the admin form collapsible cards, in order.
         // Any field not listed here falls into a trailing "Other" group.
         sections: [
             {
                 title: 'Basics',
                 fields: [
+                    'status',
                     'title',
                     'category',
                     'tags',
@@ -1083,6 +1086,17 @@ export const CONTENT_TYPES = {
             },
         ],
         fields: [
+            {
+                name: 'status',
+                label: 'Status',
+                type: 'select',
+                options: [
+                    { value: 'active', label: 'Active — shown on the website' },
+                    { value: 'draft', label: 'Draft — hidden from the website' },
+                ],
+                default: 'active',
+                hint: 'Drafts are hidden from the projects page, homepage, detail page and sitemap.',
+            },
             { name: 'title', label: 'Title', type: 'text', required: true },
             {
                 name: 'category',
@@ -1239,6 +1253,21 @@ export function getContentType(key) {
     return CONTENT_TYPES[key] || null;
 }
 
+/** A `select` field's value, constrained to its options (else its default). */
+export function selectValue(field, value) {
+    const allowed = (field.options || []).map((o) => o.value);
+    if (allowed.includes(value)) return value;
+    return field.default ?? allowed[0] ?? '';
+}
+
+/**
+ * True when an item is a draft (types with a `status` select field, e.g.
+ * projects). Items without a status — including the static seed — are live.
+ */
+export function isDraftItem(data) {
+    return data?.status === 'draft';
+}
+
 /**
  * Build a clean `data` object from raw form values, keeping only the
  * fields declared in the descriptor and coercing each to the right
@@ -1255,6 +1284,8 @@ export function cleanContentData(typeKey, raw = {}) {
 
         if (f.type === 'boolean') {
             out[f.name] = Boolean(v);
+        } else if (f.type === 'select') {
+            out[f.name] = selectValue(f, v);
         } else if (f.type === 'richtext') {
             // Raw HTML from the editor kept as-is here; sanitised
             // server-side in the save action before it hits the DB.

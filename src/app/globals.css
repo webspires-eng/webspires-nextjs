@@ -24,12 +24,12 @@
   --ink-text: #11131F;  /* on light */
   --ink-mid:  #5A6076;  /* on light, secondary */
 
-  /* Accents: red = signal/chosen-answer, violet = AI/generative layer */
-  --signal:      #F22C4F;
-  --signal-700:  #C81E3C;
+  /* Accents: red = signal/chosen-answer (brand #EE314F), violet = AI/generative layer */
+  --signal:      #EE314F;
+  --signal-700:  #C6213C;
   --ai:          #6E5BFF;
   --ai-soft:     rgba(110,91,255,0.16);
-  --signal-soft: rgba(242,44,79,0.14);
+  --signal-soft: rgba(238,49,79,0.14);
 
   /* Primary maps to the signal red so existing `bg-primary` stays on-brand */
   --color-primary: var(--signal);

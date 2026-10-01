@@ -3,6 +3,7 @@ import { getSupabase, isValidId } from '@/lib/supabase';
 import {
     CONTENT_TYPES,
     CONTENT_TYPE_KEYS,
+    isDraftItem,
     slugify,
 } from '@/lib/contentSchemas';
 
@@ -113,7 +114,12 @@ export async function getContentItems(type) {
             .order('created_at', { ascending: true });
         if (error) throw error;
         if (docs && docs.length) {
-            return docs.map((d) => ({ ...(d.data || {}), slug: d.slug }));
+            // Drafts (e.g. a project with status "draft") never reach the
+            // public site — this one reader feeds every page, detail route,
+            // generateStaticParams and the sitemap.
+            return docs
+                .filter((d) => !isDraftItem(d.data))
+                .map((d) => ({ ...(d.data || {}), slug: d.slug }));
         }
     } catch {
         // fall through to seed

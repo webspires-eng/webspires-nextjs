@@ -77,7 +77,7 @@ export function AnswerEngine({
 
                     {/* the cited result the brand surfaced as the answer */}
                     <div className="relative rounded-[16px] border p-4"
-                        style={{ borderColor: 'rgba(242,44,79,0.45)', background: 'var(--signal-soft)' }}>
+                        style={{ borderColor: 'rgba(238,49,79,0.45)', background: 'var(--signal-soft)' }}>
                         <span className="absolute -top-2.5 left-4 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-white px-2 py-0.5 rounded-full"
                             style={{ background: 'var(--signal)' }}>
                             <span className="w-1.5 h-1.5 rounded-full bg-white" aria-hidden="true" /> Cited

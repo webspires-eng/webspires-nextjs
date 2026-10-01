@@ -150,7 +150,7 @@ export default function AboutTeam() {
                 </div>
 
                 {/* Join us banner */}
-                <div className="mt-14 bg-gradient-to-r from-primary to-[#c01f3a] rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-center gap-6 justify-between">
+                <div className="mt-14 bg-gradient-to-r from-primary to-[#c6213c] rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-center gap-6 justify-between">
                     <div>
                         <h3 className="text-[22px] lg:text-[26px] font-extrabold text-white mb-2">
                             Looking for Professional Growth?

@@ -9,6 +9,7 @@ import {
     Database,
     Briefcase,
     Inbox,
+    Receipt,
     Mail,
     Tags,
     Image as ImageIcon,
@@ -22,6 +23,7 @@ import { logoutAction } from '@/app/actions/auth';
 const links = [
     { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
     { href: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
+    { href: '/admin/invoices', label: 'Invoices', icon: Receipt },
     { href: '/admin/newsletter', label: 'Newsletter', icon: Mail },
     { href: '/admin/posts', label: 'All Posts', icon: FileText },
     { href: '/admin/posts/new', label: 'New Post', icon: PlusCircle },
