@@ -434,13 +434,14 @@ export default function InvoiceDocument({
                         breakInside: 'avoid',
                     }}
                 >
-                    <div style={{ textAlign: 'center', width: 110 }}>
+                    {/* Exactly the QR's width: its left edge lines up with the terms text */}
+                    <div style={{ textAlign: 'center', width: 84 }}>
                         {qrDataUrl ? (
                             <>
                                 <img
                                     src={qrDataUrl}
                                     alt="QR code linking to this invoice online"
-                                    style={{ width: 84, height: 84, display: 'block', margin: '0 auto' }}
+                                    style={{ width: 84, height: 84, display: 'block' }}
                                 />
                                 <div
                                     style={{
@@ -451,6 +452,7 @@ export default function InvoiceDocument({
                                         display: 'inline-flex',
                                         alignItems: 'center',
                                         gap: 4,
+                                        whiteSpace: 'nowrap',
                                     }}
                                 >
                                     <ShieldCheck size={11} color={SIGNAL} strokeWidth={2.4} aria-hidden="true" />
